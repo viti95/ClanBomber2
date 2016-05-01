@@ -102,19 +102,4 @@ namespace cbe
     return TTF_FontHeight(font);
   }
 
-  /*void FontSDL::StartFontSystem()
-  {
-    if(count == 0) {
-      TTF_Init();
-    }
-    count++;
-  }*/
-
-  /*void FontSDL::StopFontSystem()
-  {
-    if(count == 1) {
-      TTF_Quit();
-    }
-    count--;
-  }*/
 };

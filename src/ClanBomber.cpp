@@ -749,8 +749,7 @@ void ClanBomberApplication::show_all() {
 	bool drawn_map = false;
 
 	for (i = 0; i < n; i++) {
-		if (map != NULL && draw_list[i]->get_z() >= Z_GROUND
-				&& drawn_map == false) {
+		if (map != NULL && draw_list[i]->get_z() >= Z_GROUND && drawn_map == false) {
 			map->show();
 			drawn_map = true;
 		}
@@ -762,11 +761,7 @@ void ClanBomberApplication::show_all() {
 		map->show();
 	}
 	if (observer != NULL) {
-		if (observer->get_round_time() > 0) {
-			observer->show();
-		} else {
-			observer->show();
-		}
+		observer->show();
 	}
 }
 
