@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=@PACKAGE_NAME@
+#GenericName=
+Comment=Bomb your way through the maze
+#Icon=/path/to/icon.png
+Exec=@PACKAGE@2
+Categories=Game
+Categories=ActionGame
+#Categories=ArcadeGame

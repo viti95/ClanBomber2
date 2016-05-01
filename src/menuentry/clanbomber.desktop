@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=ClanBomber
+#GenericName=
+Comment=Bomb your way through the maze
+#Icon=/path/to/icon.png
+Exec=clanbomber2
+Categories=Game
+Categories=ActionGame
+#Categories=ArcadeGame

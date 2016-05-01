@@ -1,0 +1,46 @@
+ClanBomber is a Bomberman like game.
+
+Eight Players can play on one computer or over network.
+
+
+The following KEYS are valid:
+
+Keymap 1
+--------
+move left:	Cursor Left
+move right:	Cursor Right
+move up:	Cursor Up
+move down:	Cursor Down
+place bomb:	Enter
+
+Keymap 2
+--------
+move left:	a
+move right:	d
+move up:	w
+move down:	s
+place bomb:	Tab
+
+Keymap 3
+--------
+move left:	j
+move right:	l
+move up:	i
+move down:	k
+place bomb:	Space
+
+
+If more than three players want to play, the others have to use
+joypads/joysticks.
+
+Extra keys
+-------------------------------------------------------
+display fps:		F1
+quit current game: 	Esc
+pause			P
+
+
+Please test it and write us with your opinion
+
+http://www.nongnu.org/clanbomber
+rsl@members.fsf.org

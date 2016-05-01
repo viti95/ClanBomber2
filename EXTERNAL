@@ -1,0 +1,46 @@
+autogen.sh
+        RBSD
+        2007.06.18
+        http://buildconf.brlcad.org/
+
+m4/ac_path_generic.m4
+        GPLv2+
+        2008-04-12
+        http://autoconf-archive.cryp.to/ac_path_generic.html
+m4/adl_compute_relative_paths.m4
+        GPLv2+
+        2008-04-12
+        http://autoconf-archive.cryp.to/adl_compute_relative_paths.html
+m4/adl_compute_standard_relative_paths.m4
+        GPLv2+
+        2008-04-12
+        http://autoconf-archive.cryp.to/adl_compute_standard_relative_paths.html
+m4/adl_normalize_path.m4
+        GPLv2+
+        2008-04-12
+        http://autoconf-archive.cryp.to/adl_normalize_path.html
+m4/ax_boost_asio.m4
+        GNU all-permisive license
+        2008-04-12
+        http://autoconf-archive.cryp.to/ax_boost_asio.html
+m4/ax_boost_base.m4
+        GNU all-permisive license
+        2008-04-12
+        http://autoconf-archive.cryp.to/ax_boost_base.html
+m4/ax_boost_filesystem.m4
+        GNU all-permisive license
+        2008-04-12
+        http://autoconf-archive.cryp.to/ax_boost_filesystem.html
+m4/ax_boost_thread.m4
+        GNU all-permisive license
+        2008-04-12
+        http://autoconf-archive.cryp.to/ax_boost_thread.html
+
+src/gettext.h
+        GPLv2+
+        0.17
+        http://www.gnu.org/software/gettext/
+src/fonts/DejaVuSans-Bold.ttf
+        See LICENSE.DEJAVU
+        2.28
+        http://dejavu-fonts.org/

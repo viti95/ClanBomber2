@@ -1,0 +1,102 @@
+Note
+--------------------------------------------------------------------------
+This data have been extracted from the original clanbomber cvs tree
+and changelog, both of which can be obtained at source forge, but it
+may contain errors or inaccuracies and if you find any please report it
+at rsl@members.fsf.org .
+
+List of sound authors
+--------------------------------------------------------------------------
+Andreas Hundt
+Denis Oliver Kropp
+
+File listing with copyright notices
+--------------------------------------------------------------------------
+break.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+clear.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+corpse_explode.wav
+Copyright (C) 1999 Andreas Hundt
+
+crunch.wav
+Copyright (C) 1999 Andreas Hundt
+
+deepfall.wav
+Copyright (C) 1999 Andreas Hundt
+
+die.wav
+Copyright (C) 1999 Andreas Hundt
+
+explode.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+forward.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+horny.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+hurry_up.wav
+Copyright (C) 1999 Andreas Hundt
+
+joint.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+klatsch.wav
+Copyright (C) 1999 Andreas Hundt
+Copyright (C) 1999 Denis Oliver Kropp
+
+menu_back.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+putbomb.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+rewind.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+schnief.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+splash1a.wav
+Copyright (C) 1999 Andreas Hundt
+
+splash2a.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+stop.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+time_over.wav
+Copyright (C) 1999 Andreas Hundt
+
+typewriter.wav
+Copyright (C) 1999 Andreas Hundt
+
+whoosh.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+winlevel.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+wow.wav
+Copyright (C) 1999 Denis Oliver Kropp
+
+All wav files listed here are licensed under the following terms:
+--------------------------------------------------------------------------
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.

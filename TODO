@@ -1,0 +1,46 @@
+Use boost::prt_list instead of std::list where appropriate
+
+Use const when possible, alot of iterators can be const, etc.
+
+Evaluate if some lists are better as vectors or if vectors are better
+   as lists.
+
+Make CB_ functions work with std::string and remove all the c_str() calls
+
+Move a lot of things to CB namespace, and maybe change the name of the
+   namespace.
+
+Change castings to the least powerful one required.
+
+Make mass AI work again.
+
+Change from UtilsThread to boost::thread as it is an implementaion of
+   C++0x threads.
+
+Consider using boost::tuple instead of UtilsCL_Vector.h .
+
+Document and follow the coding standard  in use (check ClanBomber.cpp).
+
+Move all SDL usage to cbe.
+
+Remove all use of SDL_PumpEvents, must use SDL_PollEvent.
+
+Check if CL_Vector really need to have x, y and z as floats.
+
+Is Bomber et al adding themselves to lists a desired side effect?, it
+   might turn the code harder to undertard. Analise a leave as it is
+   or change to make it cleaner.
+
+Use boost::array, eg in Server and Client.
+
+Extract BomberConfig from GameConfig files to his own file.
+
+Rename Config class to GameConfig.
+
+Check if user is root and if it is, refuse to run, add compile flag to
+   disable this behaviour.
+
+Rename .h files to .hpp where code is c++.
+
+BUGS
+----------------------------------------------------------------------

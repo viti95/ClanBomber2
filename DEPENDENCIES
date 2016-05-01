@@ -1,0 +1,24 @@
+SDL
+	LGPLv2.1
+	http://www.libsdl.org/
+SDL_image
+	LGPLv2.1
+	http://www.libsdl.org/projects/SDL_image/
+SDL_mixer
+	LGPLv2.1
+	http://www.libsdl.org/projects/SDL_mixer/
+SDL_ttf
+	LGPLv2.1
+	http://www.libsdl.org/projects/SDL_ttf/
+SDL_gfx
+	LGPLv2.1
+	http://www.ferzkopp.net/joomla/content/view/19/14/
+Boost
+	Boost license
+	http://www.boost.org/
+Guile (libguile)
+        LGPLv2.1
+        http://www.gnu.org/software/guile/
+Guile (readline module)
+        GPLv2
+        http://www.gnu.org/software/guile/

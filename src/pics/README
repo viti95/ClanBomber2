@@ -1,0 +1,128 @@
+Note
+--------------------------------------------------------------------------
+This data have been extracted from the original clanbomber cvs tree
+and changelog, both of which can be obtained at source forge, but it
+may contain errors or inaccuracies and if you find any please report it
+at rsl@members.fsf.org .
+
+List of image authors
+--------------------------------------------------------------------------
+Andreas Hundt
+Andreeshchev Eugeni
+Denis Oliver Kropp
+James Andrews
+non
+
+File listing with copyright notices
+--------------------------------------------------------------------------
+bomber_bsd.png
+Copyright (C) 1999 James Andrews
+Copyright (C) 1999 Andreas Hundt
+
+bomber_dull_blue.png
+Copyright (C) 1999 Denis Oliver Kropp
+
+bomber_dull_green.png
+Copyright (C) 1999 Denis Oliver Kropp
+
+bomber_dull_red.png
+Copyright (C) 1999 Denis Oliver Kropp
+
+bomber_dull_yellow.png
+Copyright (C) 1999 Denis Oliver Kropp
+
+bomber_snake.png
+Copyright (C) 1999 Denis Oliver Kropp
+
+bomber_spider.png
+Copyright (C) 1999 Denis Oliver Kropp
+
+bomber_tux.png
+Copyright (C) 1999 James Andrews
+Copyright (C) 1999 Andreas Hundt
+
+bombs.png
+Copyright (C) 1999 Denis Oliver Kropp
+
+cb_logo_small.png
+Copyright (C) 1999, 2001 Andreas Hundt
+
+clanbomber_title_andi.png
+Copyright (C) 1999, 2001 Andreas Hundt
+
+corpse_parts.png
+Copyright (C) 1999 Andreas Hundt
+
+cup2.png
+Copyright (C) 2003 Andreeshchev Eugeni
+
+explosion2.png
+Copyright (C) 2003 Andreeshchev Eugeni
+
+extras2.png
+Copyright (C) 2003 Andreeshchev Eugeni
+
+fischlustig_logo.png
+Copyright (C) 1999 Andreas Hundt
+
+game_status.png
+Copyright (C) 1999 Andreas Hundt
+Copyright (C) 1999 Denis Oliver Kropp
+
+horst_evil.png
+Copyright (C) 2000 non
+
+level_selection.png
+Copyright (C) 1999 Andreas Hundt
+Copyright (C) 1999 Denis Oliver Kropp
+
+map_editor.png
+Copyright (C) 1999 Denis Oliver Kropp
+
+maptile_addons.png
+Copyright (C) 1999 Andreas Hundt
+Copyright (C) 1999 Denis Oliver Kropp
+
+maptiles.png
+Copyright (C) 1999 Andreas Hundt (Green Crypt)
+Copyright (C) 1999 Denis Oliver Kropp (Jungle Arena)
+Copyright (C) 1999 Denis Oliver Kropp (Melting Metal)
+Copyright (C) 2001 Andreas Hundt (Strange Kitchen)
+Copyright (C) 2003 Andreeshchev Eugeni (Ice)
+Copyright (C) 2003 Andreeshchev Eugeni (Jungle)
+
+not_available.png
+Copyright (C) 1999 Andreas Hundt
+
+observer.png
+Copyright (C) 1999 Denis Oliver Kropp
+
+playersetup.png
+Copyright (C) 1999 Andreas Hundt
+Copyright (C) 1999 Denis Oliver Kropp
+
+ps_controls.png
+Copyright (C) 1999 Andreas Hundt
+Copyright (C) 1999 Denis Oliver Kropp
+
+ps_teamlamps.png
+Copyright (C) 1999 Denis Oliver Kropp
+
+ps_teams.png
+Copyright (C) 1999 Denis Oliver Kropp
+
+All PNG files listed here are licensed under the following terms:
+--------------------------------------------------------------------------
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.

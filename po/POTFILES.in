@@ -1,0 +1,9 @@
+# List of source files which contain translatable strings.
+src/ClanBomber.cpp
+src/Credits.cpp
+src/GameStatus.cpp
+src/GameStatus_Team.cpp
+src/MapEditor.cpp
+src/MapSelector.cpp
+src/Observer.cpp
+src/PlayerSetup.cpp

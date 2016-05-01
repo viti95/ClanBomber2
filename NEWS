@@ -1,0 +1,25 @@
+2010-09-12  rsl  <rsl@members.fsf.org>
+
+ClanBomber 2.1.1
+
+	* Support 64 bit targets.
+	* Fixed mass AI.
+        * Added the score screen when playing a team game.
+
+2009-06-26  rsl  <rsl@members.fsf.org>
+
+ClanBomber 2.1.0
+
+	* Now uses SDL so it can be run in X11 and use PulseAudio.
+	* Can be compiled for Windows.
+	* Supports i18n and l10n.
+	* Added a freedesktop.org desktop entry item.
+	* Configuration files are stored according to freedesktop.org
+	  Desktop base directory spec.
+	* DejaVuSans-Bold is the new default font.
+	* Support for relative dirs for data files.
+	* Added a manpage.
+
+Localization
+
+	* Added Spanish.

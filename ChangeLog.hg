@@ -1,0 +1,1481 @@
+2010-09-12  rsl  <rsl@members.fsf.org>
+
+	* NEWS, configure.ac:
+	Release 2.1.1
+	[c961abf6f16e] [tip] <2.1.0>
+
+2010-09-04  rsl  <rsl@members.fsf.org>
+
+	* NEWS, configure.ac:
+	Release 2.1.1-rc1
+	[f3ec7831c328] <2.1.0>
+
+	* Makefile.am:
+	Improved ChangeLog.hg creation
+	[93ef8d15d85c] <2.1.0>
+
+	* src/Bomb.cpp, src/Bomb.h, src/Bomber.cpp, src/Bomber.h,
+	src/Bomber_Corpse.cpp, src/Bomber_Corpse.h, src/Chat.cpp,
+	src/Chat.h, src/ClanBomber.cpp, src/ClanBomber.h, src/Client.cpp,
+	src/Client.h, src/ClientSetup.cpp, src/ClientSetup.h,
+	src/Console.cpp, src/Controller.cpp, src/Controller.h,
+	src/Controller_AI.cpp, src/Controller_AI.h,
+	src/Controller_AI_mass.cpp, src/Controller_AI_mass.h,
+	src/Controller_Joystick.cpp, src/Controller_Joystick.h,
+	src/Controller_Keyboard.cpp, src/Controller_Keyboard.h,
+	src/Controller_RCMouse.cpp, src/Controller_RCMouse.h,
+	src/Corpse_Part.cpp, src/Corpse_Part.h, src/Credits.cpp,
+	src/Credits.h, src/Disease.cpp, src/Disease.h, src/Disease_Fast.cpp,
+	src/Disease_Fast.h, src/Disease_Frozen.cpp, src/Disease_Frozen.h,
+	src/Disease_PutBomb.cpp, src/Disease_PutBomb.h,
+	src/Disease_Stoned.cpp, src/Disease_Stoned.h, src/Event.cpp,
+	src/Event.h, src/Explosion.cpp, src/Explosion.h, src/Extra.cpp,
+	src/Extra.h, src/Extra_Bomb.cpp, src/Extra_Bomb.h,
+	src/Extra_Glove.cpp, src/Extra_Glove.h, src/Extra_Joint.cpp,
+	src/Extra_Joint.h, src/Extra_Kick.cpp, src/Extra_Kick.h,
+	src/Extra_Koks.cpp, src/Extra_Koks.h, src/Extra_Power.cpp,
+	src/Extra_Power.h, src/Extra_Skateboard.cpp, src/Extra_Skateboard.h,
+	src/Extra_Viagra.cpp, src/Extra_Viagra.h, src/GameConfig.cpp,
+	src/GameConfig.h, src/GameObject.cpp, src/GameObject.h,
+	src/GameStatus.cpp, src/GameStatus.h, src/GameStatus_Team.cpp,
+	src/GameStatus_Team.h, src/Map.cpp, src/Map.h, src/MapEditor.cpp,
+	src/MapEditor.h, src/MapEntry.cpp, src/MapEntry.h,
+	src/MapSelector.cpp, src/MapSelector.h, src/MapTile.cpp,
+	src/MapTile.h, src/MapTile_Arrow.cpp, src/MapTile_Arrow.h,
+	src/MapTile_Box.cpp, src/MapTile_Box.h, src/MapTile_Ground.cpp,
+	src/MapTile_Ground.h, src/MapTile_Ice.cpp, src/MapTile_Ice.h,
+	src/MapTile_None.cpp, src/MapTile_None.h, src/MapTile_Trap.cpp,
+	src/MapTile_Trap.h, src/MapTile_Wall.cpp, src/MapTile_Wall.h,
+	src/Menu.cpp, src/Menu.h, src/Mutex.cpp, src/Mutex.h,
+	src/Observer.cpp, src/Observer.h, src/PlayerSetup.cpp,
+	src/PlayerSetup.h, src/Resources.cpp, src/Resources.h,
+	src/Server.cpp, src/Server.h, src/ServerSetup.cpp,
+	src/ServerSetup.h, src/Thread.cpp, src/Thread.h, src/Timer.cpp,
+	src/Timer.h, src/Utils.cpp, src/Utils.h, src/UtilsAccess.cpp,
+	src/UtilsAccess.h, src/UtilsCL_Vector.h, src/UtilsGetHome.cpp,
+	src/UtilsGetHome.h, src/UtilsSleep.cpp, src/UtilsSleep.h,
+	src/UtilsThreads.cpp, src/UtilsThreads.h, src/UtilsThreadsPOSIX.cpp,
+	src/UtilsThreadsPOSIX.h, src/cbe/AudioBuffer.h,
+	src/cbe/AudioSimple.h, src/cbe/Factories.hpp, src/cbe/Font.h,
+	src/cbe/FontSDL.cpp, src/cbe/FontSDL.h, src/cbe/PluginManager.cpp,
+	src/cbe/PluginManager.h, src/cbe/SDL/AudioBufferSDL.cpp,
+	src/cbe/SDL/AudioBufferSDL.h, src/cbe/SDL/AudioSimpleSDL.cpp,
+	src/cbe/SDL/AudioSimpleSDL.h, src/cbe/SDL/FactoriesSDL.hpp,
+	src/cbe/Surface.h, src/cbe/SurfaceSDL.cpp, src/cbe/SurfaceSDL.h:
+	Added 2010 year to Copyright notices
+	[8dd07f98977a] <2.1.0>
+
+2010-08-26  rsl  <rsl@members.fsf.org>
+
+	* NEWS, po/POTFILES.in, src/GameStatus_Team.cpp, src/Utils.h,
+	src/pics/ps_teamlamps.png:
+	Fixed missing team status screen
+
+	Reported by Manjukiran S
+	[8c74169dad9a] <2.1.0>
+
+2010-08-11  rsl  <rsl@members.fsf.org>
+
+	* NEWS:
+	Added info to the NEWS file for versions 2.1.0 and 2.1.1-pre
+	[874c0dcae3e8] <2.1.0>
+
+	* configure.ac, m4/ax_boost_system.m4, src/Makefile.am:
+	Fixes for autotools build system
+
+	Make possible cc to Windows when using autotools
+
+	Remove configure.ac code that may cause errors
+
+	Updated version to 2.1.1-pre
+	[468b5b1ec721] <2.1.0>
+
+	* README:
+	Remove the line in the README that says that CB is in beta
+	[cc3e4356781c] <2.1.0>
+
+	* po/LINGUAS, po/ja.po:
+	Remove Japanese l10n
+
+	It was just for font testing purpouses and not correctly done
+	[e69c67ca1dc6] <2.1.0>
+
+	* src/Controller_AI_mass.cpp:
+	Fixed bugs in mass AI that made it behave badly and also resulted in
+	a crash in Windows
+
+	Reported by Manju
+	[2fbdf623226d] <2.1.0>
+
+2009-10-09  rsl  <rsl@members.fsf.org>
+
+	* .hgtags:
+	Added tag 2.1.0 for changeset 82a5c5897b1e
+	[492d839839b0] <2.1.0>
+
+2009-09-28  rsl  <rsl@members.fsf.org>
+
+	* src/Timer.cpp, src/Timer.h:
+	Changed variable from int to long to fix error
+
+	On platforms where int and long aren't equal sized data was only
+	discarded on the int
+	[da443ccab28b] <2.1.0>
+
+2009-06-17  rsl  <rsl@members.fsf.org>
+
+	* src/ClanBomber.cpp:
+	Fixed sides not being cleared each frame
+	[82a5c5897b1e] [2.1.0] <2.1.0>
+
+	* CMakeLists.txt:
+	CMake build now works
+	[679bb27ea337] <2.1.0>
+
+2009-06-11  rsl  <rsl@members.fsf.org>
+
+	* TODO, src/ClanBomber.cpp, src/Map.cpp:
+	Fixes double freed in ClanBomber.cpp
+	[0f94512a690f]
+
+	* src/ClanBomber.cpp:
+	Fix usage of SDL-mixer directly instead of cbe
+	[3124b143c9d6]
+
+	* ROADMAP, src/Controller.cpp, src/Controller_AI_mass.cpp,
+	src/Controller_AI_mass.h, src/Makefile.am, src/UtilsCL_Vector.h:
+	mass AI is now working
+	[25d52891ebf6]
+
+	* 0install/AppRunPulse:
+	Added and optional AppRun for users using PulseAudio
+	[d352e6b0f392]
+
+2009-06-06  rsl  <rsl@members.fsf.org>
+
+	* ROADMAP, TODO:
+	ROADMAP updated (X Controllers)
+	[9ac1f7fafa4d]
+
+	* src/Controller.cpp, src/Controller_Joystick.cpp,
+	src/Controller_Joystick.h, src/Controller_RCMouse.cpp,
+	src/Controller_RCMouse.h:
+	RCMouse is fuctional
+	[e29e738e358f]
+
+	* src/ClanBomber.cpp, src/Controller_Joystick.cpp,
+	src/Controller_Joystick.h, src/GameConfig.cpp, src/PlayerSetup.cpp:
+	Game now supports joysticks and pads
+	[47e545be4320]
+
+	* README:
+	ClanBomber is now in beta
+	[55f22f252eda]
+
+	* src/ClanBomber.cpp:
+	There is now a --fullscreen flag to run the game in fullscreen mode
+	[418e8ea422ed]
+
+	* ROADMAP, TODO:
+	Added ROADMAP file and updated TODO .
+	[1498ff3ee4e4]
+
+	* src/Console.cpp:
+	More functions are exported.
+	[bc566575dba6]
+
+2009-06-02  rsl  <rsl@members.fsf.org>
+
+	* 0install/ClanBomber.xml:
+	Added new dev snapshot.
+	[4d172775cb9c]
+
+	* src/cbe/Makefile.am:
+	Fix typo.
+	[8076075f000f]
+
+	* CMakeLists.txt:
+	CMake is easier to use when building for windows.
+	[49eb1f2e52e2]
+
+	* src/UtilsAccess.cpp, src/UtilsAccess.h:
+	Fixed a bug in windows build.
+	[6aeb8fabb0ab]
+
+2009-05-30  rsl  <rsl@members.fsf.org>
+
+	* CMakeLists.txt:
+	CMake can now build a relative paths build.
+	[6bfdd04bca6f]
+
+2009-05-29  rsl  <rsl@members.fsf.org>
+
+	* src/UtilsGetHome.cpp:
+	Added mising functions for windows in UtilsGetHome .
+	[f3d13ff2e6d2]
+
+	* src/UtilsAccess.cpp:
+	Another include error.
+	[5beb00ff37da]
+
+	* src/UtilsGetHome.cpp:
+	Fixed an error using a include<> instead of include"" .
+	[d6a232666428]
+
+2009-05-28  rsl  <rsl@members.fsf.org>
+
+	* src/Bomber.cpp, src/Bomber_Corpse.cpp, src/ClanBomber.cpp,
+	src/ClanBomber.h, src/Client.cpp, src/ClientSetup.cpp,
+	src/Credits.cpp, src/Explosion.cpp, src/Extra_Bomb.cpp,
+	src/Extra_Glove.cpp, src/Extra_Joint.cpp, src/Extra_Kick.cpp,
+	src/Extra_Koks.cpp, src/Extra_Power.cpp, src/Extra_Skateboard.cpp,
+	src/Extra_Viagra.cpp, src/GameObject.cpp, src/GameStatus.cpp,
+	src/GameStatus_Team.cpp, src/MapEditor.cpp, src/MapSelector.cpp,
+	src/Menu.cpp, src/Observer.cpp, src/PlayerSetup.cpp,
+	src/Resources.cpp, src/Resources.h, src/ServerSetup.cpp,
+	src/Utils.cpp, src/Utils.h:
+	The game now uses cbe for all sounds.
+	[8c4d0eea4af0]
+
+	* src/cbe/AudioBuffer.h, src/cbe/AudioSimple.h, src/cbe/Factories.hpp,
+	src/cbe/Makefile.am, src/cbe/PluginManager.cpp,
+	src/cbe/PluginManager.h, src/cbe/SDL/AudioBufferSDL.cpp,
+	src/cbe/SDL/AudioBufferSDL.h, src/cbe/SDL/AudioSimpleSDL.cpp,
+	src/cbe/SDL/AudioSimpleSDL.h, src/cbe/SDL/FactoriesSDL.hpp:
+	Added an abstraction for audio.
+	[44c669ff5f25]
+
+	* .hgignore:
+	Remoded non used entries.
+	[984939e19733]
+
+	* src/Observer.cpp:
+	Fixed bug "game objects stay after map change" introduced in
+	changeset 50:7bd328092fe8 .
+	[b44300c66446]
+
+	* src/ClanBomber.cpp, src/GameConfig.cpp:
+	Make some changes to tile highlighting for better integration with
+	console. Removed backspace as an key to quit current game.
+	[b614002dff2f]
+
+	* 0install/AppRun, 0install/ClanBomber.xml:
+	Updated AppRun now uses a LD_LIBRARY_PATH set to lib to use internal
+	libs.
+	[1fc71f075108]
+
+2009-05-24  rsl  <rsl@members.fsf.org>
+
+	* po/clanbomber2.pot:
+	Removed unused file.
+	[791b26128260]
+
+	* src/ClanBomber.cpp, src/GameConfig.cpp, src/GameConfig.h:
+	Added a new config var (fullscreen) that allows setting the game in
+	fullscreen mode.
+	[8e5ff5d23753]
+
+	* configure.ac, src/Makefile.am:
+	Added missing boost thread detection and linking when using console.
+	[e380ead437fa]
+
+	* src/ClanBomber.cpp:
+	Fixed include problems due to a condition not working as expected.
+	[74e9c998027d]
+
+2009-05-20  rsl  <rsl@members.fsf.org>
+
+	* 0install/ClanBomber.xml:
+	Added a Zero Install feed file.
+	[37cfac5d1985]
+
+2009-05-19  rsl  <rsl@members.fsf.org>
+
+	* src/ClanBomber.cpp, src/ClanBomber.h, src/GameConfig.cpp,
+	src/GameConfig.h, src/GameStatus.cpp, src/Makefile.am, src/Map.cpp,
+	src/MapEntry.cpp, src/MapEntry.h, src/Menu.cpp, src/Menu.h,
+	src/UtilsAccess.cpp, src/UtilsAccess.h, src/UtilsGetHome.cpp,
+	src/UtilsGetHome.h:
+	Added fd.o Desktop base directory spec for .cfg and user created
+	maps. Game use more boost::filesystem::path where applicable.
+	Removed an unlink line in favour of boost::filesystem's remove() .
+	[e8493923dc76]
+
+2009-05-17  rsl  <rsl@members.fsf.org>
+
+	* CMakeLists.txt, src/ClanBomber.cpp, src/Credits.cpp,
+	src/GameStatus.cpp, src/Map.cpp, src/MapEditor.cpp,
+	src/MapSelector.cpp, src/Menu.cpp, src/Observer.cpp,
+	src/PlayerSetup.cpp, src/ServerSetup.cpp, src/Utils.cpp,
+	src/cbe/Font.h, src/cbe/FontSDL.cpp, src/cbe/FontSDL.h:
+	Renamed Font's member funtion Render to render. Added a flag in
+	cmake that makes the code not use std::wstring, useful because of
+	problem of wstring in MinGW.
+	[2611b0271952]
+
+2009-05-16  rsl  <rsl@members.fsf.org>
+
+	* src/Map.cpp:
+	Changed a remaining getenv("HOME") to GetHome() .
+	[08548d853fb2]
+
+	* CMakeLists.txt, src/ClanBomber.cpp, src/Makefile.am,
+	src/Resources.cpp, src/Utils.cpp, src/UtilsGetHome.cpp,
+	src/UtilsSleep.cpp:
+	Appended CB_ to DATADIR and LOCALEDIR to prevent conflict with MinGW
+	windows.h DATADIR definition.
+	[bf5e3da989ad]
+
+2009-05-15  rsl  <rsl@members.fsf.org>
+
+	* src/UtilsGetHome.cpp:
+	Added missing header for windows.
+	[2da97fafdaed]
+
+	* src/UtilsGetHome.cpp, src/UtilsSleep.cpp:
+	Fixed windows bugs.
+	[0632410197e2]
+
+	* CMakeLists.txt:
+	Added new source files to CMakeLists.txt .
+	[d042d3283684]
+
+	* src/ClanBomber.cpp, src/Makefile.am, src/Map.cpp,
+	src/UtilsGetHome.cpp, src/UtilsGetHome.h, src/UtilsSleep.cpp,
+	src/UtilsSleep.h:
+	Added more utils functions. UtilsSleep defines sleep and usleep only
+	in windows, in posix includes unistd.h UtilsGetHome defines GetHome
+	for posix (getenv) and windows (SHGetFolderPath).
+	[4a209c3f127b]
+
+	* src/Makefile.am, src/MapEntry.cpp, src/UtilsAccess.h:
+	MapEntry now uses access from UtilsAccess.h (unistd.h or io.h).
+	[1643c9707be9]
+
+2009-04-18  rsl  <rsl@members.fsf.org>
+
+	* src/maps/README, src/pics/README, src/wavs/README:
+	Minor changes to several README files.
+	[2a99e7ed40a7]
+
+	* Makefile.am:
+	Added EXTERNAL file to automake dist.
+	[97c4f3c747e7]
+
+	* src/cbe/FontSDL.cpp:
+	Fixed memory leak.
+	[36ae76e47c25]
+
+2009-04-17  rsl  <rsl@members.fsf.org>
+
+	* src/UtilsSocket.cpp, src/UtilsSocket.h, src/UtilsSocketAddress.cpp,
+	src/UtilsSocketAddress.h, src/UtilsSocketTCP.cpp,
+	src/UtilsSocketTCP.h, src/UtilsSocketTCPClient.cpp,
+	src/UtilsSocketTCPClient.h, src/UtilsSocketTCPServer.cpp,
+	src/UtilsSocketTCPServer.h, src/UtilsSocketUDP.cpp,
+	src/UtilsSocketUDP.h, src/UtilsUDPPacket.cpp, src/UtilsUDPPacket.h:
+	Removed unused network related files.
+	[484049fab3e2]
+
+	* src/Utils.h:
+	Fixed bug not showing localized text.
+	[815b3cd65e83]
+
+	* src/Utils.cpp, src/Utils.h:
+	Added missing header.
+	[263958d92c77]
+
+	* src/Client.cpp:
+	Added missing sys/time.h header to Client.cpp .
+	[6cea51fd48e2]
+
+	* src/Chat.cpp, src/ClanBomber.cpp:
+	Changed non standard "index" function for "strchr".
+	[6b96a766eed5]
+
+	* CMakeLists.txt, TODO, src/Bomb.cpp, src/Bomber.cpp,
+	src/Bomber_Corpse.cpp, src/ClanBomber.cpp, src/Client.cpp,
+	src/ClientSetup.cpp, src/Config.cpp, src/Config.h,
+	src/Controller_AI.cpp, src/Credits.cpp, src/GameConfig.cpp,
+	src/GameConfig.h, src/GameStatus.cpp, src/GameStatus_Team.cpp,
+	src/Makefile.am, src/Map.cpp, src/MapEditor.cpp,
+	src/MapSelector.cpp, src/MapTile.cpp, src/MapTile_Box.cpp,
+	src/MapTile_Ground.cpp, src/MapTile_Wall.cpp, src/Menu.cpp,
+	src/Observer.cpp, src/PlayerSetup.cpp, src/Server.cpp,
+	src/ServerSetup.cpp:
+	Changed name of "Config" files to "GameConfig".
+	[fd76bbec9f13]
+
+2009-04-16  rsl  <rsl@members.fsf.org>
+
+	* CMakeLists.txt, src/Makefile.am, src/Server.cpp, src/Server.h:
+	ClanBomber doesn't require UtilsSocket* anymore.
+	[7bfe8c2292a9]
+
+	* TODO, src/Server.cpp, src/Server.h:
+	Server now uses boost::asio for UDP networking.
+	[cf11336cef54]
+
+2009-04-15  rsl  <rsl@members.fsf.org>
+
+	* src/Client.cpp, src/Client.h:
+	Client now use boost::asio for both tcp and udp networking.
+	[f9381bb39ecf]
+
+	* EXTERNAL, configure.ac, m4/ax_boost_asio.m4, src/Client.cpp,
+	src/Client.h, src/Makefile.am:
+	Client now uses boost::asio for UDP networking.
+	[85b43813f00d]
+
+	* CMakeLists.txt:
+	Removed references to .h files that are not needed in CMakeLists.txt
+	.
+	[ca3a662ecddd]
+
+2009-04-12  rsl  <rsl@members.fsf.org>
+
+	* config.h.cmake:
+	Added missing config.h.cmake .
+	[58fdb1c1cb04]
+
+	* CMakeLists.txt, cmake/Modules/FindSDL_gfx.cmake:
+	Added and experimental CMake build system for use in non posix
+	platforms.
+	[3d249c579f77]
+
+	* src/Menu.cpp, src/Utils.cpp, src/Utils.h:
+	General improvents in config.h use.
+	[c43736d2578f]
+
+2009-04-11  rsl  <rsl@members.fsf.org>
+
+	* configure.ac:
+	Removed check for boost/format.
+	[6cd494b64719]
+
+	* EXTERNAL, configure.ac, m4/ax_boost_filesystem.m4,
+	src/ClanBomber.cpp, src/Makefile.am, src/Map.cpp:
+	Replaced dirent.h and sys/stat.h with boost/filesystem.hpp .
+	[fae5aaff759d]
+
+2009-03-26  rsl  <rsl@members.fsf.org>
+
+	* src/Console.cpp, src/Controller_AI.cpp, src/Corpse_Part.h,
+	src/Credits.h, src/Disease.h, src/Disease_Fast.h,
+	src/Disease_Frozen.h, src/Disease_PutBomb.h, src/Disease_Stoned.h,
+	src/Extra_Joint.h, src/Extra_Koks.h, src/Extra_Viagra.h,
+	src/GameStatus.h, src/GameStatus_Team.h, src/MapEditor.h,
+	src/MapEntry.h, src/MapSelector.h, src/MapTile.h, src/MapTile_Box.h,
+	src/MapTile_Ground.h, src/MapTile_None.h, src/MapTile_Trap.h,
+	src/MapTile_Wall.h, src/Observer.h, src/PlayerSetup.h,
+	src/Resources.h, src/Thread.cpp, src/Timer.h, src/cbe/Font.h,
+	src/cbe/FontSDL.cpp, src/cbe/FontSDL.h, src/cbe/Surface.h,
+	src/cbe/SurfaceSDL.cpp, src/cbe/SurfaceSDL.h:
+	Added missing debug changes from last commit and fixed license
+	headers.
+	[d4f70c586f19]
+
+	* src/ClanBomber.cpp, src/ClanBomber.h, src/Debug.cpp, src/Debug.h,
+	src/GameObject.cpp, src/GameObject.h, src/Makefile.am,
+	src/Observer.cpp:
+	Removed deprecated Debug class.
+	[49f2848082ea]
+
+2009-03-24  rsl  <rsl@members.fsf.org>
+
+	* src/ClanBomber.cpp, src/Console.cpp:
+	Added a more guile procedures so Debug class is not needed. Removed
+	a #ifdef #endif that prevented compilation.
+	[b46dd44fd00f]
+
+	* DEPENDENCIES, src/ClanBomber.cpp, src/Console.cpp, src/Makefile.am:
+	Initial support for guile console for developer purpouses.
+	[cbd4dfbb91ee]
+
+	* EXTERNAL, configure.ac, m4/ax_boost_base.m4, m4/ax_boost_thread.m4:
+	Added 2 m4 macros for boost and boost thread detection. Added
+	console flag.
+	[996604a95413]
+
+2009-03-19  rsl  <rsl@members.fsf.org>
+
+	* EXTERNAL, autogen.sh:
+	Changed original clanbomber autogen.sh for one hopefully more
+	robust.
+	[95e3ff1afab0]
+
+	* src/Bomber.cpp, src/Bomber_Corpse.cpp, src/Chat.cpp,
+	src/ClanBomber.h, src/Client.cpp, src/ClientSetup.cpp,
+	src/Controller_Keyboard.cpp, src/Credits.cpp, src/Explosion.cpp,
+	src/Extra_Bomb.cpp, src/Extra_Glove.cpp, src/Extra_Joint.cpp,
+	src/Extra_Kick.cpp, src/Extra_Koks.cpp, src/Extra_Power.cpp,
+	src/Extra_Skateboard.cpp, src/Extra_Viagra.cpp, src/GameObject.cpp,
+	src/GameStatus_Team.cpp, src/Map.cpp, src/MapTile.h, src/Menu.cpp,
+	src/PlayerSetup.cpp, src/Resources.cpp, src/ServerSetup.cpp,
+	src/Utils.cpp, src/Utils.h:
+	Started the reorganization of CB.h and changed the rest to keep them
+	working.
+	[abf3d459e049]
+
+2009-03-18  rsl  <rsl@members.fsf.org>
+
+	* po/Makevars.template, po/messages.mo:
+	Removed apparently useless files in po/ .
+	[dc97a44e1998]
+
+	* TODO, src/ClanBomber.cpp, src/ClanBomber.h, src/Client.cpp,
+	src/Client.h:
+	Make ClanBomber.cpp comply with the new conding standars also fixed
+	minor bugs.
+	[8e7f455471e3]
+
+2009-03-15  rsl  <rsl@members.fsf.org>
+
+	* src/Config.cpp, src/Map.cpp, src/MapEntry.cpp:
+	Program now just use fstream to read an write data to files.
+	[471a2399b473]
+
+	* src/MapEntry.cpp:
+	Changed code in MapEntry using c file functions to c++ ones.
+	[0490ec89105f]
+
+2009-03-14  rsl  <rsl@members.fsf.org>
+
+	* po/POTFILES.in:
+	Added files that now have i18n.
+	[d4f5292a79b6]
+
+	* src/ClanBomber.cpp, src/GameStatus.cpp, src/Map.cpp,
+	src/MapEditor.cpp, src/MapSelector.cpp, src/Menu.cpp,
+	src/Observer.cpp, src/PlayerSetup.cpp, src/Resources.cpp,
+	src/Resources.h, src/ServerSetup.cpp:
+	Now all fonts are rendered using cbe::Font .
+	[48918e395452]
+
+	* src/cbe/Font.h, src/cbe/FontSDL.cpp, src/cbe/FontSDL.h:
+	Added wstring render capability to Font.
+	[706a2418b537]
+
+	* .hgignore:
+	hg now ignores .a files.
+	[9a9b93bd29fc]
+
+2009-03-04  rsl  <rsl@members.fsf.org>
+
+	* configure.ac:
+	Fixed sdl pkg-config check in configure.ac .
+	[750279ce0172]
+
+	* src/cbe/Font.h, src/cbe/FontSDL.cpp, src/cbe/FontSDL.h:
+	Added missing copyright headers to cbe:Font* files.
+	[4322709289f7]
+
+	* src/ClanBomber.cpp, src/Credits.cpp, src/GameStatus.cpp,
+	src/MapEditor.cpp, src/MapSelector.cpp, src/Menu.cpp,
+	src/Observer.cpp, src/PlayerSetup.cpp, src/Resources.cpp,
+	src/Resources.h, src/ServerSetup.cpp, src/Utils.cpp:
+	Changed Font_big to use cbe::Font .
+	[2406494df304]
+
+	* src/Utils.h:
+	Removed unused declarations of functions.
+	[9ebaba445457]
+
+	* src/cbe/Font.h, src/cbe/FontSDL.cpp, src/cbe/FontSDL.h,
+	src/cbe/Makefile.am:
+	Added font class to cbe.
+	[840242fe1c09]
+
+2009-03-03  rsl  <rsl@members.fsf.org>
+
+	* src/ClanBomber.cpp, src/Credits.cpp, src/GameStatus.cpp,
+	src/MapEditor.cpp, src/MapSelector.cpp, src/Menu.cpp,
+	src/Observer.cpp, src/PlayerSetup.cpp, src/Resources.cpp,
+	src/Resources.h:
+	All SDL_Surfaces in Resources are now cbe::Surfaces .
+	[9e00e85c1006]
+
+	* src/GameObject.h:
+	Added some documentation to GameObject.
+	[66a78a41359d]
+
+	* src/Credits.cpp, src/Resources.cpp, src/Resources.h:
+	Credits background now uses Surface.
+	[618ff1a29746]
+
+	* configure.ac, src/Makefile.am, src/cbe/Makefile.am,
+	src/cbe/Surface.h, src/cbe/SurfaceSDL.cpp, src/cbe/SurfaceSDL.h:
+	Separation of Surface "engine" code now in cbe.
+	[9a180ae1e0c4]
+
+	* 0install/AppRun, src/ClanBomber.cpp:
+	Added an script for appdir support. Removed not working code for
+	zero conf in ClanBomber.cpp
+	[5418be2d375c]
+
+2009-03-01  rsl  <rsl@members.fsf.org>
+
+	* .hgignore:
+	Removed unused entries.
+	[664fb2f46377]
+
+2009-02-23  rsl  <rsl@members.fsf.org>
+
+	* EXTERNAL:
+	The file EXTERNAL includes info about the external included
+	packages.
+	[af45b98a1375]
+
+	* configure.ac, m4/adl_compute_relative_paths.m4,
+	m4/adl_compute_standard_relative_paths.m4, m4/adl_normalize_path.m4,
+	src/Makefile.am, src/fonts/Makefile.am, src/maps/Makefile.am,
+	src/menuentry/Makefile.am, src/pics/Makefile.am,
+	src/wavs/Makefile.am:
+	Added support for relative paths (--enable-relative-paths).
+	[8b99ef557e1f]
+
+2009-02-19  rsl  <rsl@members.fsf.org>
+
+	* src/GameStatus.cpp:
+	Added missing comparation that was available in original version.
+	[30000c99466e]
+
+	* src/Map.cpp, src/Map.h:
+	Fixed crash in map list spin.
+	[ec22adef5638]
+
+	* src/Controller_AI.cpp:
+	Removed innecessary braces.
+	[e0e4c90e1c54]
+
+	* src/Map.cpp:
+	Fixed missing bomber position number in editor.
+	[ea1da081c624]
+
+2009-02-17  rsl  <rsl@members.fsf.org>
+
+	* src/ClanBomber.cpp:
+	Fixed bug in network game (use of a wrong var).
+	[1bc75bc24ca3]
+
+2009-02-13  rsl  <rsl@members.fsf.org>
+
+	* Makefile.am:
+	Added a dist-hook rule to make a file (ChangeLog.hg) from mercurial
+	data.
+	[769466e13bc2]
+
+	* configure.ac:
+	Added lzma dist target.
+	[6c72cd90c34e]
+
+	* src/MapSelector.h:
+	Identations changes in MapSelector.h .
+	[3713be5b42f0]
+
+	* po/es.po:
+	Update es translation.
+	[082ee1e6d3a8]
+
+	* src/UtilsCL_Vector.h:
+	Made operator != simpler in CL_Vector .
+	[c8a7eaf905bb]
+
+2009-02-05  rsl  <rsl@members.fsf.org>
+
+	* TODO:
+	Modified TODO, removed MapEditor task and added a coding standards
+	one.
+	[a9c42638fdb0]
+
+	* po/POTFILES.in, src/MapEditor.cpp, src/MapEditor.h:
+	MapEditor is fuctional and have i10n. MapEditor.h is compactly
+	indented. Added MapEditor.cpp to POTFILES.in
+	[aceb64d71b1a]
+
+	* src/Utils.cpp, src/Utils.h:
+	Added a CB_RenderTextRight that works with std::string. CB_EnterText
+	now uses text in parameter instead of always using "intruso".
+	[e181b2c0f104]
+
+2009-02-03  rsl  <rsl@members.fsf.org>
+
+	* po/es.po:
+	Updated es translation.
+	[b86369163854]
+
+	* TODO, po/POTFILES.in, src/MapSelector.cpp:
+	MapSelector is now functional. Removed MapSelector from TODO. Added
+	MapSelector.cpp to POTFILES.in .
+	[543888bcd7ad]
+
+	* src/ClanBomber.cpp:
+	The game runs even if there is not sound available.
+	[0c383fdf2922]
+
+2009-02-02  rsl  <rsl@members.fsf.org>
+
+	* src/ClanBomber.cpp:
+	Fixed a bad interpretation of directfb code, the corresponding SDL
+	code behaves as expected (end game on ESC press).
+	[c29a4329bf8d]
+
+	* AUTHORS, src/Credits.cpp:
+	Changed credits to make them current, shorter and simpler. Added
+	mass to original authors in AUTHORS .
+	[bc9fd03b87cd]
+
+	* src/Controller_AI.cpp:
+	Fixed some some memory leaks. Controlle_AI.cpp uses boost::ptr_list
+	in some parts.
+	[e58348f29048]
+
+	* configure.ac, src/Makefile.am, src/menuentry/Makefile.am,
+	src/menuentry/clanbomber.desktop.in:
+	Added a freedesktop.org desktop entry for menu.
+	[37a4845c1ea7]
+
+2009-01-27  rsl  <rsl@members.fsf.org>
+
+	* src/ClanBomber.cpp, src/ClanBomber.h, src/Credits.cpp, src/Menu.cpp:
+	Fixed some memory leaks and uninitialized values.
+	[7fff3efece5c]
+
+2009-01-24  rsl  <rsl@members.fsf.org>
+
+	* docs/reference.xml:
+	Added a docbook reference (manpage) converted from Martin Pitt's
+	debian manpage.
+	[22771e3aaeab]
+
+2009-01-23  rsl  <rsl@members.fsf.org>
+
+	* TODO, src/Makefile.am, src/Menu.cpp, src/Menu.h, src/array.h:
+	Removed array.h now cb does not depend on any clanlib files. Update
+	todo to reflect this change.
+	[49454f7efc56]
+
+	* TODO:
+	Added some things to TODO file.
+	[e3f4064da2d0]
+
+	* po/Makevars:
+	Changed Makevar for consistency with the rest of files.
+	[2d07704044cf]
+
+	* po/es.po, po/ja.po:
+	Updated info in es and ja translations.
+	[7bd7cd32c07a]
+
+	* po/clanbomber2.pot:
+	File updated because of new POTFILES.in .
+	[bbe4f0558a0a]
+
+	* po/POTFILES.in:
+	Changed references to clanbomber to src .
+	[853ada34366b]
+
+	* src/link.h:
+	link.h removed.
+	[c463218c2ddc]
+
+	* README:
+	README no longer includen information about where to get the clanlib
+	files.
+	[51ffddb65e0f]
+
+	* src/Bomb.cpp, src/Bomber.cpp, src/Bomber_Corpse.cpp,
+	src/ClanBomber.cpp, src/ClanBomber.h, src/Client.cpp,
+	src/ClientSetup.cpp, src/ClientSetup.h, src/Controller.cpp,
+	src/Controller_AI.cpp, src/Controller_AI.h,
+	src/Controller_AI_mass.cpp, src/Controller_AI_mass.h,
+	src/Corpse_Part.cpp, src/Credits.cpp, src/Credits.h, src/Debug.cpp,
+	src/Explosion.cpp, src/Extra.cpp, src/GameStatus.cpp,
+	src/GameStatus_Team.cpp, src/Makefile.am, src/Map.cpp, src/Map.h,
+	src/MapEntry.h, src/MapTile.cpp, src/MapTile.h, src/MapTile_Ice.cpp,
+	src/MapTile_None.cpp, src/MapTile_Trap.cpp, src/MapTile_Trap.h,
+	src/Menu.cpp, src/Menu.h, src/Observer.cpp, src/Server.cpp,
+	src/Server.h, src/ServerSetup.cpp, src/ServerSetup.h, src/Timer.h:
+	Removed link.h substituted by std::list std::vector boost::ptr_list.
+	Fixed bug in mbs to wcs conversion in ClanBomber.cpp (A world
+	domination project). Added some documentaion to Timer.h Replaced
+	cl_vector.h with UtilsCL_Vector.h Removed link.h cl_vector.h
+	cl_vector.cpp from src/Makefile.am and added UtilsCL_Vector.h
+	Removed Controller_AI_mass from Makefile and from Controller so it
+	is not required to compile.
+	[7bd328092fe8]
+
+	* Makefile.am:
+	Modified top level Makefile.am to add DEPENDENCIES to dist.
+	[116ba4d6d349]
+
+	* src/UtilsCL_Vector.h, src/cl_vector.cpp, src/cl_vector.h:
+	Removed cl_vector .cpp and .h in favor of UTILSCL_Vector.h which is
+	license under GPLv2 or later.
+	[5549ec1c17ec]
+
+	* DEPENDENCIES:
+	Added a file that list the dependencies and where to get them, also
+	it's license.
+	[4c8486514b0d]
+
+2009-01-15  rsl  <rsl@members.fsf.org>
+
+	* src/Resources.cpp, src/Resources.h:
+	Deleted Surface constructor that had a transparency parameter, it
+	was not used anyway. Surfaces now use the normal costructor.
+	[604dd3af3563]
+
+	* src/pics/bomber_bsd.png, src/pics/bomber_dull_blue.png,
+	src/pics/bomber_dull_green.png, src/pics/bomber_dull_red.png,
+	src/pics/bomber_dull_yellow.png, src/pics/bomber_snake.png,
+	src/pics/bomber_spider.png, src/pics/bomber_tux.png,
+	src/pics/bombs.png, src/pics/corpse_parts.png,
+	src/pics/explosion2.png, src/pics/fischlustig_logo.png,
+	src/pics/maptile_addons.png, src/pics/not_available.png,
+	src/pics/observer.png, src/pics/ps_controls.png,
+	src/pics/ps_teams.png:
+	All images that requiere a key color for transparency now have it
+	setted inside them.
+	[91809b684b16]
+
+	* QUOTES:
+	Added to QUOTES a commentary found in ClanBomber.h .
+	[dbb3a7a2d4a5]
+
+	* src/Makefile.am:
+	Removed clanstring.h from Makefile.am
+	[1202f67830b2]
+
+	* configure.ac, src/Bomber.cpp, src/Bomber.h, src/Chat.cpp,
+	src/Chat.h, src/ClanBomber.cpp, src/ClanBomber.h, src/Client.cpp,
+	src/Client.h, src/ClientSetup.cpp, src/Config.cpp, src/Config.h,
+	src/Controller_AI_mass.h, src/Corpse_Part.cpp, src/Credits.cpp,
+	src/Credits.h, src/Explosion.h, src/Extra.h, src/GameObject.cpp,
+	src/GameObject.h, src/GameStatus.cpp, src/GameStatus_Team.cpp,
+	src/GameStatus_Team.h, src/Map.cpp, src/Map.h, src/MapEditor.cpp,
+	src/MapEditor.h, src/MapEntry.cpp, src/MapEntry.h,
+	src/MapSelector.cpp, src/Menu.cpp, src/Observer.cpp,
+	src/PlayerSetup.cpp, src/Server.cpp, src/Server.h,
+	src/ServerSetup.cpp, src/Utils.cpp, src/clanstring.h:
+	Removed clanstring.h now the game uses std::strings. Screen title is
+	now PACKAGE_STRING. Changed package name from clanbomber2 to
+	ClanBomber.
+	[2c4bc3d515df]
+
+	* README:
+	Added mising link.h to README
+	[7d7dc0e3a7ed]
+
+2009-01-14  rsl  <rsl@members.fsf.org>
+
+	* README:
+	To remember user were to get the clanlib files that cannot be put in
+	savannah.
+	[42c24feff5ce]
+
+	* Makefile.am, configure.ac:
+	Removed references to debian dir.
+	[d735082b78d9]
+
+	* debian/Makefile.am, debian/changelog.in, debian/control,
+	debian/copyright, debian/docs, debian/menu, debian/rules:
+	Deleted debian dir at request of Sebastian of Savannah.
+	[352a960fc0a3]
+
+2009-01-13  rsl  <rsl@members.fsf.org>
+
+	* src/Bomb.cpp, src/Bomb.h, src/Bomber.cpp, src/Bomber.h,
+	src/Bomber_Corpse.cpp, src/Bomber_Corpse.h, src/Chat.cpp,
+	src/Chat.h, src/ClanBomber.cpp, src/ClanBomber.h, src/Client.cpp,
+	src/Client.h, src/ClientSetup.cpp, src/ClientSetup.h,
+	src/Config.cpp, src/Config.h, src/Controller.cpp, src/Controller.h,
+	src/Controller_AI.cpp, src/Controller_AI.h,
+	src/Controller_AI_mass.cpp, src/Controller_AI_mass.h,
+	src/Controller_Joystick.cpp, src/Controller_Joystick.h,
+	src/Controller_Keyboard.cpp, src/Controller_Keyboard.h,
+	src/Controller_RCMouse.cpp, src/Controller_RCMouse.h,
+	src/Corpse_Part.cpp, src/Corpse_Part.h, src/Credits.cpp,
+	src/Credits.h, src/Debug.cpp, src/Debug.h, src/Disease.cpp,
+	src/Disease.h, src/Disease_Fast.cpp, src/Disease_Fast.h,
+	src/Disease_Frozen.cpp, src/Disease_Frozen.h,
+	src/Disease_PutBomb.cpp, src/Disease_PutBomb.h,
+	src/Disease_Stoned.cpp, src/Disease_Stoned.h, src/Event.cpp,
+	src/Event.h, src/Explosion.cpp, src/Explosion.h, src/Extra.cpp,
+	src/Extra.h, src/Extra_Bomb.cpp, src/Extra_Bomb.h,
+	src/Extra_Glove.cpp, src/Extra_Glove.h, src/Extra_Joint.cpp,
+	src/Extra_Joint.h, src/Extra_Kick.cpp, src/Extra_Kick.h,
+	src/Extra_Koks.cpp, src/Extra_Koks.h, src/Extra_Power.cpp,
+	src/Extra_Power.h, src/Extra_Skateboard.cpp, src/Extra_Skateboard.h,
+	src/Extra_Viagra.cpp, src/Extra_Viagra.h, src/GameObject.cpp,
+	src/GameObject.h, src/GameStatus.cpp, src/GameStatus.h,
+	src/GameStatus_Team.cpp, src/GameStatus_Team.h, src/Map.cpp,
+	src/Map.h, src/MapEditor.cpp, src/MapEditor.h, src/MapEntry.cpp,
+	src/MapEntry.h, src/MapSelector.cpp, src/MapSelector.h,
+	src/MapTile.cpp, src/MapTile.h, src/MapTile_Arrow.cpp,
+	src/MapTile_Arrow.h, src/MapTile_Box.cpp, src/MapTile_Box.h,
+	src/MapTile_Ground.cpp, src/MapTile_Ground.h, src/MapTile_Ice.cpp,
+	src/MapTile_Ice.h, src/MapTile_None.cpp, src/MapTile_None.h,
+	src/MapTile_Trap.cpp, src/MapTile_Trap.h, src/MapTile_Wall.cpp,
+	src/MapTile_Wall.h, src/Menu.cpp, src/Menu.h, src/Mutex.cpp,
+	src/Mutex.h, src/Observer.cpp, src/Observer.h, src/PlayerSetup.cpp,
+	src/PlayerSetup.h, src/Resources.cpp, src/Resources.h,
+	src/Server.cpp, src/Server.h, src/ServerSetup.cpp,
+	src/ServerSetup.h, src/Thread.cpp, src/Thread.h, src/Timer.cpp,
+	src/Timer.h:
+	Added complete copyright notices and license notification info to
+	all files.
+	[6e2f5f44fbbb]
+
+	* src/Utils.cpp, src/Utils.h, src/UtilsSocket.cpp, src/UtilsSocket.h,
+	src/UtilsSocketAddress.cpp, src/UtilsSocketAddress.h,
+	src/UtilsSocketTCP.cpp, src/UtilsSocketTCP.h,
+	src/UtilsSocketTCPClient.cpp, src/UtilsSocketTCPClient.h,
+	src/UtilsSocketTCPServer.cpp, src/UtilsSocketTCPServer.h,
+	src/UtilsSocketUDP.cpp, src/UtilsSocketUDP.h, src/UtilsThreads.cpp,
+	src/UtilsThreads.h, src/UtilsThreadsPOSIX.cpp,
+	src/UtilsThreadsPOSIX.h, src/UtilsUDPPacket.cpp,
+	src/UtilsUDPPacket.h:
+	Added copyright notices and license to all files created by me.
+	[b7af5b3daf16]
+
+	* src/maps/README, src/pics/README, src/wavs/README:
+	Added README files containnig copyright notices to maps, pics and
+	wavs dirs.
+	[431425df8648]
+
+	* QUOTES:
+	Changed QUOTES file because the only way it makes sense is with
+	splash1a.wav
+	[35790843489c]
+
+2009-01-12  rsl  <rsl@members.fsf.org>
+
+	* Makefile.am, src/fonts/Makefile.am:
+	Modified Makefile.am src/fonts/Makefile.am so LICENSE.DEJAVU and
+	src/fonts/README are included in dist.
+	[f1cb5fe95e6f]
+
+	* AUTHORS, LICENSE.DEJAVU, README, configure.ac, src/Makefile.am,
+	src/Resources.cpp, src/decker.ttf, src/fonts/DejaVuSans-Bold.ttf,
+	src/fonts/Makefile.am, src/fonts/README:
+	decker.ttf removed because it doesn't have license information and I
+	can't find anything about who is its author on the Internet. Added
+	DejaVuSans-Bold.ttf on Karla suggestion; it is now the default font.
+	Moved font to a font directory in source and installation.
+	[3e4bbb0e8e4f]
+
+2009-01-05  rsl  <rsl@members.fsf.org>
+
+	* configure.ac, m4/ac_path_generic.m4:
+	Some improvements to configure.ac and a new m4 macro.
+	[e755968049e8]
+
+2009-01-04  rsl  <rsl@members.fsf.org>
+
+	* Makefile.am, clanbomber/Bomb.cpp, clanbomber/Bomb.h,
+	clanbomber/Bomber.cpp, clanbomber/Bomber.h,
+	clanbomber/Bomber_Corpse.cpp, clanbomber/Bomber_Corpse.h,
+	clanbomber/Chat.cpp, clanbomber/Chat.h, clanbomber/ClanBomber.cpp,
+	clanbomber/ClanBomber.h, clanbomber/Client.cpp, clanbomber/Client.h,
+	clanbomber/ClientSetup.cpp, clanbomber/ClientSetup.h,
+	clanbomber/Config.cpp, clanbomber/Config.h,
+	clanbomber/Controller.cpp, clanbomber/Controller.h,
+	clanbomber/Controller_AI.cpp, clanbomber/Controller_AI.h,
+	clanbomber/Controller_AI_mass.cpp, clanbomber/Controller_AI_mass.h,
+	clanbomber/Controller_Joystick.cpp,
+	clanbomber/Controller_Joystick.h,
+	clanbomber/Controller_Keyboard.cpp,
+	clanbomber/Controller_Keyboard.h, clanbomber/Controller_RCMouse.cpp,
+	clanbomber/Controller_RCMouse.h, clanbomber/Corpse_Part.cpp,
+	clanbomber/Corpse_Part.h, clanbomber/Credits.cpp,
+	clanbomber/Credits.h, clanbomber/Debug.cpp, clanbomber/Debug.h,
+	clanbomber/Disease.cpp, clanbomber/Disease.h,
+	clanbomber/Disease_Fast.cpp, clanbomber/Disease_Fast.h,
+	clanbomber/Disease_Frozen.cpp, clanbomber/Disease_Frozen.h,
+	clanbomber/Disease_PutBomb.cpp, clanbomber/Disease_PutBomb.h,
+	clanbomber/Disease_Stoned.cpp, clanbomber/Disease_Stoned.h,
+	clanbomber/Event.cpp, clanbomber/Event.h, clanbomber/Explosion.cpp,
+	clanbomber/Explosion.h, clanbomber/Extra.cpp, clanbomber/Extra.h,
+	clanbomber/Extra_Bomb.cpp, clanbomber/Extra_Bomb.h,
+	clanbomber/Extra_Glove.cpp, clanbomber/Extra_Glove.h,
+	clanbomber/Extra_Joint.cpp, clanbomber/Extra_Joint.h,
+	clanbomber/Extra_Kick.cpp, clanbomber/Extra_Kick.h,
+	clanbomber/Extra_Koks.cpp, clanbomber/Extra_Koks.h,
+	clanbomber/Extra_Power.cpp, clanbomber/Extra_Power.h,
+	clanbomber/Extra_Skateboard.cpp, clanbomber/Extra_Skateboard.h,
+	clanbomber/Extra_Viagra.cpp, clanbomber/Extra_Viagra.h,
+	clanbomber/GameObject.cpp, clanbomber/GameObject.h,
+	clanbomber/GameStatus.cpp, clanbomber/GameStatus.h,
+	clanbomber/GameStatus_Team.cpp, clanbomber/GameStatus_Team.h,
+	clanbomber/Makefile.am, clanbomber/Map.cpp, clanbomber/Map.h,
+	clanbomber/MapEditor.cpp, clanbomber/MapEditor.h,
+	clanbomber/MapEntry.cpp, clanbomber/MapEntry.h,
+	clanbomber/MapSelector.cpp, clanbomber/MapSelector.h,
+	clanbomber/MapTile.cpp, clanbomber/MapTile.h,
+	clanbomber/MapTile_Arrow.cpp, clanbomber/MapTile_Arrow.h,
+	clanbomber/MapTile_Box.cpp, clanbomber/MapTile_Box.h,
+	clanbomber/MapTile_Ground.cpp, clanbomber/MapTile_Ground.h,
+	clanbomber/MapTile_Ice.cpp, clanbomber/MapTile_Ice.h,
+	clanbomber/MapTile_None.cpp, clanbomber/MapTile_None.h,
+	clanbomber/MapTile_Trap.cpp, clanbomber/MapTile_Trap.h,
+	clanbomber/MapTile_Wall.cpp, clanbomber/MapTile_Wall.h,
+	clanbomber/Menu.cpp, clanbomber/Menu.h, clanbomber/Mutex.cpp,
+	clanbomber/Mutex.h, clanbomber/Observer.cpp, clanbomber/Observer.h,
+	clanbomber/PlayerSetup.cpp, clanbomber/PlayerSetup.h,
+	clanbomber/Resources.cpp, clanbomber/Resources.h,
+	clanbomber/Server.cpp, clanbomber/Server.h,
+	clanbomber/ServerSetup.cpp, clanbomber/ServerSetup.h,
+	clanbomber/Thread.cpp, clanbomber/Thread.h, clanbomber/Timer.cpp,
+	clanbomber/Timer.h, clanbomber/Utils.cpp, clanbomber/Utils.h,
+	clanbomber/UtilsSocket.cpp, clanbomber/UtilsSocket.h,
+	clanbomber/UtilsSocketAddress.cpp, clanbomber/UtilsSocketAddress.h,
+	clanbomber/UtilsSocketTCP.cpp, clanbomber/UtilsSocketTCP.h,
+	clanbomber/UtilsSocketTCPClient.cpp,
+	clanbomber/UtilsSocketTCPClient.h,
+	clanbomber/UtilsSocketTCPServer.cpp,
+	clanbomber/UtilsSocketTCPServer.h, clanbomber/UtilsSocketUDP.cpp,
+	clanbomber/UtilsSocketUDP.h, clanbomber/UtilsThreads.cpp,
+	clanbomber/UtilsThreads.h, clanbomber/UtilsThreadsPOSIX.cpp,
+	clanbomber/UtilsThreadsPOSIX.h, clanbomber/UtilsUDPPacket.cpp,
+	clanbomber/UtilsUDPPacket.h, clanbomber/array.h,
+	clanbomber/cl_vector.cpp, clanbomber/cl_vector.h,
+	clanbomber/clanstring.h, clanbomber/decker.ttf,
+	clanbomber/gettext.h, clanbomber/link.h, clanbomber/maps/Arena.map,
+	clanbomber/maps/Big_Block.map, clanbomber/maps/Big_Standard.map,
+	clanbomber/maps/Blast_Matrix.map, clanbomber/maps/Bloody_Ring.map,
+	clanbomber/maps/Boiling_Egg.map, clanbomber/maps/Bomb_Attack.map,
+	clanbomber/maps/Broken_Heart.map, clanbomber/maps/Crammed.map,
+	clanbomber/maps/Death_Corridor.map, clanbomber/maps/Dilemma.map,
+	clanbomber/maps/FearCircle.map,
+	clanbomber/maps/FearCircle_Remix.map,
+	clanbomber/maps/FireWheels.map, clanbomber/maps/Football.map,
+	clanbomber/maps/Four_Instance.map, clanbomber/maps/Ghostbear.map,
+	clanbomber/maps/Hard_Work.map, clanbomber/maps/Hole_Run.map,
+	clanbomber/maps/Huge_Standard.map, clanbomber/maps/Juicy_Lucy.map,
+	clanbomber/maps/Kitchen.map, clanbomber/maps/Makefile.am,
+	clanbomber/maps/Meeting.map, clanbomber/maps/MungoBane.map,
+	clanbomber/maps/Obstacle_Race.map, clanbomber/maps/Overkill.map,
+	clanbomber/maps/Prison_Cells.map, clanbomber/maps/Redirection.map,
+	clanbomber/maps/Sixty_Nine.map, clanbomber/maps/Small_Standard.map,
+	clanbomber/maps/Snake_Race.map, clanbomber/maps/Tiny_Standard.map,
+	clanbomber/maps/Whole_Mess.map, clanbomber/pics/Makefile.am,
+	clanbomber/pics/bomber_bsd.png,
+	clanbomber/pics/bomber_dull_blue.png,
+	clanbomber/pics/bomber_dull_green.png,
+	clanbomber/pics/bomber_dull_red.png,
+	clanbomber/pics/bomber_dull_yellow.png,
+	clanbomber/pics/bomber_snake.png, clanbomber/pics/bomber_spider.png,
+	clanbomber/pics/bomber_tux.png, clanbomber/pics/bombs.png,
+	clanbomber/pics/cb_logo_small.png,
+	clanbomber/pics/clanbomber_title_andi.png,
+	clanbomber/pics/corpse_parts.png, clanbomber/pics/cup2.png,
+	clanbomber/pics/explosion2.png, clanbomber/pics/extras2.png,
+	clanbomber/pics/fischlustig_logo.png,
+	clanbomber/pics/game_status.png, clanbomber/pics/horst_evil.png,
+	clanbomber/pics/level_selection.png, clanbomber/pics/map_editor.png,
+	clanbomber/pics/maptile_addons.png, clanbomber/pics/maptiles.png,
+	clanbomber/pics/not_available.png, clanbomber/pics/observer.png,
+	clanbomber/pics/playersetup.png, clanbomber/pics/ps_controls.png,
+	clanbomber/pics/ps_teamlamps.png, clanbomber/pics/ps_teams.png,
+	clanbomber/wavs/Makefile.am, clanbomber/wavs/break.wav,
+	clanbomber/wavs/clear.wav, clanbomber/wavs/corpse_explode.wav,
+	clanbomber/wavs/crunch.wav, clanbomber/wavs/deepfall.wav,
+	clanbomber/wavs/die.wav, clanbomber/wavs/explode.wav,
+	clanbomber/wavs/forward.wav, clanbomber/wavs/horny.wav,
+	clanbomber/wavs/hurry_up.wav, clanbomber/wavs/joint.wav,
+	clanbomber/wavs/klatsch.wav, clanbomber/wavs/menu_back.wav,
+	clanbomber/wavs/putbomb.wav, clanbomber/wavs/rewind.wav,
+	clanbomber/wavs/schnief.wav, clanbomber/wavs/splash1a.wav,
+	clanbomber/wavs/splash2a.wav, clanbomber/wavs/stop.wav,
+	clanbomber/wavs/time_over.wav, clanbomber/wavs/typewriter.wav,
+	clanbomber/wavs/whoosh.wav, clanbomber/wavs/winlevel.wav,
+	clanbomber/wavs/wow.wav, configure.ac, src/Bomb.cpp, src/Bomb.h,
+	src/Bomber.cpp, src/Bomber.h, src/Bomber_Corpse.cpp,
+	src/Bomber_Corpse.h, src/Chat.cpp, src/Chat.h, src/ClanBomber.cpp,
+	src/ClanBomber.h, src/Client.cpp, src/Client.h, src/ClientSetup.cpp,
+	src/ClientSetup.h, src/Config.cpp, src/Config.h, src/Controller.cpp,
+	src/Controller.h, src/Controller_AI.cpp, src/Controller_AI.h,
+	src/Controller_AI_mass.cpp, src/Controller_AI_mass.h,
+	src/Controller_Joystick.cpp, src/Controller_Joystick.h,
+	src/Controller_Keyboard.cpp, src/Controller_Keyboard.h,
+	src/Controller_RCMouse.cpp, src/Controller_RCMouse.h,
+	src/Corpse_Part.cpp, src/Corpse_Part.h, src/Credits.cpp,
+	src/Credits.h, src/Debug.cpp, src/Debug.h, src/Disease.cpp,
+	src/Disease.h, src/Disease_Fast.cpp, src/Disease_Fast.h,
+	src/Disease_Frozen.cpp, src/Disease_Frozen.h,
+	src/Disease_PutBomb.cpp, src/Disease_PutBomb.h,
+	src/Disease_Stoned.cpp, src/Disease_Stoned.h, src/Event.cpp,
+	src/Event.h, src/Explosion.cpp, src/Explosion.h, src/Extra.cpp,
+	src/Extra.h, src/Extra_Bomb.cpp, src/Extra_Bomb.h,
+	src/Extra_Glove.cpp, src/Extra_Glove.h, src/Extra_Joint.cpp,
+	src/Extra_Joint.h, src/Extra_Kick.cpp, src/Extra_Kick.h,
+	src/Extra_Koks.cpp, src/Extra_Koks.h, src/Extra_Power.cpp,
+	src/Extra_Power.h, src/Extra_Skateboard.cpp, src/Extra_Skateboard.h,
+	src/Extra_Viagra.cpp, src/Extra_Viagra.h, src/GameObject.cpp,
+	src/GameObject.h, src/GameStatus.cpp, src/GameStatus.h,
+	src/GameStatus_Team.cpp, src/GameStatus_Team.h, src/Makefile.am,
+	src/Map.cpp, src/Map.h, src/MapEditor.cpp, src/MapEditor.h,
+	src/MapEntry.cpp, src/MapEntry.h, src/MapSelector.cpp,
+	src/MapSelector.h, src/MapTile.cpp, src/MapTile.h,
+	src/MapTile_Arrow.cpp, src/MapTile_Arrow.h, src/MapTile_Box.cpp,
+	src/MapTile_Box.h, src/MapTile_Ground.cpp, src/MapTile_Ground.h,
+	src/MapTile_Ice.cpp, src/MapTile_Ice.h, src/MapTile_None.cpp,
+	src/MapTile_None.h, src/MapTile_Trap.cpp, src/MapTile_Trap.h,
+	src/MapTile_Wall.cpp, src/MapTile_Wall.h, src/Menu.cpp, src/Menu.h,
+	src/Mutex.cpp, src/Mutex.h, src/Observer.cpp, src/Observer.h,
+	src/PlayerSetup.cpp, src/PlayerSetup.h, src/Resources.cpp,
+	src/Resources.h, src/Server.cpp, src/Server.h, src/ServerSetup.cpp,
+	src/ServerSetup.h, src/Thread.cpp, src/Thread.h, src/Timer.cpp,
+	src/Timer.h, src/Utils.cpp, src/Utils.h, src/UtilsSocket.cpp,
+	src/UtilsSocket.h, src/UtilsSocketAddress.cpp,
+	src/UtilsSocketAddress.h, src/UtilsSocketTCP.cpp,
+	src/UtilsSocketTCP.h, src/UtilsSocketTCPClient.cpp,
+	src/UtilsSocketTCPClient.h, src/UtilsSocketTCPServer.cpp,
+	src/UtilsSocketTCPServer.h, src/UtilsSocketUDP.cpp,
+	src/UtilsSocketUDP.h, src/UtilsThreads.cpp, src/UtilsThreads.h,
+	src/UtilsThreadsPOSIX.cpp, src/UtilsThreadsPOSIX.h,
+	src/UtilsUDPPacket.cpp, src/UtilsUDPPacket.h, src/array.h,
+	src/cl_vector.cpp, src/cl_vector.h, src/clanstring.h,
+	src/decker.ttf, src/gettext.h, src/link.h, src/maps/Arena.map,
+	src/maps/Big_Block.map, src/maps/Big_Standard.map,
+	src/maps/Blast_Matrix.map, src/maps/Bloody_Ring.map,
+	src/maps/Boiling_Egg.map, src/maps/Bomb_Attack.map,
+	src/maps/Broken_Heart.map, src/maps/Crammed.map,
+	src/maps/Death_Corridor.map, src/maps/Dilemma.map,
+	src/maps/FearCircle.map, src/maps/FearCircle_Remix.map,
+	src/maps/FireWheels.map, src/maps/Football.map,
+	src/maps/Four_Instance.map, src/maps/Ghostbear.map,
+	src/maps/Hard_Work.map, src/maps/Hole_Run.map,
+	src/maps/Huge_Standard.map, src/maps/Juicy_Lucy.map,
+	src/maps/Kitchen.map, src/maps/Makefile.am, src/maps/Meeting.map,
+	src/maps/MungoBane.map, src/maps/Obstacle_Race.map,
+	src/maps/Overkill.map, src/maps/Prison_Cells.map,
+	src/maps/Redirection.map, src/maps/Sixty_Nine.map,
+	src/maps/Small_Standard.map, src/maps/Snake_Race.map,
+	src/maps/Tiny_Standard.map, src/maps/Whole_Mess.map,
+	src/pics/Makefile.am, src/pics/bomber_bsd.png,
+	src/pics/bomber_dull_blue.png, src/pics/bomber_dull_green.png,
+	src/pics/bomber_dull_red.png, src/pics/bomber_dull_yellow.png,
+	src/pics/bomber_snake.png, src/pics/bomber_spider.png,
+	src/pics/bomber_tux.png, src/pics/bombs.png,
+	src/pics/cb_logo_small.png, src/pics/clanbomber_title_andi.png,
+	src/pics/corpse_parts.png, src/pics/cup2.png,
+	src/pics/explosion2.png, src/pics/extras2.png,
+	src/pics/fischlustig_logo.png, src/pics/game_status.png,
+	src/pics/horst_evil.png, src/pics/level_selection.png,
+	src/pics/map_editor.png, src/pics/maptile_addons.png,
+	src/pics/maptiles.png, src/pics/not_available.png,
+	src/pics/observer.png, src/pics/playersetup.png,
+	src/pics/ps_controls.png, src/pics/ps_teamlamps.png,
+	src/pics/ps_teams.png, src/wavs/Makefile.am, src/wavs/break.wav,
+	src/wavs/clear.wav, src/wavs/corpse_explode.wav,
+	src/wavs/crunch.wav, src/wavs/deepfall.wav, src/wavs/die.wav,
+	src/wavs/explode.wav, src/wavs/forward.wav, src/wavs/horny.wav,
+	src/wavs/hurry_up.wav, src/wavs/joint.wav, src/wavs/klatsch.wav,
+	src/wavs/menu_back.wav, src/wavs/putbomb.wav, src/wavs/rewind.wav,
+	src/wavs/schnief.wav, src/wavs/splash1a.wav, src/wavs/splash2a.wav,
+	src/wavs/stop.wav, src/wavs/time_over.wav, src/wavs/typewriter.wav,
+	src/wavs/whoosh.wav, src/wavs/winlevel.wav, src/wavs/wow.wav:
+	Changed source from clanbomber dir to src.
+	[2661f7806f70]
+
+	* COPYING:
+	Update license to the most recent GPLv2.
+	[de141e6cd83d]
+
+2009-01-03  rsl  <rsl@members.fsf.org>
+
+	* .hgignore:
+	Added newline at eof.
+	[2daf209a541c]
+
+	* configure.ac:
+	configure.ac now also checks for boost/format.hpp and fails if not
+	available.
+	[08a715fd77d4]
+
+	* .hgignore:
+	General improvements to .hgignore .
+	[640032502ab0]
+
+	* po/remove-potcdate.sed:
+	Removed because it was not nesessary to track.
+	[a5777a1ed668]
+
+	* clanbomber/ClanBomber.cpp, clanbomber/ClanBomber.h,
+	clanbomber/ClientSetup.cpp, clanbomber/Credits.cpp,
+	clanbomber/GameStatus.cpp, clanbomber/Menu.cpp, clanbomber/Menu.h,
+	clanbomber/Observer.cpp, clanbomber/PlayerSetup.cpp,
+	clanbomber/ServerSetup.cpp:
+	Intro now has displays non ascii characters right (this fix is
+	temporal). ClanBomber Menu do not use CL_String and some other files
+	also are nos modified to accomodate the changes, eventually
+	CL_String and other CL clases will not be required.
+	[fac023dfa7e3]
+
+	* clanbomber/Thread.cpp:
+	Make some changes to thread so it will not crash because trying to
+	stop the same thread twice.
+	[6f57a539bea7]
+
+	* clanbomber/Extra.h, clanbomber/Extra_Bomb.h,
+	clanbomber/Extra_Glove.h, clanbomber/Extra_Joint.h,
+	clanbomber/Extra_Kick.h, clanbomber/Extra_Koks.h,
+	clanbomber/Extra_Power.h, clanbomber/Extra_Skateboard.h,
+	clanbomber/Extra_Viagra.h:
+	Put some documentation in Extra files.
+	[261d31919392]
+
+	* clanbomber/Disease.h, clanbomber/Disease_Fast.h,
+	clanbomber/Disease_Frozen.h, clanbomber/Disease_PutBomb.h,
+	clanbomber/Disease_Stoned.h:
+	Put some documentation on Diseases files
+	[a346b2c31924]
+
+	* clanbomber/Utils.cpp, clanbomber/Utils.h:
+	CL_String removed. Added some RenderText functions with std::string
+	support. Added a RenderText function with std::wstring support for
+	intro temporal fix.
+	[1847676da3bc]
+
+	* clanbomber/Client.cpp, clanbomber/Client.h, clanbomber/Server.cpp,
+	clanbomber/Server.h:
+	Client and Server now partially use the new network clases.
+	[afab13852a56]
+
+	* clanbomber/Makefile.am:
+	Added new files (network) to Makefile.am .
+	[557f43caa935]
+
+	* clanbomber/UtilsThreads.cpp, clanbomber/UtilsThreads.h,
+	clanbomber/UtilsThreadsPOSIX.cpp, clanbomber/UtilsThreadsPOSIX.h:
+	Added suport for SDL threads (default). Posix threads code is in
+	UtilsThreadsPosix.
+	[eec0dd07ddae]
+
+	* clanbomber/UtilsSocket.cpp, clanbomber/UtilsSocket.h,
+	clanbomber/UtilsSocketAddress.cpp, clanbomber/UtilsSocketAddress.h,
+	clanbomber/UtilsSocketTCP.cpp, clanbomber/UtilsSocketTCP.h,
+	clanbomber/UtilsSocketTCPClient.cpp,
+	clanbomber/UtilsSocketTCPClient.h,
+	clanbomber/UtilsSocketTCPServer.cpp,
+	clanbomber/UtilsSocketTCPServer.h, clanbomber/UtilsSocketUDP.cpp,
+	clanbomber/UtilsSocketUDP.h, clanbomber/UtilsUDPPacket.cpp,
+	clanbomber/UtilsUDPPacket.h:
+	Added some files for network access.
+	[1f1bdf7722d6]
+
+2008-12-16  rsl  <rsl@members.fsf.org>
+
+	* debian/changelog, debian/changelog.in:
+	Removed changelog and added changelog.in
+	[cbfd985b7a03]
+
+2008-12-15  rsl  <rsl@members.fsf.org>
+
+	* clanbomber/Server.cpp:
+	Server.cpp now uses UtilsThreads
+	[2abe44271f4b]
+
+	* clanbomber/Client.cpp, clanbomber/Event.cpp, clanbomber/Event.h,
+	clanbomber/Makefile.am, clanbomber/Mutex.cpp, clanbomber/Mutex.h,
+	clanbomber/Thread.cpp, clanbomber/Thread.h:
+	Client.cpp now uses UtilsThreads UtilsThreads is now added to
+	Makefile.am
+	[89f883c1cbdf]
+
+	* clanbomber/ClanBomber.cpp, po/clanbomber2.pot, po/es.po:
+	Clanbomber.cpp changed 2 lines to make i18n more flexible. Updated
+	es translation
+	[d87de5c834ea]
+
+	* .hgignore:
+	.hgignore minor update
+	[3f12716bd9bd]
+
+	* clanbomber/UtilsThreads.cpp, clanbomber/UtilsThreads.h:
+	Added UtilsThreads .cpp and .h that contains al functions needed for
+	threading in clanbomber, this implementation still uses POSIX
+	threads.
+	[7638678dd6f9]
+
+2008-12-14  rsl  <rsl@members.fsf.org>
+
+	* clanbomber/GameStatus.cpp, po/POTFILES.in, po/clanbomber2.pot,
+	po/es.po, po/ja.po:
+	GameStatus.cpp now works and have i18n Now clanbomber depends on
+	boost (format) GameStatus.cpp have es l10n
+	[accccf3485a5]
+
+	* clanbomber/clanbomber2:
+	removed the clanbomber 2 binary
+	[155e92f327a2]
+
+	* clanbomber/Utils.cpp, clanbomber/Utils.h:
+	Added CB_Flip() function to Utils.cpp and Utils.h
+	[f8b268fa7133]
+
+2008-12-12  rsl  <rsl@members.fsf.org>
+
+	* .hgignore, clanbomber/clanbomber2, po/clanbomber2.pot, po/es.po,
+	po/ja.po:
+	Improved spanish translation
+	[0fff1194ef62]
+
+	* clanbomber/Credits.cpp, po/POTFILES, po/POTFILES.in:
+	Separated a string in 2 in Credits.cpp, to follow the style used in
+	the rest of the credits Removed POTFILES because it must not be
+	tracked instead POTFILES.in should be.
+	[38532d86d64f]
+
+	* po/es.po:
+	Adde some comments to es.po
+	[c3956e50f125]
+
+	* po/es.gmo, po/ja.gmo, po/ja.mo:
+	Removed files that should not be tracked
+	[87525372d389]
+
+	* po/es.mo:
+	es.mo is removed
+	[9dbd9856ae8e]
+
+	* clanbomber/ClanBomber.cpp, clanbomber/Utils.cpp, clanbomber/Utils.h,
+	clanbomber/clanbomber2, po/clanbomber2.pot, po/es.gmo, po/es.mo,
+	po/es.po, po/ja.gmo, po/ja.po:
+	Improved i18n and l10n support. ClanBomber.cpp has complete i18n
+	Utils.cpp has a new function CB_Localization() Utils.h now have all
+	includes and defines required for i18n es.po is more complete
+	[aa35317b72cb]
+
+2008-12-11  rsl  <rsl@members.fsf.org>
+
+	* .hgignore, ABOUT-NLS, AUTHORS, COPYING, ChangeLog, IDEAS, INSTALL,
+	Makefile.am, NEWS, QUOTES, README, TODO, autogen.sh,
+	clanbomber/Bomb.cpp, clanbomber/Bomb.h, clanbomber/Bomber.cpp,
+	clanbomber/Bomber.h, clanbomber/Bomber_Corpse.cpp,
+	clanbomber/Bomber_Corpse.h, clanbomber/Chat.cpp, clanbomber/Chat.h,
+	clanbomber/ClanBomber.cpp, clanbomber/ClanBomber.h,
+	clanbomber/Client.cpp, clanbomber/Client.h,
+	clanbomber/ClientSetup.cpp, clanbomber/ClientSetup.h,
+	clanbomber/Config.cpp, clanbomber/Config.h,
+	clanbomber/Controller.cpp, clanbomber/Controller.h,
+	clanbomber/Controller_AI.cpp, clanbomber/Controller_AI.h,
+	clanbomber/Controller_AI_mass.cpp, clanbomber/Controller_AI_mass.h,
+	clanbomber/Controller_Joystick.cpp,
+	clanbomber/Controller_Joystick.h,
+	clanbomber/Controller_Keyboard.cpp,
+	clanbomber/Controller_Keyboard.h, clanbomber/Controller_RCMouse.cpp,
+	clanbomber/Controller_RCMouse.h, clanbomber/Corpse_Part.cpp,
+	clanbomber/Corpse_Part.h, clanbomber/Credits.cpp,
+	clanbomber/Credits.h, clanbomber/Debug.cpp, clanbomber/Debug.h,
+	clanbomber/Disease.cpp, clanbomber/Disease.h,
+	clanbomber/Disease_Fast.cpp, clanbomber/Disease_Fast.h,
+	clanbomber/Disease_Frozen.cpp, clanbomber/Disease_Frozen.h,
+	clanbomber/Disease_PutBomb.cpp, clanbomber/Disease_PutBomb.h,
+	clanbomber/Disease_Stoned.cpp, clanbomber/Disease_Stoned.h,
+	clanbomber/Event.cpp, clanbomber/Event.h, clanbomber/Explosion.cpp,
+	clanbomber/Explosion.h, clanbomber/Extra.cpp, clanbomber/Extra.h,
+	clanbomber/Extra_Bomb.cpp, clanbomber/Extra_Bomb.h,
+	clanbomber/Extra_Glove.cpp, clanbomber/Extra_Glove.h,
+	clanbomber/Extra_Joint.cpp, clanbomber/Extra_Joint.h,
+	clanbomber/Extra_Kick.cpp, clanbomber/Extra_Kick.h,
+	clanbomber/Extra_Koks.cpp, clanbomber/Extra_Koks.h,
+	clanbomber/Extra_Power.cpp, clanbomber/Extra_Power.h,
+	clanbomber/Extra_Skateboard.cpp, clanbomber/Extra_Skateboard.h,
+	clanbomber/Extra_Viagra.cpp, clanbomber/Extra_Viagra.h,
+	clanbomber/GameObject.cpp, clanbomber/GameObject.h,
+	clanbomber/GameStatus.cpp, clanbomber/GameStatus.h,
+	clanbomber/GameStatus_Team.cpp, clanbomber/GameStatus_Team.h,
+	clanbomber/Makefile.am, clanbomber/Map.cpp, clanbomber/Map.h,
+	clanbomber/MapEditor.cpp, clanbomber/MapEditor.h,
+	clanbomber/MapEntry.cpp, clanbomber/MapEntry.h,
+	clanbomber/MapSelector.cpp, clanbomber/MapSelector.h,
+	clanbomber/MapTile.cpp, clanbomber/MapTile.h,
+	clanbomber/MapTile_Arrow.cpp, clanbomber/MapTile_Arrow.h,
+	clanbomber/MapTile_Box.cpp, clanbomber/MapTile_Box.h,
+	clanbomber/MapTile_Ground.cpp, clanbomber/MapTile_Ground.h,
+	clanbomber/MapTile_Ice.cpp, clanbomber/MapTile_Ice.h,
+	clanbomber/MapTile_None.cpp, clanbomber/MapTile_None.h,
+	clanbomber/MapTile_Trap.cpp, clanbomber/MapTile_Trap.h,
+	clanbomber/MapTile_Wall.cpp, clanbomber/MapTile_Wall.h,
+	clanbomber/Menu.cpp, clanbomber/Menu.h, clanbomber/Mutex.cpp,
+	clanbomber/Mutex.h, clanbomber/Observer.cpp, clanbomber/Observer.h,
+	clanbomber/PlayerSetup.cpp, clanbomber/PlayerSetup.h,
+	clanbomber/Resources.cpp, clanbomber/Resources.h,
+	clanbomber/Server.cpp, clanbomber/Server.h,
+	clanbomber/ServerSetup.cpp, clanbomber/ServerSetup.h,
+	clanbomber/Thread.cpp, clanbomber/Thread.h, clanbomber/Timer.cpp,
+	clanbomber/Timer.h, clanbomber/Utils.cpp, clanbomber/Utils.h,
+	clanbomber/array.h, clanbomber/cl_vector.cpp,
+	clanbomber/cl_vector.h, clanbomber/clanbomber2,
+	clanbomber/clanstring.h, clanbomber/decker.ttf,
+	clanbomber/gettext.h, clanbomber/link.h, clanbomber/maps/Arena.map,
+	clanbomber/maps/Big_Block.map, clanbomber/maps/Big_Standard.map,
+	clanbomber/maps/Blast_Matrix.map, clanbomber/maps/Bloody_Ring.map,
+	clanbomber/maps/Boiling_Egg.map, clanbomber/maps/Bomb_Attack.map,
+	clanbomber/maps/Broken_Heart.map, clanbomber/maps/Crammed.map,
+	clanbomber/maps/Death_Corridor.map, clanbomber/maps/Dilemma.map,
+	clanbomber/maps/FearCircle.map,
+	clanbomber/maps/FearCircle_Remix.map,
+	clanbomber/maps/FireWheels.map, clanbomber/maps/Football.map,
+	clanbomber/maps/Four_Instance.map, clanbomber/maps/Ghostbear.map,
+	clanbomber/maps/Hard_Work.map, clanbomber/maps/Hole_Run.map,
+	clanbomber/maps/Huge_Standard.map, clanbomber/maps/Juicy_Lucy.map,
+	clanbomber/maps/Kitchen.map, clanbomber/maps/Makefile.am,
+	clanbomber/maps/Meeting.map, clanbomber/maps/MungoBane.map,
+	clanbomber/maps/Obstacle_Race.map, clanbomber/maps/Overkill.map,
+	clanbomber/maps/Prison_Cells.map, clanbomber/maps/Redirection.map,
+	clanbomber/maps/Sixty_Nine.map, clanbomber/maps/Small_Standard.map,
+	clanbomber/maps/Snake_Race.map, clanbomber/maps/Tiny_Standard.map,
+	clanbomber/maps/Whole_Mess.map, clanbomber/pics/Makefile.am,
+	clanbomber/pics/bomber_bsd.png,
+	clanbomber/pics/bomber_dull_blue.png,
+	clanbomber/pics/bomber_dull_green.png,
+	clanbomber/pics/bomber_dull_red.png,
+	clanbomber/pics/bomber_dull_yellow.png,
+	clanbomber/pics/bomber_snake.png, clanbomber/pics/bomber_spider.png,
+	clanbomber/pics/bomber_tux.png, clanbomber/pics/bombs.png,
+	clanbomber/pics/cb_logo_small.png,
+	clanbomber/pics/clanbomber_title_andi.png,
+	clanbomber/pics/corpse_parts.png, clanbomber/pics/cup2.png,
+	clanbomber/pics/explosion2.png, clanbomber/pics/extras2.png,
+	clanbomber/pics/fischlustig_logo.png,
+	clanbomber/pics/game_status.png, clanbomber/pics/horst_evil.png,
+	clanbomber/pics/level_selection.png, clanbomber/pics/map_editor.png,
+	clanbomber/pics/maptile_addons.png, clanbomber/pics/maptiles.png,
+	clanbomber/pics/not_available.png, clanbomber/pics/observer.png,
+	clanbomber/pics/playersetup.png, clanbomber/pics/ps_controls.png,
+	clanbomber/pics/ps_teamlamps.png, clanbomber/pics/ps_teams.png,
+	clanbomber/wavs/Makefile.am, clanbomber/wavs/break.wav,
+	clanbomber/wavs/clear.wav, clanbomber/wavs/corpse_explode.wav,
+	clanbomber/wavs/crunch.wav, clanbomber/wavs/deepfall.wav,
+	clanbomber/wavs/die.wav, clanbomber/wavs/explode.wav,
+	clanbomber/wavs/forward.wav, clanbomber/wavs/horny.wav,
+	clanbomber/wavs/hurry_up.wav, clanbomber/wavs/joint.wav,
+	clanbomber/wavs/klatsch.wav, clanbomber/wavs/menu_back.wav,
+	clanbomber/wavs/putbomb.wav, clanbomber/wavs/rewind.wav,
+	clanbomber/wavs/schnief.wav, clanbomber/wavs/splash1a.wav,
+	clanbomber/wavs/splash2a.wav, clanbomber/wavs/stop.wav,
+	clanbomber/wavs/time_over.wav, clanbomber/wavs/typewriter.wav,
+	clanbomber/wavs/whoosh.wav, clanbomber/wavs/winlevel.wav,
+	clanbomber/wavs/wow.wav, configure.ac, debian/Makefile.am,
+	debian/changelog, debian/control, debian/copyright, debian/docs,
+	debian/menu, debian/rules, m4/ChangeLog, m4/codeset.m4,
+	m4/gettext.m4, m4/glibc2.m4, m4/glibc21.m4, m4/iconv.m4,
+	m4/intdiv0.m4, m4/intl.m4, m4/intldir.m4, m4/intlmacosx.m4,
+	m4/intmax.m4, m4/inttypes-pri.m4, m4/inttypes_h.m4, m4/lcmessage.m4,
+	m4/lib-ld.m4, m4/lib-link.m4, m4/lib-prefix.m4, m4/lock.m4,
+	m4/longlong.m4, m4/nls.m4, m4/po.m4, m4/printf-posix.m4,
+	m4/progtest.m4, m4/size_max.m4, m4/stdint_h.m4, m4/uintmax_t.m4,
+	m4/visibility.m4, m4/wchar_t.m4, m4/wint_t.m4, m4/xsize.m4,
+	po/ChangeLog, po/LINGUAS, po/Makevars, po/Makevars.template,
+	po/POTFILES, po/Rules-quot, po/boldquot.sed, po/clanbomber2.pot,
+	po/en@boldquot.header, po/en@quot.header, po/es.gmo, po/es.mo,
+	po/es.po, po/insert-header.sin, po/ja.gmo, po/ja.mo, po/ja.po,
+	po/messages.mo, po/quot.sed, po/remove-potcdate.sed, po/remove-
+	potcdate.sin, po/stamp-po:
+	Initial commit
+	[55ec57545383]
+

@@ -1,0 +1,132 @@
+Note
+--------------------------------------------------------------------------
+This data have been extracted from the original clanbomber cvs tree
+and changelog , which can be obtained at source forge, also from each
+map file but it may contain errors or inaccuracies and if you find any
+please report it at rsl@members.fsf.org .
+
+List of map authors
+--------------------------------------------------------------------------
+Andreas Hundt
+Clanner
+Denis Oliver Kropp
+Ivar
+mass
+
+File listing with copyright notices
+--------------------------------------------------------------------------
+Arena.map
+Copyright (C) 1999 Denis Oliver Kropp
+
+Big_Block.map
+Copyright (C) 1999 Andreas Hundt
+
+Big_Standard.map
+Copyright (C) 1999 Andreas Hundt
+
+Blast_Matrix.map
+Copyright (C) 1999 Ivar
+
+Bloody_Ring.map
+Copyright (C) 1999 Denis Oliver Kropp
+
+Boiling_Egg.map
+Copyright (C) 1999 Denis Oliver Kropp
+
+Bomb_Attack.map
+Copyright (C) 1999 Denis Oliver Kropp
+
+Broken_Heart.map
+Copyright (C) 2001 mass
+
+Crammed.map
+Copyright (C) 1999 Andreas Hundt
+
+Death_Corridor.map
+Copyright (C) 1999 Ivar
+
+Dilemma.map
+Copyright (C) 1999 Ivar
+
+FearCircle.map
+Copyright (C) 1999 Ivar
+
+FearCircle_Remix.map
+Copyright (C) 1999 Ivar
+
+FireWheels.map
+Copyright (C) 1999 Ivar
+
+Football.map
+Copyright (C) 1999 Denis Oliver Kropp
+
+Four_Instance.map
+Copyright (C) 1999 Andreas Hundt
+
+Ghostbear.map
+Copyright (C) 1999 Clanner
+
+Hard_Work.map
+Copyright (C) 1999 Andreas Hundt
+
+Hole_Run.map
+Copyright (C) 1999 Andreas Hundt
+
+Huge_Standard.map
+Copyright (C) 1999 Andreas Hundt
+
+Juicy_Lucy.map
+Copyright (C) 1999 Ivar
+
+Kitchen.map
+Copyright (C) 1999 Denis Oliver Kropp
+
+Meeting.map
+Copyright (C) 1999 Clanner
+
+MungoBane.map
+Copyright (C) 1999 Ivar
+
+Obstacle_Race.map
+Copyright (C) 1999 Andreas Hundt
+
+Overkill.map
+Copyright (C) 1999 Denis Oliver Kropp
+
+Prison_Cells.map
+Copyright (C) 1999 Andreas Hundt
+
+Redirection.map
+Copyright (C) 1999 Andreas Hundt
+
+Sixty_Nine.map
+Copyright (C) 1999 Clanner
+
+Small_Standard.map
+Copyright (C) 1999 Andreas Hundt
+
+Snake_Race.map
+Copyright (C) 1999 Denis Oliver Kropp
+
+Tiny_Standard.map
+Copyright (C) 1999 Andreas Hundt
+
+Whole_Mess.map
+Copyright (C) 1999 Denis Oliver Kropp
+
+
+All map files listed here are licensed under the following terms:
+--------------------------------------------------------------------------
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
