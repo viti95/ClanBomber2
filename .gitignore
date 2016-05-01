@@ -1,0 +1,13 @@
+*.o
+*.insert-header
+remove-potcdate.sed
+stamp-poT
+core 
+core.* 
+clanbomber.po 
+clanbomber.1po 
+clanbomber.2po 
+*.new.po
+libcbe.a
+clanbomber2
+
