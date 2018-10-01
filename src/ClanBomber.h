@@ -28,8 +28,8 @@
 
 #include <boost/filesystem.hpp>
 
-#include "cbe/PluginManager.h"
-#include "cbe/AudioSimple.h"
+#include "PluginManager.h"
+#include "AudioSimple.h"
 
 //XXX Not needed here but in most files that include this one
 #include "Resources.h"

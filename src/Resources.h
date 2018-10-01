@@ -27,10 +27,10 @@
 ///#include <directfb.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_ttf.h>
-#include "cbe/Surface.h"
-#include "cbe/Font.h"
-#include "cbe/AudioBuffer.h"
-#include "cbe/Music.h"
+#include "Surface.h"
+#include "Font.h"
+#include "AudioBuffer.h"
+#include "Music.h"
 
 #define NR_BOMBERSKINS 8
 

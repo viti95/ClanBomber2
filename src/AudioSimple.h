@@ -40,7 +40,7 @@ namespace cbe
     virtual ~AudioSimple() {};
     virtual AudioBuffer *createBuffer(boost::filesystem::path file) = 0;
     virtual Music *createMusic(boost::filesystem::path filename) = 0;
-    static std::string getName() {};
+    static std::string getName();
   };
 };
 

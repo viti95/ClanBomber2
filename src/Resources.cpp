@@ -32,8 +32,8 @@
 #include <SDL/SDL_rotozoom.h>
 
 #include "Resources.h"
-#include "cbe/SurfaceSDL.h"
-#include "cbe/FontSDL.h"
+#include "SurfaceSDL.h"
+#include "FontSDL.h"
 #include "ClanBomber.h"
 
 extern SDL_Surface *primary;

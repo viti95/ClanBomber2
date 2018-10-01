@@ -51,7 +51,7 @@
 #include "Utils.h"
 #include "UtilsSleep.h"
 #include "UtilsGetHome.h"
-#include "cbe/PluginManager.h"
+#include "PluginManager.h"
 
 ClanBomberApplication *app;
 

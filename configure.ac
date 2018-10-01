@@ -1,23 +1,22 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.63])
 AC_INIT([ClanBomber], [2.3.0], [rsl@members.fsf.org])
-#AM_INIT_AUTOMAKE([-Wall -Werror foreign])#foreign is for NEWS COPYING ETC
-AM_INIT_AUTOMAKE([dist-lzma -Wall -Werror])
+AM_INIT_AUTOMAKE([-Wall -Werror])
 
 
-#CXXFLAGS="-std=c++11 -Ofast -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -ftree-vectorizer-verbose=2 -lpthread -DNDEBUG"
-#CXXFLAGS="-std=c++11 -Ofast -march=native -ftree-vectorize -ftree-vectorizer-verbose=2 -lpthread -DNDEBUG"
-CXXFLAGS="-std=c++11 -Ofast -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -ftree-vectorizer-verbose=2 -lpthread -DNDEBUG"
+#CXXFLAGS="-std=c++11 -Ofast -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -lpthread -DNDEBUG"
+CXXFLAGS="-std=c++11 -Ofast -march=native -ftree-vectorize -lpthread -DNDEBUG"
+#CXXFLAGS="-std=c++11 -Ofast -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -lpthread -DNDEBUG"
 
-#CFLAGS="-std=c++11 -Ofast -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -ftree-vectorizer-verbose=2 -lpthread -DNDEBUG"
-#CFLAGS="-std=c++11 -Ofast -march=native -ftree-vectorize -ftree-vectorizer-verbose=2 -lpthread -DNDEBUG"
-CFLAGS="-std=c++11 -Ofast -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -ftree-vectorizer-verbose=2 -lpthread -DNDEBUG"
+#CFLAGS="-std=c++11 -Ofast -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -lpthread -DNDEBUG"
+CFLAGS="-std=c++11 -Ofast -march=native -ftree-vectorize -lpthread -DNDEBUG"
+#CFLAGS="-std=c++11 -Ofast -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -lpthread -DNDEBUG"
 
 AC_PROG_CXX
 AC_LANG([C++])
 AC_C_BIGENDIAN
 AC_PROG_RANLIB
-AM_GNU_GETTEXT_VERSION([0.17])
+AM_GNU_GETTEXT_VERSION([0.19])
 AM_GNU_GETTEXT([external])
 
 #
@@ -54,7 +53,6 @@ AC_CHECK_LIB(
 	[SDL_IMAGE_LIBS=-lSDL_image],
 	AC_MSG_ERROR([*** SDL_image requiered])
 )
-AC_MSG_RESULT([found])
 AC_SUBST(SDL_IMAGE_LIBS)
 
 #
@@ -156,7 +154,6 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([
 	Makefile
 	src/Makefile
-	src/cbe/Makefile
 	src/fonts/Makefile
 	src/maps/Makefile
 	src/menuentry/Makefile

@@ -1,4 +1,4 @@
-SUBDIRS = maps pics wavs fonts menuentry cbe
+SUBDIRS = maps pics wavs fonts menuentry
 
 clanbomber2dir = $(RELATIVE_DATADIR)/$(PACKAGE)
 relative_localedir = $(RELATIVE_DATADIR)/locale
@@ -10,7 +10,6 @@ AM_CPPFLAGS = \
 	-DCB_LOCALEDIR=\"$(relative_localedir)\"
 
 LDADD = \
-	cbe/libcbe.a \
 	$(SDL_LIBS) \
 	$(SDL_IMAGE_LIBS) \
 	$(SDL_MIXER_LIBS) \
@@ -132,4 +131,23 @@ clanbomber2_SOURCES = \
 	UtilsSleep.cpp \
 	UtilsSleep.h \
 	UtilsGetHome.cpp \
-	UtilsGetHome.h
+	UtilsGetHome.h \
+	AudioBuffer.h \
+	AudioBufferSDL.cpp \
+	AudioBufferSDL.h \
+	AudioSimple.h \
+	AudioSimpleSDL.cpp \
+	AudioSimpleSDL.h \
+	Factories.hpp \
+	FactoriesSDL.hpp \
+	Music.h \
+	MusicSDL.cpp \
+	MusicSDL.h \
+	Font.h \
+	FontSDL.cpp \
+	FontSDL.h \
+	Surface.h \
+	SurfaceSDL.cpp \
+	SurfaceSDL.h \
+	PluginManager.cpp \
+	PluginManager.h

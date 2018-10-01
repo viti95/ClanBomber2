@@ -26,7 +26,7 @@
 #include <string>
 
 #include "Factories.hpp"
-#include "SDL/FactoriesSDL.hpp"
+#include "FactoriesSDL.hpp"
 
 namespace cbe
 {
@@ -38,7 +38,6 @@ namespace cbe
 
   void PluginManager::registerPluginFactory(AudioSimpleFactory *ASF)
   {
-    std::cout << "Pushing " << ASF->getName() << std::endl;
     ASFactories.push_back(ASF);
   }
 
