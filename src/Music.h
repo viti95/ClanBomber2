@@ -28,6 +28,7 @@ namespace cbe
   class Music
   {
   public:
+    virtual bool isPlaying() = 0;
     virtual void playLoop() = 0;
     virtual void stop() = 0;
   };

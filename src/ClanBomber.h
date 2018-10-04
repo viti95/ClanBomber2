@@ -183,8 +183,8 @@ protected:
     static boost::filesystem::path map_path;
     static boost::filesystem::path local_map_path;
 
-    bool key_F1;
     bool show_fps;
+    bool play_music;
     int fps;
     int frame_count;
     float frame_time;
@@ -199,4 +199,3 @@ private:
 };
 
 #endif
-

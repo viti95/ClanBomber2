@@ -38,14 +38,25 @@ namespace cbe
     Mix_FreeMusic(msc);
     msc=NULL;
   }
-  
+
+  bool MusicSDL::isPlaying()
+  {
+    if (msc == NULL) return false;
+
+    return Mix_PlayingMusic();
+  }
+
   void MusicSDL::playLoop()
   {
-	Mix_PlayMusic(msc, -1);  
+    if (msc == NULL) return;
+
+    Mix_PlayMusic(msc, -1);
   }
-  
+
   void MusicSDL::stop()
   {
-	Mix_HaltMusic();
+    if (msc == NULL) return;
+
+    Mix_HaltMusic();
   }
 };

@@ -35,6 +35,7 @@ namespace cbe
   public:
     MusicSDL(boost::filesystem::path filename);
     ~MusicSDL();
+    virtual bool isPlaying();
     virtual void playLoop();
     virtual void stop();
   private:

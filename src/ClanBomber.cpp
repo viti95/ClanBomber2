@@ -204,8 +204,7 @@ int ClanBomberApplication::main() {
 	}
 
 	show_fps = false;
-	key_F1 = false;
-
+	play_music = false;
 	map_path = CB_DATADIR
 	"/maps";
 
@@ -563,7 +562,8 @@ void ClanBomberApplication::inc_server_frame_counter() {
 
 void ClanBomberApplication::run_game() {
 
-	Resources::Music()->playLoop();
+	if(play_music && !Resources::Music()->isPlaying())
+		Resources::Music()->playLoop();
 
 	Timer::reset();
 
@@ -576,16 +576,25 @@ void ClanBomberApplication::run_game() {
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_KEYDOWN) {
 				switch (event.key.keysym.sym) {
-				case SDLK_p:
-					break;
 				case SDLK_F1:
 					show_fps = !show_fps;
 					break;
-				case SDLK_t:
+				case SDLK_F2:
+				  play_music = !play_music;
 					break;
 				case SDLK_ESCAPE:
 					escape = true;
 				}
+			}
+		}
+
+		if (play_music){
+			if (!Resources::Music()->isPlaying()){
+				Resources::Music()->playLoop();
+			}
+		}else{
+			if (Resources::Music()->isPlaying()){
+				Resources::Music()->stop();
 			}
 		}
 
@@ -625,8 +634,8 @@ void ClanBomberApplication::run_game() {
 		}
 	}
 
-	Resources::Music()->stop();
-
+	if (Resources::Music()->isPlaying())
+		Resources::Music()->stop();
 }
 
 int ClanBomberApplication::get_server_status() {
