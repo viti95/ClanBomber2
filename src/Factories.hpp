@@ -35,7 +35,6 @@ namespace cbe
   {
   public:
     virtual T *create() = 0;
-    virtual std::string getName() = 0;
   };
 
   //Teplate for the creation of implementations for subsystems
@@ -48,10 +47,6 @@ namespace cbe
     PA *create()
     {
       return new P();
-    }
-    std::string getName()
-    {
-      return P::getName();
     }
   };
 

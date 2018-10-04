@@ -148,6 +148,4 @@ clanbomber2_SOURCES = \
 	FontSDL.h \
 	Surface.h \
 	SurfaceSDL.cpp \
-	SurfaceSDL.h \
-	PluginManager.cpp \
-	PluginManager.h
+	SurfaceSDL.h

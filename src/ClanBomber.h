@@ -28,7 +28,6 @@
 
 #include <boost/filesystem.hpp>
 
-#include "PluginManager.h"
 #include "AudioSimple.h"
 
 //XXX Not needed here but in most files that include this one
@@ -196,7 +195,6 @@ protected:
     bool client_connecting_to_new_server;
 
 private:
-    cbe::PluginManager *PM;
     cbe::AudioSimple *AS;
 };
 

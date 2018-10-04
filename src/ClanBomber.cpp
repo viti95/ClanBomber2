@@ -51,7 +51,8 @@
 #include "Utils.h"
 #include "UtilsSleep.h"
 #include "UtilsGetHome.h"
-#include "PluginManager.h"
+#include "AudioSimple.h"
+#include "AudioSimpleSDL.h"
 
 ClanBomberApplication *app;
 
@@ -137,9 +138,7 @@ int ClanBomberApplication::init_SDL() {
 
 	SDL_WM_SetCaption(PACKAGE_STRING, NULL);
 
-	PM = new cbe::PluginManager();
-	PM->search();
-	AS = PM->createAudioSimple("SDL");
+	AS = new cbe::AudioSimpleSDL();
 	if (AS == NULL) {
 		std::cerr << _("Cannot initialise the requested audio plugin!")
 				<< std::endl;

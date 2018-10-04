@@ -38,7 +38,6 @@ namespace cbe
     ~AudioSimpleSDL();
     AudioBuffer *createBuffer(boost::filesystem::path filename);
     Music *createMusic(boost::filesystem::path filename);
-    static std::string getName() {return "SDL";};
   private:
     unsigned int initialized;
   };
