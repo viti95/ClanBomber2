@@ -243,7 +243,7 @@ msgstr ""
 
 # El programa tiene problemas con el acento, ya que cada byte es reconocido como una letra y no siempre es asi.
 #: src/ClanBomber.cpp:1468
-msgid "A WORLD  DOMINATION PROJECT"
+msgid "A WORLD DOMINATION PROJECT"
 msgstr "UN PROYECTO DE DOMINACIÓN MUNDIAL"
 
 #: src/ClanBomber.cpp:1556

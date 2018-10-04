@@ -237,7 +237,7 @@ msgid "%1$d fps"
 msgstr ""
 
 #: src/ClanBomber.cpp:1468
-msgid "A WORLD  DOMINATION PROJECT"
+msgid "A WORLD DOMINATION PROJECT"
 msgstr ""
 
 #: src/ClanBomber.cpp:1556
