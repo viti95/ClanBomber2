@@ -138,8 +138,6 @@ clanbomber2_SOURCES = \
 	AudioSimple.h \
 	AudioSimpleSDL.cpp \
 	AudioSimpleSDL.h \
-	Factories.hpp \
-	FactoriesSDL.hpp \
 	Music.h \
 	MusicSDL.cpp \
 	MusicSDL.h \
