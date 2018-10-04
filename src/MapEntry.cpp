@@ -26,7 +26,6 @@
 #include <boost/filesystem/fstream.hpp>
 #include "ClanBomber.h"
 #include "MapEntry.h"
-#include "UtilsAccess.h"
 
 static char map_template[MAP_HEIGHT][MAP_WIDTH] = {	{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
     {'*','0',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','2','*'},
@@ -54,7 +53,7 @@ MapEntry::MapEntry(boost::filesystem::path _path,
     map_name = filename.stem().string();
 
     // is the file writable?
-    if (access(path / filename, W_OK) == 0)
+    if (access((path / filename).string().c_str(), W_OK) == 0)
     {
         writable = true;
     }

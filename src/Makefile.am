@@ -126,10 +126,6 @@ clanbomber2_SOURCES = \
 	Utils.h \
 	gettext.h \
 	UtilsCL_Vector.h \
-	UtilsAccess.cpp \
-	UtilsAccess.h \
-	UtilsSleep.cpp \
-	UtilsSleep.h \
 	UtilsGetHome.cpp \
 	UtilsGetHome.h \
 	AudioBuffer.h \

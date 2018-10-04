@@ -49,7 +49,6 @@
 #include "MapSelector.h"
 #include "Bomb.h"
 #include "Utils.h"
-#include "UtilsSleep.h"
 #include "UtilsGetHome.h"
 #include "AudioSimple.h"
 #include "AudioSimpleSDL.h"
