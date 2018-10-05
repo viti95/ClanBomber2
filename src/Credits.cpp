@@ -185,7 +185,7 @@ void Credits::exec()
                 for (; t>0.04f; t-=0.04f)
                 {
                     Corpse_Part* cp = new Corpse_Part( WELLRNG512()%800-60, -40, app );
-                    cp->fly_to( WELLRNG512()%800-60, 540 );
+                    cp->fly_to( WELLRNG512()%800-60, WELLRNG512()%600-60 );
                     Resources::Splash(WELLRNG512()%2)->play();
                 }
             }
