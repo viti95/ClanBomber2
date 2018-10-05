@@ -4,13 +4,13 @@ AC_INIT([ClanBomber], [2.3.0], [rsl@members.fsf.org])
 AM_INIT_AUTOMAKE([-Wall -Werror])
 
 
-#CXXFLAGS="-std=c++11 -Ofast -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -lpthread -DNDEBUG"
-CXXFLAGS="-std=c++11 -Ofast -march=native -ftree-vectorize -lpthread -DNDEBUG"
-#CXXFLAGS="-std=c++11 -Ofast -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -lpthread -DNDEBUG"
+#CXXFLAGS="-std=c++11 -Ofast -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
+CXXFLAGS="-std=c++11 -Ofast -march=native -ftree-vectorize -DNDEBUG"
+#CXXFLAGS="-std=c++11 -Ofast -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
 
-#CFLAGS="-std=c++11 -Ofast -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -lpthread -DNDEBUG"
-CFLAGS="-std=c++11 -Ofast -march=native -ftree-vectorize -lpthread -DNDEBUG"
-#CFLAGS="-std=c++11 -Ofast -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -lpthread -DNDEBUG"
+#CFLAGS="-std=c++11 -Ofast -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
+CFLAGS="-std=c++11 -Ofast -march=native -ftree-vectorize -DNDEBUG"
+#CFLAGS="-std=c++11 -Ofast -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
 
 AC_PROG_CXX
 AC_LANG([C++])
@@ -24,11 +24,8 @@ AM_GNU_GETTEXT([external])
 #
 
 AX_BOOST_BASE([1.55])
-AX_BOOST_ASIO
 AX_BOOST_FILESYSTEM
 AX_BOOST_SYSTEM
-#AX_BOOST_THREAD
-
 
 #
 # Check for SDL 1.2.0
@@ -90,21 +87,6 @@ AC_CHECK_LIB(
 	AC_MSG_ERROR([*** SDL_gfx requiered])
 )
 AC_SUBST(SDL_GFX_LIBS)
-
-#
-# Enable TCP only
-#
-
-AC_ARG_ENABLE(
-	[tcp-only],
-	[  --enable-tcp-only       enable tcp-only networking/protocol (default=no)],
-	,
-	[enable_tcp_only=no]
-)
-
-if test x$enable_tcp_only = xyes; then
-	AC_DEFINE(ENABLE_TCP_ONLY, 1, [define if you want tcp-only networking/protocol])
-fi
 
 #
 # Enable console
