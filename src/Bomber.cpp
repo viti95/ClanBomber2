@@ -47,6 +47,8 @@
 
 #include <sys/time.h>
 
+#include <boost/math/constants/constants.hpp>
+
 Bomber::Bomber( int _x, int _y, COLOR _color, Controller* _controller, std::string _name, int _team, int _number, ClanBomberApplication *_app) : GameObject( _x, _y, _app )
 {
     name = _name;
@@ -187,7 +189,8 @@ void Bomber::show()
 {
     if (disease && !dead && !falling)
     {
-        GameObject::show((int)x+60,(int)y+40,sin( Timer::get_time() / 50.0f )  *  0.15f+1);
+        float scale = sin(fmod(Timer::get_time() / 50.0,2.0*boost::math::constants::pi<double>()))  * 0.15f + 1.0f;
+        GameObject::show((int)x+60,(int)y+40,scale);
     }
     else if (!dead && cur_dir != DIR_NONE)
     {
