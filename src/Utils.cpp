@@ -239,7 +239,7 @@ int CB_EnterText(std::string &new_string)
                 
                 if (event.key.keysym.sym >= 32 && event.key.keysym.sym != 127){
                     char temp[2] = {0,0};
-                    printf("%s -- %d CHAR: %c\n", str.c_str(), cursor, event.key.keysym.sym);
+                    //printf("%s -- %d CHAR: %c\n", str.c_str(), cursor, event.key.keysym.sym);
                     temp[0] = *(SDL_GetKeyName(event.key.keysym.sym));
                     //str += temp;
                     str = str.substr(0, cursor) + temp + str.substr(cursor, str.length()-cursor);
