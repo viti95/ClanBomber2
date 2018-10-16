@@ -597,10 +597,14 @@ void ClanBomberApplication::run_game() {
 					show_fps = !show_fps;
 					break;
 				case SDL_SCANCODE_F2:
-				  play_music = !play_music;
+					play_music = !play_music;
+					break;
+				case SDL_SCANCODE_F3:
+					pause_game = !pause_game;
 					break;
 				case SDL_SCANCODE_ESCAPE:
 					escape = true;
+					break;
 				}
 			}
 		}
@@ -886,6 +890,9 @@ void ClanBomberApplication::run_intro() {
 	std::mbstowcs(wstr, domination.c_str(), domination.length() + 1);
 	std::wstring domihack(wstr);
 #endif
+
+	CB_FillRect(0, 0, 800, 600, 0, 0, 0);
+	CB_Flip();
 
 	sleep(2);
 
