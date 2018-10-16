@@ -81,23 +81,22 @@ void MapSelector::exec()
         {
             if (event.type == SDL_KEYDOWN)
             {
-                switch (event.key.keysym.sym)
+                switch (event.key.keysym.scancode)
                 {
-                case SDLK_BACKSPACE:
-                case SDLK_ESCAPE:
+                case SDL_SCANCODE_BACKSPACE:
+                case SDL_SCANCODE_ESCAPE:
                     Config::set_start_map( current_map );
                     Config::save();
                     map->save_selection();
                     return;
                     break;
-                //case DIKS_OK:
-                case SDLK_SPACE:
+                case SDL_SCANCODE_SPACE:
                 {
                     map->map_list[current_map]->toggle();
                     Resources::Menu_clear()->play();
                 }
                 break;
-                case SDLK_a:
+                case SDL_SCANCODE_A:
                 {
                     for (int i=0; i<map->get_map_count(); i++)
                     {
@@ -106,7 +105,7 @@ void MapSelector::exec()
                     Resources::Menu_clear()->play();
                 }
                 break;
-                case SDLK_s:
+                case SDL_SCANCODE_S:
                 {
                     for (int i=0; i<map->get_map_count(); i++)
                     {
@@ -116,7 +115,7 @@ void MapSelector::exec()
                     Resources::Menu_clear()->play();
                 }
                 break;
-                case SDLK_UP:
+                case SDL_SCANCODE_UP:
                     if (current_map > 0)
                     {
                         current_map--;
@@ -129,7 +128,7 @@ void MapSelector::exec()
                         map->load( current_map );
                     }
                     break;
-                case SDLK_DOWN:
+                case SDL_SCANCODE_DOWN:
                     if (current_map < map->get_map_count()-1)
                     {
                         current_map++;
@@ -142,7 +141,7 @@ void MapSelector::exec()
                         map->load( current_map );
                     }
                     break;
-                case SDLK_LEFT:
+                case SDL_SCANCODE_LEFT:
                     if (current_theme > 0)
                     {
                         current_theme--;
@@ -151,7 +150,7 @@ void MapSelector::exec()
                         map->load( current_map );
                     }
                     break;
-                case SDLK_RIGHT:
+                case SDL_SCANCODE_RIGHT:
                     if (current_theme < 5)
                     {
                         current_theme++;

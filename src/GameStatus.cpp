@@ -67,11 +67,11 @@ GameStatus::show ()
         {
             if (event.type == SDL_KEYDOWN)
             {
-                switch (event.key.keysym.sym)
+                switch (event.key.keysym.scancode)
                 {
-                case SDLK_SPACE:
+                case SDL_SCANCODE_SPACE:
                     space_pressed = true;
-                case SDLK_LEFT:	//Is a need for this
+                case SDL_SCANCODE_LEFT:	//Is a need for this
                     break;
                 default:
                     ;

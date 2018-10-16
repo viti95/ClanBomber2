@@ -371,9 +371,9 @@ int Menu::execute(bool options_menu_hack)
         MenuItem* current  = get_item_by_id(current_run_id);
         MenuItem* menu_sel = 0;
 
-        switch (event.key.keysym.sym)
+        switch (event.key.keysym.scancode)
         {
-        case SDLK_DOWN:
+        case SDL_SCANCODE_DOWN:
             current_selection++;
             if (current_selection > current->children.size())
             {
@@ -383,7 +383,7 @@ int Menu::execute(bool options_menu_hack)
             must_redraw = true;
             Resources::Menu_break()->play();
             break;
-        case SDLK_UP:
+        case SDL_SCANCODE_UP:
             current_selection--;
             if (current_selection < 1)
             {
@@ -392,7 +392,7 @@ int Menu::execute(bool options_menu_hack)
             must_redraw = true;
             Resources::Menu_break()->play();
             break;
-        case SDLK_RIGHT:
+        case SDL_SCANCODE_RIGHT:
             menu_sel = current->children[current_selection-1];
             if (menu_sel->get_type() == MenuItem::MT_VALUE)
             {
@@ -409,7 +409,7 @@ int Menu::execute(bool options_menu_hack)
                 return menu_sel->get_id();
             }
             break;
-        case SDLK_LEFT:
+        case SDL_SCANCODE_LEFT:
             menu_sel = current->children[current_selection-1];
             if (menu_sel->get_type() == MenuItem::MT_VALUE)
             {
@@ -426,7 +426,7 @@ int Menu::execute(bool options_menu_hack)
                 return menu_sel->get_id();
             }
             break;
-        case SDLK_RETURN:
+        case SDL_SCANCODE_RETURN:
             if (current->children[current_selection-1]->has_children())
             {
                 current_run_id = current->children[current_selection-1]->get_id();
@@ -439,7 +439,7 @@ int Menu::execute(bool options_menu_hack)
                 return current->children[current_selection-1]->get_id();
             }
             break;
-        case SDLK_ESCAPE:
+        case SDL_SCANCODE_ESCAPE:
             if (options_menu_hack && current->get_parent() < 0)
             {
                 return -23;

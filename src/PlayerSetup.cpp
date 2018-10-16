@@ -67,19 +67,18 @@ void PlayerSetup::exec()
             }
         }
 
-        switch (event.key.keysym.sym)
+        switch (event.key.keysym.scancode)
         {
-        case SDLK_BACKSPACE:
-        case SDLK_ESCAPE:
+        case SDL_SCANCODE_BACKSPACE:
+        case SDL_SCANCODE_ESCAPE:
             return;
             break;
-        //case DIKS_OK:
-        case SDLK_RETURN:
+        case SDL_SCANCODE_RETURN:
             Resources::Menu_clear()->play();
             handle_enter();
             Config::save();
             break;
-        case SDLK_SPACE:
+        case SDL_SCANCODE_SPACE:
             if (Config::bomber[cur_row].is_enabled())
             {
                 Config::bomber[cur_row].disable();
@@ -91,24 +90,24 @@ void PlayerSetup::exec()
             Config::save();
             Resources::Menu_clear()->play();
             break;
-        case SDLK_h:
+        case SDL_SCANCODE_H:
             Config::bomber[cur_row].set_highlight_maptile(!Config::bomber[cur_row].get_highlight_maptile());
             Config::save();
             Resources::Menu_clear()->play();
             break;
-        case SDLK_DOWN:
+        case SDL_SCANCODE_DOWN:
             cur_row += (cur_row<7) ? 1 : 0;
             Resources::Menu_break()->play();
             break;
-        case SDLK_UP:
+        case SDL_SCANCODE_UP:
             cur_row -= (cur_row>0) ? 1 : 0;
             Resources::Menu_break()->play();
             break;
-        case SDLK_LEFT:
+        case SDL_SCANCODE_LEFT:
             cur_col -= (cur_col>0) ? 1 : 0;
             Resources::Menu_break()->play();
             break;
-        case SDLK_RIGHT:
+        case SDL_SCANCODE_RIGHT:
             cur_col += (cur_col<3) ? 1 : 0;
             Resources::Menu_break()->play();
             break;

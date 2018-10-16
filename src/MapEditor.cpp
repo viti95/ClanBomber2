@@ -80,28 +80,27 @@ void MapEditor::exec()
         {
             if (event.type == SDL_KEYDOWN)
             {
-                switch(event.key.keysym.sym)
+                switch(event.key.keysym.scancode)
                 {
-                case SDLK_BACKSPACE:
-                case SDLK_ESCAPE:
+                case SDL_SCANCODE_BACKSPACE:
+                case SDL_SCANCODE_ESCAPE:
                     return;
                     break;
-                //case DIKS_OK:
-                case SDLK_RETURN:
+                case SDL_SCANCODE_RETURN:
                     if (map->map_list[current_map]->is_writable())
                     {
                         Resources::Menu_clear()->play();
                         edit_map( current_map );
                     }
                     break;
-                case SDLK_n:
+                case SDL_SCANCODE_N:
                     Resources::Menu_clear()->play();
                     if ( new_map() )
                     {
                         edit_map( current_map );
                     }
                     break;
-                case SDLK_d:
+                case SDL_SCANCODE_D:
                     if (map->map_list[current_map]->is_writable())
                     {
                         Resources::Menu_clear()->play();
@@ -109,7 +108,7 @@ void MapEditor::exec()
                         map_at_top = std::min( current_map-8, map->get_map_count()-16 );
                     }
                     break;
-                case SDLK_UP:
+                case SDL_SCANCODE_UP:
                     if (current_map > 0)
                     {
                         current_map--;
@@ -121,7 +120,7 @@ void MapEditor::exec()
                         Resources::Menu_break()->play();
                     }
                     break;
-                case SDLK_DOWN:
+                case SDL_SCANCODE_DOWN:
                     if (current_map < map->get_map_count()-1)
                     {
                         current_map++;
@@ -255,16 +254,16 @@ void MapEditor::edit_map( int number )
         {
             if(event.type == SDL_KEYUP)
             {
-                switch (event.key.keysym.sym)
+                switch (event.key.keysym.scancode)
                 {
-                case SDLK_ESCAPE:
+                case SDL_SCANCODE_ESCAPE:
                     entry->write_back();
                     return;
                     break;
-                case SDLK_F1: // help screen
+                case SDL_SCANCODE_F1: // help screen
                     show_help();
                     break;
-                case SDLK_F2: // editor_mode
+                case SDL_SCANCODE_F2: // editor_mode
                     text_editor_mode = !text_editor_mode;
                     Resources::Menu_clear()->play();
                     break;
@@ -276,9 +275,9 @@ void MapEditor::edit_map( int number )
             {
                 bool maptile_set = true;
 
-                switch (event.key.keysym.sym)
+                switch (event.key.keysym.scancode)
                 {
-                case SDLK_BACKSPACE:
+                case SDL_SCANCODE_BACKSPACE:
                     maptile_set = false;
                     Resources::Menu_clear()->play();
                     cur_x--;
@@ -286,134 +285,134 @@ void MapEditor::edit_map( int number )
                     entry->set_data(cur_x,cur_y,'-');
                     map->reload();
                     break;
-                case SDLK_PAGEUP: // increase number of players
+                case SDL_SCANCODE_PAGEUP: // increase number of players
                     maptile_set = false;
                     Resources::Menu_clear()->play();
                     entry->set_max_players(entry->get_max_players()+1);
                     map->reload();
                     break;
-                case SDLK_PAGEDOWN: // decrease number of players
+                case SDL_SCANCODE_PAGEDOWN: // decrease number of players
                     maptile_set = false;
                     Resources::Menu_clear()->play();
                     entry->set_max_players(entry->get_max_players()-1);
                     map->reload();
                     break;
-                case SDLK_SPACE: // none
+                case SDL_SCANCODE_SPACE: // none
                     Resources::Menu_clear()->play();
                     entry->set_data(cur_x,cur_y,'-');
                     map->reload();
                     break;
-                case SDLK_a: // author
+                case SDL_SCANCODE_A: // author
                     maptile_set = false;
                     Resources::Menu_break()->play();
                     entry->set_author( get_new_author() );
                     break;
-                case SDLK_g: // ground
+                case SDL_SCANCODE_G: // ground
                     Resources::Menu_clear()->play();
                     entry->set_data(cur_x,cur_y,' ');
                     map->reload();
                     break;
-                case SDLK_w: // wall
+                case SDL_SCANCODE_W: // wall
                     Resources::Menu_clear()->play();
                     entry->set_data(cur_x,cur_y,'*');
                     map->reload();
                     break;
-                case SDLK_b: // box
+                case SDL_SCANCODE_B: // box
                     Resources::Menu_clear()->play();
                     entry->set_data(cur_x,cur_y,'+');
                     map->reload();
                     break;
-                case SDLK_r: // random box
+                case SDL_SCANCODE_R: // random box
                     Resources::Menu_clear()->play();
                     entry->set_data(cur_x,cur_y,'R');
                     map->reload();
                     break;
-                case SDLK_h: // arrow left
+                case SDL_SCANCODE_H: // arrow left
                     Resources::Menu_clear()->play();
                     entry->set_data(cur_x,cur_y,'<');
                     map->reload();
                     break;
-                case SDLK_k: // arrow right
+                case SDL_SCANCODE_K: // arrow right
                     Resources::Menu_clear()->play();
                     entry->set_data(cur_x,cur_y,'>');
                     map->reload();
                     break;
-                case SDLK_u: // arrow up
+                case SDL_SCANCODE_U: // arrow up
                     Resources::Menu_clear()->play();
                     entry->set_data(cur_x,cur_y,'^');
                     map->reload();
                     break;
-                case SDLK_j: // arrow down
+                case SDL_SCANCODE_J: // arrow down
                     Resources::Menu_clear()->play();
                     entry->set_data(cur_x,cur_y,'v');
                     map->reload();
                     break;
-                case SDLK_i: // ice
+                case SDL_SCANCODE_I: // ice
                     Resources::Menu_clear()->play();
                     entry->set_data(cur_x,cur_y,'S');
                     map->reload();
                     break;
-                case SDLK_o: // bomb trap
+                case SDL_SCANCODE_O: // bomb trap
                     Resources::Menu_clear()->play();
                     entry->set_data(cur_x,cur_y,'o');
                     map->reload();
                     break;
-                case SDLK_1: // place first player
+                case SDL_SCANCODE_1: // place first player
                     Resources::Menu_clear()->play();
                     entry->set_bomber_pos(cur_x,cur_y, 0);
                     map->reload();
                     break;
-                case SDLK_2:
+                case SDL_SCANCODE_2:
                     Resources::Menu_clear()->play();
                     entry->set_bomber_pos(cur_x,cur_y, 1);
                     map->reload();
                     break;
-                case SDLK_3:
+                case SDL_SCANCODE_3:
                     Resources::Menu_clear()->play();
                     entry->set_bomber_pos(cur_x,cur_y, 2);
                     map->reload();
                     break;
-                case SDLK_4:
+                case SDL_SCANCODE_4:
                     Resources::Menu_clear()->play();
                     entry->set_bomber_pos(cur_x,cur_y, 3);
                     map->reload();
                     break;
-                case SDLK_5:
+                case SDL_SCANCODE_5:
                     Resources::Menu_clear()->play();
                     entry->set_bomber_pos(cur_x,cur_y, 4);
                     map->reload();
                     break;
-                case SDLK_6:
+                case SDL_SCANCODE_6:
                     Resources::Menu_clear()->play();
                     entry->set_bomber_pos(cur_x,cur_y, 5);
                     map->reload();
                     break;
-                case SDLK_7:
+                case SDL_SCANCODE_7:
                     Resources::Menu_clear()->play();
                     entry->set_bomber_pos(cur_x,cur_y, 6);
                     map->reload();
                     break;
-                case SDLK_8:
+                case SDL_SCANCODE_8:
                     Resources::Menu_clear()->play();
                     entry->set_bomber_pos(cur_x,cur_y, 7);
                     map->reload();
                     break;
-                case SDLK_LEFT:
+                case SDL_SCANCODE_LEFT:
                     maptile_set = false;
                     Resources::Menu_break()->play();
                     cur_x--;
                     break;
-                case SDLK_RIGHT:
+                case SDL_SCANCODE_RIGHT:
                     maptile_set = false;
                     Resources::Menu_break()->play();
                     cur_x++;
                     break;
-                case SDLK_UP:
+                case SDL_SCANCODE_UP:
                     maptile_set = false;
                     Resources::Menu_break()->play();
                     cur_y--;
                     break;
-                case SDLK_DOWN:
+                case SDL_SCANCODE_DOWN:
                     maptile_set = false;
                     Resources::Menu_break()->play();
                     cur_y++;

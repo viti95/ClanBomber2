@@ -193,56 +193,59 @@ int CB_EnterText(std::string &new_string)
     int cursor = str.length();
     int cursorx = 0;
 
-    //SDL_EnableUNICODE(1);
-    //SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
-
     while(SDL_WaitEvent(&event))
     {
         if(event.type == SDL_KEYDOWN)
         {
-            switch(event.key.keysym.sym)
+            switch(event.key.keysym.scancode)
             {
-            case SDLK_RETURN:
+            case SDL_SCANCODE_RETURN:
                 new_string = str;
-                //SDL_EnableUNICODE(0);
-                //SDL_EnableKeyRepeat(0, 0);
                 return 1;
-            case SDLK_ESCAPE:
-                //SDL_EnableUNICODE(0);
-                //SDL_EnableKeyRepeat(0, 0);
+            case SDL_SCANCODE_ESCAPE:
                 return -1;
-            case SDLK_BACKSPACE:
+            case SDL_SCANCODE_BACKSPACE:
                 if(cursor > 0)
                 {
                     str = str.substr(0, cursor - 1)+ str.substr(cursor, str.length());
                     cursor--;
                 }
                 break;
-            case SDLK_DELETE:
+            case SDL_SCANCODE_DELETE:
                 if(cursor < str.length())
                 {
                     str = str.substr(0, cursor)+ str.substr(cursor + 1, str.length());
                 }
                 break;
-            case SDLK_LEFT:
+            case SDL_SCANCODE_LEFT:
                 if(cursor > 0)
                     cursor--;
                 break;
-            case SDLK_UP:
-            case SDLK_HOME:
-            case SDLK_PAGEUP:
+            case SDL_SCANCODE_UP:
+            case SDL_SCANCODE_HOME:
+            case SDL_SCANCODE_PAGEUP:
                 cursor = 0;
                 break;
-            case SDLK_DOWN:
-            case SDLK_END:
-            case SDLK_PAGEDOWN:
+            case SDL_SCANCODE_DOWN:
+            case SDL_SCANCODE_END:
+            case SDL_SCANCODE_PAGEDOWN:
                 cursor = str.length();
                 break;
-            case SDLK_RIGHT:
+            case SDL_SCANCODE_RIGHT:
                 if(cursor < str.length())
                     cursor++;
                 break;
             default:
+                
+                if (event.key.keysym.sym >= 32 && event.key.keysym.sym != 127){
+                    char temp[2] = {0,0};
+                    printf("%s -- %d CHAR: %c\n", str.c_str(), cursor, event.key.keysym.sym);
+                    temp[0] = *(SDL_GetKeyName(event.key.keysym.sym));
+                    //str += temp;
+                    str = str.substr(0, cursor) + temp + str.substr(cursor, str.length()-cursor);
+                    cursor++;
+                }
+
                 break;
 
                 // TODO FIX THIS

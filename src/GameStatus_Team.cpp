@@ -74,9 +74,9 @@ void GameStatus_Team::show()
         {
             if (event.type == SDL_KEYDOWN)
             {
-                switch (event.key.keysym.sym)
+                switch (event.key.keysym.scancode)
                 {
-                case SDLK_SPACE:
+                case SDL_SCANCODE_SPACE:
                     space_pressed = true;
                     break;
                 default:

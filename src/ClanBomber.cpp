@@ -220,8 +220,8 @@ int ClanBomberApplication::main() {
 		return -1;
 	}
 
-	show_fps = true;
-	play_music = true;
+	show_fps = false;
+	play_music = false;
 	map_path = CB_DATADIR
 	"/maps";
 
@@ -592,7 +592,7 @@ void ClanBomberApplication::run_game() {
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_KEYDOWN) {
-				switch (event.key.keysym.sym) {
+				switch (event.key.keysym.scancode) {
 				case SDL_SCANCODE_F1:
 					show_fps = !show_fps;
 					break;

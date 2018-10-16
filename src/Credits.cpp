@@ -103,29 +103,29 @@ void Credits::exec()
             switch(event.type)
             {
             case SDL_KEYDOWN:
-                switch(event.key.keysym.sym)
+                switch(event.key.keysym.scancode)
                 {
-                case SDLK_ESCAPE:
+                case SDL_SCANCODE_ESCAPE:
                     escape = true;
                     break;
-                case SDLK_UP:
+                case SDL_SCANCODE_UP:
                     up = true;
                     break;
-                case SDLK_DOWN:
+                case SDL_SCANCODE_DOWN:
                     down = true;
                     break;
                 }
                 break;
             case SDL_KEYUP:
-                switch(event.key.keysym.sym)
+                switch(event.key.keysym.scancode)
                 {
-                case SDLK_ESCAPE:
+                case SDL_SCANCODE_ESCAPE:
                     escape = false;
                     break;
-                case SDLK_UP:
+                case SDL_SCANCODE_UP:
                     up = false;
                     break;
-                case SDLK_DOWN:
+                case SDL_SCANCODE_DOWN:
                     down = false;
                     break;
                 }
