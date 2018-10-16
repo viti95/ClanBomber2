@@ -22,10 +22,10 @@
 
 #include "FontSDL.h"
 #include "Font.h"
-#include <SDL/SDL.h>
-#include <SDL/SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 
-extern SDL_Surface *primary;
+extern SDL_Renderer *renderer;
 
 namespace cbe
 {
@@ -47,10 +47,12 @@ namespace cbe
   void FontSDL::render(const std::string &text, int x, int y,
                        FontAlignment alignment)
   {
-    SDL_Rect rect = {x, y, 0, 0};
+    SDL_Rect rect;
+    rect.x = x;
+    rect.y = y;
 
     SDL_Color color = {0xd3, 0xd7, 0xcf};
-    
+
     SDL_Surface *textSurface = NULL;
     if(high_quality) {
       textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
@@ -59,9 +61,9 @@ namespace cbe
     }
 
     //Empty string used in TTF_RenderUTF8_Solid returns NULL
-    if(textSurface == NULL) 
+    if(textSurface == NULL)
       return;
-  
+
     //horizontal alignment
     if(alignment & FontAlignment_0center) {
       rect.x -= textSurface->w/2;
@@ -78,9 +80,27 @@ namespace cbe
       rect.y -= TTF_FontAscent(font);
     }
 
-    SDL_BlitSurface(textSurface, NULL, primary, &rect);
+    rect.w = textSurface->w;
+    rect.h = textSurface->h;
 
+    SDL_Rect orig;
+    orig.x=0;
+    orig.y=0;
+    orig.w=textSurface->w;
+    orig.h=textSurface->h;
+
+    SDL_Texture *textTexture;
+    textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    SDL_SetTextureBlendMode(textTexture, SDL_BLENDMODE_BLEND);
+
+    SDL_RenderCopy(renderer, textTexture, &orig, &rect);
+
+    SDL_DestroyTexture(textTexture);
     SDL_FreeSurface(textSurface);
+
+    //SDL_BlitSurface(textSurface, NULL, primary, &rect);
+
+    //SDL_FreeSurface(textSurface);
   }
 
   void FontSDL::render(const std::wstring &text, int x, int y,
@@ -91,7 +111,7 @@ namespace cbe
     render(utf8text, x, y, alignment);
     SDL_free(utf8text);
   }
-    
+
   void FontSDL::getSize(const std::string &text, int *w, int *h)
   {
     TTF_SizeUTF8(font, text.c_str(), w, h);

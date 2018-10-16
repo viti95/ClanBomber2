@@ -26,7 +26,7 @@
 #include <boost/filesystem.hpp>
 
 #include "Music.h"
-#include <SDL/SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 
 namespace cbe
 {

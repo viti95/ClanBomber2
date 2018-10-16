@@ -25,9 +25,9 @@
 
 #include <string>
 
-#include <SDL/SDL.h>
-#include <SDL/SDL_ttf.h>
-#include <SDL/SDL_mixer.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 
 //required for ENABLE_NLS
 #include "config.h"
@@ -43,7 +43,7 @@ void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b);
 void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b,
 		Uint8 a);
 void CB_WaitForKeypress();
-void CB_BatchBlit(SDL_Surface *src, SDL_Rect *srcRects, SDL_Rect *destRects,
+void CB_BatchBlit(SDL_Texture *texture, SDL_Rect *srcRects, SDL_Rect *destRects,
 		int num);
 void CB_FillRects(SDL_Rect *rects, int num, Uint8 r, Uint8 g, Uint8 b, Uint8 a =
 		0xFF);

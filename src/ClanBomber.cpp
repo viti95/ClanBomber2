@@ -32,7 +32,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/format.hpp>
 #include <boost/thread.hpp>
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 
 #include "config.h"
 #include "Controller.h"
@@ -55,8 +55,9 @@
 
 ClanBomberApplication *app;
 
-SDL_Surface *primary = NULL;
-Uint8 *keyboard = NULL;
+SDL_Renderer *renderer = NULL;
+SDL_Window *gameWindow = NULL;
+const Uint8 *keyboard = NULL;
 
 boost::filesystem::path ClanBomberApplication::map_path;
 boost::filesystem::path ClanBomberApplication::local_map_path;
@@ -126,16 +127,33 @@ int ClanBomberApplication::init_SDL() {
 		return -1;
 	}
 
-	keyboard = SDL_GetKeyState(NULL);
+	keyboard = SDL_GetKeyboardState(NULL);
 
 	Uint32 fullscreen = 0;
 	if (Config::get_fullscreen()) {
-		fullscreen = SDL_FULLSCREEN;
+		fullscreen = SDL_WINDOW_FULLSCREEN;
 	}
-	primary = SDL_SetVideoMode(800, 600, 16,
-	SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_ASYNCBLIT | fullscreen);
+	//primary = SDL_SetVideoMode(800, 600, 16, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_ASYNCBLIT | fullscreen);
 
-	SDL_WM_SetCaption(PACKAGE_STRING, NULL);
+	//SDL_WM_SetCaption(PACKAGE_STRING, NULL);
+
+
+	gameWindow = SDL_CreateWindow(PACKAGE_STRING,
+                          SDL_WINDOWPOS_UNDEFINED,
+                          SDL_WINDOWPOS_UNDEFINED,
+                          800, 600,
+                          SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE | fullscreen);
+
+	renderer = SDL_CreateRenderer(gameWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
+
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");  // make the scaled rendering look smoother.
+	SDL_RenderSetLogicalSize(renderer, 800, 600);
+
+   	SDL_SetRenderDrawBlendMode(renderer,SDL_BLENDMODE_BLEND);
+
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_RenderClear(renderer);
+	SDL_RenderPresent(renderer);
 
 	AS = new cbe::AudioSimpleSDL();
 	if (AS == NULL) {
@@ -202,8 +220,8 @@ int ClanBomberApplication::main() {
 		return -1;
 	}
 
-	show_fps = false;
-	play_music = false;
+	show_fps = true;
+	play_music = true;
 	map_path = CB_DATADIR
 	"/maps";
 
@@ -575,13 +593,13 @@ void ClanBomberApplication::run_game() {
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_KEYDOWN) {
 				switch (event.key.keysym.sym) {
-				case SDLK_F1:
+				case SDL_SCANCODE_F1:
 					show_fps = !show_fps;
 					break;
-				case SDLK_F2:
+				case SDL_SCANCODE_F2:
 				  play_music = !play_music;
 					break;
-				case SDLK_ESCAPE:
+				case SDL_SCANCODE_ESCAPE:
 					escape = true;
 				}
 			}
@@ -856,7 +874,7 @@ void ClanBomberApplication::deinit_game() {
 }
 
 void ClanBomberApplication::run_intro() {
-	SDLKey escape = SDLK_ESCAPE;
+	SDL_Scancode escape = SDL_SCANCODE_ESCAPE;
 	float alpha = 0;
 	std::string domination(_("A WORLD DOMINATION PROJECT"));
 #ifdef CB_NO_WSTRING

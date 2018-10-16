@@ -7,10 +7,12 @@ AM_INIT_AUTOMAKE([-Wall -Werror])
 #CXXFLAGS="-std=c++11 -Ofast -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
 CXXFLAGS="-std=c++11 -Ofast -march=native -ftree-vectorize -DNDEBUG"
 #CXXFLAGS="-std=c++11 -Ofast -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
+#CXXFLAGS="-std=c++11 -g"
 
 #CFLAGS="-std=c++11 -Ofast -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
 CFLAGS="-std=c++11 -Ofast -march=native -ftree-vectorize -DNDEBUG"
 #CFLAGS="-std=c++11 -Ofast -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
+#CFLAGS="-std=c++11 -g"
 
 AC_PROG_CXX
 AC_LANG([C++])
@@ -28,91 +30,66 @@ AX_BOOST_FILESYSTEM
 AX_BOOST_SYSTEM
 
 #
-# Check for SDL 1.2.0
+# Check for SDL 2.0.0
 #
 
-PKG_CHECK_MODULES(
-	[SDL],
-	[sdl >= 1.2.0],
-	,
-	AC_MSG_ERROR([*** SDL required])
+SDL_VERSION="2.0.0"
+AM_PATH_SDL2(
+	$SDL_VERSION,
+	:,
+	AC_MSG_ERROR([*** SDL2 required])
 )
-AC_SUBST(SDL_CFLAGS)
-AC_SUBST(SDL_LIBS)
+
+#AC_SUBST(SDL_CFLAGS)
+#AC_SUBST(SDL_LIBS)
 
 #
-# Check for SDL_image
+# Check for SDL2_image
 #
 
 AC_CHECK_LIB(
-	[SDL_image],
+	[SDL2_image],
 	[IMG_Load],
-	[SDL_IMAGE_LIBS=-lSDL_image],
-	AC_MSG_ERROR([*** SDL_image requiered])
+	[SDL2_IMAGE_LIBS=-lSDL2_image],
+	AC_MSG_ERROR([*** SDL2_image requiered])
 )
-AC_SUBST(SDL_IMAGE_LIBS)
+AC_SUBST(SDL2_IMAGE_LIBS)
 
 #
-# Check for SDL_mixer
+# Check for SDL2_mixer
 #
 
 AC_CHECK_LIB(
-	[SDL_mixer],
+	[SDL2_mixer],
 	[Mix_OpenAudio],
-	[SDL_MIXER_LIBS=-lSDL_mixer],
-	AC_MSG_ERROR([*** SDL_mixer requiered])
+	[SDL2_MIXER_LIBS=-lSDL2_mixer],
+	AC_MSG_ERROR([*** SDL2_mixer requiered])
 )
-AC_SUBST(SDL_MIXER_LIBS)
+AC_SUBST(SDL2_MIXER_LIBS)
 
 #
-# Check for SDL_ttf
+# Check for SDL2_ttf
 #
 
 AC_CHECK_LIB(
-	[SDL_ttf],
+	[SDL2_ttf],
 	[TTF_OpenFont],
-	[SDL_TTF_LIBS=-lSDL_ttf],
-	AC_MSG_ERROR([*** SDL_ttf requiered])
+	[SDL2_TTF_LIBS=-lSDL2_ttf],
+	AC_MSG_ERROR([*** SDL2_ttf requiered])
 )
-AC_SUBST(SDL_TTF_LIBS)
+AC_SUBST(SDL2_TTF_LIBS)
 
 #
-# Check for SDL_gfx
+# Check for SDL2_gfx
 #
 
 AC_CHECK_LIB(
-	SDL_gfx,
+	SDL2_gfx,
 	[zoomSurface],
-	[SDL_GFX_LIBS=-lSDL_gfx],
-	AC_MSG_ERROR([*** SDL_gfx requiered])
+	[SDL2_GFX_LIBS=-lSDL2_gfx],
+	AC_MSG_ERROR([*** SDL2_gfx requiered])
 )
-AC_SUBST(SDL_GFX_LIBS)
-
-#
-# Enable console
-#
-
-AC_ARG_ENABLE(
-	[console],
-	[  --enable-console       enable console (default=no)],
-	,
-	[enable_console=no]
-)
-AM_CONDITIONAL([ENABLE_CONSOLE], [test x$enable_console = xyes])
-if test x$enable_console = xyes; then
-   	AX_BOOST_THREAD
-	AC_DEFINE([ENABLE_CONSOLE], 1, [define if you want a console])
-	#
-	# Check for Guile 1.8
-	#
-	PKG_CHECK_MODULES(
-		[LIBGUILE],
-		[guile-1.8 >= 1.8.0],
-		,
-		AC_MSG_ERROR([*** Libguile is required for console])
-	)
-fi
-AC_SUBST(LIBGUILE_LIBS)
+AC_SUBST(SDL2_GFX_LIBS)
 
 #
 # Enable relative paths

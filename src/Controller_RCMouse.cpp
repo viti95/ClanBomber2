@@ -24,18 +24,16 @@
 #include "ClanBomber.h"
 #include "Controller_RCMouse.h"
 
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 
 Controller_RCMouse::Controller_RCMouse() : Controller()
 {
-    SDL_ShowCursor(SDL_DISABLE);
-    SDL_WM_GrabInput(SDL_GRAB_ON);
+    SDL_SetRelativeMouseMode(SDL_TRUE);
 }
 
 Controller_RCMouse::~Controller_RCMouse()
 {
-    SDL_WM_GrabInput(SDL_GRAB_OFF);
-    SDL_ShowCursor(SDL_ENABLE);
+    SDL_SetRelativeMouseMode(SDL_FALSE);
 }
 
 void Controller_RCMouse::update()

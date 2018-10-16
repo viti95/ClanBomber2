@@ -25,8 +25,7 @@
 #include <string>
 #include "boost/format.hpp"
 
-///#include <directfb.h>
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 
 #include "ClanBomber.h"
 #include "GameStatus.h"

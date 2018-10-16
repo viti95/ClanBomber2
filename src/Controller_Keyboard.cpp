@@ -31,52 +31,32 @@ Controller_Keyboard::Controller_Keyboard(int keymap_nr) : Controller()
     switch (keymap_nr)
     {
     case 0:
-        ///left_key = DIKI_LEFT;
-        left_key = SDLK_LEFT;
-        ///right_key = DIKI_RIGHT;
-        right_key = SDLK_RIGHT;
-        ///up_key = DIKI_UP;
-        up_key = SDLK_UP;
-        ///down_key = DIKI_DOWN;
-        down_key = SDLK_DOWN;
-        ///bomb_key = DIKI_ENTER;
-        bomb_key = SDLK_RETURN;
+        left_key = SDL_SCANCODE_LEFT;
+        right_key = SDL_SCANCODE_RIGHT;
+        up_key = SDL_SCANCODE_UP;
+        down_key = SDL_SCANCODE_DOWN;
+        bomb_key = SDL_SCANCODE_RETURN;
         break;
     case 1:
-        // left_key = DIKI_A;
-// 		right_key = DIKI_D;
-// 		up_key = DIKI_W;
-// 		down_key = DIKI_S;
-// 		bomb_key = DIKI_TAB;
-        left_key = SDLK_a;
-        right_key = SDLK_d;
-        up_key = SDLK_w;
-        down_key = SDLK_s;
-        bomb_key = SDLK_TAB;
+        left_key = SDL_SCANCODE_A;
+        right_key = SDL_SCANCODE_D;
+        up_key = SDL_SCANCODE_W;
+        down_key = SDL_SCANCODE_S;
+        bomb_key = SDL_SCANCODE_TAB;
         break;
     case 2:
-// 		left_key = DIKI_J;
-// 		right_key = DIKI_L;
-// 		up_key = DIKI_I;
-// 		down_key = DIKI_K;
-// 		bomb_key = DIKI_SPACE;
-        left_key = SDLK_j;
-        right_key = SDLK_l;
-        up_key = SDLK_i;
-        down_key = SDLK_k;
-        bomb_key = SDLK_SPACE;
+        left_key = SDL_SCANCODE_J;
+        right_key = SDL_SCANCODE_L;
+        up_key = SDL_SCANCODE_RIGHT;
+        down_key = SDL_SCANCODE_K;
+        bomb_key = SDL_SCANCODE_SPACE;
         break;
     case 3:
-// 		left_key = DIKI_4;
-// 		right_key = DIKI_6;
-// 		up_key = DIKI_8;
-// 		down_key = DIKI_5;
-// 		bomb_key = DIKI_0;
-        left_key = SDLK_KP4;
-        right_key = SDLK_KP6;
-        up_key = SDLK_KP8;
-        down_key = SDLK_KP5;
-        bomb_key = SDLK_KP0;
+        left_key = SDL_SCANCODE_KP_4;
+        right_key = SDL_SCANCODE_KP_6;
+        up_key = SDL_SCANCODE_KP_8;
+        down_key = SDL_SCANCODE_KP_5;
+        bomb_key = SDL_SCANCODE_KP_0;
         break;
     }
     c_type = KEYMAP_1;
@@ -85,12 +65,8 @@ Controller_Keyboard::Controller_Keyboard(int keymap_nr) : Controller()
 
 void Controller_Keyboard::update()
 {
-    ///DFBInputDeviceKeyState bk;
-
-    ///keyboard->GetKeyState( keyboard, bomb_key, &bk);
     SDL_PumpEvents();
 
-    //if ( (bk==DIKS_DOWN) && (bomb_key_state==DIKS_UP)) {
     if ( (keyboard[bomb_key]) && (!bomb_key_state))
     {
         put_bomb = true;
@@ -99,7 +75,7 @@ void Controller_Keyboard::update()
     {
         put_bomb = false;
     }
-    ///keyboard->GetKeyState( keyboard, bomb_key, &bomb_key_state );
+
     bomb_key_state = keyboard[bomb_key];
 }
 
@@ -112,77 +88,65 @@ void Controller_Keyboard::reset()
 
 bool Controller_Keyboard::is_left()
 {
-    ///DFBInputDeviceKeyState ks;
     bool ks;
 
     if (reverse)
     {
-        ///keyboard->GetKeyState( keyboard, right_key, &ks);
         ks = keyboard[right_key];
     }
     else
     {
-        ///keyboard->GetKeyState( keyboard, left_key, &ks);
         ks = keyboard[left_key];
     }
-    ///return ( ks==DIKS_DOWN ) && active;
+
     return ( ks ) && active;
 }
 
 bool Controller_Keyboard::is_right()
 {
-    ///DFBInputDeviceKeyState ks;
     bool ks;
 
     if (reverse)
     {
-        ///keyboard->GetKeyState( keyboard, left_key, &ks);
         ks = keyboard[left_key];
     }
     else
     {
-        ///keyboard->GetKeyState( keyboard, right_key, &ks);
         ks = keyboard[right_key];
     }
-    ///return ( ks==DIKS_DOWN ) && active;
+
     return ks && active;
 }
 
 bool Controller_Keyboard::is_up()
 {
-    ///DFBInputDeviceKeyState ks;
     bool ks;
 
     if (reverse)
     {
-        ///keyboard->GetKeyState( keyboard, down_key, &ks);
         ks = keyboard[down_key];
     }
     else
     {
-        ///keyboard->GetKeyState( keyboard, up_key, &ks);
         ks = keyboard[up_key];
     }
-    ///return ( ks==DIKS_DOWN ) && active;
+
     return ks && active;
 }
 
 bool Controller_Keyboard::is_down()
 {
-    ///DFBInputDeviceKeyState ks;
     bool ks;
 
     if (reverse)
     {
-        ///keyboard->GetKeyState( keyboard, up_key, &ks);
         ks = keyboard[up_key];
     }
     else
     {
-        ///keyboard->GetKeyState( keyboard, down_key, &ks);
         ks = keyboard[down_key];
     }
-    ///return ( ks==DIKS_DOWN ) && active;
+
     return ks && active;
 }
 

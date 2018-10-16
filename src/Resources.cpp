@@ -28,15 +28,15 @@
 
 #include <config.h>
 
-#include <SDL/SDL_image.h>
-#include <SDL/SDL_rotozoom.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL2_rotozoom.h>
 
 #include "Resources.h"
 #include "SurfaceSDL.h"
 #include "FontSDL.h"
 #include "ClanBomber.h"
 
-extern SDL_Surface *primary;
+extern SDL_Renderer *renderer;
 extern ClanBomberApplication *app;
 
 #ifdef WORDS_BIGENDIAN
@@ -466,6 +466,8 @@ return music;
 Resources::Surface::Surface(const char *filename, int sprite_width,
 int sprite_height) {
 surface = IMG_Load(filename);
+texture = SDL_CreateTextureFromSurface(renderer, surface);
+SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 
 frames_per_row = surface->w / sprite_width;
 
@@ -482,71 +484,64 @@ return sprite_height;
 }
 
 void Resources::Surface::put_screen(int x, int y, int frame, Uint8 opacity) {
-	
+
+	SDL_Rect srect;
+	srect.x = (frame % frames_per_row) * sprite_width;
+	srect.y = (frame / frames_per_row) * sprite_height;
+	srect.w = sprite_width;
+	srect.h = sprite_height;
+
 	SDL_Rect drect;
 
 	drect.x = x;
 	drect.y = y;
+	drect.w = sprite_width;
+	drect.h = sprite_height;
 
-	/*if (frame == 1 && frames_per_row == 1){
-		
-		SDL_BlitSurface(surface, NULL, primary, &drect);
-		
-	}else{*/
-		
-		SDL_Rect srect;
-		srect.x = (frame % frames_per_row) * sprite_width;
-		srect.y = (frame / frames_per_row) * sprite_height;
-		srect.w = sprite_width;
-		srect.h = sprite_height;
+	//SDL_BlitSurface(surface, &srect, primary, &drect);
 
-		SDL_BlitSurface(surface, &srect, primary, &drect);
-	//}
-	
+	SDL_SetTextureAlphaMod(texture, opacity);
+	SDL_RenderCopy(renderer, texture, &srect, &drect);
+	SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
 }
 
 void Resources::Surface::put_screen(int x, int y, float scale_x, float scale_y, int frame, Uint8 opacity) {
 
-	//This function needs cleanup
+	SDL_Surface *surf;
+	Uint8 r, g, b;
+	SDL_Surface *tmpSurface;
+
+	SDL_Rect srect;
+
+	srect.x = (frame % frames_per_row) * sprite_width;
+	srect.y = (frame / frames_per_row) * sprite_height;
+	srect.w = sprite_width;
+	srect.h = sprite_height;
 
 	SDL_Rect drect;
-	
-	SDL_Surface *surf;
-
 	drect.x = x;
 	drect.y = y;
+	drect.w = (int)((float)sprite_width * scale_x);
+	drect.h = (int)((float)sprite_height * scale_y);
 
-	Uint8 r, g, b;
-		
-	/*if(frame == 1 && frames_per_row == 1){
+	SDL_SetTextureAlphaMod(texture, opacity);
+	SDL_RenderCopy(renderer, texture, &srect, &drect);
+	SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
 
-		surf = zoomSurface(surface, scale_x, scale_y, 0);
-		
-	}else{*/
-		
-		SDL_Surface *tmpSurface;
-		
-		tmpSurface = SDL_CreateRGBSurface(SDL_HWSURFACE | SDL_ASYNCBLIT, sprite_width, sprite_height, 16, 0, 0, 0, 0);
-		SDL_GetRGB(surface->format->colorkey, surface->format, &r, &g, &b);
-		SDL_SetColorKey(tmpSurface, SDL_SRCCOLORKEY, SDL_MapRGB(tmpSurface->format, r, g, b));
-		SDL_FillRect(tmpSurface, NULL, SDL_MapRGB(tmpSurface->format, r, g, b));
-		
-		SDL_Rect srect;
-		
-		srect.x = (frame % frames_per_row) * sprite_width;
-		srect.y = (frame / frames_per_row) * sprite_height;
-		srect.w = sprite_width;
-		srect.h = sprite_height;
-		
-		SDL_BlitSurface(surface, &srect, tmpSurface, NULL);
-		surf = zoomSurface(tmpSurface, scale_x, scale_y, 0);
-		
-		SDL_FreeSurface(tmpSurface);
-	//}
-	
+	/*tmpSurface = SDL_CreateRGBSurface(SDL_HWSURFACE | SDL_ASYNCBLIT, sprite_width, sprite_height, 16, 0, 0, 0, 0);
+	SDL_GetRGB(surface->format->colorkey, surface->format, &r, &g, &b);
+	SDL_SetColorKey(tmpSurface, SDL_SRCCOLORKEY, SDL_MapRGB(tmpSurface->format, r, g, b));
+	SDL_FillRect(tmpSurface, NULL, SDL_MapRGB(tmpSurface->format, r, g, b));
+
+
+	SDL_BlitSurface(surface, &srect, tmpSurface, NULL);
+	surf = zoomSurface(tmpSurface, scale_x, scale_y, 0);
+
+	SDL_FreeSurface(tmpSurface);
+
 	SDL_SetColorKey(surf, SDL_SRCCOLORKEY, SDL_MapRGB(surf->format, r, g, b));
 	SDL_BlitSurface(surf, NULL, primary, &drect);
-	SDL_FreeSurface(surf);
+	SDL_FreeSurface(surf);*/
 }
 
 void Resources::Surface::get_rect(int frame, SDL_Rect *ret_rect) {

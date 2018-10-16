@@ -24,9 +24,8 @@
 #ifndef RESOURCES_H
 #define RESOURCES_H
 
-///#include <directfb.h>
-#include <SDL/SDL.h>
-#include <SDL/SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include "Surface.h"
 #include "Font.h"
 #include "AudioBuffer.h"
@@ -57,6 +56,7 @@ public:
 		void get_rect(int frame, SDL_Rect *ret_rect);
 
 		SDL_Surface *surface;
+		SDL_Texture *texture;
 
 	private:
 		int sprite_width;

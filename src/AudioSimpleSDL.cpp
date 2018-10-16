@@ -23,7 +23,7 @@
 #include "AudioSimpleSDL.h"
 #include "MusicSDL.h"
 
-#include <SDL/SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 
 #include "AudioBufferSDL.h"
 

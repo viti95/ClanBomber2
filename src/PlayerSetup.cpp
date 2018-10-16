@@ -28,7 +28,7 @@
 #include "Timer.h"
 #include "Controller.h"
 
-#include <SDL/SDL_ttf.h>
+#include <SDL2/SDL_ttf.h>
 #include "Utils.h"
 
 #include <sstream>
@@ -200,9 +200,10 @@ void PlayerSetup::draw(bool fick)
                                             620,
                                             70 + i*63,
                                             cbe::FontAlignment_0topleft);
-            Resources::Font_small()->render(SDL_JoystickName(Config::bomber[i].get_controller() - Controller::JOYSTICK_1),
+            // TODO FIX THIS
+            /*Resources::Font_small()->render(SDL_JoystickName(Config::bomber[i].get_controller() - Controller::JOYSTICK_1),
                                             500,
-                                            132 + i*63);
+                                            132 + i*63);*/
             break;
         }
 

@@ -27,7 +27,7 @@
 
 #include "Controller.h"
 ///#include <directfb.h>
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 
 class Controller_Keyboard : public Controller
 {
@@ -44,11 +44,11 @@ public:
     bool is_bomb();
 
 private:
-    SDLKey left_key;
-    SDLKey right_key;
-    SDLKey up_key;
-    SDLKey down_key;
-    SDLKey bomb_key;
+    SDL_Scancode left_key;
+    SDL_Scancode right_key;
+    SDL_Scancode up_key;
+    SDL_Scancode down_key;
+    SDL_Scancode bomb_key;
     bool bomb_key_state;
 };
 #endif

@@ -21,21 +21,33 @@
  */
 
 #include "Utils.h"
-#include <SDL/SDL_image.h>
+#include <SDL2/SDL_image.h>
 #include "Resources.h"
 #include <locale.h>
 
 #include "config.h"
 #include "gettext.h"
 
-extern SDL_Surface *primary;
+extern SDL_Renderer *renderer;
 
 void CB_BlitSurface(SDL_Surface *sSurface, int x, int y)
 {
+    SDL_Texture *texture;
+    SDL_CreateTextureFromSurface(renderer, sSurface);
+    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+
     SDL_Rect rect;
     rect.x = x;
     rect.y = y;
-    SDL_BlitSurface(sSurface, NULL, primary, &rect);
+    rect.w = sSurface->w;
+    rect.h = sSurface->h;
+
+    SDL_Rect orig = {0, 0, sSurface->w, sSurface->h};
+
+    SDL_RenderCopy(renderer, texture, &orig, &rect);
+
+    SDL_DestroyTexture(texture);
+    //SDL_BlitSurface(sSurface, NULL, primary, &rect);
 }
 
 void CB_RenderText(TTF_Font *font, const std::wstring &text, int x, int y)
@@ -93,14 +105,39 @@ void CB_RenderTextRight(TTF_Font *font, const std::string &text, int x, int y)
 
 void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b)
 {
+    SDL_Surface *surface;
+    surface = SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0);
+    SDL_Rect orig = {0, 0, w, h};
+    SDL_FillRect(surface, &orig, SDL_MapRGB(surface->format, r, g, b));
     SDL_Rect rect = {x, y, w, h};
-    SDL_FillRect(primary, &rect, SDL_MapRGB(primary->format, r, g, b) );
+    SDL_Texture *texture;
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+    SDL_RenderCopy(renderer, texture, &orig, &rect);
+
+    SDL_DestroyTexture(texture);
+    SDL_FreeSurface(surface);
+    //SDL_FillRect(primary, &rect, SDL_MapRGB(primary->format, r, g, b) );
 }
 
 void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 {
+    SDL_Surface *surface;
+    surface = SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0);
+    SDL_Rect orig = {0, 0, w, h};
+    SDL_FillRect(surface, &orig, SDL_MapRGBA(surface->format, r, g, b, a));
     SDL_Rect rect = {x, y, w, h};
-    SDL_Surface *tmpSurface = SDL_CreateRGBSurface(SDL_SRCALPHA,
+    SDL_Texture *texture;
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+
+    SDL_SetTextureAlphaMod(texture, a);
+    SDL_RenderCopy(renderer, texture, &orig, &rect);
+
+    SDL_DestroyTexture(texture);
+    SDL_FreeSurface(surface);
+
+    /*SDL_Surface *tmpSurface = SDL_CreateRGBSurface(SDL_SRCALPHA,
                               w,
                               h,
                               16,
@@ -109,7 +146,7 @@ void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
     SDL_SetAlpha(tmpSurface, SDL_SRCALPHA, a);
     SDL_FillRect(tmpSurface, NULL, SDL_MapRGB(tmpSurface->format, r, g, b) );
     CB_BlitSurface(tmpSurface, x, y);
-    SDL_FreeSurface(tmpSurface);
+    SDL_FreeSurface(tmpSurface);*/
 }
 
 void CB_WaitForKeypress()
@@ -122,10 +159,16 @@ void CB_WaitForKeypress()
     while(event.type != SDL_KEYDOWN);
 }
 
-void CB_BatchBlit(SDL_Surface *src, SDL_Rect *srcRects, SDL_Rect *destRects, int num)
+void CB_BatchBlit(SDL_Texture *texture, SDL_Rect *srcRects, SDL_Rect *destRects, int num)
 {
     for(int i = 0; i < num; i++)
-        SDL_BlitSurface(src, &srcRects[i], primary, &destRects[i]);
+    {
+        SDL_Rect orig = srcRects[i];
+        SDL_Rect dest = destRects[i];
+
+        SDL_RenderCopy(renderer, texture, &orig, &dest);
+        //SDL_BlitSurface(src, &srcRects[i], primary, &destRects[i]);
+    }
 }
 
 void CB_FillRects(SDL_Rect *rects, int num, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
@@ -150,8 +193,8 @@ int CB_EnterText(std::string &new_string)
     int cursor = str.length();
     int cursorx = 0;
 
-    SDL_EnableUNICODE(1);
-    SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
+    //SDL_EnableUNICODE(1);
+    //SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
 
     while(SDL_WaitEvent(&event))
     {
@@ -161,12 +204,12 @@ int CB_EnterText(std::string &new_string)
             {
             case SDLK_RETURN:
                 new_string = str;
-                SDL_EnableUNICODE(0);
-                SDL_EnableKeyRepeat(0, 0);
+                //SDL_EnableUNICODE(0);
+                //SDL_EnableKeyRepeat(0, 0);
                 return 1;
             case SDLK_ESCAPE:
-                SDL_EnableUNICODE(0);
-                SDL_EnableKeyRepeat(0, 0);
+                //SDL_EnableUNICODE(0);
+                //SDL_EnableKeyRepeat(0, 0);
                 return -1;
             case SDLK_BACKSPACE:
                 if(cursor > 0)
@@ -200,7 +243,10 @@ int CB_EnterText(std::string &new_string)
                     cursor++;
                 break;
             default:
-                if(event.key.keysym.mod & KMOD_CTRL)
+                break;
+
+                // TODO FIX THIS
+                /*if(event.key.keysym.mod & KMOD_CTRL)
                 {
                     printf("Control --- %u\n", event.key.keysym.unicode);
                     switch(event.key.keysym.unicode)
@@ -231,7 +277,7 @@ int CB_EnterText(std::string &new_string)
                     cursor++;
                 }
                 else
-                    printf("Esto no es un caracter");
+                    printf("Esto no es un caracter");*/
             }
         }
         CB_FillRect(0, 0, 800, 40, 70, 0 , 0);
@@ -240,8 +286,8 @@ int CB_EnterText(std::string &new_string)
         CB_Flip();
     }
 
-    SDL_EnableUNICODE(0);
-    SDL_EnableKeyRepeat(0, 0);
+    //SDL_EnableUNICODE(0);
+    //SDL_EnableKeyRepeat(0, 0);
 
     return 0;
 }
@@ -256,5 +302,6 @@ void CB_Locale()
 void CB_Flip()
 {
     //SDL_UpdateRect(primary, 0, 0, 0, 0);
-    SDL_Flip(primary);
+    SDL_RenderPresent(renderer);
+    //SDL_Flip(primary);
 }

@@ -21,22 +21,19 @@
  */
 
 #include "SurfaceSDL.h"
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
-#include <SDL/SDL_rotozoom.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL2_rotozoom.h>
 
-extern SDL_Surface *primary;
+extern SDL_Renderer *renderer;
 
 namespace cbe
 {
   SurfaceSDL::SurfaceSDL(const char *filename)
   {
     surface = IMG_Load(filename);
-  }
-
-  SurfaceSDL::SurfaceSDL(SDL_Surface *extSurface, SDL_Rect *rect)
-  {
-    create(extSurface, rect);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
   }
 
   SurfaceSDL::~SurfaceSDL()
@@ -49,52 +46,41 @@ namespace cbe
     SDL_Rect rect;
     rect.x = x;
     rect.y = y;
-    SDL_SetAlpha(surface, SDL_SRCALPHA, opacity);
-    SDL_BlitSurface(surface, NULL, primary, &rect);
+    rect.w = surface->w;
+    rect.h = surface->h;
+
+    SDL_Rect orig;
+    orig.x=0;
+    orig.y=0;
+    orig.w=surface->w;
+    orig.h=surface->h;
+
+    SDL_SetTextureAlphaMod(texture, opacity);
+    SDL_RenderCopy(renderer, texture, &orig, &rect);
+    SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
+    //SDL_SetAlpha(surface, SDL_SRCALPHA, opacity);
+    //SDL_BlitSurface(surface, NULL, primary, &rect);
   }
-  void SurfaceSDL::scaled_blit(int x, int y, float scale_x, float scale_y, 
-                               uint8_t opacity)
+  void SurfaceSDL::scaled_blit(int x, int y, float scale_x, float scale_y, uint8_t opacity)
   {
-    SDL_Surface *tmpSurface;
     SDL_Rect rect;
     rect.x = x;
     rect.y = y;
+    rect.w = surface->w * scale_x;
+    rect.h = surface->h * scale_y;
 
-    tmpSurface = zoomSurface(surface, scale_x, scale_y, 0);
-    SDL_BlitSurface(tmpSurface, NULL, primary, &rect);
-    SDL_FreeSurface(tmpSurface);
-  }
+    SDL_Rect orig;
+    orig.x=0;
+    orig.y=0;
+    orig.w=surface->w;
+    orig.h=surface->h;
 
-  void SurfaceSDL::create(SDL_Surface *extSurface, SDL_Rect *rect)
-  {
-    surface = SDL_CreateRGBSurface(SDL_HWSURFACE | SDL_ASYNCBLIT,
-                                   rect->w,
-                                   rect->h,
-                                   primary->format->BitsPerPixel,
-                                   primary->format->Rmask,
-                                   primary->format->Gmask,
-                                   primary->format->Bmask,
-                                   primary->format->Amask);
+    SDL_SetTextureAlphaMod(texture, opacity);
+    SDL_RenderCopy(renderer, texture, &orig, &rect);
+    SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
 
-    SDL_PixelFormat *format = extSurface->format;
-    Uint8 r ,g, b;
-    r = ((format->colorkey & format->Rmask) >> format->Rshift) << format->Rloss;
-    g = ((format->colorkey & format->Gmask) >> format->Gshift) << format->Gloss;
-    b = ((format->colorkey & format->Bmask) >> format->Bshift) << format->Bloss;
-    SDL_SetColorKey(surface, 
-                    SDL_SRCCOLORKEY, 
-                    SDL_MapRGB(surface->format, r, g, b));
-
-    SDL_BlitSurface(extSurface, rect, surface, NULL);
-  }
-
-  Surface *CreateSurface(char *filename)
-  {
-    return new SurfaceSDL(filename);
-  }
-
-  Surface *CreateSurface(SDL_Surface *extSurface, SDL_Rect *rect)
-  {
-    return new SurfaceSDL(extSurface, rect);
+    //tmpSurface = zoomSurface(surface, scale_x, scale_y, 0);
+    //SDL_BlitSurface(tmpSurface, NULL, primary, &rect);
+    //SDL_FreeSurface(tmpSurface);
   }
 };

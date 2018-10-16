@@ -24,7 +24,7 @@
 #include "ClanBomber.h"
 #include "Controller_Joystick.h"
 
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 
 Controller_Joystick::Controller_Joystick(int joystick_nr) : Controller()
 {

@@ -312,13 +312,13 @@ void Map::reload()
 
 void Map::show()
 {
-    int          count = 0;
-    SDL_Rect rects[MAP_WIDTH*MAP_HEIGHT];
-    SDL_Rect     points[MAP_WIDTH*MAP_HEIGHT];
+    int         count = 0;
+    SDL_Rect    rects[MAP_WIDTH*MAP_HEIGHT];
+    SDL_Rect    points[MAP_WIDTH*MAP_HEIGHT];
 
-    int          addon_count = 0;
-    SDL_Rect addon_rects[MAP_WIDTH*MAP_HEIGHT];
-    SDL_Rect     addon_points[MAP_WIDTH*MAP_HEIGHT];
+    int         addon_count = 0;
+    SDL_Rect    addon_rects[MAP_WIDTH*MAP_HEIGHT];
+    SDL_Rect    addon_points[MAP_WIDTH*MAP_HEIGHT];
 
     for (int y=0; y<MAP_HEIGHT; y++)
     {
@@ -352,13 +352,22 @@ void Map::show()
             points[count].y = Y;
 
             /* ...and corresponding source rectangles. */
-            Resources::Game_maptiles()->get_rect( maptile->sprite_nr, &rects[count++] );
+            Resources::Game_maptiles()->get_rect( maptile->sprite_nr, &rects[count] );
+
+            points[count].w = rects[count].w;
+            points[count].h = rects[count].h;
+
+            count++;
 
             /* Populate addon rects and points. */
             if (maptile->get_addon_rect( &addon_rects[addon_count] ))
             {
                 addon_points[addon_count].x = X;
                 addon_points[addon_count].y = Y;
+
+                addon_points[addon_count].w = addon_rects[addon_count].w;
+                addon_points[addon_count].h = addon_rects[addon_count].h;
+
                 addon_count++;
             }
         }
@@ -371,12 +380,12 @@ void Map::show()
 
     if (count)
     {
-        CB_BatchBlit(Resources::Game_maptiles()->surface, rects, points, count);
+        CB_BatchBlit(Resources::Game_maptiles()->texture, rects, points, count);
     }
 
     if (addon_count)
     {
-        CB_BatchBlit(Resources::Game_maptile_addons()->surface, addon_rects, addon_points, addon_count);
+        CB_BatchBlit(Resources::Game_maptile_addons()->texture, addon_rects, addon_points, addon_count);
     }
 }
 

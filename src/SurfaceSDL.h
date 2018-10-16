@@ -23,7 +23,7 @@
 #ifndef SURFACESDL_H
 #define SURFACESDL_H
 #include "Surface.h"
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 
 namespace cbe
 {
@@ -31,15 +31,13 @@ namespace cbe
   {
   public:
     SurfaceSDL(const char *filename);
-    SurfaceSDL(SDL_Surface *extSurface, SDL_Rect *rect);
     ~SurfaceSDL();
     void blit(int x, int y, uint8_t opacity = 255);
     void scaled_blit(int x, int y, float scale_x, float scale_y,
                      uint8_t opacity = 255);
   private:
-    void create(SDL_Surface *extSurface, SDL_Rect *rect);
-
     SDL_Surface *surface;
+    SDL_Texture *texture;
   };
 };
 #endif
