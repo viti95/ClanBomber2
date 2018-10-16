@@ -237,50 +237,14 @@ int CB_EnterText(std::string &new_string)
                 break;
             default:
                 
-                if (event.key.keysym.sym >= 32 && event.key.keysym.sym != 127){
+                if (event.key.keysym.scancode >= 4 && event.key.keysym.scancode <= 39){
                     char temp[2] = {0,0};
-                    //printf("%s -- %d CHAR: %c\n", str.c_str(), cursor, event.key.keysym.sym);
                     temp[0] = *(SDL_GetKeyName(event.key.keysym.sym));
-                    //str += temp;
                     str = str.substr(0, cursor) + temp + str.substr(cursor, str.length()-cursor);
                     cursor++;
                 }
 
                 break;
-
-                // TODO FIX THIS
-                /*if(event.key.keysym.mod & KMOD_CTRL)
-                {
-                    printf("Control --- %u\n", event.key.keysym.unicode);
-                    switch(event.key.keysym.unicode)
-                    {
-                    case 1: //^A Start of header
-                        cursor = 0;
-                        break;
-                    case 2: //^B
-                        if(cursor > 0)
-                            cursor--;
-                        break;
-                    case 5: //^E Enquiry
-                        cursor = str.length();
-                        break;
-                    case 6: //^F
-                        if(cursor < str.length())
-                            cursor++;
-                    }
-                }
-                else if(event.key.keysym.unicode >= 32  &&
-                        event.key.keysym.unicode != 127)   // 32=spc 127=delete
-                {
-                    char temp[2] = {0,0};
-                    printf("%s -- %d CHAR: %c\n", str.c_str(), cursor, event.key.keysym.unicode);
-                    temp[0] = event.key.keysym.unicode;
-                    //str += temp;
-                    str = str.substr(0, cursor) + temp + str.substr(cursor, str.length()-cursor);
-                    cursor++;
-                }
-                else
-                    printf("Esto no es un caracter");*/
             }
         }
         CB_FillRect(0, 0, 800, 40, 70, 0 , 0);
