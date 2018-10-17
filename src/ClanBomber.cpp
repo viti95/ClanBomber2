@@ -755,10 +755,10 @@ void ClanBomberApplication::show_all() {
 	int i;
 	// clear top and sides
 	const int top_height = 40;
-	CB_FillRect(0, 0, 800, top_height, 0, 0, 0);
+	//CB_FillRect(0, 0, 800, top_height, 0, 0, 0);
 	const int margin = 60;
-	CB_FillRect(0, top_height, 0 + margin, 600 - top_height, 0, 0, 0);
-	CB_FillRect(800 - margin, top_height, margin, 600 - top_height, 0, 0, 0);
+	//CB_FillRect(0, top_height, 0 + margin, 600 - top_height, 0, 0, 0);
+	//CB_FillRect(800 - margin, top_height, margin, 600 - top_height, 0, 0, 0);
 	if (show_fps) {
 		std::string nstr = str(boost::format(_("%1$d fps")) % fps);
 		Resources::Font_small()->render(nstr, 535, 4,
