@@ -599,6 +599,7 @@ void ClanBomberApplication::run_game() {
 				case SDL_SCANCODE_F2:
 					play_music = !play_music;
 					break;
+				case SDL_SCANCODE_P:
 				case SDL_SCANCODE_F3:
 					pause_game = !pause_game;
 					break;

@@ -81,6 +81,7 @@ GameStatus::show ()
         draw ();
     }
 
+    CB_FillRect(0, 0, 800, 600, 0, 0, 0);
     CB_Flip ();
 }
 
