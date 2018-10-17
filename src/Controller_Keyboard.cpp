@@ -47,7 +47,7 @@ Controller_Keyboard::Controller_Keyboard(int keymap_nr) : Controller()
     case 2:
         left_key = SDL_SCANCODE_J;
         right_key = SDL_SCANCODE_L;
-        up_key = SDL_SCANCODE_RIGHT;
+        up_key = SDL_SCANCODE_I;
         down_key = SDL_SCANCODE_K;
         bomb_key = SDL_SCANCODE_SPACE;
         break;
