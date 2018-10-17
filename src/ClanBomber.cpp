@@ -53,6 +53,8 @@
 #include "AudioSimple.h"
 #include "AudioSimpleSDL.h"
 
+#include <unistd.h>
+
 ClanBomberApplication *app;
 
 SDL_Renderer *renderer = NULL;
@@ -882,15 +884,7 @@ void ClanBomberApplication::run_intro() {
 	SDL_Scancode escape = SDL_SCANCODE_ESCAPE;
 	float alpha = 0;
 	std::string domination(_("A WORLD DOMINATION PROJECT"));
-#ifdef CB_NO_WSTRING
 	std::string & domihack = domination;
-#else
-	//TODO reimplement using codecvt
-	size_t len = std::mbstowcs(NULL, domination.c_str(), domination.length());
-	wchar_t wstr[len + 1];
-	std::mbstowcs(wstr, domination.c_str(), domination.length() + 1);
-	std::wstring domihack(wstr);
-#endif
 
 	CB_FillRect(0, 0, 800, 600, 0, 0, 0);
 	CB_Flip();
