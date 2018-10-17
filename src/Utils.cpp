@@ -105,6 +105,8 @@ void CB_RenderTextRight(TTF_Font *font, const std::string &text, int x, int y)
 
 void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b)
 {
+    if (w == 0 || h == 0) return;
+
     SDL_Surface *surface;
     surface = SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0);
     SDL_Rect orig = {0, 0, w, h};
@@ -122,6 +124,8 @@ void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b)
 
 void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 {
+    if (w == 0 || h == 0 || a == 0) return;
+
     SDL_Surface *surface;
     surface = SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0);
     SDL_Rect orig = {0, 0, w, h};

@@ -485,6 +485,8 @@ return sprite_height;
 
 void Resources::Surface::put_screen(int x, int y, int frame, Uint8 opacity) {
 
+	if(opacity == 0) return;
+
 	SDL_Rect srect;
 	srect.x = (frame % frames_per_row) * sprite_width;
 	srect.y = (frame / frames_per_row) * sprite_height;
@@ -506,6 +508,8 @@ void Resources::Surface::put_screen(int x, int y, int frame, Uint8 opacity) {
 }
 
 void Resources::Surface::put_screen(int x, int y, float scale_x, float scale_y, int frame, Uint8 opacity) {
+
+	if(opacity == 0 || scale_x == 0 || scale_y == 0) return;
 
 	SDL_Surface *surf;
 	Uint8 r, g, b;

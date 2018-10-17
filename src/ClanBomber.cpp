@@ -591,6 +591,8 @@ void ClanBomberApplication::run_game() {
 
 		Timer::time_elapsed(true);
 
+		SDL_RenderClear(renderer);
+
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_KEYDOWN) {

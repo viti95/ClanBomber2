@@ -436,10 +436,6 @@ void Map::show_preview( int x, int y, float factor )
 
 void Map::refresh_holes()
 {
-    int count = 0;
-
-    SDL_Rect rects[MAP_WIDTH*MAP_HEIGHT];
-
     for (int y=0; y<MAP_HEIGHT; y++)
     {
         for (int x=0; x<MAP_WIDTH; x++)
@@ -448,12 +444,6 @@ void Map::refresh_holes()
             {
                 if (maptiles[x][y]->get_type() == MapTile::NONE)
                 {
-                    rects[count++] = (SDL_Rect)
-                    {
-                        60 + 40*x, 40 + 40*y, 40, 40
-                    };
-
-
                     if (is_shaken > 0)
                     {
                         maptiles[x][y]->draw_shaken();
@@ -466,11 +456,6 @@ void Map::refresh_holes()
                 }
             }
         }
-    }
-
-    if (count)
-    {
-        CB_FillRects(rects, count, 0, 0, 0);
     }
 }
 
