@@ -175,7 +175,7 @@ void MapTile::draw(int addx, int addy)
 {
     if (vanishing)
     {
-        CB_FillRect(x+60+addx, y+40+addy, 40, 40, 0, 0, 0);
+        //CB_FillRect(x+60+addx, y+40+addy, 40, 40, 0, 0, 0);
         draw_tiny((int)(x+80-vanish_countdown*20+addx), (int)(y+60-vanish_countdown*20+addy), vanish_countdown);
     }
     else
