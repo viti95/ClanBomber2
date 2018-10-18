@@ -192,6 +192,7 @@ void PlayerSetup::draw(bool fick)
         case Controller::JOYSTICK_5:
         case Controller::JOYSTICK_6:
         case Controller::JOYSTICK_7:
+        case Controller::JOYSTICK_8:
             Resources::Playersetup_controls()->put_screen( 550, 72 + i*63,4);
             std::stringstream number;
             number << Config::bomber[i].get_controller()-Controller::JOYSTICK_1+1;

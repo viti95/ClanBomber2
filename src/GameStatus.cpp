@@ -58,8 +58,6 @@ GameStatus::show ()
 
     bool space_pressed = false;
 
-    bool space = true;		//Is this really needed
-
     while (!space_pressed)
     {
         SDL_Event event;
@@ -71,7 +69,6 @@ GameStatus::show ()
                 {
                 case SDL_SCANCODE_SPACE:
                     space_pressed = true;
-                case SDL_SCANCODE_LEFT:	//Is a need for this
                     break;
                 default:
                     ;
