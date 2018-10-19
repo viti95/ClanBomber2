@@ -146,7 +146,7 @@ int ClanBomberApplication::init_SDL() {
                           800, 600,
                           SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE | fullscreen);
 
-	renderer = SDL_CreateRenderer(gameWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
+	renderer = SDL_CreateRenderer(gameWindow, -1, SDL_RENDERER_ACCELERATED);
 
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");  // make the scaled rendering look smoother.
 	SDL_RenderSetLogicalSize(renderer, 800, 600);
