@@ -32,7 +32,7 @@ namespace cbe
   bool AudioSimpleSDL::init()
   {
     if (!initialized) {
-      if (Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 1024)) {
+      if (Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 4096)) {
         Mix_CloseAudio();
         return false;
       }
