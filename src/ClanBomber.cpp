@@ -28,10 +28,8 @@
 #include <algorithm>
 #include <ctime>
 
-//#define BOOST_FILESYSTEM_NO_DEPRECATED
 #include <boost/filesystem.hpp>
 #include <boost/format.hpp>
-#include <boost/thread.hpp>
 #include <SDL2/SDL.h>
 
 #include "config.h"
