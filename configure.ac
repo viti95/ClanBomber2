@@ -33,63 +33,9 @@ AX_BOOST_SYSTEM
 # Check for SDL 2.0.0
 #
 
-SDL_VERSION="2.0.0"
-AM_PATH_SDL2(
-	$SDL_VERSION,
-	:,
-	AC_MSG_ERROR([*** SDL2 required])
-)
-
-#AC_SUBST(SDL_CFLAGS)
-#AC_SUBST(SDL_LIBS)
-
-#
-# Check for SDL2_image
-#
-
-AC_CHECK_LIB(
-	[SDL2_image],
-	[IMG_Load],
-	[SDL2_IMAGE_LIBS=-lSDL2_image],
-	AC_MSG_ERROR([*** SDL2_image requiered])
-)
-AC_SUBST(SDL2_IMAGE_LIBS)
-
-#
-# Check for SDL2_mixer
-#
-
-AC_CHECK_LIB(
-	[SDL2_mixer],
-	[Mix_OpenAudio],
-	[SDL2_MIXER_LIBS=-lSDL2_mixer],
-	AC_MSG_ERROR([*** SDL2_mixer requiered])
-)
-AC_SUBST(SDL2_MIXER_LIBS)
-
-#
-# Check for SDL2_ttf
-#
-
-AC_CHECK_LIB(
-	[SDL2_ttf],
-	[TTF_OpenFont],
-	[SDL2_TTF_LIBS=-lSDL2_ttf],
-	AC_MSG_ERROR([*** SDL2_ttf requiered])
-)
-AC_SUBST(SDL2_TTF_LIBS)
-
-#
-# Check for SDL2_gfx
-#
-
-AC_CHECK_LIB(
-	SDL2_gfx,
-	[zoomSurface],
-	[SDL2_GFX_LIBS=-lSDL2_gfx],
-	AC_MSG_ERROR([*** SDL2_gfx requiered])
-)
-AC_SUBST(SDL2_GFX_LIBS)
+PKG_CHECK_MODULES(SDL2, sdl2 SDL2_image SDL2_gfx SDL2_ttf SDL2_mixer)
+AC_SUBST(SDL2_CFLAGS)
+AC_SUBST(SDL2_LIBS)
 
 #
 # Enable relative paths

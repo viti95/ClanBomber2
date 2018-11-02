@@ -4,23 +4,17 @@ clanbomber2dir = $(RELATIVE_DATADIR)/$(PACKAGE)
 relative_localedir = $(RELATIVE_DATADIR)/locale
 
 AM_CPPFLAGS = \
-	$(SDL_CFLAGS) \
+	$(SDL2_CFLAGS) \
 	$(BOOST_CPPFLAGS) \
 	-DCB_DATADIR=\"$(clanbomber2dir)\" \
 	-DCB_LOCALEDIR=\"$(relative_localedir)\"
 
 LDADD = \
-	$(SDL_LIBS) \
-	$(SDL2_IMAGE_LIBS) \
-	$(SDL2_MIXER_LIBS) \
-	$(SDL2_TTF_LIBS) \
-	$(SDL2_GFX_LIBS) \
+	$(SDL2_LIBS) \
 	$(LIBINTL) \
 	$(BOOST_LDFLAGS) \
-	$(BOOST_ASIO_LIB) \
 	$(BOOST_SYSTEM_LIB) \
-	$(BOOST_FILESYSTEM_LIB) \
-	$(BOOST_THREAD_LIB)
+	$(BOOST_FILESYSTEM_LIB)
 
 bin_PROGRAMS = clanbomber2
 
