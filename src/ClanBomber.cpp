@@ -120,10 +120,12 @@ int ClanBomberApplication::init_SDL() {
 		return -1;
 	}
 
-	keyboard = SDL_GetKeyboardState(NULL);
-
 	Uint32 fullscreen = (Config::get_fullscreen()) ? SDL_WINDOW_FULLSCREEN : 0;
 	Uint32 renderMode = (Config::get_softwareRendering()) ? SDL_RENDERER_SOFTWARE : SDL_RENDERER_ACCELERATED;
+
+	if (Config::get_fullscreen()) SDL_SetRelativeMouseMode(SDL_TRUE);
+
+	keyboard = SDL_GetKeyboardState(NULL);
 
 	gameWindow = SDL_CreateWindow(PACKAGE_STRING,
                           SDL_WINDOWPOS_UNDEFINED,

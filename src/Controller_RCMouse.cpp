@@ -23,17 +23,18 @@
 
 #include "ClanBomber.h"
 #include "Controller_RCMouse.h"
+#include "GameConfig.h"
 
 #include <SDL2/SDL.h>
 
 Controller_RCMouse::Controller_RCMouse() : Controller()
 {
-    SDL_SetRelativeMouseMode(SDL_TRUE);
+    if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(SDL_TRUE);
 }
 
 Controller_RCMouse::~Controller_RCMouse()
 {
-    SDL_SetRelativeMouseMode(SDL_FALSE);
+    if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(SDL_FALSE);
 }
 
 void Controller_RCMouse::update()
