@@ -131,9 +131,6 @@ int ClanBomberApplication::init_SDL() {
 	Uint32 fullscreen = (Config::get_fullscreen()) ? SDL_WINDOW_FULLSCREEN : 0;
 	Uint32 renderMode = (Config::get_softwareRendering()) ? SDL_RENDERER_SOFTWARE : SDL_RENDERER_ACCELERATED;
 
-	std::cout << fullscreen << std::endl;
-	std::cout << renderMode << std::endl;
-
 	gameWindow = SDL_CreateWindow(PACKAGE_STRING,
                           SDL_WINDOWPOS_UNDEFINED,
                           SDL_WINDOWPOS_UNDEFINED,
@@ -623,7 +620,7 @@ void ClanBomberApplication::run_game() {
 			CB_FillRect(0, 0, 800, 600, 0, 0, 0, 123);
 			Resources::Font_big()->render(_("- PAUSED -"), 400, 300,
 					cbe::FontAlignment_0topcenter);
-			CB_Flip();
+			SDL_RenderPresent(renderer);
 			continue;
 		}
 
@@ -638,7 +635,7 @@ void ClanBomberApplication::run_game() {
 		act_all();
 		show_all();
 
-		CB_Flip();
+		SDL_RenderPresent(renderer);
 		frame_count++;
 
 		frame_time += Timer::time_elapsed();
@@ -878,8 +875,8 @@ void ClanBomberApplication::run_intro() {
 	std::string domination(_("A WORLD DOMINATION PROJECT"));
 	std::string & domihack = domination;
 
-	CB_FillRect(0, 0, 800, 600, 0, 0, 0);
-	CB_Flip();
+	SDL_RenderClear(renderer);
+	SDL_RenderPresent(renderer);
 
 	sleep(2);
 
@@ -892,7 +889,7 @@ void ClanBomberApplication::run_intro() {
 		if (alpha < 255) {
 			Resources::Intro_fl_logo()->blit(100, 250, alpha);
 			alpha += Timer::time_elapsed(true) * 130.0f;
-			CB_Flip();
+			SDL_RenderPresent(renderer);
 		} else {
 			Resources::Intro_fl_logo()->blit(100, 250);
 			break;
@@ -920,7 +917,7 @@ void ClanBomberApplication::run_intro() {
 			Resources::Font_small()->render(domihack.substr(0, domispell),
 					400 - stringwidth / 2, 360, cbe::FontAlignment_0topleft);
 
-			CB_Flip();
+			SDL_RenderPresent(renderer);
 
 			usleep(WELLRNG512() % 100000 + 80000);
 		}
@@ -976,7 +973,7 @@ void ClanBomberApplication::show_tutorial() {
 
 	Resources::Font_big()->render(_("Press any key"), 400, 520,
 			cbe::FontAlignment_0topcenter);
-	CB_Flip();
+	SDL_RenderPresent(renderer);
 
 	CB_WaitForKeypress();
 
@@ -1010,7 +1007,7 @@ void ClanBomberApplication::show_tutorial() {
 
 	Resources::Font_big()->render(_("Press any key"), 400, 520,
 			cbe::FontAlignment_0topcenter);
-	CB_Flip();
+	SDL_RenderPresent(renderer);
 
 	CB_WaitForKeypress();
 }
