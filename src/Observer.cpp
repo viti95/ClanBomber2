@@ -44,7 +44,6 @@ Observer::Observer(int _x, int _y, ClanBomberApplication *_app) :
 	y = 0;
 	z = Z_OBSERVER;
 	end_of_game = false;
-	client_game_runs = false;
 	surface = Resources::Observer_observer();
 	sprite_nr = 0;
 	offset_x = 10;
@@ -235,28 +234,6 @@ void Observer::show() {
 			Resources::Observer_hurry_up()->play();
 			play_hurryup = false;
 		}
-	}
-}
-
-void Observer::set_client_game_runs(bool is_running) {
-	client_game_runs = is_running;
-}
-
-bool Observer::client_game_is_running() {
-	return client_game_runs;
-}
-
-void Observer::make_client_game_status() {
-	for (auto bomber_object_iter : app->bomber_objects) {
-		mode = NORMAL;
-		if ((bomber_object_iter)->get_team() != 0) {
-			mode = TEAM;
-		}
-	}
-	if (mode == TEAM) {
-		game_status = new GameStatus_Team(app);
-	} else {
-		game_status = new GameStatus(app);
 	}
 }
 

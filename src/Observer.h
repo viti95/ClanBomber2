@@ -45,7 +45,6 @@ public:
     int active_players();
     float get_round_time() const;
     void reset_round_time();
-    void make_client_game_status();
     GameStatus* get_game_status();
 
     ObjectType get_type() const
@@ -59,9 +58,6 @@ public:
         TEAM
     } Mode;
 
-    void set_client_game_runs(bool is_running);
-    bool client_game_is_running();
-
 protected:
     bool		end_of_game;
     float		round_time;
@@ -71,8 +67,6 @@ protected:
     bool		first_destruction;
     int		repaint_hack;
     void kill_all_bombers();
-
-    bool client_game_runs;
 };
 
 #endif

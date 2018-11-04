@@ -28,7 +28,7 @@
 
 #include <boost/filesystem.hpp>
 
-#define CURRENT_CONFIGFILE_VERSION 29
+#define CURRENT_CONFIGFILE_VERSION 30
 
 class BomberConfig
 {
@@ -51,16 +51,8 @@ public:
     void	disable();
     int		is_enabled();
     void	set_enabled(bool _enabled);
-    void	set_local(bool _local);
-    bool	is_local();
-    char*	get_client_ip();
-    void	set_client_ip(char* ip_string);
-    void	set_client_index(int index);
-    int		get_client_index();
     int		get_config_index();
     void	set_config_index(int index);
-    bool	is_server_bomber();
-    void	set_server_bomber(bool from_server);
 
 protected:
     int		enabled;
@@ -69,11 +61,8 @@ protected:
     int		team;
     int		controller;
     int		highlight_maptile;
-    bool	local_client;
     int		client_index;
     int 	config_index;
-    bool	server_bomber;
-    char*	client_ip;
 };
 
 class Config
@@ -173,9 +162,6 @@ public:
     static int get_sound_enabled();
     static BomberConfig bomber[8];
 
-    static void set_last_server(std::string server_name);
-    static std::string get_last_server();
-
 protected:
     static int round_time;
     static int random_map_order;
@@ -220,8 +206,6 @@ protected:
 
     static boost::filesystem::path filename;
     static boost::filesystem::path path;
-
-    static std::string last_server;
 };
 
 #endif

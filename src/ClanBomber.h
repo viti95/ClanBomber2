@@ -39,8 +39,6 @@ class Map;
 class Bomb;
 class Bomber;
 class GameObject;
-class Server;
-class Client;
 
 enum
 {
@@ -97,9 +95,7 @@ enum
     CONFIG_POINTS_DUPLICATE,
     CONFIG_ROUND_TIME_DUPLICATE,
 
-    LOCALGAME_START,
-    SERVERGAME_START,
-    CLIENTGAME_START
+    LOCALGAME_START
 };
 
 enum Direction
@@ -127,16 +123,8 @@ public:
     std::list<GameObject*> objects;
     std::vector<Bomber*> bomber_objects;
 
-    int get_server_status();
-    static int run_server_with_players();
-
     static Menu* get_menu();
 
-    void set_client_disconnected_from_server(bool d);
-    bool is_client_disconnected_from_server();
-    void set_client_connecting_to_new_server(bool c);
-    bool is_client_connecting_to_new_server();
-    void client_to_server();
     void make_observer();
     void make_map();
     Observer* get_observer();
@@ -152,11 +140,6 @@ public:
 
     static boost::filesystem::path get_map_path();
     static boost::filesystem::path get_local_map_path();
-
-    bool bombers_received_by_client;
-    static int get_server_frame_counter();
-    static void inc_server_frame_counter();
-    std::list<Bomb*> suspended_client_bombs;
 
     cbe::AudioSimple *get_audio()
     {
@@ -188,11 +171,7 @@ protected:
     int fps;
     int frame_count;
     float frame_time;
-    int server_status;
-    static int server_frame_counter;
     bool pause_game;
-    bool client_disconnected_from_server;
-    bool client_connecting_to_new_server;
 
 private:
     cbe::AudioSimple *AS;

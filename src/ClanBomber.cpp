@@ -62,8 +62,6 @@ const Uint8 *keyboard = NULL;
 boost::filesystem::path ClanBomberApplication::map_path;
 boost::filesystem::path ClanBomberApplication::local_map_path;
 
-int ClanBomberApplication::server_frame_counter = 0;
-
 static unsigned short next_object_id = 0;
 
 /* initialize state to random bits */
@@ -92,13 +90,9 @@ bool game_object_compare(GameObject * go1, GameObject * go2) {
 }
 
 ClanBomberApplication::ClanBomberApplication() {
-	server_status = 0;
 	observer = NULL;
 	map = NULL;
 	pause_game = false;
-	client_disconnected_from_server = false;
-	client_connecting_to_new_server = false;
-	bombers_received_by_client = false;
 
 	// initialize WELLRNG512
 	for (int i = 0; i < 16; i++)
@@ -188,22 +182,6 @@ unsigned short ClanBomberApplication::get_next_object_id() {
 		next_object_id = 23;
 	}
 	return next_object_id;
-}
-
-bool ClanBomberApplication::is_client_disconnected_from_server() {
-	return client_disconnected_from_server;
-}
-
-void ClanBomberApplication::set_client_disconnected_from_server(bool d) {
-	client_disconnected_from_server = d;
-}
-
-void ClanBomberApplication::set_client_connecting_to_new_server(bool c) {
-	client_connecting_to_new_server = c;
-}
-
-bool ClanBomberApplication::is_client_connecting_to_new_server() {
-	return client_connecting_to_new_server;
 }
 
 int ClanBomberApplication::main() {
@@ -327,7 +305,6 @@ int ClanBomberApplication::main() {
 
 	menu->scroll_in();
 
-	bool already_started_auto_server = false;
 	while (1) {
 		int result;
 
@@ -562,14 +539,6 @@ int ClanBomberApplication::main() {
 	}
 }
 
-int ClanBomberApplication::get_server_frame_counter() {
-	return server_frame_counter;
-}
-
-void ClanBomberApplication::inc_server_frame_counter() {
-	server_frame_counter++;
-}
-
 void ClanBomberApplication::run_game() {
 
 	if(play_music && !Resources::Music()->isPlaying())
@@ -644,19 +613,10 @@ void ClanBomberApplication::run_game() {
 			frame_time = 0;
 			frame_count = 0;
 		}
-
-		server_frame_counter++;
-		if (server_frame_counter > 777777777) {
-			server_frame_counter = 0;
-		}
 	}
 
 	if (Resources::Music()->isPlaying())
 		Resources::Music()->stop();
-}
-
-int ClanBomberApplication::get_server_status() {
-	return server_status;
 }
 
 Menu *

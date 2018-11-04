@@ -36,8 +36,6 @@
 boost::filesystem::path Config::filename = "clanbomber.cfg";
 boost::filesystem::path Config::path     = "";
 
-std::string Config::last_server= "intruder";
-
 int	Config::round_time			= 90;
 int Config::sound_enabled		= true;
 int	Config::max_skateboards		= 5;
@@ -85,11 +83,8 @@ BomberConfig Config::bomber[8];
 
 BomberConfig::BomberConfig()
 {
-    local_client = true;
-    server_bomber = false;
     client_index = -1;
     config_index = -1;
-    client_ip = NULL;
     enabled = true;
     team = 0;
     skin = 0;
@@ -174,16 +169,6 @@ void BomberConfig::set_enabled(bool _enabled)
     enabled = _enabled;
 }
 
-void BomberConfig::set_client_index(int index)
-{
-    client_index = index;
-}
-
-int BomberConfig::get_client_index()
-{
-    return client_index;
-}
-
 int BomberConfig::get_config_index()
 {
     return config_index;
@@ -192,16 +177,6 @@ int BomberConfig::get_config_index()
 void BomberConfig::set_config_index(int index)
 {
     config_index=index;
-}
-
-char* BomberConfig::get_client_ip()
-{
-    return client_ip;
-}
-
-void BomberConfig::set_client_ip(char* ip_string)
-{
-    client_ip = ip_string;
 }
 
 int Config::get_number_of_players()
@@ -640,8 +615,6 @@ bool Config::save(bool init)
         configfile << bomber[i].get_highlight_maptile()	<< std::endl;
     }
 
-    configfile << last_server << std::endl;
-
     return true;
 }
 
@@ -726,41 +699,5 @@ bool Config::load()
         bomber[i].set_highlight_maptile(version != 0);
     }
 
-    std::string server_name;
-    configfile >> server_name;
-    set_last_server(server_name);
-
     return true;
-}
-
-void Config::set_last_server(std::string server_name)
-{
-    last_server = server_name;
-}
-
-std::string Config::get_last_server()
-{
-    return last_server;
-}
-
-
-void BomberConfig::set_local(bool _local)
-{
-    local_client=_local;
-}
-
-
-bool BomberConfig::is_local()
-{
-    return local_client;
-}
-
-bool BomberConfig::is_server_bomber()
-{
-    return server_bomber;
-}
-
-void BomberConfig::set_server_bomber(bool from_server)
-{
-    server_bomber = from_server;
 }

@@ -73,8 +73,6 @@ public:
      * @param obj_id new object id.
      */
     void set_object_id(int obj_id);
-    int get_server_x();
-    int get_server_y();
     /**
      * Gets the original x.
      * Gets the original x (orig_x) value, should be the same x value which was
@@ -92,13 +90,6 @@ public:
 
     void output_object_info();
 
-    Direction get_server_dir();
-    Direction get_client_dir();
-    void set_server_x(int sx);
-    void set_server_y(int sy);
-    void set_server_dir(int sd);
-    void set_client_dir(int cd);
-    void set_local_dir(int ld);
     void set_cur_dir(int cd);
     void set_offset(int _x, int _y);
 
@@ -241,11 +232,7 @@ protected:
     bool stopped;
 
     int object_id;
-    Direction server_dir;
-    Direction client_dir;
     Direction local_dir;
-    int server_x;
-    int server_y;
     void reset_next_fly_job();
 private:
     bool is_next_fly_job();

@@ -82,11 +82,7 @@ GameObject::GameObject(int _x, int _y, ClanBomberApplication *_app) {
 
 	object_id = 0;
 
-	server_dir = cur_dir;
-	client_dir = cur_dir;
 	local_dir = cur_dir;
-	server_x = (int) x;
-	server_y = (int) y;
 	reset_next_fly_job();
 }
 
@@ -101,48 +97,12 @@ void GameObject::set_object_id(int obj_id) {
 	object_id = obj_id;
 }
 
-int GameObject::get_server_x() {
-	return server_x;
-}
-
-int GameObject::get_server_y() {
-	return server_y;
-}
-
 int GameObject::get_orig_x() {
 	return orig_x;
 }
 
 int GameObject::get_orig_y() {
 	return orig_y;
-}
-
-Direction GameObject::get_server_dir() {
-	return server_dir;
-}
-
-Direction GameObject::get_client_dir() {
-	return client_dir;
-}
-
-void GameObject::set_server_x(int sx) {
-	server_x = sx;
-}
-
-void GameObject::set_server_y(int sy) {
-	server_y = sy;
-}
-
-void GameObject::set_server_dir(int sd) {
-	server_dir = (Direction) sd;
-}
-
-void GameObject::set_client_dir(int cd) {
-	client_dir = (Direction) cd;
-}
-
-void GameObject::set_local_dir(int ld) {
-	local_dir = (Direction) ld;
 }
 
 void GameObject::set_cur_dir(int cd) {

@@ -122,7 +122,6 @@ public:
         return can_throw;
     }
 
-    bool direction_has_changed(bool for_server);
     int get_gloves();
     int get_extra_gloves();
     int get_extra_skateboards();
@@ -142,10 +141,7 @@ public:
     void set_is_able_to_throw(bool t);
     void set_gloves(int g);
     void set_extra_gloves(int eg);
-    Direction get_server_send_dir();
     void set_anim_count(float animcnt);
-    void set_disconnected();
-    bool is_disconnected();
 protected:
     COLOR color;
     std::string name;
@@ -174,7 +170,6 @@ protected:
     int number;
     Direction server_send_dir;
     SimpleTimer allow_putbomb_timer;
-    bool has_disconnected;
 };
 
 #endif

@@ -63,8 +63,6 @@ Bomber::Bomber( int _x, int _y, COLOR _color, Controller* _controller, std::stri
     deaths = 0;
     disease = NULL;
 
-    has_disconnected = false;
-
     switch (color)
     {
     case 0 :
@@ -126,11 +124,7 @@ void Bomber::reset()
     extra_bombs = 0;
 
     delete_me = false;
-    server_dir = cur_dir;
-    client_dir = cur_dir;
     local_dir = cur_dir;
-    server_x = (int)x;
-    server_y = (int)y;
     allow_putbomb_timer.reset();
 
     skateboards = Config::get_start_skateboards();
@@ -195,48 +189,6 @@ void Bomber::show()
     else if (!dead && cur_dir != DIR_NONE)
     {
         GameObject::show();
-    }
-}
-
-Direction Bomber::get_server_send_dir()
-{
-    return server_send_dir;
-}
-
-bool Bomber::direction_has_changed(bool for_server)
-{
-    if (for_server)
-    {
-        if (Config::bomber[number].is_local())
-        {
-            if (server_dir == DIR_NONE)
-            {
-                server_send_dir = DIR_NONE;
-            }
-            else
-            {
-                server_send_dir = cur_dir;
-            }
-            return (server_dir != client_dir);
-        }
-        else
-        {
-            if (server_dir == local_dir)
-            {
-                local_dir = DIR_NONE;
-                server_send_dir = server_dir;
-                server_dir = cur_dir;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
-    else
-    {
-        return (server_dir != client_dir && client_dir != local_dir);
     }
 }
 
@@ -731,16 +683,6 @@ void Bomber::set_sprite_nr(int snr)
 void Bomber::set_anim_count(float animcnt)
 {
     anim_count = animcnt;
-}
-
-void Bomber::set_disconnected()
-{
-    has_disconnected = true;
-}
-
-bool Bomber::is_disconnected()
-{
-    return has_disconnected;
 }
 
 SimpleTimer::SimpleTimer()
