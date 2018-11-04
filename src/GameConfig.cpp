@@ -79,6 +79,8 @@ int	Config::theme				= 0;
 
 bool Config::fullscreen = false;
 
+bool Config::softwareRendering = false;
+
 BomberConfig Config::bomber[8];
 
 BomberConfig::BomberConfig()
@@ -558,6 +560,17 @@ void Config::set_fullscreen(bool val)
 {
     fullscreen = val;
 }
+
+bool Config::get_softwareRendering()
+{
+    return softwareRendering;
+}
+
+void Config::set_softwareRendering(bool val)
+{
+    softwareRendering = val;
+}
+
 
 bool Config::save(bool init)
 {

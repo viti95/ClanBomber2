@@ -65,7 +65,6 @@ boost::filesystem::path ClanBomberApplication::local_map_path;
 int ClanBomberApplication::server_frame_counter = 0;
 
 static unsigned short next_object_id = 0;
-static int run_server_with_players_nr = 0;
 
 /* initialize state to random bits */
 static unsigned long state[16];
@@ -129,14 +128,11 @@ int ClanBomberApplication::init_SDL() {
 
 	keyboard = SDL_GetKeyboardState(NULL);
 
-	Uint32 fullscreen = 0;
-	if (Config::get_fullscreen()) {
-		fullscreen = SDL_WINDOW_FULLSCREEN;
-	}
-	//primary = SDL_SetVideoMode(800, 600, 16, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_ASYNCBLIT | fullscreen);
+	Uint32 fullscreen = (Config::get_fullscreen()) ? SDL_WINDOW_FULLSCREEN : 0;
+	Uint32 renderMode = (Config::get_softwareRendering()) ? SDL_RENDERER_SOFTWARE : SDL_RENDERER_ACCELERATED;
 
-	//SDL_WM_SetCaption(PACKAGE_STRING, NULL);
-
+	std::cout << fullscreen << std::endl;
+	std::cout << renderMode << std::endl;
 
 	gameWindow = SDL_CreateWindow(PACKAGE_STRING,
                           SDL_WINDOWPOS_UNDEFINED,
@@ -144,7 +140,7 @@ int ClanBomberApplication::init_SDL() {
                           800, 600,
                           SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE | fullscreen);
 
-	renderer = SDL_CreateRenderer(gameWindow, -1, SDL_RENDERER_ACCELERATED);
+	renderer = SDL_CreateRenderer(gameWindow, -1, renderMode);
 
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");  // make the scaled rendering look smoother.
 	SDL_RenderSetLogicalSize(renderer, 800, 600);
@@ -671,10 +667,6 @@ ClanBomberApplication::get_menu() {
 	return app->menu;
 }
 
-int ClanBomberApplication::run_server_with_players() {
-	return run_server_with_players_nr;
-}
-
 void ClanBomberApplication::make_observer() {
 	if (observer == NULL) {
 		observer = new Observer(0, 0, this);
@@ -1039,22 +1031,12 @@ int main(int argc, char **argv) {
 		if (!strcmp(argv[i], "--help")) {
 			std::cout
 					<< _(
-							"\n    usage: clanbomber2 [--runserver=X] [--fullscreen]")
-					<< _(
-							"\n           (X: start server and run game when X players "
-									"are enabled)\n\n");
+							"\n    usage: clanbomber2 [--software] [--fullscreen]\n\n");
 			return 0;
-		} else if (strstr(argv[i], "--runserver=") == argv[i]) {
-			run_server_with_players_nr = atoi(1 + strchr(argv[i], '='));
-			if (run_server_with_players_nr < 2
-					|| run_server_with_players_nr > 8) {
-				std::cout
-						<< _(
-								"\n    --runserver expects a number between 2 and 8\n\n");
-				return -666;
-			}
 		} else if (!strcmp(argv[i], "--fullscreen")) {
 			Config::set_fullscreen(true);
+		} else if (!strcmp(argv[i], "--software")) {
+			Config::set_softwareRendering(true);
 		} else {
 			std::cout << _("Invalid argument") << std::endl;
 		}

@@ -165,6 +165,9 @@ public:
     static bool get_fullscreen();
     static void set_fullscreen(bool val);
 
+    static bool get_softwareRendering();
+    static void set_softwareRendering(bool val);
+
     static bool load();
     static bool save(bool init=false);
     static int get_sound_enabled();
@@ -212,6 +215,8 @@ protected:
     static int theme;
 
     static bool fullscreen;
+
+    static bool softwareRendering;
 
     static boost::filesystem::path filename;
     static boost::filesystem::path path;
