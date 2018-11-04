@@ -64,7 +64,6 @@ Observer::Observer(int _x, int _y, ClanBomberApplication *_app) :
 
 	reset_round_time();
 	first_destruction = true;
-	repaint_hack = 0;
 }
 
 Observer::~Observer() {
@@ -99,7 +98,6 @@ void Observer::reset_round_time() {
 	round_time = Config::get_round_time();
 	play_hurryup = true;
 	first_destruction = true;
-	repaint_hack = 0;
 	x = 0;
 	y = 0;
 	flying = false;

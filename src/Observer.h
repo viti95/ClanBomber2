@@ -65,7 +65,6 @@ protected:
     GameStatus	*game_status;
     bool		play_hurryup;
     bool		first_destruction;
-    int		repaint_hack;
     void kill_all_bombers();
 };
 
