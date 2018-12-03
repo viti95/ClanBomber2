@@ -59,11 +59,12 @@ Credits::Credits( ClanBomberApplication *_app )
     //text.push_back(new std::string(""));
     text.push_back(new std::string("Boost"));
     text.push_back(new std::string("DejaVu"));
-    text.push_back(new std::string("SDL"));
-    text.push_back(new std::string("SDL_gfx"));
-    text.push_back(new std::string("SDL_image"));
-    text.push_back(new std::string("SDL_mixer"));
-    text.push_back(new std::string("SDL_ttf"));
+    text.push_back(new std::string("SDL2"));
+    //text.push_back(new std::string("SDL2_gfx"));
+    text.push_back(new std::string("SDL2_image"));
+    text.push_back(new std::string("SDL2_mixer"));
+    text.push_back(new std::string("SDL2_ttf"));
+    text.push_back(new std::string(""));
 
 
     text.push_back(new std::string(""));
