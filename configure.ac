@@ -3,18 +3,8 @@ AC_PREREQ([2.63])
 AC_INIT([ClanBomber], [2.3.0], [rsl@members.fsf.org])
 AM_INIT_AUTOMAKE([-Wall -Werror])
 
-
-#CXXFLAGS="-std=c++11 -O3 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
-CXXFLAGS="-std=c++11 -O3 -march=native -ftree-vectorize -DNDEBUG"
-#CXXFLAGS="-std=c++11 -O3 -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
-#CXXFLAGS="-std=c++11 -g"
-
-#CFLAGS="-std=c++11 -O3 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
-CFLAGS="-std=c++11 -O3 -march=native -ftree-vectorize -DNDEBUG"
-#CFLAGS="-std=c++11 -O3 -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -DNDEBUG"
-#CFLAGS="-std=c++11 -g"
-
 AC_PROG_CXX
+
 AC_LANG([C++])
 AC_C_BIGENDIAN
 AC_PROG_RANLIB

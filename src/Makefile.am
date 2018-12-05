@@ -3,6 +3,8 @@ SUBDIRS = maps pics wavs fonts menuentry
 clanbomber2dir = $(RELATIVE_DATADIR)/$(PACKAGE)
 relative_localedir = $(RELATIVE_DATADIR)/locale
 
+AM_CXXFLAGS = -std=c++11
+
 AM_CPPFLAGS = \
 	$(SDL2_CFLAGS) \
 	$(BOOST_CPPFLAGS) \
