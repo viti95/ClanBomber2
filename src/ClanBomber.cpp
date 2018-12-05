@@ -126,6 +126,14 @@ int ClanBomberApplication::init_SDL() {
 	if (Config::get_fullscreen()) SDL_SetRelativeMouseMode(SDL_TRUE);
 
 	keyboard = SDL_GetKeyboardState(NULL);
+	
+	#ifdef SDL_HINT_RENDER_BATCHING
+	SDL_SetHint(SDL_HINT_RENDER_BATCHING, "1"); // enable batch rendering, it's faster
+	#endif
+	
+	#ifdef SDL_HINT_RENDER_SCALE_QUALITY
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");  // make the scaled rendering look smoother.
+	#endif
 
 	gameWindow = SDL_CreateWindow(PACKAGE_STRING,
                           SDL_WINDOWPOS_UNDEFINED,
@@ -135,7 +143,6 @@ int ClanBomberApplication::init_SDL() {
 
 	renderer = SDL_CreateRenderer(gameWindow, -1, renderMode);
 
-	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");  // make the scaled rendering look smoother.
 	SDL_RenderSetLogicalSize(renderer, 800, 600);
 
    	SDL_SetRenderDrawBlendMode(renderer,SDL_BLENDMODE_BLEND);
