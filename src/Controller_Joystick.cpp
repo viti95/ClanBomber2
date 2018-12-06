@@ -38,7 +38,7 @@ Controller_Joystick::~Controller_Joystick()
 
 void Controller_Joystick::update()
 {
-    const unsigned int tolerance = 5000;
+    const unsigned int tolerance = 12000;
     if (active && joystick != NULL)
     {
         Sint16 x = SDL_JoystickGetAxis(joystick, 0);
