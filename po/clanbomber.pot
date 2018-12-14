@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Rene Lopez
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the clanbomber package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: clanbomber 2.1.1\n"
+"Project-Id-Version: clanbomber 2.3.0\n"
 "Report-Msgid-Bugs-To: rsl@members.fsf.org\n"
-"POT-Creation-Date: 2010-09-12 20:44-0500\n"
+"POT-Creation-Date: 2018-12-14 16:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,330 +17,301 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/ClanBomber.cpp:104
+#: src/ClanBomber.cpp:103
 msgid "(+) clanbomber: deallocating resources..."
 msgstr ""
 
-#: src/ClanBomber.cpp:144
+#: src/ClanBomber.cpp:118
 msgid "Cannot Initialise SDL!"
 msgstr ""
 
-#: src/ClanBomber.cpp:164
+#: src/ClanBomber.cpp:156
 msgid "Cannot initialise the requested audio plugin!"
 msgstr ""
 
-#: src/ClanBomber.cpp:168
+#: src/ClanBomber.cpp:160
 msgid "Cannot Initialise SDL audio!"
 msgstr ""
 
-#: src/ClanBomber.cpp:172
+#: src/ClanBomber.cpp:164
 msgid "Cannot Initialise SDL ttf!"
 msgstr ""
 
-#: src/ClanBomber.cpp:278
+#: src/ClanBomber.cpp:210
 #, c-format
 msgid "Config directory (%1$s) cannot be created"
 msgstr ""
 
-#: src/ClanBomber.cpp:287
+#: src/ClanBomber.cpp:219
 #, c-format
 msgid "Data directory (%1$s) cannot be created"
 msgstr ""
 
-#: src/ClanBomber.cpp:297
-msgid "Loading..."
-msgstr ""
-
-#: src/ClanBomber.cpp:306
+#: src/ClanBomber.cpp:231
 msgid "Main Menu"
 msgstr ""
 
-#: src/ClanBomber.cpp:308
+#: src/ClanBomber.cpp:233
 msgid "New Game"
 msgstr ""
 
-#: src/ClanBomber.cpp:309
+#: src/ClanBomber.cpp:234
 msgid "Start Local"
 msgstr ""
 
-#: src/ClanBomber.cpp:310
-msgid "Create Server"
-msgstr ""
-
-#: src/ClanBomber.cpp:311
-msgid "Join Server"
-msgstr ""
-
-#: src/ClanBomber.cpp:312
+#: src/ClanBomber.cpp:235
 msgid "Local Player Setup"
 msgstr ""
 
-#: src/ClanBomber.cpp:313
+#: src/ClanBomber.cpp:236
 msgid "Map Selection"
 msgstr ""
 
-#: src/ClanBomber.cpp:314 src/ClanBomber.cpp:375
+#: src/ClanBomber.cpp:237 src/ClanBomber.cpp:297
 msgid "Random Bomber Positions"
 msgstr ""
 
-#: src/ClanBomber.cpp:316 src/ClanBomber.cpp:378
+#: src/ClanBomber.cpp:239 src/ClanBomber.cpp:300
 msgid "Random Map Order"
 msgstr ""
 
-#: src/ClanBomber.cpp:318 src/ClanBomber.cpp:380
+#: src/ClanBomber.cpp:241 src/ClanBomber.cpp:302
 msgid "Points to win"
 msgstr ""
 
-#: src/ClanBomber.cpp:320 src/ClanBomber.cpp:382
+#: src/ClanBomber.cpp:243 src/ClanBomber.cpp:304
 msgid "Round Time"
 msgstr ""
 
-#: src/ClanBomber.cpp:323
+#: src/ClanBomber.cpp:246
 msgid "Options"
 msgstr ""
 
-#: src/ClanBomber.cpp:324
+#: src/ClanBomber.cpp:247
 msgid "Start/Max Extras"
 msgstr ""
 
-#: src/ClanBomber.cpp:325
+#: src/ClanBomber.cpp:248
 msgid "Start Bombs"
 msgstr ""
 
-#: src/ClanBomber.cpp:327
+#: src/ClanBomber.cpp:250
 msgid "Start Power"
 msgstr ""
 
-#: src/ClanBomber.cpp:329
+#: src/ClanBomber.cpp:252
 msgid "Start Skateboards"
 msgstr ""
 
-#: src/ClanBomber.cpp:331
+#: src/ClanBomber.cpp:254
 msgid "Start Kick"
 msgstr ""
 
-#: src/ClanBomber.cpp:333
+#: src/ClanBomber.cpp:256
 msgid "Start Glove"
 msgstr ""
 
-#: src/ClanBomber.cpp:335
+#: src/ClanBomber.cpp:258
 msgid "Max. Bombs"
 msgstr ""
 
-#: src/ClanBomber.cpp:337
+#: src/ClanBomber.cpp:260
 msgid "Max. Power"
 msgstr ""
 
-#: src/ClanBomber.cpp:339
+#: src/ClanBomber.cpp:262
 msgid "Max. Skateboards"
 msgstr ""
 
-#: src/ClanBomber.cpp:341
+#: src/ClanBomber.cpp:264
 msgid "Enable/Disable Extras"
 msgstr ""
 
-#: src/ClanBomber.cpp:342
+#: src/ClanBomber.cpp:265
 msgid "Bombs"
 msgstr ""
 
-#: src/ClanBomber.cpp:344
+#: src/ClanBomber.cpp:267
 msgid "Power"
 msgstr ""
 
-#: src/ClanBomber.cpp:346
+#: src/ClanBomber.cpp:269
 msgid "Skateboard"
 msgstr ""
 
-#: src/ClanBomber.cpp:348
+#: src/ClanBomber.cpp:271
 msgid "Kick"
 msgstr ""
 
-#: src/ClanBomber.cpp:350
+#: src/ClanBomber.cpp:273
 msgid "Glove"
 msgstr ""
 
-#: src/ClanBomber.cpp:352
+#: src/ClanBomber.cpp:275
 msgid "Enable/Disable Diseases"
 msgstr ""
 
-#: src/ClanBomber.cpp:354
+#: src/ClanBomber.cpp:277
 msgid "Joint"
 msgstr ""
 
-#: src/ClanBomber.cpp:356
+#: src/ClanBomber.cpp:279
 msgid "Viagra"
 msgstr ""
 
-#: src/ClanBomber.cpp:358
+#: src/ClanBomber.cpp:281
 msgid "Koks"
 msgstr ""
 
-#: src/ClanBomber.cpp:360
+#: src/ClanBomber.cpp:283
 msgid "Bomb Timing and Speed"
 msgstr ""
 
-#: src/ClanBomber.cpp:361
+#: src/ClanBomber.cpp:284
 msgid "Bomb Countdown (1/10 s)"
 msgstr ""
 
-#: src/ClanBomber.cpp:363
+#: src/ClanBomber.cpp:286
 msgid "Bomb Chain Reaction Delay (1/100 s)"
 msgstr ""
 
-#: src/ClanBomber.cpp:365
+#: src/ClanBomber.cpp:288
 msgid "Moving Bombs Speed (pixels per second)"
 msgstr ""
 
-#: src/ClanBomber.cpp:368
+#: src/ClanBomber.cpp:290
 msgid "Graphic Options"
 msgstr ""
 
-#: src/ClanBomber.cpp:369
+#: src/ClanBomber.cpp:291
 msgid "Kidz Mode"
 msgstr ""
 
-#: src/ClanBomber.cpp:371
+#: src/ClanBomber.cpp:293
 msgid "Corpse Parts"
 msgstr ""
 
-#: src/ClanBomber.cpp:373
+#: src/ClanBomber.cpp:295
 msgid "Shaky Explosions"
 msgstr ""
 
-#: src/ClanBomber.cpp:388
+#: src/ClanBomber.cpp:310
 msgid "Map Editor"
 msgstr ""
 
-#: src/ClanBomber.cpp:389
+#: src/ClanBomber.cpp:311
 msgid "Show Credits"
 msgstr ""
 
-#: src/ClanBomber.cpp:390
+#: src/ClanBomber.cpp:312
 msgid "Help Screen"
 msgstr ""
 
-#: src/ClanBomber.cpp:391
+#: src/ClanBomber.cpp:313
 msgid "Quit Game"
 msgstr ""
 
-#: src/ClanBomber.cpp:763 src/ClanBomber.cpp:774
-msgid "enter server NAME or IP:"
-msgstr ""
-
-#: src/ClanBomber.cpp:957
+#: src/ClanBomber.cpp:599
 msgid "- PAUSED -"
 msgstr ""
 
-#: src/ClanBomber.cpp:1234
+#: src/ClanBomber.cpp:719
 #, c-format
 msgid "%1$d fps"
 msgstr ""
 
-#: src/ClanBomber.cpp:1468
+#: src/ClanBomber.cpp:844
 msgid "A WORLD DOMINATION PROJECT"
 msgstr ""
 
-#: src/ClanBomber.cpp:1556
+#: src/ClanBomber.cpp:903
 msgid "ClanBomber Extras"
 msgstr ""
 
-#: src/ClanBomber.cpp:1560
+#: src/ClanBomber.cpp:907
 msgid "Bomb:"
 msgstr ""
 
-#: src/ClanBomber.cpp:1561
+#: src/ClanBomber.cpp:909
 msgid "You can place an additional bomb"
 msgstr ""
 
-#: src/ClanBomber.cpp:1566
+#: src/ClanBomber.cpp:914
 msgid "Power:"
 msgstr ""
 
-#: src/ClanBomber.cpp:1568
+#: src/ClanBomber.cpp:916
 msgid "Explosions grow one field in each direction"
 msgstr ""
 
-#: src/ClanBomber.cpp:1574
+#: src/ClanBomber.cpp:921
 msgid "Skateboard:"
 msgstr ""
 
-#: src/ClanBomber.cpp:1576
+#: src/ClanBomber.cpp:923
 msgid "Let's you move faster"
 msgstr ""
 
-#: src/ClanBomber.cpp:1581
+#: src/ClanBomber.cpp:928
 msgid "Kick:"
 msgstr ""
 
-#: src/ClanBomber.cpp:1582
+#: src/ClanBomber.cpp:930
 msgid "Kick bombs if you walk against one"
 msgstr ""
 
-#: src/ClanBomber.cpp:1587
+#: src/ClanBomber.cpp:935
 msgid "Throw:"
 msgstr ""
 
-#: src/ClanBomber.cpp:1589
+#: src/ClanBomber.cpp:938
 msgid "Throw Bombs if you press the button twice"
 msgstr ""
 
-#: src/ClanBomber.cpp:1591
+#: src/ClanBomber.cpp:940
 msgid "without moving"
 msgstr ""
 
-#: src/ClanBomber.cpp:1594 src/ClanBomber.cpp:1628
+#: src/ClanBomber.cpp:943 src/ClanBomber.cpp:977
 msgid "Press any key"
 msgstr ""
 
-#: src/ClanBomber.cpp:1604
+#: src/ClanBomber.cpp:953
 msgid "ClanBomber Drugs"
 msgstr ""
 
-#: src/ClanBomber.cpp:1609
+#: src/ClanBomber.cpp:958
 msgid "Joint:"
 msgstr ""
 
-#: src/ClanBomber.cpp:1611
+#: src/ClanBomber.cpp:960
 msgid "Controller will be reversed"
 msgstr ""
 
-#: src/ClanBomber.cpp:1616
+#: src/ClanBomber.cpp:965
 msgid "Viagra:"
 msgstr ""
 
-#: src/ClanBomber.cpp:1618
+#: src/ClanBomber.cpp:967
 msgid "Autofire, this can be very dangerous!"
 msgstr ""
 
-#: src/ClanBomber.cpp:1623
+#: src/ClanBomber.cpp:972
 msgid "Cocaine:"
 msgstr ""
 
-#: src/ClanBomber.cpp:1625
+#: src/ClanBomber.cpp:974
 msgid "Let's you move very fast!! (too fast)"
 msgstr ""
 
-#: src/ClanBomber.cpp:1652
+#: src/ClanBomber.cpp:1000
 msgid ""
 "\n"
-"    usage: clanbomber2 [--runserver=X] [--fullscreen]"
-msgstr ""
-
-#: src/ClanBomber.cpp:1653
-msgid ""
-"\n"
-"           (X: start server and run game when X players are enabled)\n"
+"    usage: clanbomber2 [--software] [--fullscreen]\n"
 "\n"
 msgstr ""
 
-#: src/ClanBomber.cpp:1661
-msgid ""
-"\n"
-"    --runserver expects a number between 2 and 8\n"
-"\n"
-msgstr ""
-
-#: src/ClanBomber.cpp:1669
+#: src/ClanBomber.cpp:1007
 msgid "Invalid argument"
 msgstr ""
 
@@ -352,276 +323,242 @@ msgstr ""
 msgid "ClanBomber Uses"
 msgstr ""
 
-#: src/Credits.cpp:70
+#: src/Credits.cpp:71
 msgid "Thanks to"
 msgstr ""
 
-#: src/Credits.cpp:72
+#: src/Credits.cpp:73
 msgid "Everyone supporting this game..."
 msgstr ""
 
-#: src/Credits.cpp:73
+#: src/Credits.cpp:74
 msgid "... and playing it"
 msgstr ""
 
-#: src/GameStatus.cpp:171 src/GameStatus_Team.cpp:183
-#, c-format
-msgid "PRESS SPACE TO CONTINUE  (autostart %.02f s)"
-msgstr ""
-
-#: src/GameStatus.cpp:178 src/GameStatus.cpp:184 src/GameStatus_Team.cpp:189
-#: src/GameStatus_Team.cpp:195
+#: src/GameStatus.cpp:120 src/GameStatus_Team.cpp:139
 msgid "PRESS SPACE TO CONTINUE"
 msgstr ""
 
-#: src/GameStatus.cpp:190 src/GameStatus_Team.cpp:255
+#: src/GameStatus.cpp:126 src/GameStatus_Team.cpp:204
 msgid "Draw Game"
 msgstr ""
 
-#: src/GameStatus.cpp:194 src/GameStatus_Team.cpp:259
-#: src/GameStatus_Team.cpp:263
+#: src/GameStatus.cpp:132 src/GameStatus_Team.cpp:210
+#: src/GameStatus_Team.cpp:215
 #, c-format
 msgid "%s won"
 msgstr ""
 
-#: src/GameStatus.cpp:255 src/GameStatus_Team.cpp:274
+#: src/GameStatus.cpp:223 src/GameStatus_Team.cpp:225
 msgid "NEXT LEVEL"
 msgstr ""
 
-#: src/GameStatus.cpp:278 src/GameStatus_Team.cpp:289
-msgid "BACKSPACE:"
-msgstr ""
-
-#: src/GameStatus.cpp:281 src/GameStatus_Team.cpp:290
-msgid "CHAT"
-msgstr ""
-
-#: src/GameStatus_Team.cpp:47
+#: src/GameStatus_Team.cpp:43
 msgid "Blood Team"
 msgstr ""
 
-#: src/GameStatus_Team.cpp:48
+#: src/GameStatus_Team.cpp:44
 msgid "Gold Team"
 msgstr ""
 
-#: src/GameStatus_Team.cpp:49
+#: src/GameStatus_Team.cpp:45
 msgid "Water Team"
 msgstr ""
 
-#: src/GameStatus_Team.cpp:50
+#: src/GameStatus_Team.cpp:46
 msgid "Leaf Team"
 msgstr ""
 
-#: src/GameStatus_Team.cpp:238
+#: src/GameStatus_Team.cpp:185
 msgid "Teamless Heroes"
 msgstr ""
 
-#: src/GameStatus_Team.cpp:268
+#: src/GameStatus_Team.cpp:221
 msgid "the Match"
 msgstr ""
 
-#: src/MapEditor.cpp:169
+#: src/MapEditor.cpp:185
 msgid "Select a map to edit and press Enter"
 msgstr ""
 
-#: src/MapEditor.cpp:172
+#: src/MapEditor.cpp:188
 msgid "Maps marked red are readonly"
 msgstr ""
 
-#: src/MapEditor.cpp:175
+#: src/MapEditor.cpp:191
 msgid "Press N to create a new map"
 msgstr ""
 
-#: src/MapEditor.cpp:178
+#: src/MapEditor.cpp:194
 msgid "Press D to delete a map"
 msgstr ""
 
-#: src/MapEditor.cpp:196
+#: src/MapEditor.cpp:214
 #, c-format
 msgid "Name: %1$s"
 msgstr ""
 
-#: src/MapEditor.cpp:201 src/MapEditor.cpp:472
+#: src/MapEditor.cpp:219 src/MapEditor.cpp:502
 msgid "PRESS ESC TO ABORT"
 msgstr ""
 
-#: src/MapEditor.cpp:431
+#: src/MapEditor.cpp:458
 msgid "PRESS F1 FOR HELP"
 msgstr ""
 
-#: src/MapEditor.cpp:436
+#: src/MapEditor.cpp:464
 msgid "TEXT EDITOR MODE"
 msgstr ""
 
-#: src/MapEditor.cpp:441
+#: src/MapEditor.cpp:470
 msgid "NORMAL EDITOR MODE"
 msgstr ""
 
-#: src/MapEditor.cpp:446
+#: src/MapEditor.cpp:475
 #, c-format
 msgid "NUMBER OF PLAYERS   %1$s"
 msgstr ""
 
-#: src/MapEditor.cpp:465
+#: src/MapEditor.cpp:495
 #, c-format
 msgid "Author: %1$s"
 msgstr ""
 
-#: src/MapEditor.cpp:497
+#: src/MapEditor.cpp:529
 msgid "PRESS G FOR A GROUND TILE"
 msgstr ""
 
-#: src/MapEditor.cpp:502
+#: src/MapEditor.cpp:534
 msgid "PRESS W FOR A WALL"
 msgstr ""
 
-#: src/MapEditor.cpp:507
+#: src/MapEditor.cpp:539
 msgid "PRESS B FOR A BOX"
 msgstr ""
 
-#: src/MapEditor.cpp:513
+#: src/MapEditor.cpp:545
 msgid "PRESS R FOR A RANDOM TILE"
 msgstr ""
 
-#: src/MapEditor.cpp:519
+#: src/MapEditor.cpp:551
 msgid "PRESS O FOR A BOMB TRAP"
 msgstr ""
 
-#: src/MapEditor.cpp:525
+#: src/MapEditor.cpp:557
 msgid "PRESS I FOR AN ICE TILE"
 msgstr ""
 
-#: src/MapEditor.cpp:531
+#: src/MapEditor.cpp:563
 msgid "PRESS NUMBER KEYS FOR BOMBER POSITIONS"
 msgstr ""
 
-#: src/MapEditor.cpp:536
+#: src/MapEditor.cpp:568
 msgid "THE FOLLOWING KEYS PRODUCE ARROWS"
 msgstr ""
 
-#: src/MapEditor.cpp:542
+#: src/MapEditor.cpp:574
 msgid "U"
 msgstr ""
 
-#: src/MapEditor.cpp:548
+#: src/MapEditor.cpp:580
 msgid "J"
 msgstr ""
 
-#: src/MapEditor.cpp:554
+#: src/MapEditor.cpp:586
 msgid "K"
 msgstr ""
 
-#: src/MapEditor.cpp:560
+#: src/MapEditor.cpp:592
 msgid "L"
 msgstr ""
 
-#: src/MapEditor.cpp:565
+#: src/MapEditor.cpp:597
 msgid "PRESS SPACE BAR FOR A HOLE"
 msgstr ""
 
-#: src/MapEditor.cpp:568
+#: src/MapEditor.cpp:600
 msgid "PAGE UP AND DOWN SET NR OF PLAYERS"
 msgstr ""
 
-#: src/MapEditor.cpp:571
+#: src/MapEditor.cpp:603
 msgid "PRESS A FOR CHANGING THE AUTHOR"
 msgstr ""
 
-#: src/MapEditor.cpp:574
+#: src/MapEditor.cpp:606
 msgid "PRESSING F2 SWITCHES EDITOR MODE"
 msgstr ""
 
-#: src/MapSelector.cpp:168
+#: src/MapSelector.cpp:182
 msgid "SPACE   TOGGLE CURRENT SELECTION"
 msgstr ""
 
-#: src/MapSelector.cpp:171
+#: src/MapSelector.cpp:185
 msgid "A   SELECT ALL MAPS"
 msgstr ""
 
-#: src/MapSelector.cpp:174
+#: src/MapSelector.cpp:188
 msgid "S   SELECT CURRENT MAP ONLY"
 msgstr ""
 
-#: src/MapSelector.cpp:180
+#: src/MapSelector.cpp:194
 #, c-format
 msgid "by %1$s"
 msgstr ""
 
-#: src/MapSelector.cpp:193
+#: src/MapSelector.cpp:207
 msgid "Ice"
 msgstr ""
 
-#: src/MapSelector.cpp:196
+#: src/MapSelector.cpp:210
 msgid "Jungle"
 msgstr ""
 
-#: src/MapSelector.cpp:199
+#: src/MapSelector.cpp:213
 msgid "Jungle Arena"
 msgstr ""
 
-#: src/MapSelector.cpp:202
+#: src/MapSelector.cpp:216
 msgid "Strange Kitchen"
 msgstr ""
 
-#: src/MapSelector.cpp:205
+#: src/MapSelector.cpp:219
 msgid "Green Crypt"
 msgstr ""
 
-#: src/MapSelector.cpp:208
+#: src/MapSelector.cpp:222
 msgid "Melting Metal"
 msgstr ""
 
-#: src/MapSelector.cpp:223
+#: src/MapSelector.cpp:238
 #, c-format
 msgid "THIS MAP IS ONLY FOR UP TO %1$d PLAYERS"
 msgstr ""
 
-#: src/MapSelector.cpp:229
+#: src/MapSelector.cpp:245
 #, c-format
 msgid "THIS MAP IS FOR UP TO %1$d PLAYERS"
 msgstr ""
 
-#: src/Observer.cpp:366
+#: src/Observer.cpp:228
 msgid "HURRY UP !!!!"
 msgstr ""
 
-#: src/PlayerSetup.cpp:136 src/ServerSetup.cpp:477
+#: src/PlayerSetup.cpp:127
 msgid "SKIN"
 msgstr ""
 
-#: src/PlayerSetup.cpp:139 src/ServerSetup.cpp:480
+#: src/PlayerSetup.cpp:129
 msgid "NAME"
 msgstr ""
 
-#: src/PlayerSetup.cpp:142 src/ServerSetup.cpp:483
+#: src/PlayerSetup.cpp:131
 msgid "TEAM"
 msgstr ""
 
-#: src/PlayerSetup.cpp:145
+#: src/PlayerSetup.cpp:133
 msgid "Controller"
 msgstr ""
 
-#: src/PlayerSetup.cpp:149
+#: src/PlayerSetup.cpp:135
 msgid "SPACE ENABLES OR DISABLES A PLAYER, H TOGGLES HIGHLIGHTING"
-msgstr ""
-
-#: src/ServerSetup.cpp:125
-msgid "* local *"
-msgstr ""
-
-#: src/ServerSetup.cpp:138
-msgid "* server *"
-msgstr ""
-
-#: src/ServerSetup.cpp:453
-msgid "NAME:"
-msgstr ""
-
-#: src/ServerSetup.cpp:465
-msgid "IP:"
-msgstr ""
-
-#: src/ServerSetup.cpp:486
-msgid "CONTROLLER"
 msgstr ""
