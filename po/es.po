@@ -551,7 +551,7 @@ msgstr "ESTE MAPA ES PARA HASTA %1$d JUGADORES"
 
 #: src/Observer.cpp:228
 msgid "HURRY UP !!!!"
-msgstr ""
+msgstr "DATE PRISA !!!!"
 
 #: src/PlayerSetup.cpp:127
 msgid "SKIN"
