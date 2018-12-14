@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: clanbomber2 0.0.1\n"
 "Report-Msgid-Bugs-To: rsl@members.fsf.org\n"
-"POT-Creation-Date: 2018-12-14 16:51+0100\n"
+"POT-Creation-Date: 2018-12-14 16:55+0100\n"
 "PO-Revision-Date: 2009-02-13 14:44-0600\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
@@ -70,7 +70,7 @@ msgstr "Seleccion de mapa"
 
 #: src/ClanBomber.cpp:237 src/ClanBomber.cpp:297
 msgid "Random Bomber Positions"
-msgstr "Posiciones inicial aleatoria"
+msgstr "Posicion inicial aleatoria"
 
 #: src/ClanBomber.cpp:239 src/ClanBomber.cpp:300
 msgid "Random Map Order"
@@ -247,7 +247,7 @@ msgstr "Potencia:"
 
 #: src/ClanBomber.cpp:916
 msgid "Explosions grow one field in each direction"
-msgstr "Las explosiones se alargan una unidad en cada direccion"
+msgstr "Las explosiones crecen una unidad en cada direccion"
 
 #: src/ClanBomber.cpp:921
 msgid "Skateboard:"
@@ -319,7 +319,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"    uso: clanbomber2 [--runserver=X] [--fullscreen]"
+"    uso: clanbomber2 [--software] [--fullscreen]"
 
 #: src/ClanBomber.cpp:1007
 msgid "Invalid argument"
@@ -593,7 +593,7 @@ msgstr "ESPACIO HABILITA O DESHABILITA UN JUGADOR, H SELECCIONA"
 #~ msgstr ""
 #~ "\n"
 #~ "           (X: inicia un servidor y corre el juego cuando X jugadores "
-#~ "están habilitados)\n"
+#~ "estan habilitados)\n"
 #~ "\n"
 
 #~ msgid ""
@@ -619,13 +619,13 @@ msgstr "ESPACIO HABILITA O DESHABILITA UN JUGADOR, H SELECCIONA"
 #~ msgstr "Diseño del Juego"
 
 #~ msgid "Coding"
-#~ msgstr "Programación"
+#~ msgstr "Programacion"
 
 #~ msgid "(network code and oza stuf)"
-#~ msgstr "(código de red y otras cosas)"
+#~ msgstr "(codigo de red y otras cosas)"
 
 #~ msgid "Graphics"
-#~ msgstr "Gráficos"
+#~ msgstr "Graficos"
 
 #~ msgid "(24h ClanLib support)"
 #~ msgstr "(Soporte la 24h para ClanLib)"
