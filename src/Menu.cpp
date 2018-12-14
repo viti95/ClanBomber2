@@ -302,7 +302,7 @@ void Menu::redraw( bool options_menu_hack, int yoffset )
             {
                 Resources::Font_big()
                 ->render(static_cast<MenuItem_Value*>(*item_iter)->get_value()
-                         ? "Yes" : "No", right_border, vert,
+                         ? _("Yes") : _("No"), right_border, vert,
                          cbe::FontAlignment_0topright);
             }
             else

@@ -5,4 +5,5 @@
      ../src/MapEditor.cpp \
      ../src/MapSelector.cpp \
      ../src/Observer.cpp \
-     ../src/PlayerSetup.cpp
+     ../src/PlayerSetup.cpp \
+     ../src/Menu.cpp

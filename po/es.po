@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: clanbomber2 0.0.1\n"
 "Report-Msgid-Bugs-To: rsl@members.fsf.org\n"
-"POT-Creation-Date: 2018-12-14 16:55+0100\n"
+"POT-Creation-Date: 2018-12-14 22:01+0100\n"
 "PO-Revision-Date: 2009-02-13 14:44-0600\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
@@ -573,62 +573,10 @@ msgstr ""
 msgid "SPACE ENABLES OR DISABLES A PLAYER, H TOGGLES HIGHLIGHTING"
 msgstr "ESPACIO HABILITA O DESHABILITA UN JUGADOR, H SELECCIONA"
 
-#~ msgid "Loading..."
-#~ msgstr "Cargando..."
+#: src/Menu.cpp:305
+msgid "Yes"
+msgstr "Si"
 
-#~ msgid "Create Server"
-#~ msgstr "Crear servidor"
-
-#~ msgid "Join Server"
-#~ msgstr "Unirse a un servidor"
-
-# original deberia decir "IP ADDRESS"
-#~ msgid "enter server NAME or IP:"
-#~ msgstr "introduce el NOMBRE o IP del servidor:"
-
-#~ msgid ""
-#~ "\n"
-#~ "           (X: start server and run game when X players are enabled)\n"
-#~ "\n"
-#~ msgstr ""
-#~ "\n"
-#~ "           (X: inicia un servidor y corre el juego cuando X jugadores "
-#~ "estan habilitados)\n"
-#~ "\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "    --runserver expects a number between 2 and 8\n"
-#~ "\n"
-#~ msgstr ""
-#~ "\n"
-#~ "   --runserver espera un numero entre 2 y 8\n"
-#~ "\n"
-
-#~ msgid "PRESS SPACE TO CONTINUE  (autostart %.02f s)"
-#~ msgstr "PULSA ESPACIO PARA CONTINUAR (empieza en %.02f s)"
-
-#~ msgid "BACKSPACE:"
-#~ msgstr "RETROCESO:"
-
-# que es mejor chat o charla?
-#~ msgid "CHAT"
-#~ msgstr "CHARLA"
-
-#~ msgid "Game Design"
-#~ msgstr "Diseño del Juego"
-
-#~ msgid "Coding"
-#~ msgstr "Programacion"
-
-#~ msgid "(network code and oza stuf)"
-#~ msgstr "(codigo de red y otras cosas)"
-
-#~ msgid "Graphics"
-#~ msgstr "Graficos"
-
-#~ msgid "(24h ClanLib support)"
-#~ msgstr "(Soporte la 24h para ClanLib)"
-
-#~ msgid "(Debian package maintainer)"
-#~ msgstr "(mantenedor del paquete de Debian)"
+#: src/Menu.cpp:305
+msgid "No"
+msgstr "No"
