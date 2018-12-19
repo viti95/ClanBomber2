@@ -40,38 +40,38 @@ Credits::Credits( ClanBomberApplication *_app )
 {
     app = _app;
 
-    text.push_back(new std::string(_("ClanBomber Credits")));
-    text.push_back(new std::string(""));
-    text.push_back(new std::string("Andreas Hundt"));
-    text.push_back(new std::string("Andreeshchev Eugeni"));
-    text.push_back(new std::string("Clanner"));
-    text.push_back(new std::string("Denis Oliver Kropp"));
-    text.push_back(new std::string("Ivar"));
-    text.push_back(new std::string("James Andrews"));
-    text.push_back(new std::string("Magnus Reftel"));
-    text.push_back(new std::string("Martin Pitt"));
-    text.push_back(new std::string("Rene Lopez"));
-    text.push_back(new std::string("mass"));
-    text.push_back(new std::string("non"));
+    text.emplace_back(_("ClanBomber Credits"));
+    text.emplace_back("");
+    text.emplace_back("Andreas Hundt");
+    text.emplace_back("Andreeshchev Eugeni");
+    text.emplace_back("Clanner");
+    text.emplace_back("Denis Oliver Kropp");
+    text.emplace_back("Ivar");
+    text.emplace_back("James Andrews");
+    text.emplace_back("Magnus Reftel");
+    text.emplace_back("Martin Pitt");
+    text.emplace_back("Rene Lopez");
+    text.emplace_back("mass");
+    text.emplace_back("non");
 
-    text.push_back(new std::string(""));
-    text.push_back(new std::string(_("ClanBomber Uses")));
-    //text.push_back(new std::string(""));
-    text.push_back(new std::string("Boost"));
-    text.push_back(new std::string("DejaVu"));
-    text.push_back(new std::string("SDL2"));
-    //text.push_back(new std::string("SDL2_gfx"));
-    text.push_back(new std::string("SDL2_image"));
-    text.push_back(new std::string("SDL2_mixer"));
-    text.push_back(new std::string("SDL2_ttf"));
-    text.push_back(new std::string(""));
+    text.emplace_back("");
+    text.emplace_back(_("ClanBomber Uses"));
+    //text.emplace_back("");
+    text.emplace_back("Boost");
+    text.emplace_back("DejaVu");
+    text.emplace_back("SDL2");
+    //text.emplace_back("SDL2_gfx");
+    text.emplace_back("SDL2_image");
+    text.emplace_back("SDL2_mixer");
+    text.emplace_back("SDL2_ttf");
+    text.emplace_back("");
 
 
-    text.push_back(new std::string(""));
-    text.push_back(new std::string(_("Thanks to")));
-    //text.push_back(new std::string(""));
-    text.push_back(new std::string(_("Everyone supporting this game...")));
-    text.push_back(new std::string(_("... and playing it")));
+    text.emplace_back("");
+    text.emplace_back(_("Thanks to"));
+    //text.emplace_back("");
+    text.emplace_back(_("Everyone supporting this game..."));
+    text.emplace_back(_("... and playing it"));
 
     yoffset = yoffset_start;
     yoffset_end = -text.size() * text_height + 100;
@@ -238,7 +238,7 @@ void Credits::draw()
 
     //for (int i=0; i<text.get_num_items(); i++) {
     int i = 0;
-    for(boost::ptr_list<std::string>::iterator text_iter = text.begin();
+    for(std::vector<std::string>::iterator text_iter = text.begin();
             text_iter != text.end();
             text_iter++)
     {
