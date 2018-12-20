@@ -100,6 +100,7 @@ void Job_Go::execute() {
 			finished = true;
 			controller->dir = DIR_NONE;
 		}
+		break;
 	case DIR_RIGHT:
 		if (controller->bomber->get_map_x() >= start + distance
 				&& bomber->get_x() % 40 > 25) {
