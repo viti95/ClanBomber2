@@ -662,12 +662,12 @@ void ClanBomberApplication::delete_all_game_objects() {
 
 GameObject *
 ClanBomberApplication::get_object_by_id(int object_id) {
-	for (auto bomber_object_iter : bomber_objects) {
+	for (const auto &bomber_object_iter : bomber_objects) {
 		if ((bomber_object_iter)->get_object_id() == object_id) {
 			return bomber_object_iter;
 		}
 	}
-	for (auto game_object_iter : objects) {
+	for (const auto &game_object_iter : objects) {
 		if ((game_object_iter)->get_object_id() == object_id) {
 			return game_object_iter;
 		}
@@ -681,18 +681,16 @@ void ClanBomberApplication::act_all() {
 		map->act();
 	}
 
-	// Let them do their stuff
-	for (auto object_iter : objects) {
+	for (const auto & object_iter : objects) {
 		object_iter->act();
 	}
 
-	for (auto bomber_object_iter : bomber_objects) {
+	for (const auto & bomber_object_iter : bomber_objects) {
 		bomber_object_iter->act();
 	}
 }
 
 void ClanBomberApplication::delete_some() {
-	int nr = 0;
 	// Check if we should delete some
 
 	for (auto object_iter = objects.begin(); object_iter != objects.end();) {
@@ -709,33 +707,30 @@ void ClanBomberApplication::show_all() {
 	GameObject *draw_list[objects.size() + bomber_objects.size()];
 	int n = 0;
 	int i;
-	// clear top and sides
+
 	const int top_height = 40;
-	//CB_FillRect(0, 0, 800, top_height, 0, 0, 0);
 	const int margin = 60;
-	//CB_FillRect(0, top_height, 0 + margin, 600 - top_height, 0, 0, 0);
-	//CB_FillRect(800 - margin, top_height, margin, 600 - top_height, 0, 0, 0);
+
 	if (show_fps) {
 		std::string nstr = str(boost::format(_("%1$d fps")) % fps);
-		Resources::Font_small()->render(nstr, 535, 4,
-				cbe::FontAlignment_0topcenter);
+		Resources::Font_small()->render(nstr, 535, 4, cbe::FontAlignment_0topcenter);
 	}
 
-	for (auto object_iter : objects) {
+	for (const auto &object_iter : objects) {
 		draw_list[n] = (object_iter);
 		n++;
 	}
-	for (auto bomber_object_iter : bomber_objects) {
+	for (const auto &bomber_object_iter : bomber_objects) {
 		draw_list[n] = (bomber_object_iter);
 		n++;
 	}
 
-	//XXX Now using a stable sort as originally
 	std::sort(draw_list, draw_list + n, game_object_compare);
 
 	if (map != NULL) {
 		map->refresh_holes();
 	}
+
 	bool drawn_map = false;
 
 	for (i = 0; i < n; i++) {
@@ -803,13 +798,13 @@ bool ClanBomberApplication::init_game() {
 	// this is for removing teams which only one player is in
 	int team_count[] = { 0, 0, 0, 0 };
 	for (int team = 0; team < 4; team++) {
-		for (auto bomber_object_iter : bomber_objects) {
+		for (const auto &bomber_object_iter : bomber_objects) {
 			if ((bomber_object_iter)->get_team() - 1 == team) {
 				team_count[team]++;
 			}
 		}
 	}
-	for (auto bomber_object_iter : bomber_objects) {
+	for (const auto &bomber_object_iter : bomber_objects) {
 		if ((bomber_object_iter)->get_team() != 0) {
 			if (team_count[(bomber_object_iter)->get_team() - 1] == 1) {
 				(bomber_object_iter)->set_team(0);
@@ -824,11 +819,11 @@ bool ClanBomberApplication::init_game() {
 
 void ClanBomberApplication::deinit_game() {
 	// delete all GameObjects
-	for (auto object_iter : objects) {
+	for (const auto &object_iter : objects) {
 		delete object_iter;
 	}
 	objects.clear();
-	for (auto bomber_object_iter : bomber_objects) {
+	for (const auto &bomber_object_iter : bomber_objects) {
 		delete bomber_object_iter;
 	}
 	bomber_objects.clear();

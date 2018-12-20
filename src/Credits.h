@@ -24,7 +24,7 @@
 #ifndef CREDITS_H
 #define CREDITS_H
 
-#include <boost/ptr_container/ptr_list.hpp>
+#include <vector>
 
 /**
   *@author Andreas Hundt, Denis Oliver Kropp
@@ -42,7 +42,7 @@ protected:
     void draw();
     void draw_objects();
 
-    boost::ptr_list<std::string> text;
+    std::vector<std::string> text;
     float yoffset;
     int   speed;
     bool  stopped;

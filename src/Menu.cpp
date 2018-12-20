@@ -166,9 +166,9 @@ int MenuItem_StringList::get_value()
 
 void MenuItem_StringList::set_strings( std::list<std::string*>  _string_list )
 {
-    for(auto iter : _string_list)
+    for(const auto &iter : _string_list)
     {
-        string_list.push_back( new std::string(*iter) );
+    	string_list.push_back(iter);
     }
 }
 
@@ -210,7 +210,7 @@ Menu::Menu( const std::string& name, ClanBomberApplication* _app )
 
 Menu::~Menu()
 {
-    for (auto iter : items)
+    for (const auto &iter : items)
     {
         delete iter;
     }
@@ -223,38 +223,27 @@ void Menu::redraw( bool options_menu_hack, int yoffset )
     int width;
     int fontheight;
 
-    ///Resources::Font_big()->GetHeight( Resources::Font_big(), &fontheight );
-    ///Resources::Font_big()->GetStringWidth( Resources::Font_big(), current->get_string(), -1, &width );
-    Resources::Font_big()->getSize(current->get_text(), &width,
-                                   &fontheight);
+    Resources::Font_big()->getSize(current->get_text(), &width, &fontheight);
 
-    for(std::vector<MenuItem*>::iterator item_iter = current->children.begin();
-            item_iter != current->children.end();
-            ++item_iter)
+    for(const auto &item_iter : current->children)
     {
         int w;
 
-        ///Resources::Font_big()->GetStringWidth( Resources::Font_big(), item_counter()->get_string(), -1, &w );
-        Resources::Font_big()->getSize((*item_iter)->get_text(), &w, NULL);
-        if ((*item_iter)->get_type() == MenuItem::MT_VALUE)
+        Resources::Font_big()->getSize(item_iter->get_text(), &w, NULL);
+        if (item_iter->get_type() == MenuItem::MT_VALUE)
         {
             w += 50;
         }
-        if ((*item_iter)->get_type() == MenuItem::MT_STRING)
+        if (item_iter->get_type() == MenuItem::MT_STRING)
         {
             int ww;
-            ///Resources::Font_big()->GetStringWidth( Resources::Font_big(), item_counter()->get_string(), -1, &ww );
-            Resources::Font_big()->getSize((*item_iter)->get_text(), &ww,
-                                           NULL);
+            Resources::Font_big()->getSize(item_iter->get_text(), &ww, NULL);
             w += ww;
         }
-        if ((*item_iter)->get_type() == MenuItem::MT_STRINGLIST)
+        if (item_iter->get_type() == MenuItem::MT_STRINGLIST)
         {
             int ww;
-            ///Resources::Font_big()->GetStringWidth( Resources::Font_big(), ((MenuItem_StringList*)item_counter())->get_sel_string(), -1, &ww );
-            Resources::Font_big()
-            ->getSize(*static_cast<MenuItem_StringList*>(*item_iter)
-                      ->get_sel_string(), &ww, NULL);
+            Resources::Font_big()->getSize(*static_cast<MenuItem_StringList*>(item_iter)->get_sel_string(), &ww, NULL);
             w += ww;
         }
         width = std::max( w, width );
@@ -266,29 +255,20 @@ void Menu::redraw( bool options_menu_hack, int yoffset )
     int left_border = 400 - width/2;
     int right_border = 400 + width/2;
 
-
     int vert = yoffset + 300 - height / 2;
 
-    if (options_menu_hack)
+    if (!options_menu_hack)
     {
-            //ClanBomberApplication::get_client_setup()->draw();
-    }
-    else
-    {
-
-        Resources::Titlescreen()->blit(0, 0);
+    	Resources::Titlescreen()->blit(0, 0);
     }
 
     CB_FillRect(left_border-30, vert-10, right_border+60-left_border, height+50, 0, 0, 0xFF, 135);
-    Resources::Font_big()->render(current->get_text(), 400, vert,
-                                  cbe::FontAlignment_0topcenter);
+    Resources::Font_big()->render(current->get_text(), 400, vert, cbe::FontAlignment_0topcenter);
 
     vert += fontheight*2;
 
     int act_draw = 0;
-    for(std::vector<MenuItem*>::iterator item_iter = current->children.begin();
-            item_iter != current->children.end();
-            ++item_iter)
+    for(const auto &item_iter : current->children)
     {
         act_draw++;
         if (act_draw == current_selection)
@@ -296,39 +276,39 @@ void Menu::redraw( bool options_menu_hack, int yoffset )
             CB_FillRect(left_border-30, vert-5, right_border+60-left_border, fontheight+10, 0, 30, 170, 170);
         }
 
-        if ((*item_iter)->get_type() == MenuItem::MT_VALUE)
+        if (item_iter->get_type() == MenuItem::MT_VALUE)
         {
-            if ((static_cast<MenuItem_Value*>(*item_iter)->get_min() == 0) && (static_cast<MenuItem_Value*>(*item_iter)->get_max() == 1))
+            if ((static_cast<MenuItem_Value*>(item_iter)->get_min() == 0) && (static_cast<MenuItem_Value*>(item_iter)->get_max() == 1))
             {
                 Resources::Font_big()
-                ->render(static_cast<MenuItem_Value*>(*item_iter)->get_value()
+                ->render(static_cast<MenuItem_Value*>(item_iter)->get_value()
                          ? _("Yes") : _("No"), right_border, vert,
                          cbe::FontAlignment_0topright);
             }
             else
             {
                 char buf[8];
-                sprintf( buf, "%d", static_cast<MenuItem_Value*>(*item_iter)->get_value() );
+                sprintf( buf, "%d", static_cast<MenuItem_Value*>(item_iter)->get_value() );
                 Resources::Font_big()->render(buf, right_border, vert,
                                               cbe::FontAlignment_0topright);
             }
-            Resources::Font_big()->render((*item_iter)->get_text(),
+            Resources::Font_big()->render((item_iter)->get_text(),
                                           left_border, vert,
                                           cbe::FontAlignment_0topleft);
         }
-        else if ((*item_iter)->get_type() == MenuItem::MT_STRINGLIST)
+        else if ((item_iter)->get_type() == MenuItem::MT_STRINGLIST)
         {
             Resources::Font_big()
-            ->render(*static_cast<MenuItem_StringList*>(*item_iter)
+            ->render(*static_cast<MenuItem_StringList*>(item_iter)
                      ->get_sel_string(), right_border, vert,
                      cbe::FontAlignment_0topright);
-            Resources::Font_big()->render((*item_iter)->get_text(),
+            Resources::Font_big()->render((item_iter)->get_text(),
                                           left_border, vert,
                                           cbe::FontAlignment_0topleft);
         }
         else
         {
-            Resources::Font_big()->render((*item_iter)->get_text(), 400, vert,
+            Resources::Font_big()->render((item_iter)->get_text(), 400, vert,
                                           cbe::FontAlignment_0topcenter);
         }
         vert += fontheight+10;
@@ -517,11 +497,11 @@ void Menu::add_stringlist( const std::string& text, int id, int parent, std::lis
 
 MenuItem* Menu::get_item_by_id( int id )
 {
-    for(auto item_iter : items)
+    for(const auto &item_iter : items)
     {
-        if ((item_iter)->get_id() == id)
+        if (item_iter->get_id() == id)
         {
-            return (item_iter);
+            return item_iter;
         }
     }
     return NULL;
@@ -650,7 +630,7 @@ void Menu::execute_options_menu_hack()
 
 void Menu::backup_options_values()
 {
-    for(auto item_iter : items)
+    for(const auto &item_iter : items)
     {
         int id = (item_iter)->get_id();
         MenuItem_Value *val = static_cast<MenuItem_Value*>(item_iter);

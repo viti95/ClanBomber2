@@ -300,16 +300,11 @@ void Bomber::act()
 
 void Bomber::infect_others()
 {
-
-    std::list<GameObject*>::iterator object_iter;
-
-    for (object_iter = get_maptile()->objects.begin();
-            object_iter != get_maptile()->objects.end();
-            object_iter++)
+    for (const auto &object_iter : get_maptile()->objects)
     {
-        if ((*object_iter)->get_type() == GameObject::BOMBER && !(static_cast<Bomber*>(*object_iter)->is_diseased()))
+        if (object_iter->get_type() == GameObject::BOMBER && !(static_cast<Bomber*>(object_iter)->is_diseased()))
         {
-            static_cast<Bomber*>(*object_iter)->infect(disease->spawn(static_cast<Bomber*>(*object_iter)));
+            static_cast<Bomber*>(object_iter)->infect(disease->spawn(static_cast<Bomber*>(object_iter)));
         }
     }
 }

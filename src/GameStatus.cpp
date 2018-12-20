@@ -92,7 +92,7 @@ GameStatus::analyze_game ()
     end_of_game = false;
     winner = NULL;
 
-    for (auto bomber_object_iter : app->bomber_objects)
+    for (const auto &bomber_object_iter : app->bomber_objects)
     {
         if (!(bomber_object_iter)->dead)
         {
@@ -135,7 +135,7 @@ GameStatus::draw ()
     }
     int nr = 0;
 
-    for (auto bomber_object_iter : game_status->app->bomber_objects)
+    for (const auto &bomber_object_iter : game_status->app->bomber_objects)
     {
         nr++;
 
@@ -213,21 +213,14 @@ GameStatus::draw ()
     }
     if (game_status->end_of_game)
     {
-        //primary->DrawString( primary, "the Match", -1, 500, 80, DSTF_TOPCENTER );
-        Resources::Font_big ()->render ("the Match", 500, 80,
-                                        cbe::FontAlignment_0topcenter);
+        Resources::Font_big ()->render (_("the Match"), 500, 80, cbe::FontAlignment_0topcenter);
     }
     else
     {
-        //primary->DrawString( primary, "NEXT LEVEL", -1, 785, 10, DSTF_TOPRIGHT );
-        Resources::Font_small ()->render (_("NEXT LEVEL"), 785, 10,
-                                          cbe::FontAlignment_0topright);
+        Resources::Font_small ()->render (_("NEXT LEVEL"), 785, 10, cbe::FontAlignment_0topright);
 
-            std::string temp_string = game_status->app->map->get_name ();
-            //temp_string.to_upper();
-            //primary->DrawString( primary, temp_string, -1, 785, 125, DSTF_TOPRIGHT );
-            Resources::Font_small ()->render (temp_string, 785, 125,
-                                              cbe::FontAlignment_0topright);
+		std::string temp_string = game_status->app->map->get_name ();
+		Resources::Font_small ()->render (temp_string, 785, 125, cbe::FontAlignment_0topright);
 
         game_status->app->map->show_preview (790 - 119, 30, 0.18f);
     }

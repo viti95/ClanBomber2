@@ -499,11 +499,10 @@ void Resources::Surface::put_screen(int x, int y, int frame, Uint8 opacity) {
 	drect.w = sprite_width;
 	drect.h = sprite_height;
 
-	//SDL_BlitSurface(surface, &srect, primary, &drect);
-
 	SDL_SetTextureAlphaMod(texture, opacity);
 	SDL_RenderCopy(renderer, texture, &srect, &drect);
 	SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
+
 }
 
 void Resources::Surface::put_screen(int x, int y, float scale_x, float scale_y, int frame, Uint8 opacity) {
@@ -531,20 +530,6 @@ void Resources::Surface::put_screen(int x, int y, float scale_x, float scale_y, 
 	SDL_RenderCopy(renderer, texture, &srect, &drect);
 	SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
 
-	/*tmpSurface = SDL_CreateRGBSurface(SDL_HWSURFACE | SDL_ASYNCBLIT, sprite_width, sprite_height, 16, 0, 0, 0, 0);
-	SDL_GetRGB(surface->format->colorkey, surface->format, &r, &g, &b);
-	SDL_SetColorKey(tmpSurface, SDL_SRCCOLORKEY, SDL_MapRGB(tmpSurface->format, r, g, b));
-	SDL_FillRect(tmpSurface, NULL, SDL_MapRGB(tmpSurface->format, r, g, b));
-
-
-	SDL_BlitSurface(surface, &srect, tmpSurface, NULL);
-	surf = zoomSurface(tmpSurface, scale_x, scale_y, 0);
-
-	SDL_FreeSurface(tmpSurface);
-
-	SDL_SetColorKey(surf, SDL_SRCCOLORKEY, SDL_MapRGB(surf->format, r, g, b));
-	SDL_BlitSurface(surf, NULL, primary, &drect);
-	SDL_FreeSurface(surf);*/
 }
 
 void Resources::Surface::get_rect(int frame, SDL_Rect *ret_rect) {

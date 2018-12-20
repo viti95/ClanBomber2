@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: clanbomber2 0.0.1\n"
 "Report-Msgid-Bugs-To: rsl@members.fsf.org\n"
-"POT-Creation-Date: 2018-12-14 22:01+0100\n"
+"POT-Creation-Date: 2018-12-20 20:49+0100\n"
 "PO-Revision-Date: 2009-02-13 14:44-0600\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
@@ -54,7 +54,7 @@ msgstr "Menu principal"
 
 #: src/ClanBomber.cpp:233
 msgid "New Game"
-msgstr "Juego Nuevo"
+msgstr "Nueva partida"
 
 #: src/ClanBomber.cpp:234
 msgid "Start Local"
@@ -219,99 +219,99 @@ msgstr "Salir"
 msgid "- PAUSED -"
 msgstr "- PAUSA -"
 
-#: src/ClanBomber.cpp:719
+#: src/ClanBomber.cpp:715
 #, c-format
 msgid "%1$d fps"
 msgstr "%1$d fps"
 
 # El programa tiene problemas con el acento, ya que cada byte es reconocido como una letra y no siempre es asi.
-#: src/ClanBomber.cpp:844
+#: src/ClanBomber.cpp:839
 msgid "A WORLD DOMINATION PROJECT"
 msgstr "UN PROYECTO DE DOMINACION MUNDIAL"
 
-#: src/ClanBomber.cpp:903
+#: src/ClanBomber.cpp:898
 msgid "ClanBomber Extras"
 msgstr "Extras de Clanbomber"
 
-#: src/ClanBomber.cpp:907
+#: src/ClanBomber.cpp:902
 msgid "Bomb:"
 msgstr "Bombas:"
 
-#: src/ClanBomber.cpp:909
+#: src/ClanBomber.cpp:904
 msgid "You can place an additional bomb"
 msgstr "Puedes poner una bomba adicional"
 
-#: src/ClanBomber.cpp:914
+#: src/ClanBomber.cpp:909
 msgid "Power:"
 msgstr "Potencia:"
 
-#: src/ClanBomber.cpp:916
+#: src/ClanBomber.cpp:911
 msgid "Explosions grow one field in each direction"
 msgstr "Las explosiones crecen una unidad en cada direccion"
 
-#: src/ClanBomber.cpp:921
+#: src/ClanBomber.cpp:916
 msgid "Skateboard:"
 msgstr "Patinete:"
 
-#: src/ClanBomber.cpp:923
+#: src/ClanBomber.cpp:918
 msgid "Let's you move faster"
 msgstr "Te mueves mas rapido"
 
-#: src/ClanBomber.cpp:928
+#: src/ClanBomber.cpp:923
 msgid "Kick:"
 msgstr "Patada:"
 
-#: src/ClanBomber.cpp:930
+#: src/ClanBomber.cpp:925
 msgid "Kick bombs if you walk against one"
 msgstr "Patea las bombas si te acercas a ellas"
 
-#: src/ClanBomber.cpp:935
+#: src/ClanBomber.cpp:930
 msgid "Throw:"
 msgstr "Lanzar:"
 
 # "Throw Bombs if you press the button twice" y "without moving" deben de estar juntas
-#: src/ClanBomber.cpp:938
+#: src/ClanBomber.cpp:933
 msgid "Throw Bombs if you press the button twice"
 msgstr "Lanzas bombas si presionas el boton dos veces"
 
 # checar el comentario de "Throw Bombs if you press the button twice"
-#: src/ClanBomber.cpp:940
+#: src/ClanBomber.cpp:935
 msgid "without moving"
 msgstr "sin moverte"
 
-#: src/ClanBomber.cpp:943 src/ClanBomber.cpp:977
+#: src/ClanBomber.cpp:938 src/ClanBomber.cpp:972
 msgid "Press any key"
 msgstr "Presiona cualquier tecla"
 
-#: src/ClanBomber.cpp:953
+#: src/ClanBomber.cpp:948
 msgid "ClanBomber Drugs"
 msgstr "Drogas del ClanBomber"
 
-#: src/ClanBomber.cpp:958
+#: src/ClanBomber.cpp:953
 msgid "Joint:"
 msgstr "Porro:"
 
-#: src/ClanBomber.cpp:960
+#: src/ClanBomber.cpp:955
 msgid "Controller will be reversed"
 msgstr "El control sera invertido"
 
-#: src/ClanBomber.cpp:965
+#: src/ClanBomber.cpp:960
 msgid "Viagra:"
 msgstr "Viagra"
 
-#: src/ClanBomber.cpp:967
+#: src/ClanBomber.cpp:962
 msgid "Autofire, this can be very dangerous!"
 msgstr "Autodisparo, esto puede ser muy peligroso!"
 
-#: src/ClanBomber.cpp:972
+#: src/ClanBomber.cpp:967
 msgid "Cocaine:"
 msgstr "Cocaina:"
 
-#: src/ClanBomber.cpp:974
+#: src/ClanBomber.cpp:969
 msgid "Let's you move very fast!! (too fast)"
 msgstr "Hace que te muevas muy rapido!! (demasiado rapido)"
 
-#: src/ClanBomber.cpp:1000
+#: src/ClanBomber.cpp:995
 #, fuzzy
 msgid ""
 "\n"
@@ -321,7 +321,7 @@ msgstr ""
 "\n"
 "    uso: clanbomber2 [--software] [--fullscreen]"
 
-#: src/ClanBomber.cpp:1007
+#: src/ClanBomber.cpp:1002
 msgid "Invalid argument"
 msgstr "Argumento no valido"
 
@@ -357,9 +357,13 @@ msgstr "Empate"
 #: src/GameStatus_Team.cpp:215
 #, c-format
 msgid "%s won"
-msgstr "Gano %s"
+msgstr "%s gana"
 
-#: src/GameStatus.cpp:223 src/GameStatus_Team.cpp:225
+#: src/GameStatus.cpp:216 src/GameStatus_Team.cpp:221
+msgid "the Match"
+msgstr "la partida"
+
+#: src/GameStatus.cpp:220 src/GameStatus_Team.cpp:225
 msgid "NEXT LEVEL"
 msgstr "SIGUIENTE NIVEL"
 
@@ -383,17 +387,13 @@ msgstr ""
 msgid "Teamless Heroes"
 msgstr ""
 
-#: src/GameStatus_Team.cpp:221
-msgid "the Match"
-msgstr ""
-
 #: src/MapEditor.cpp:185
 msgid "Select a map to edit and press Enter"
 msgstr "Selecciona el mapa a editar y presiona Enter"
 
 #: src/MapEditor.cpp:188
 msgid "Maps marked red are readonly"
-msgstr "Los mapas rojos son solo lectura"
+msgstr "Los mapas rojos son de solo lectura"
 
 #: src/MapEditor.cpp:191
 msgid "Press N to create a new map"
@@ -573,10 +573,10 @@ msgstr ""
 msgid "SPACE ENABLES OR DISABLES A PLAYER, H TOGGLES HIGHLIGHTING"
 msgstr "ESPACIO HABILITA O DESHABILITA UN JUGADOR, H SELECCIONA"
 
-#: src/Menu.cpp:305
+#: src/Menu.cpp:285
 msgid "Yes"
 msgstr "Si"
 
-#: src/Menu.cpp:305
+#: src/Menu.cpp:285
 msgid "No"
 msgstr "No"

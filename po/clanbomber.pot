@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: clanbomber 2.3.0\n"
 "Report-Msgid-Bugs-To: rsl@members.fsf.org\n"
-"POT-Creation-Date: 2018-12-14 22:01+0100\n"
+"POT-Creation-Date: 2018-12-20 20:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -215,103 +215,103 @@ msgstr ""
 msgid "- PAUSED -"
 msgstr ""
 
-#: src/ClanBomber.cpp:719
+#: src/ClanBomber.cpp:715
 #, c-format
 msgid "%1$d fps"
 msgstr ""
 
-#: src/ClanBomber.cpp:844
+#: src/ClanBomber.cpp:839
 msgid "A WORLD DOMINATION PROJECT"
 msgstr ""
 
-#: src/ClanBomber.cpp:903
+#: src/ClanBomber.cpp:898
 msgid "ClanBomber Extras"
 msgstr ""
 
-#: src/ClanBomber.cpp:907
+#: src/ClanBomber.cpp:902
 msgid "Bomb:"
 msgstr ""
 
-#: src/ClanBomber.cpp:909
+#: src/ClanBomber.cpp:904
 msgid "You can place an additional bomb"
 msgstr ""
 
-#: src/ClanBomber.cpp:914
+#: src/ClanBomber.cpp:909
 msgid "Power:"
 msgstr ""
 
-#: src/ClanBomber.cpp:916
+#: src/ClanBomber.cpp:911
 msgid "Explosions grow one field in each direction"
 msgstr ""
 
-#: src/ClanBomber.cpp:921
+#: src/ClanBomber.cpp:916
 msgid "Skateboard:"
 msgstr ""
 
-#: src/ClanBomber.cpp:923
+#: src/ClanBomber.cpp:918
 msgid "Let's you move faster"
 msgstr ""
 
-#: src/ClanBomber.cpp:928
+#: src/ClanBomber.cpp:923
 msgid "Kick:"
 msgstr ""
 
-#: src/ClanBomber.cpp:930
+#: src/ClanBomber.cpp:925
 msgid "Kick bombs if you walk against one"
 msgstr ""
 
-#: src/ClanBomber.cpp:935
+#: src/ClanBomber.cpp:930
 msgid "Throw:"
 msgstr ""
 
-#: src/ClanBomber.cpp:938
+#: src/ClanBomber.cpp:933
 msgid "Throw Bombs if you press the button twice"
 msgstr ""
 
-#: src/ClanBomber.cpp:940
+#: src/ClanBomber.cpp:935
 msgid "without moving"
 msgstr ""
 
-#: src/ClanBomber.cpp:943 src/ClanBomber.cpp:977
+#: src/ClanBomber.cpp:938 src/ClanBomber.cpp:972
 msgid "Press any key"
 msgstr ""
 
-#: src/ClanBomber.cpp:953
+#: src/ClanBomber.cpp:948
 msgid "ClanBomber Drugs"
 msgstr ""
 
-#: src/ClanBomber.cpp:958
+#: src/ClanBomber.cpp:953
 msgid "Joint:"
 msgstr ""
 
-#: src/ClanBomber.cpp:960
+#: src/ClanBomber.cpp:955
 msgid "Controller will be reversed"
 msgstr ""
 
-#: src/ClanBomber.cpp:965
+#: src/ClanBomber.cpp:960
 msgid "Viagra:"
 msgstr ""
 
-#: src/ClanBomber.cpp:967
+#: src/ClanBomber.cpp:962
 msgid "Autofire, this can be very dangerous!"
 msgstr ""
 
-#: src/ClanBomber.cpp:972
+#: src/ClanBomber.cpp:967
 msgid "Cocaine:"
 msgstr ""
 
-#: src/ClanBomber.cpp:974
+#: src/ClanBomber.cpp:969
 msgid "Let's you move very fast!! (too fast)"
 msgstr ""
 
-#: src/ClanBomber.cpp:1000
+#: src/ClanBomber.cpp:995
 msgid ""
 "\n"
 "    usage: clanbomber2 [--software] [--fullscreen]\n"
 "\n"
 msgstr ""
 
-#: src/ClanBomber.cpp:1007
+#: src/ClanBomber.cpp:1002
 msgid "Invalid argument"
 msgstr ""
 
@@ -349,7 +349,11 @@ msgstr ""
 msgid "%s won"
 msgstr ""
 
-#: src/GameStatus.cpp:223 src/GameStatus_Team.cpp:225
+#: src/GameStatus.cpp:216 src/GameStatus_Team.cpp:221
+msgid "the Match"
+msgstr ""
+
+#: src/GameStatus.cpp:220 src/GameStatus_Team.cpp:225
 msgid "NEXT LEVEL"
 msgstr ""
 
@@ -371,10 +375,6 @@ msgstr ""
 
 #: src/GameStatus_Team.cpp:185
 msgid "Teamless Heroes"
-msgstr ""
-
-#: src/GameStatus_Team.cpp:221
-msgid "the Match"
 msgstr ""
 
 #: src/MapEditor.cpp:185
@@ -563,10 +563,10 @@ msgstr ""
 msgid "SPACE ENABLES OR DISABLES A PLAYER, H TOGGLES HIGHLIGHTING"
 msgstr ""
 
-#: src/Menu.cpp:305
+#: src/Menu.cpp:285
 msgid "Yes"
 msgstr ""
 
-#: src/Menu.cpp:305
+#: src/Menu.cpp:285
 msgid "No"
 msgstr ""
