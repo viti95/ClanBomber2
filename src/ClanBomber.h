@@ -108,6 +108,7 @@ enum Direction
 };
 
 unsigned long WELLRNG512();
+bool game_object_compare(GameObject * go1, GameObject * go2);
 
 /**
  * @author Andreas Hundt

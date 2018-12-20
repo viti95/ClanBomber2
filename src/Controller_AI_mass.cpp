@@ -321,10 +321,9 @@ AIPath::~AIPath()
         delete path;
         path = NULL;
         }*/
-    for(std::vector<AIPathItem*>::iterator iter = path.begin();
-            iter != path.end(); ++iter)
+    for(const auto &iter : path)
     {
-        delete *iter;
+        delete iter;
     }
 }
 
@@ -780,11 +779,9 @@ bool Controller_AI_mass::passable(CL_Vector* map_v, int min_rating) const
 
 bool Controller_AI_mass::has_extra (CL_Vector* map_v) const
 {
-    for(std::list<GameObject*>::iterator object_iter = curr_map->get_maptile((int)map_v->x, (int)map_v->y)->objects.begin();
-            object_iter != curr_map->get_maptile((int)map_v->x, (int)map_v->y)->objects.end();
-            ++object_iter)
+    for(const auto &object_iter : curr_map->get_maptile((int)map_v->x, (int)map_v->y)->objects)
     {
-        if ((*object_iter)->get_type() == GameObject::EXTRA)
+        if (object_iter->get_type() == GameObject::EXTRA)
         {
             return true;
         }
@@ -947,11 +944,10 @@ std::vector<CL_Vector*>* Controller_AI_mass::seek_util()
         }
     }
   
-    for (std::vector<CL_Vector*>::iterator iter = ret_list.begin();
-            iter != ret_list.end(); ++iter)
+    for (const auto &iter : ret_list)
     {
-        assert(*iter != NULL);
-        ret_path = path(b_v, *(*iter), RATING_SURE, RATING_SURE);
+        assert(iter != NULL);
+        ret_path = path(b_v, *(iter), RATING_SURE, RATING_SURE);
 
         if (ret_path != NULL)
         {
@@ -959,10 +955,9 @@ std::vector<CL_Vector*>* Controller_AI_mass::seek_util()
         }
     }
 
-    for (std::vector<CL_Vector*>::iterator iter = ret_list.begin();
-            iter != ret_list.end(); ++iter)
+    for (const auto &iter : ret_list)
     {
-        delete *iter;
+        delete iter;
     }
 
     return ret_path;

@@ -221,7 +221,7 @@ void Controller_AI::reset() {
 }
 
 void Controller_AI::clear_all_jobs() {
-	for (auto jobs_iter : jobs) {
+	for (const auto &jobs_iter : jobs) {
 		delete jobs_iter;
 	}
 	jobs.clear();
@@ -244,7 +244,7 @@ bool Controller_AI::job_ready() {
 	}
 
 	if (jobs[0]->is_obsolete()) {
-		for (auto jobs_iter : jobs) {
+		for (const auto &jobs_iter : jobs) {
 			delete jobs_iter;
 		}
 		jobs.clear();
@@ -303,7 +303,7 @@ void Controller_AI::generate_rating_map() {
 		}
 	}
 
-	for (auto object_iter : bomber->app->objects) {
+	for (const auto &object_iter : bomber->app->objects) {
 		x = (object_iter)->get_map_x();
 		y = (object_iter)->get_map_y();
 
@@ -967,7 +967,7 @@ bool Controller_AI::free_extras(int max_distance) {
 int Controller_AI::bomber_rating(int x, int y) {
 	int rating = 0;
 
-	for (auto object_iter : map->get_maptile(x, y)->objects) {
+	for (const auto &object_iter : map->get_maptile(x, y)->objects) {
 		if ((object_iter)->get_type() == GameObject::BOMBER) {
 			Bomber* b = static_cast<Bomber*>(object_iter);
 			if (bomber != b
@@ -985,7 +985,7 @@ int Controller_AI::bomber_rating(int x, int y) {
 int Controller_AI::extra_rating(int x, int y) {
 	int rating = 0;
 
-	for (auto object_iter : map->get_maptile(x, y)->objects) {
+	for (const auto &object_iter : map->get_maptile(x, y)->objects) {
 		if ((object_iter)->get_type() == GameObject::EXTRA) {
 			rating +=
 					static_cast<Extra*>(object_iter)->get_ExtraType() * DRATING_EXTRA;

@@ -40,38 +40,38 @@ Credits::Credits( ClanBomberApplication *_app )
 {
     app = _app;
 
-    text.emplace_back(_("ClanBomber Credits"));
-    text.emplace_back("");
-    text.emplace_back("Andreas Hundt");
-    text.emplace_back("Andreeshchev Eugeni");
-    text.emplace_back("Clanner");
-    text.emplace_back("Denis Oliver Kropp");
-    text.emplace_back("Ivar");
-    text.emplace_back("James Andrews");
-    text.emplace_back("Magnus Reftel");
-    text.emplace_back("Martin Pitt");
-    text.emplace_back("Rene Lopez");
-    text.emplace_back("mass");
-    text.emplace_back("non");
+    text.push_back(_("ClanBomber Credits"));
+    text.push_back("");
+    text.push_back("Andreas Hundt");
+    text.push_back("Andreeshchev Eugeni");
+    text.push_back("Clanner");
+    text.push_back("Denis Oliver Kropp");
+    text.push_back("Ivar");
+    text.push_back("James Andrews");
+    text.push_back("Magnus Reftel");
+    text.push_back("Martin Pitt");
+    text.push_back("Rene Lopez");
+    text.push_back("mass");
+    text.push_back("non");
 
-    text.emplace_back("");
-    text.emplace_back(_("ClanBomber Uses"));
-    //text.emplace_back("");
-    text.emplace_back("Boost");
-    text.emplace_back("DejaVu");
-    text.emplace_back("SDL2");
-    //text.emplace_back("SDL2_gfx");
-    text.emplace_back("SDL2_image");
-    text.emplace_back("SDL2_mixer");
-    text.emplace_back("SDL2_ttf");
-    text.emplace_back("");
+    text.push_back("");
+    text.push_back(_("ClanBomber Uses"));
+    //text.push_back("");
+    text.push_back("Boost");
+    text.push_back("DejaVu");
+    text.push_back("SDL2");
+    //text.push_back("SDL2_gfx");
+    text.push_back("SDL2_image");
+    text.push_back("SDL2_mixer");
+    text.push_back("SDL2_ttf");
+    text.push_back("");
 
 
-    text.emplace_back("");
-    text.emplace_back(_("Thanks to"));
-    //text.emplace_back("");
-    text.emplace_back(_("Everyone supporting this game..."));
-    text.emplace_back(_("... and playing it"));
+    text.push_back("");
+    text.push_back(_("Thanks to"));
+    //text.push_back("");
+    text.push_back(_("Everyone supporting this game..."));
+    text.push_back(_("... and playing it"));
 
     yoffset = yoffset_start;
     yoffset_end = -text.size() * text_height + 100;
@@ -136,7 +136,7 @@ void Credits::exec()
 
         if (escape)
         {
-            for(auto iter : app->objects)
+            for(const auto &iter : app->objects)
             {
                 delete iter;
             }
@@ -204,9 +204,9 @@ void Credits::exec()
         }
 
         // Let them do their stuff
-        for(auto object_iter : app->objects)
+        for(const auto &object_iter : app->objects)
         {
-            (object_iter)->act();
+            object_iter->act();
         }
         // Check if we should delete some
         for(auto object_iter = app->objects.begin();
@@ -234,15 +234,10 @@ void Credits::draw()
 
     Resources::Intro_fl_logo()->blit(100, yoffset + text.size()*text_height + 130 );
 
-    ///primary->SetColor( primary, 0xFF, 0xFF, 0xFF, 0xFF );
-
-    //for (int i=0; i<text.get_num_items(); i++) {
     int i = 0;
-    for(std::vector<std::string>::iterator text_iter = text.begin();
-            text_iter != text.end();
-            text_iter++)
+    for(const auto &text_iter : text)
     {
-        Resources::Font_big()->render(*text_iter, 400, yoffset + i*40 + 60,
+        Resources::Font_big()->render(text_iter, 400, yoffset + i*40 + 60,
                                       cbe::FontAlignment_0center);
         i++;
     }
@@ -256,8 +251,7 @@ void Credits::draw()
     if (yoffset > yoffset_end + 250)
     {
         Resources::Font_big()->render("-", 10, 560, cbe::FontAlignment_0topleft);
-        Resources::Font_big()->render("-", 790, 560,
-                                      cbe::FontAlignment_0topright);
+        Resources::Font_big()->render("-", 790, 560, cbe::FontAlignment_0topright);
     }
 
     draw_objects();
@@ -267,35 +261,10 @@ void Credits::draw()
 
 void Credits::draw_objects()
 {
-	std::vector<GameObject*>draw_list;
+    (app->objects).sort(game_object_compare);
 
-    for(auto object_iter : app->objects)
+    for(const auto &draw_list_iter : app->objects)
     {
-        draw_list.push_back(object_iter);
-    }
-
-    //TODO sort using algorithm sort
-    // std::sort (draw_list, draw_list + n, game_object_compare);
-    
-    bool sort = true;
-    GameObject* obj;
-    while(sort && draw_list.size())
-    {
-        sort = false;
-        for(int i=0; i < (draw_list.size() - 1); i++ )
-        {
-            if (draw_list[i]->get_z() > draw_list[i+1]->get_z())
-            {
-                obj = draw_list[i];
-                draw_list[i] = draw_list[i+1];
-                draw_list[i+1] = obj;
-                sort = true;
-            }
-        }
-    }
-
-    for(auto draw_list_iter : draw_list)
-    {
-        (draw_list_iter)->show();
+        draw_list_iter->show();
     }
 }

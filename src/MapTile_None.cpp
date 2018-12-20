@@ -45,7 +45,7 @@ void MapTile_None::draw_tiny(int x, int y, float factor) {
 void MapTile_None::act() {
 	MapTile::act();
 
-	for (auto object_iter : objects) {
+	for (const auto &object_iter : objects) {
 		object_iter->fall();
 	}
 

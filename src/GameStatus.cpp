@@ -92,7 +92,7 @@ GameStatus::analyze_game ()
     end_of_game = false;
     winner = NULL;
 
-    for (auto bomber_object_iter : app->bomber_objects)
+    for (const auto &bomber_object_iter : app->bomber_objects)
     {
         if (!(bomber_object_iter)->dead)
         {
@@ -135,7 +135,7 @@ GameStatus::draw ()
     }
     int nr = 0;
 
-    for (auto bomber_object_iter : game_status->app->bomber_objects)
+    for (const auto &bomber_object_iter : game_status->app->bomber_objects)
     {
         nr++;
 

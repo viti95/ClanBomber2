@@ -51,7 +51,7 @@ Observer::Observer(int _x, int _y, ClanBomberApplication *_app) :
 	speed = 300;
 
 	mode = NORMAL;
-	for (auto bomber_object_iter : app->bomber_objects) {
+	for (const auto &bomber_object_iter : app->bomber_objects) {
 		if ((bomber_object_iter)->get_team() != 0) {
 			mode = TEAM;
 		}
@@ -78,7 +78,7 @@ int Observer::active_players() {
 	int c = 0;
 	int t = -1;
 
-	for (auto bomber_object_iter : app->bomber_objects) {
+	for (const auto &bomber_object_iter : app->bomber_objects) {
 		if (!(bomber_object_iter)->dead) {
 			if (((bomber_object_iter)->get_team() != t)
 					|| ((bomber_object_iter)->get_team() == 0)) {
@@ -107,12 +107,12 @@ void Observer::act() {
 	GameObject::act();
 
 	if (round_time == Config::get_round_time()) {
-		for (auto bomber_object_iter : app->bomber_objects) {
+		for (const auto &bomber_object_iter : app->bomber_objects) {
 			if ((bomber_object_iter)->is_flying()) {
 				return;
 			}
 		}
-		for (auto bomber_object_iter : app->bomber_objects) {
+		for (const auto &bomber_object_iter : app->bomber_objects) {
 			(bomber_object_iter)->controller->activate();
 		}
 	}
@@ -137,7 +137,7 @@ void Observer::act() {
 	}
 	if (active_players() < 2) {
 
-		for (auto object_iter : app->objects) {
+		for (const auto &object_iter : app->objects) {
 			if ((object_iter)->get_type() == GameObject::EXPLOSION) {
 				return;
 			}
@@ -148,7 +148,7 @@ void Observer::act() {
 			}
 		}
 
-		for (auto bomber_object_iter : app->bomber_objects) {
+		for (const auto &bomber_object_iter : app->bomber_objects) {
 			if (!(bomber_object_iter)->dead
 					&& (bomber_object_iter)->is_falling()) {
 				return;
@@ -157,7 +157,7 @@ void Observer::act() {
 		offset_x = 10;
 		offset_y = 2;
 
-		for (auto bomber_object_iter : app->bomber_objects) {
+		for (const auto &bomber_object_iter : app->bomber_objects) {
 			if (!(bomber_object_iter)->dead) {
 				(bomber_object_iter)->inc_points();
 			}
@@ -173,7 +173,7 @@ void Observer::act() {
 		game_status->show();
 		Timer::reset();
 		end_of_game = game_status->get_end_of_game(); //FIXME
-		for (auto object_iter : app->objects) {
+		for (const auto &object_iter : app->objects) {
 			delete object_iter;
 		}
 		app->objects.clear();
@@ -184,7 +184,7 @@ void Observer::act() {
 
 		int c = 0;
 
-		for (auto bomber_object_iter : app->bomber_objects) {
+		for (const auto &bomber_object_iter : app->bomber_objects) {
 			pos = app->map->get_bomber_pos(c++);
 			(bomber_object_iter)->set_orig((int) (pos.x * 40),
 					(int) (pos.y * 40));
@@ -198,7 +198,7 @@ void Observer::act() {
 }
 
 void Observer::kill_all_bombers() {
-	for (auto bomber_object_iter : app->bomber_objects) {
+	for (const auto &bomber_object_iter : app->bomber_objects) {
 		(bomber_object_iter)->die();
 	}
 }

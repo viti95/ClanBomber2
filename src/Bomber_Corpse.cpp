@@ -78,7 +78,7 @@ void Bomber_Corpse::act() {
 		cur_dir = Direction(WELLRNG512() % 4);
 		move();
 
-		for (auto bomber_object_iter : app->bomber_objects) {
+		for (const auto &bomber_object_iter : app->bomber_objects) {
 			if (!(bomber_object_iter)->dead) {
 				if (abs((bomber_object_iter)->get_x() - get_x()) < 30) {
 					if (abs((bomber_object_iter)->get_y() - get_y()) < 30) {

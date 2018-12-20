@@ -47,7 +47,6 @@ void CB_BlitSurface(SDL_Surface *sSurface, int x, int y)
     SDL_RenderCopy(renderer, texture, &orig, &rect);
 
     SDL_DestroyTexture(texture);
-    //SDL_BlitSurface(sSurface, NULL, primary, &rect);
 }
 
 void CB_RenderText(TTF_Font *font, const std::wstring &text, int x, int y)
@@ -119,7 +118,6 @@ void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b)
 
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(surface);
-    //SDL_FillRect(primary, &rect, SDL_MapRGB(primary->format, r, g, b) );
 }
 
 void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
@@ -141,16 +139,6 @@ void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(surface);
 
-    /*SDL_Surface *tmpSurface = SDL_CreateRGBSurface(SDL_SRCALPHA,
-                              w,
-                              h,
-                              16,
-                              0, 0, 0,
-                              0);
-    SDL_SetAlpha(tmpSurface, SDL_SRCALPHA, a);
-    SDL_FillRect(tmpSurface, NULL, SDL_MapRGB(tmpSurface->format, r, g, b) );
-    CB_BlitSurface(tmpSurface, x, y);
-    SDL_FreeSurface(tmpSurface);*/
 }
 
 void CB_WaitForKeypress()
@@ -171,7 +159,6 @@ void CB_BatchBlit(SDL_Texture *texture, SDL_Rect *srcRects, SDL_Rect *destRects,
         SDL_Rect dest = destRects[i];
 
         SDL_RenderCopy(renderer, texture, &orig, &dest);
-        //SDL_BlitSurface(src, &srcRects[i], primary, &destRects[i]);
     }
 }
 
@@ -257,9 +244,6 @@ int CB_EnterText(std::string &new_string)
         CB_Flip();
     }
 
-    //SDL_EnableUNICODE(0);
-    //SDL_EnableKeyRepeat(0, 0);
-
     return 0;
 }
 
@@ -272,7 +256,5 @@ void CB_Locale()
 
 void CB_Flip()
 {
-    //SDL_UpdateRect(primary, 0, 0, 0, 0);
     SDL_RenderPresent(renderer);
-    //SDL_Flip(primary);
 }

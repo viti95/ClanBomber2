@@ -471,7 +471,7 @@ void Map::maptilize_objects()
         }
     }
 	
-    for(auto bomber_object_iter : app->bomber_objects)
+    for(const auto &bomber_object_iter : app->bomber_objects)
     {
         if (!bomber_object_iter->is_flying() && !bomber_object_iter->dead)
         {
@@ -479,7 +479,7 @@ void Map::maptilize_objects()
         }
     }
 
-    for(auto object_iter : app->objects)
+    for(const auto &object_iter : app->objects)
     {
         if (!object_iter->is_flying())
         {
@@ -707,7 +707,7 @@ void Map::save_selection()
     boost::filesystem::path filename(GetConfigHome() / ".clanbomber/maps.disabled");
 
     boost::filesystem::ofstream map_selection_file(filename);
-    for(auto map_entry_iter : map_list)
+    for(const auto &map_entry_iter : map_list)
     {
         if (!map_entry_iter->is_enabled())
         {
@@ -728,7 +728,7 @@ void Map::load_selection()
         while (!map_selection_file.eof())
         {
             map_selection_file.getline(map_name, 100);
-            for(auto map_entry_iter : map_list)
+            for(const auto &map_entry_iter : map_list)
             {
                 if (map_entry_iter->get_name() == map_name)
                 {

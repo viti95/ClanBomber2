@@ -167,7 +167,7 @@ void Explosion::show()
 
 void Explosion::kill_bombers()
 {
-        for(auto bomber_object_iter : app->bomber_objects)
+        for(const auto &bomber_object_iter : app->bomber_objects)
         {
             int bx = ((bomber_object_iter)->get_x()+20)/40;
             int by = ((bomber_object_iter)->get_y()+20)/40;
@@ -185,7 +185,7 @@ void Explosion::kill_bombers()
 
 void Explosion::destroy_extras()
 {
-        for(auto object_iter : app->objects)
+        for(const auto &object_iter : app->objects)
         {
             if ((object_iter)->get_type() == GameObject::EXTRA)
             {
@@ -206,7 +206,7 @@ void Explosion::destroy_extras()
 
 void Explosion::splatter_corpses()
 {
-        for(auto object_iter : app->objects)
+        for(const auto &object_iter : app->objects)
         {
             if ((object_iter)->get_type() == GameObject::BOMBER_CORPSE)
             {

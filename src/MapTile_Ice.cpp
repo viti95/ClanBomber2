@@ -37,7 +37,7 @@ void MapTile_Ice::act()
 {
     MapTile::act();
 
-    for(auto object_iter : objects)
+    for(const auto &object_iter : objects)
     {
         (object_iter)->move(80,DIR_NONE);
     }

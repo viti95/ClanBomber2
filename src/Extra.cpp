@@ -43,7 +43,7 @@ Extra::Extra( int _x, int _y, ClanBomberApplication *_app ) : GameObject( _x, _y
     surface = Resources::Extras_extras();
     opacity_scaled = 0xBB;
 
-        app->objects.push_back( this );
+    app->objects.push_back( this );
  
     destroyed = false;
     destroyable = true;
@@ -104,13 +104,11 @@ void Extra::act()
 
     if (!flying)
     {
-        for(std::list<GameObject*>::iterator game_object_iter = get_maptile()->objects.begin();
-                game_object_iter != get_maptile()->objects.end();
-                ++game_object_iter)
+        for(const auto &game_object_iter : get_maptile()->objects)
         {
-            if ((*game_object_iter)->get_type() == BOMBER)
+            if (game_object_iter->get_type() == BOMBER)
             {
-                effect( static_cast<Bomber*>(*game_object_iter) );
+                effect( static_cast<Bomber*>(game_object_iter) );
                 delete_me = true;
             }
         }

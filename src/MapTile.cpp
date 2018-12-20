@@ -213,11 +213,11 @@ void MapTile::vanish()
         passable = false;
         vanishing = true;
         vanish_countdown = 1.0f;
-            for(auto object_iter : objects)
+            for(const auto &object_iter : objects)
             {
-                if ((object_iter)->get_type() == GameObject::EXTRA)
+                if (object_iter->get_type() == GameObject::EXTRA)
                 {
-                    (object_iter)->fly_to(app->map->get_passable());
+                    object_iter->fly_to(app->map->get_passable());
                 }
             }
     }
@@ -225,7 +225,7 @@ void MapTile::vanish()
 
 void MapTile::destroy()
 {
-        for(auto object_iter : objects)
+        for(const auto &object_iter : objects)
         {
             if ((object_iter)->get_type() == GameObject::EXTRA)
             {
@@ -267,9 +267,9 @@ int MapTile::get_sprite_nr()
 
 bool MapTile::has_extra()
 {
-    for(auto object_iter : objects)
+    for(const auto &object_iter : objects)
     {
-        if ((object_iter)->get_type() == GameObject::EXTRA)
+        if (object_iter->get_type() == GameObject::EXTRA)
         {
             return true;
         }
@@ -279,9 +279,9 @@ bool MapTile::has_extra()
 
 bool MapTile::has_bomber()
 {
-    for(auto object_iter : objects)
+    for(const auto &object_iter : objects)
     {
-        if ((object_iter)->get_type() == GameObject::BOMBER)
+        if (object_iter->get_type() == GameObject::BOMBER)
         {
             return true;
         }

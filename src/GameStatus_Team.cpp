@@ -101,7 +101,7 @@ void GameStatus_Team::analyze_game()
     team_points[0] = team_points[1] = team_points[2] = team_points[3] = 0;
     end_of_game = false;
     winner = NULL;
-    for(auto bomber_object_iter : game_status_team->app->bomber_objects)
+    for(const auto &bomber_object_iter : game_status_team->app->bomber_objects)
     {
         if ((bomber_object_iter->get_team() == 0) && ! bomber_object_iter->dead)
         {
@@ -143,7 +143,7 @@ void GameStatus_Team::draw()
     int window_y_offset = 170;
     for (int team = 0; team<4; team++)
     {
-        for (auto bomber_object_iter : game_status_team->app->bomber_objects)
+        for (const auto &bomber_object_iter : game_status_team->app->bomber_objects)
         {
             if (bomber_object_iter->get_team()-1 == team)
             {
@@ -178,7 +178,7 @@ void GameStatus_Team::draw()
     }
 
     int i = 0;
-    for (auto bomber_object_iter : game_status_team->app->bomber_objects)
+    for (const auto &bomber_object_iter : game_status_team->app->bomber_objects)
     {
         if (bomber_object_iter->get_team() == 0)
         {

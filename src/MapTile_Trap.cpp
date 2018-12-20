@@ -35,7 +35,7 @@ MapTile_Trap::MapTile_Trap(int _x, int _y, ClanBomberApplication* _app) :
 }
 
 MapTile_Trap::~MapTile_Trap() {
-	for (auto bomb_iter : bombs) {
+	for (const auto &bomb_iter : bombs) {
 		delete (bomb_iter)->get_bomb();
 		delete (bomb_iter);
 	}
