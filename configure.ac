@@ -37,8 +37,7 @@ AC_ARG_ENABLE(
 )
 if test "$enable_relative_paths" = yes
 then
-	adl_COMPUTE_STANDARD_RELATIVE_PATHS
-	RELATIVE_DATADIR=$bindir_backward_relative_path/$datadir_forward_relative_path
+	RELATIVE_DATADIR="."
 else
 	RELATIVE_DATADIR=$datadir
 fi
