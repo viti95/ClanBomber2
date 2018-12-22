@@ -75,7 +75,7 @@ void Bomber_Corpse::act() {
 
 	if (splash_counter != -1) {
 
-		cur_dir = Direction(WELLRNG512() % 4);
+		cur_dir = Direction(fast_random() % 4);
 		move();
 
 		for (const auto &bomber_object_iter : app->bomber_objects) {
@@ -83,7 +83,7 @@ void Bomber_Corpse::act() {
 				if (abs((bomber_object_iter)->get_x() - get_x()) < 30) {
 					if (abs((bomber_object_iter)->get_y() - get_y()) < 30) {
 						if (ready_to_splash) {
-							Resources::Splash(WELLRNG512() % 2)->play();
+							Resources::Splash(fast_random() % 2)->play();
 							splash_counter++;
 							if (splash_counter == 5) {
 								splash_counter = -1;
@@ -114,10 +114,10 @@ void Bomber_Corpse::explode() {
 
 			int xmaptiles, ymaptiles;
 
-			xmaptiles = WELLRNG512() % MAP_WIDTH;
-			ymaptiles = WELLRNG512() % MAP_HEIGHT;
+			xmaptiles = fast_random() % MAP_WIDTH;
+			ymaptiles = fast_random() % MAP_HEIGHT;
 
-			cp->fly_to(xmaptiles * 40 + WELLRNG512() % 20 - 10, ymaptiles * 40 + WELLRNG512() % 20 - 10);
+			cp->fly_to(xmaptiles * 40 + fast_random() % 20 - 10, ymaptiles * 40 + fast_random() % 20 - 10);
 		}
 	}
 }

@@ -203,7 +203,7 @@ bool MapTile::get_addon_rect( SDL_Rect *ret_rect )
 
 void MapTile::draw_shaken()
 {
-	draw( WELLRNG512()%4, WELLRNG512()%4 );
+	draw( fast_random()%4, fast_random()%4 );
 }
 
 void MapTile::vanish()
@@ -291,7 +291,7 @@ bool MapTile::has_bomber()
 
 void MapTile::spawn_extra()
 {
-	switch (WELLRNG512()%8)
+	switch (fast_random()%8)
     {
     case 0:
         if (Config::get_power())
@@ -324,7 +324,7 @@ void MapTile::spawn_extra()
         }
         break;
     case 3:
-    	switch (WELLRNG512()%2)
+    	switch (fast_random()%2)
         {
         case 0:
             if (!Config::get_start_kick() && Config::get_kick())
@@ -349,7 +349,7 @@ void MapTile::spawn_extra()
         }
         break;
     case 4:
-    	switch (WELLRNG512()%16)
+    	switch (fast_random()%16)
         {
         case 0:
             if (Config::get_joint())

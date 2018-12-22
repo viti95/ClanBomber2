@@ -514,8 +514,8 @@ bool Controller_AI::find_way(int dest_rating, int avoid_rating,
 
 			for (int per = 0; per < 10; per++) {
 
-				int a = WELLRNG512() % 4;
-				int b = WELLRNG512() % 4;
+				int a = fast_random() % 4;
+				int b = fast_random() % 4;
 				Direction dummy;
 				dummy = dirs[a];
 				dirs[a] = dirs[b];
@@ -842,7 +842,7 @@ bool Controller_AI::free_extras(int max_distance) {
 				bomber->set_pos(x_org, y_org);
 			}
 
-			if (dmap[x][y] > 0 && dmap[x][y] == best.z && WELLRNG512() % 2) {
+			if (dmap[x][y] > 0 && dmap[x][y] == best.z && fast_random() % 2) {
 				if (distance >= max_distance) {
 					best.z = 666;
 					break;

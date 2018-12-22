@@ -70,7 +70,7 @@ static unsigned long state[16];
 static unsigned int indx = 0;
 
 /* return 32 bit random number */
-unsigned long WELLRNG512(void) {
+unsigned long fast_random(void) {
 	unsigned long a, b, c, d;
 	a = state[indx];
 	c = state[(indx + 13) & 15];
@@ -94,7 +94,7 @@ ClanBomberApplication::ClanBomberApplication() {
 	map = NULL;
 	pause_game = false;
 
-	// initialize WELLRNG512
+	// initialize fast_random
 	for (int i = 0; i < 16; i++)
 		state[i] = rand();
 }
@@ -883,7 +883,7 @@ void ClanBomberApplication::run_intro() {
 
 			SDL_RenderPresent(renderer);
 
-			usleep(WELLRNG512() % 100000 + 80000);
+			usleep(fast_random() % 100000 + 80000);
 		}
 
 		Resources::Menu_back()->play();

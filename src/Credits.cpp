@@ -164,9 +164,9 @@ void Credits::exec()
                 t += Timer::time_elapsed();
                 for (; t>0.04f; t-=0.04f)
                 {
-                	Corpse_Part* cp = new Corpse_Part( WELLRNG512()%800-60, -40, app );
-                	cp->fly_to( WELLRNG512()%800-60, 540 );
-                	Resources::Splash(WELLRNG512()%2)->play();
+                	Corpse_Part* cp = new Corpse_Part( fast_random()%800-60, -40, app );
+                	cp->fly_to( fast_random()%800-60, 540 );
+                	Resources::Splash(fast_random()%2)->play();
                 }
             }
             yoffset = yoffset_start;
@@ -185,9 +185,9 @@ void Credits::exec()
                 t += Timer::time_elapsed();
                 for (; t>0.04f; t-=0.04f)
                 {
-                    Corpse_Part* cp = new Corpse_Part( WELLRNG512()%800-60, -40, app );
-                    cp->fly_to( WELLRNG512()%800-60, WELLRNG512()%600-60 );
-                    Resources::Splash(WELLRNG512()%2)->play();
+                    Corpse_Part* cp = new Corpse_Part( fast_random()%800-60, -40, app );
+                    cp->fly_to( fast_random()%800-60, fast_random()%600-60 );
+                    Resources::Splash(fast_random()%2)->play();
                 }
             }
             yoffset = yoffset_end;

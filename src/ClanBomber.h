@@ -107,7 +107,7 @@ enum Direction
     DIR_RIGHT = 3
 };
 
-unsigned long WELLRNG512();
+unsigned long fast_random();
 bool game_object_compare(GameObject * go1, GameObject * go2);
 
 /**

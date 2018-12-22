@@ -192,7 +192,7 @@ void Map::load_random_valid()
 {
     do
     {
-    	spin_to(WELLRNG512()%get_map_count());
+    	spin_to(fast_random()%get_map_count());
     }
     while (Config::get_number_of_players() > get_max_players()  || !current_map->is_enabled());
     reload();
@@ -275,7 +275,7 @@ void Map::reload()
                 maptiles[x][y] = MapTile::create(MapTile::BOX, 40*x, 40*y, app);
                 break;
             case 'R':
-            	if ( WELLRNG512() %3)
+            	if ( fast_random() %3)
                 {
                     maptiles[x][y] = MapTile::create(MapTile::BOX, 40*x, 40*y, app);
                 }
@@ -343,8 +343,8 @@ void Map::show()
 
             if (is_shaken > 0)
             {
-            	X += WELLRNG512()%5 - 2;
-            	Y += WELLRNG512()%5 - 2;
+            	X += fast_random()%5 - 2;
+            	Y += fast_random()%5 - 2;
             }
 
             /* Populate destination points... */
@@ -589,8 +589,8 @@ MapTile* Map::get_passable()
     int ymapfield;
     do
     {
-    	xmapfield = WELLRNG512() % MAP_WIDTH;
-    	ymapfield = WELLRNG512() % MAP_HEIGHT;
+    	xmapfield = fast_random() % MAP_WIDTH;
+    	ymapfield = fast_random() % MAP_HEIGHT;
         if (maptiles[xmapfield][ymapfield]->passable && !maptiles[xmapfield][ymapfield]->vanishing)
         {
             return maptiles[xmapfield][ymapfield];
@@ -608,8 +608,8 @@ MapTile* Map::get_random()
     int ymapfield;
     do
     {
-    	xmapfield = WELLRNG512() % MAP_WIDTH;
-    	ymapfield = WELLRNG512() % MAP_HEIGHT;
+    	xmapfield = fast_random() % MAP_WIDTH;
+    	ymapfield = fast_random() % MAP_HEIGHT;
         if (maptiles[xmapfield][ymapfield]->get_type()!=MapTile::NONE && !maptiles[xmapfield][ymapfield]->vanishing)
         {
             return maptiles[xmapfield][ymapfield];

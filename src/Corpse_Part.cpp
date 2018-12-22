@@ -30,7 +30,7 @@ Corpse_Part::Corpse_Part(int _x, int _y, ClanBomberApplication* _app) : GameObje
 {
     speed = 800;
     surface = Resources::Corpse_part();
-    sprite_nr = WELLRNG512()%4;
+    sprite_nr = fast_random()%4;
     z = Z_CORPSE_PART;
     countdown = 2.0f;
     can_fly_over_walls = false;

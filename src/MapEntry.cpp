@@ -376,7 +376,7 @@ void MapEntry::randomize_bomber_positions()
         int new_pos;
         do
         {
-        	new_pos = WELLRNG512()%max_players;
+        	new_pos = fast_random()%max_players;
         }
         while (taken[new_pos] == true);
 
