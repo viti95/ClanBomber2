@@ -850,14 +850,17 @@ void ClanBomberApplication::run_intro() {
 
 		SDL_PumpEvents();
 
+		SDL_RenderClear(renderer);
+
 		if (alpha < 255) {
 			Resources::Intro_fl_logo()->blit(100, 250, alpha);
 			alpha += Timer::time_elapsed(true) * 130.0f;
-			SDL_RenderPresent(renderer);
 		} else {
 			Resources::Intro_fl_logo()->blit(100, 250);
 			break;
 		}
+
+		SDL_RenderPresent(renderer);
 	}
 
 	int stringwidth;
@@ -870,6 +873,9 @@ void ClanBomberApplication::run_intro() {
 		for (int domispell = 0; domispell <= domihack.length(); domispell++) {
 
 			SDL_PumpEvents();
+
+			SDL_RenderClear(renderer);
+
 			if (keyboard[escape]) {
 				break;
 			}
