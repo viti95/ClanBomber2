@@ -134,6 +134,10 @@ int ClanBomberApplication::init_SDL() {
 	#ifdef SDL_HINT_RENDER_SCALE_QUALITY
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");  // make the scaled rendering look smoother.
 	#endif
+	
+	if (!Config::get_renderDriver().empty()){
+		SDL_SetHint(SDL_HINT_RENDER_DRIVER, Config::get_renderDriver().c_str());
+	}
 
 	gameWindow = SDL_CreateWindow(PACKAGE_STRING,
                           SDL_WINDOWPOS_UNDEFINED,
@@ -145,7 +149,7 @@ int ClanBomberApplication::init_SDL() {
 
 	SDL_RenderSetLogicalSize(renderer, 800, 600);
 
-   	SDL_SetRenderDrawBlendMode(renderer,SDL_BLENDMODE_BLEND);
+   	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
@@ -1004,6 +1008,14 @@ int main(int argc, char **argv) {
 			Config::set_fullscreen(true);
 		} else if (!strcmp(argv[i], "--software")) {
 			Config::set_softwareRendering(true);
+		} else if (!strcmp(argv[i], "--direct3d")) {
+			Config::set_renderDriver("direct3d");
+		} else if (!strcmp(argv[i], "--opengl")) {
+			Config::set_renderDriver("opengl");
+		} else if (!strcmp(argv[i], "--opengles")) {
+			Config::set_renderDriver("opengles");
+		} else if (!strcmp(argv[i], "--opengles2")) {
+			Config::set_renderDriver("opengles2");	
 		} else {
 			std::cout << _("Invalid argument") << std::endl;
 		}

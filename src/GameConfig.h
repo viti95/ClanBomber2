@@ -157,6 +157,9 @@ public:
     static bool get_softwareRendering();
     static void set_softwareRendering(bool val);
 
+    static std::string get_renderDriver();
+    static void set_renderDriver(std::string val);
+
     static bool load();
     static bool save(bool init=false);
     static int get_sound_enabled();
@@ -203,6 +206,8 @@ protected:
     static bool fullscreen;
 
     static bool softwareRendering;
+
+    static std::string renderDriver;
 
     static boost::filesystem::path filename;
     static boost::filesystem::path path;

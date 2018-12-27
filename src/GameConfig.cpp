@@ -79,6 +79,8 @@ bool Config::fullscreen = false;
 
 bool Config::softwareRendering = false;
 
+std::string Config::renderDriver = "";
+
 BomberConfig Config::bomber[8];
 
 BomberConfig::BomberConfig()
@@ -546,6 +548,15 @@ void Config::set_softwareRendering(bool val)
     softwareRendering = val;
 }
 
+std::string Config::get_renderDriver()
+{
+    return renderDriver;
+}
+
+void Config::set_renderDriver(std::string val)
+{
+    renderDriver = val;
+}
 
 bool Config::save(bool init)
 {
