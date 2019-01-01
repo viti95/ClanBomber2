@@ -45,8 +45,6 @@ void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b,
 void CB_WaitForKeypress();
 void CB_BatchBlit(SDL_Texture *texture, SDL_Rect *srcRects, SDL_Rect *destRects,
 		int num);
-void CB_FillRects(SDL_Rect *rects, int num, Uint8 r, Uint8 g, Uint8 b, Uint8 a =
-		0xFF);
 int CB_EnterText(std::string &new_string);
 void CB_Locale();
 void CB_Flip();

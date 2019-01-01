@@ -162,21 +162,6 @@ void CB_BatchBlit(SDL_Texture *texture, SDL_Rect *srcRects, SDL_Rect *destRects,
     }
 }
 
-void CB_FillRects(SDL_Rect *rects, int num, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
-{
-    for(int i = 0; i < num; i++)
-    {
-        if (a == 0xFF)
-        {
-            CB_FillRect(rects[i].x, rects[i].y, rects[i].w, rects[i].h, r, g, b);
-        }
-        else
-        {
-            CB_FillRect(rects[i].x, rects[i].y, rects[i].w, rects[i].h, r, g, b, a);
-        }
-    }
-}
-
 int CB_EnterText(std::string &new_string)
 {
     SDL_Event event;

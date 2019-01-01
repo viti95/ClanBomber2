@@ -732,23 +732,15 @@ void ClanBomberApplication::show_all() {
 	std::sort(draw_list, draw_list + n, game_object_compare);
 
 	if (map != NULL) {
-		map->refresh_holes();
+		map->show();
 	}
-
-	bool drawn_map = false;
-
+	
 	for (i = 0; i < n; i++) {
-		if (map != NULL && draw_list[i]->get_z() >= Z_GROUND && drawn_map == false) {
-			map->show();
-			drawn_map = true;
-		}
 		if (draw_list[i] != NULL) {
 			draw_list[i]->show();
 		}
 	}
-	if (map != NULL && !drawn_map) {
-		map->show();
-	}
+
 	if (observer != NULL) {
 		observer->show();
 	}
