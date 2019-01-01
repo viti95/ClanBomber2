@@ -60,13 +60,13 @@ Configure the project to your preference
 * Raspberry Pi 2
 
 ```
-./configure CXXFLAGS="-O3 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard"
+./configure CXXFLAGS="-O3 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" --with-boost-libdir=/usr/lib/arm-linux-gnueabihf
 ```
 
 * Raspberry Pi 3
 
 ```
-./configure CXXFLAGS="-O3 -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard"
+./configure CXXFLAGS="-O3 -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard" --with-boost-libdir=/usr/lib/arm-linux-gnueabihf
 ```
 
 * Debug Build
