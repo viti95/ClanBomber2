@@ -731,12 +731,21 @@ void ClanBomberApplication::show_all() {
 
 	std::sort(draw_list, draw_list + n, game_object_compare);
 
+	Resources::Font_small()->render(app->map->get_name(), 80, 5, cbe::FontAlignment_0topleft);
+	Resources::Game_cb_logo_small()->blit(325, 0);
+
+	for (i = 0; i < n; i++) {
+		if (draw_list[i] != NULL && draw_list[i]->get_z() < Z_GROUND) {
+			draw_list[i]->show();
+		}
+	}
+
 	if (map != NULL) {
 		map->show();
 	}
 	
 	for (i = 0; i < n; i++) {
-		if (draw_list[i] != NULL) {
+		if (draw_list[i] != NULL && draw_list[i]->get_z() >= Z_GROUND) {
 			draw_list[i]->show();
 		}
 	}

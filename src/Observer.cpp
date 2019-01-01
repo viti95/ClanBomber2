@@ -205,7 +205,6 @@ void Observer::kill_all_bombers() {
 
 void Observer::show() {
 
-	Resources::Game_cb_logo_small()->blit(325, 0);
 	GameObject::show();
 
 	if (round_time > 0) {
@@ -216,9 +215,6 @@ void Observer::show() {
 	} else {
 		Resources::Observer_observer()->put_screen(600, 1, 2);
 	}
-
-	Resources::Font_small()->render(app->map->get_name(), 80, 5,
-			cbe::FontAlignment_0topleft);
 
 	if ((round_time < 21) && (round_time > 18)) {
 		if (fmod(round_time, 0.3f) > 0.15f) {
