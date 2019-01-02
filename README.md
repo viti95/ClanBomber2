@@ -83,7 +83,7 @@ make -j <num_threads>
 
 ### Installing
 
-Once you've built the sources, you can install the game by simply typing
+Once you've built the sources, you can install the game simply by typing
 
 ```
 make install
@@ -92,10 +92,14 @@ make install
 ### Command line usage
 
 ```
-Usage: clanbomber2 [--software] [--fullscreen]
+Usage: clanbomber2 [--software|direct3d|opengl|opengles|opengles2] [--fullscreen]
 ```
 
 * --software, disables rendering hardware acceleration. Slower, but fixes some problems with unsupported hardware
+* --direct3d, forces Direct3D as renderer
+* --opengl, forces OpenGL as renderer
+* --opengles, forces OpenGL ES 1.0 as renderer
+* --opengles2, forces OpenGL ES 2.0 as renderer (recommended for Raspberry Pi)
 * --fullscreen
 
 ## TODO / Nice to have
