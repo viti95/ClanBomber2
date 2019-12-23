@@ -28,6 +28,12 @@ Windows (MSYS2 MinGW 64)
 pacman -Syyu autoconf autoconf-archive automake pkg-config mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_image mingw-w64-x86_64-SDL2_mixer mingw-w64-x86_64-SDL2_ttf mingw-w64-x86_64-boost mingw-w64-x86_64-make mingw-w64-x86_64-libtool
 ```
 
+OpenBSD
+
+```
+pkg_add gcc g++ autoconf-2.69p2 automake-1.16.1 autoconf-archive sdl2 sdl2_image sdl2_gfx sdl2_ttf sdl2_mixer boost gettext-tools
+```
+
 ### Building
 
 Download ClanBomber2 source code, under your project folder
@@ -36,7 +42,7 @@ Download ClanBomber2 source code, under your project folder
 git clone https://github.com/viti95/ClanBomber2.git
 ```
 
-Update generated config files
+Update generated config files (add AUTOCONF_VERSION and AUTOMAKE_VERSION before autoreconf for OpenBSD)
 
 ```
 cd ClanBomber2
@@ -67,6 +73,12 @@ Configure the project to your preference
 
 ```
 ./configure CXXFLAGS="-O3 -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard" --with-boost-libdir=/usr/lib/arm-linux-gnueabihf
+```
+
+* OpenBSD 6.6 (iBook G4)
+
+```
+./configure CC=egcc CXX=eg++ CXXFLAGS="-O3 -mcpu=7450 -mtune=7450 -mabi=altivec"
 ```
 
 * Debug Build
