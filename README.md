@@ -25,7 +25,7 @@ sudo apt-get install gcc g++ autopoint automake autoconf autoconf-archive gettex
 Windows (MSYS2 MinGW 64)
 
 ```
-pacman -Syyu autoconf autoconf-archive automake pkg-config mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_image mingw-w64-x86_64-SDL2_mixer mingw-w64-x86_64-SDL2_ttf mingw-w64-x86_64-boost mingw-w64-x86_64-make mingw-w64-x86_64-libtool
+pacman -Syyu autoconf autoconf-archive automake make pkg-config mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_image mingw-w64-x86_64-SDL2_mixer mingw-w64-x86_64-SDL2_ttf mingw-w64-x86_64-boost mingw-w64-x86_64-make mingw-w64-x86_64-libtool
 ```
 
 OpenBSD
@@ -60,7 +60,7 @@ Configure the project to your preference
 * Windows (MSYS2 MinGW 64)
 
 ```
-./configure CXXFLAGS="-O3 -march=native" --with-boost=/mingw64
+./configure CXXFLAGS="-O3 -march=native" --with-boost=/mingw64 --disable-dependency-tracking
 ```
 
 * Raspberry Pi 2
