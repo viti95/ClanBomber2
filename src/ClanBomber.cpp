@@ -1003,7 +1003,7 @@ int main(int argc, char **argv) {
 		if (!strcmp(argv[i], "--help")) {
 			std::cout
 					<< _(
-							"\n    usage: clanbomber2 [--software] [--fullscreen]\n\n");
+							"\n    usage: clanbomber2 [--software|--direct3d|--opengl|--opengles|--opengles2] [--fullscreen]\n\n");
 			return 0;
 		} else if (!strcmp(argv[i], "--fullscreen")) {
 			Config::set_fullscreen(true);
