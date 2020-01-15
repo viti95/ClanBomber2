@@ -26,7 +26,7 @@
 
 #include <list>
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 #include "AudioSimple.h"
 
@@ -139,8 +139,8 @@ public:
 
     static unsigned short get_next_object_id();
 
-    static boost::filesystem::path get_map_path();
-    static boost::filesystem::path get_local_map_path();
+    static std::filesystem::path get_map_path();
+    static std::filesystem::path get_local_map_path();
 
     cbe::AudioSimple *get_audio()
     {
@@ -164,8 +164,8 @@ protected:
 
     Observer* observer;
 
-    static boost::filesystem::path map_path;
-    static boost::filesystem::path local_map_path;
+    static std::filesystem::path map_path;
+    static std::filesystem::path local_map_path;
 
     bool show_fps;
     bool play_music;

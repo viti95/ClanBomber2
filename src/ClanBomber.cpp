@@ -28,7 +28,7 @@
 #include <algorithm>
 #include <ctime>
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 #include <boost/format.hpp>
 #include <SDL2/SDL.h>
 
@@ -59,8 +59,8 @@ SDL_Renderer *renderer = NULL;
 SDL_Window *gameWindow = NULL;
 const Uint8 *keyboard = NULL;
 
-boost::filesystem::path ClanBomberApplication::map_path;
-boost::filesystem::path ClanBomberApplication::local_map_path;
+std::filesystem::path ClanBomberApplication::map_path;
+std::filesystem::path ClanBomberApplication::local_map_path;
 
 static unsigned short next_object_id = 0;
 
@@ -209,7 +209,7 @@ int ClanBomberApplication::main() {
 	map_path = CB_DATADIR
 	"/maps";
 
-	boost::filesystem::path configpath(GetConfigHome() / "clanbomber");
+	std::filesystem::path configpath(GetConfigHome() / "clanbomber");
 	if (!RecursiveDirCreation(configpath)) {
 		boost::format fmt(_("Config directory (%1$s) cannot be created"));
 		std::cout << fmt % configpath << std::endl;
@@ -218,7 +218,7 @@ int ClanBomberApplication::main() {
 	Config::set_path(configpath);
 	Config::set_filename("clanbomber.cfg");
 
-	boost::filesystem::path mappath(GetDataHome() / "clanbomber" / "maps");
+	std::filesystem::path mappath(GetDataHome() / "clanbomber" / "maps");
 	if (!RecursiveDirCreation(mappath)) {
 		boost::format fmt(_("Data directory (%1$s) cannot be created"));
 		std::cout << fmt % mappath << std::endl;
@@ -987,11 +987,11 @@ void ClanBomberApplication::show_tutorial() {
 	CB_WaitForKeypress();
 }
 
-boost::filesystem::path ClanBomberApplication::get_map_path() {
+std::filesystem::path ClanBomberApplication::get_map_path() {
 	return map_path;
 }
 
-boost::filesystem::path ClanBomberApplication::get_local_map_path() {
+std::filesystem::path ClanBomberApplication::get_local_map_path() {
 	return local_map_path;
 }
 

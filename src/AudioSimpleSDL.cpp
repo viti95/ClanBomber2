@@ -61,12 +61,12 @@ namespace cbe
     Mix_CloseAudio();
   }
 
-  AudioBuffer *AudioSimpleSDL::createBuffer(boost::filesystem::path filename)
+  AudioBuffer *AudioSimpleSDL::createBuffer(std::filesystem::path filename)
   {
     return new AudioBufferSDL(filename);
   }
   
-  Music *AudioSimpleSDL::createMusic(boost::filesystem::path filename)
+  Music *AudioSimpleSDL::createMusic(std::filesystem::path filename)
   {
 	return new MusicSDL(filename);
   }

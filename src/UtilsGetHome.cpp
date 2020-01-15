@@ -22,17 +22,17 @@
 
 #include "UtilsGetHome.h"
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
-bool RecursiveDirCreation(const boost::filesystem::path &path) {
-	if (boost::filesystem::exists(path)) {
+bool RecursiveDirCreation(const std::filesystem::path &path) {
+	if (std::filesystem::exists(path)) {
 		return true;
 	} else {
 		if (RecursiveDirCreation(path.parent_path())) {
 			try {
-				boost::filesystem::create_directory(path);
+				std::filesystem::create_directory(path);
 				return true;
-			} catch (const boost::filesystem::filesystem_error &fee) {
+			} catch (const std::filesystem::filesystem_error &fee) {
 				return false;
 			}
 		} else {
@@ -45,19 +45,19 @@ bool RecursiveDirCreation(const boost::filesystem::path &path) {
 #ifdef __unix__
 # include <cstdlib>
 
-boost::filesystem::path GetHome() {
+std::filesystem::path GetHome() {
 	const char* var = std::getenv("HOME");
 	if (var == NULL) {
 		//TODO throw an error
-		return boost::filesystem::path("");
+		return std::filesystem::path("");
 	}
-	boost::filesystem::path Home(var);
+	std::filesystem::path Home(var);
 	return Home;
 }
 
-boost::filesystem::path GetDataHome() {
+std::filesystem::path GetDataHome() {
 	const char* var = std::getenv("XDG_DATA_HOME");
-	boost::filesystem::path DataHome;
+	std::filesystem::path DataHome;
 
 	if (var == NULL || *var == '\0') {
 		DataHome = GetHome() / ".local/share";
@@ -67,9 +67,9 @@ boost::filesystem::path GetDataHome() {
 	return DataHome;
 }
 
-boost::filesystem::path GetConfigHome() {
+std::filesystem::path GetConfigHome() {
 	const char* var = std::getenv("XDG_CONFIG_HOME");
-	boost::filesystem::path ConfigHome;
+	std::filesystem::path ConfigHome;
 
 	if (var == NULL || *var == '\0') {
 		ConfigHome = GetHome() / ".config";
@@ -85,28 +85,28 @@ boost::filesystem::path GetConfigHome() {
 # include <shlobj.h>
 
 //SHGetFolderPath is deprecated in Vista use SHGetKnownFolderPath instead.
-boost::filesystem::path GetHome()
+std::filesystem::path GetHome()
 {
 	char cpath[MAX_PATH];
 	//CSIDL_FLAG_CREATE ensures that the folder exists creating it if it doesn't.
 	SHGetFolderPath(NULL, CSIDL_PROFILE | CSIDL_FLAG_CREATE, NULL, 0, cpath);
-	return boost::filesystem::path(cpath);
+	return std::filesystem::path(cpath);
 }
 
-boost::filesystem::path GetDataHome()
+std::filesystem::path GetDataHome()
 {
 	char cpath[MAX_PATH];
 	SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA | CSIDL_FLAG_CREATE, NULL, 0,
 			cpath);
-	return boost::filesystem::path(cpath);
+	return std::filesystem::path(cpath);
 }
 
-boost::filesystem::path GetConfigHome()
+std::filesystem::path GetConfigHome()
 {
 	char cpath[MAX_PATH];
 	SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA | CSIDL_FLAG_CREATE, NULL, 0,
 			cpath);
-	return boost::filesystem::path(cpath);
+	return std::filesystem::path(cpath);
 }
 
 //----------ERROR----------

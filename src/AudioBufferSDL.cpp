@@ -24,7 +24,7 @@
 
 namespace cbe
 {
-  AudioBufferSDL::AudioBufferSDL(boost::filesystem::path filename)
+  AudioBufferSDL::AudioBufferSDL(std::filesystem::path filename)
   {
     chunk = Mix_LoadWAV(filename.string().c_str());
     if(chunk == NULL) {

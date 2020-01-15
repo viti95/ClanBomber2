@@ -23,7 +23,7 @@
 
 #include <iostream>
 
-#include <boost/filesystem/fstream.hpp>
+#include <fstream>
 #include "ClanBomber.h"
 #include "MapEntry.h"
 
@@ -44,8 +44,8 @@ static char map_template[MAP_HEIGHT][MAP_WIDTH] = {	{'*','*','*','*','*','*','*'
     {'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'}
 };
 
-MapEntry::MapEntry(boost::filesystem::path _path,
-                   boost::filesystem::path _filename )
+MapEntry::MapEntry(std::filesystem::path _path,
+                   std::filesystem::path _filename )
 {
     filename = _filename;
     path = _path;
@@ -99,7 +99,7 @@ void MapEntry::reload()
     // read map data from file
     char authorstring[50];
 
-    boost::filesystem::ifstream mapfile(path / filename);
+    std::ifstream mapfile(path / filename);
 
     if (mapfile.fail())
     {
@@ -334,7 +334,7 @@ void MapEntry::set_bomber_pos( int posx, int posy, int number )
 
 void MapEntry::write_back()
 {
-    boost::filesystem::ofstream f(path / filename);
+    std::ofstream f(path / filename);
 
     if (f.fail())
     {
@@ -363,7 +363,7 @@ void MapEntry::clear()
 
 void MapEntry::delete_file()
 {
-    boost::filesystem::remove(path / filename);
+    std::filesystem::remove(path / filename);
 }
 
 

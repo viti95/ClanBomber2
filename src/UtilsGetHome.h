@@ -25,12 +25,12 @@
 #ifndef UTILSGETHOME_H
 #define UTILSGETHOME_H
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
-boost::filesystem::path GetHome();
-boost::filesystem::path GetDataHome();
-boost::filesystem::path GetConfigHome();
+std::filesystem::path GetHome();
+std::filesystem::path GetDataHome();
+std::filesystem::path GetConfigHome();
 
-bool RecursiveDirCreation(const boost::filesystem::path &path);
+bool RecursiveDirCreation(const std::filesystem::path &path);
 
 #endif

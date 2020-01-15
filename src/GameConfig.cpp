@@ -23,8 +23,8 @@
 
 #include <iostream>
 
-#include <boost/filesystem.hpp>
-#include <boost/filesystem/fstream.hpp>
+#include <filesystem>
+#include <fstream>
 
 #include "ClanBomber.h"
 #include "GameConfig.h"
@@ -33,8 +33,8 @@
 
 #include <stdio.h>
 
-boost::filesystem::path Config::filename = "clanbomber.cfg";
-boost::filesystem::path Config::path     = "";
+std::filesystem::path Config::filename = "clanbomber.cfg";
+std::filesystem::path Config::path     = "";
 
 int	Config::round_time			= 90;
 int Config::sound_enabled		= true;
@@ -328,12 +328,12 @@ void Config::set_theme(int _theme)
     theme = _theme;
 }
 
-void Config::set_filename(boost::filesystem::path _filename)
+void Config::set_filename(std::filesystem::path _filename)
 {
     filename = _filename;
 }
 
-void Config::set_path(boost::filesystem::path _path)
+void Config::set_path(std::filesystem::path _path)
 {
     path = _path;
 }
@@ -576,7 +576,7 @@ bool Config::save(bool init)
         bomber[7].set_name( "You" );
     }
 
-    boost::filesystem::ofstream configfile(path / filename);
+    std::ofstream configfile(path / filename);
 
     configfile << CURRENT_CONFIGFILE_VERSION << std::endl; // version
 
@@ -631,7 +631,7 @@ bool Config::save(bool init)
 
 bool Config::load()
 {
-    boost::filesystem::ifstream configfile(path / filename);
+    std::ifstream configfile(path / filename);
 
     if (configfile.fail())
     {

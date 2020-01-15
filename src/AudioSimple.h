@@ -25,7 +25,7 @@
 
 #include "string.h"
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 #include "AudioBuffer.h"
 #include "Music.h"
@@ -38,8 +38,8 @@ namespace cbe
     virtual bool init() = 0;
     virtual void close() = 0;
     virtual ~AudioSimple() {};
-    virtual AudioBuffer *createBuffer(boost::filesystem::path file) = 0;
-    virtual Music *createMusic(boost::filesystem::path filename) = 0;
+    virtual AudioBuffer *createBuffer(std::filesystem::path file) = 0;
+    virtual Music *createMusic(std::filesystem::path filename) = 0;
   };
 };
 

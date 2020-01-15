@@ -24,7 +24,7 @@
 
 namespace cbe
 {
-  MusicSDL::MusicSDL(boost::filesystem::path filename)
+  MusicSDL::MusicSDL(std::filesystem::path filename)
   {
     msc = Mix_LoadMUS(filename.string().c_str());
     if(msc == NULL) {

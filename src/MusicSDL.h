@@ -23,7 +23,7 @@
 #ifndef MUSICSDL_H
 #define MUSICSDL_H
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 #include "Music.h"
 #include <SDL2/SDL_mixer.h>
@@ -33,7 +33,7 @@ namespace cbe
   class MusicSDL : public Music
   {
   public:
-    MusicSDL(boost::filesystem::path filename);
+    MusicSDL(std::filesystem::path filename);
     ~MusicSDL();
     virtual bool isPlaying();
     virtual void playLoop();

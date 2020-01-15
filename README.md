@@ -5,7 +5,7 @@ This is a fork of ClanBomber2 [NonGNU](http://www.nongnu.org/clanbomber/), porte
 ## Aditional features
 
 * Ported to SDL2, is faster and better supported. Full hardware acceleration.
-* Updated to C++11
+* Updated to C++17
 * Windowed mode can be resized (internal resolution is still 800x600)
 * Re-added music from ClanBomber (bud.mod, press F2 to activate in game)
 * Optimized routines for low end computers (Raspberry Pi, netbooks, ...)

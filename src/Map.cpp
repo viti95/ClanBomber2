@@ -39,8 +39,8 @@
 #include "Bomb.h"
 #include "Bomber.h"
 
-#include <boost/filesystem.hpp>
-#include <boost/filesystem/fstream.hpp>
+#include <filesystem>
+#include <fstream>
 
 #include "Utils.h"
 #include "UtilsGetHome.h"
@@ -115,12 +115,12 @@ void Map::enum_maps()
         return;
     }
 
-    boost::filesystem::directory_iterator end_iter;
+    std::filesystem::directory_iterator end_iter;
 
-    boost::filesystem::path path(app->get_map_path());
-    if (boost::filesystem::exists(path))
+    std::filesystem::path path(app->get_map_path());
+    if (std::filesystem::exists(path))
     {
-        for (boost::filesystem::directory_iterator dir_iter(path);
+        for (std::filesystem::directory_iterator dir_iter(path);
                 dir_iter != end_iter; dir_iter++)
         {
             if (dir_iter->path().extension() == ".map")
@@ -131,9 +131,9 @@ void Map::enum_maps()
     }
 
     path = app->get_local_map_path();
-    if (boost::filesystem::exists(path))
+    if (std::filesystem::exists(path))
     {
-        for (boost::filesystem::directory_iterator dir_iter(path);
+        for (std::filesystem::directory_iterator dir_iter(path);
                 dir_iter != end_iter; dir_iter++)
         {
             if (dir_iter->path().extension() == ".map")
@@ -704,9 +704,9 @@ std::ostream& operator<<(std::ostream& os, const Map& m)
 
 void Map::save_selection()
 {
-    boost::filesystem::path filename(GetConfigHome() / ".clanbomber/maps.disabled");
+    std::filesystem::path filename(GetConfigHome() / ".clanbomber/maps.disabled");
 
-    boost::filesystem::ofstream map_selection_file(filename);
+    std::ofstream map_selection_file(filename);
     for(const auto &map_entry_iter : map_list)
     {
         if (!map_entry_iter->is_enabled())
@@ -718,11 +718,11 @@ void Map::save_selection()
 
 void Map::load_selection()
 {
-    boost::filesystem::path filename(GetConfigHome() / ".clanbomber/maps.disabled");
+    std::filesystem::path filename(GetConfigHome() / ".clanbomber/maps.disabled");
 
     char map_name[100];
 
-    boost::filesystem::ifstream map_selection_file(filename);
+    std::ifstream map_selection_file(filename);
     if(!map_selection_file.fail())
     {
         while (!map_selection_file.eof())

@@ -23,7 +23,7 @@
 #ifndef AUDIOBUFERSDL_H
 #define AUDIOBUFFERSDL_H
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 #include "AudioBuffer.h"
 #include <SDL2/SDL_mixer.h>
@@ -33,7 +33,7 @@ namespace cbe
   class AudioBufferSDL : public AudioBuffer
   {
   public:
-    AudioBufferSDL(boost::filesystem::path filename);
+    AudioBufferSDL(std::filesystem::path filename);
     ~AudioBufferSDL();
     virtual void play();
   private:

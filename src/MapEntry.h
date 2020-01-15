@@ -31,14 +31,14 @@
 
 #include <string>
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 #include "UtilsCL_Vector.h"
 
 class MapEntry
 {
 public:
-    MapEntry(boost::filesystem::path _path, boost::filesystem::path _filename);
+    MapEntry(std::filesystem::path _path, std::filesystem::path _filename);
     MapEntry(std::string _name, bool write );
     ~MapEntry();
 
@@ -70,8 +70,8 @@ public:
     unsigned int get_name_checksum(const char* name);
     unsigned int get_data_checksum();
 protected:
-    boost::filesystem::path path;
-    boost::filesystem::path filename;
+    std::filesystem::path path;
+    std::filesystem::path filename;
     std::string	map_name;
     std::string	author;
     bool		enabled;

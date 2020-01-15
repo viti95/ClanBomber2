@@ -26,7 +26,7 @@
 
 #include <string>
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 #define CURRENT_CONFIGFILE_VERSION 30
 
@@ -106,8 +106,8 @@ public:
     static void set_bomb_delay(int);
     static void set_bomb_speed(int);
 
-    static void set_filename(boost::filesystem::path _filename);
-    static void set_path(boost::filesystem::path _path);
+    static void set_filename(std::filesystem::path _filename);
+    static void set_path(std::filesystem::path _path);
 
     static int get_round_time();
     static int get_random_map_order();
@@ -209,8 +209,8 @@ protected:
 
     static std::string renderDriver;
 
-    static boost::filesystem::path filename;
-    static boost::filesystem::path path;
+    static std::filesystem::path filename;
+    static std::filesystem::path path;
 };
 
 #endif
