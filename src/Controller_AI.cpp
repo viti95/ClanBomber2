@@ -35,7 +35,7 @@
 #include "GameConfig.h"
 
 #include <assert.h>
-#include <boost/ptr_container/ptr_list.hpp>
+#include <list>
 
 /* ---------- Job ----------- */
 
@@ -492,8 +492,8 @@ bool Controller_AI::find_way(int dest_rating, int avoid_rating,
 		}
 	}
 
-	boost::ptr_list<CL_Vector> new_queue;
-	boost::ptr_list<CL_Vector> working_queue;
+	std::list<CL_Vector*> new_queue;
+	std::list<CL_Vector*> working_queue;
 	int distance = 0;
 	CL_Vector start(bomber->get_map_x(), bomber->get_map_y());
 	CL_Vector dest(-1, -1, -1);
@@ -502,13 +502,13 @@ bool Controller_AI::find_way(int dest_rating, int avoid_rating,
 	new_queue.push_back(new CL_Vector(start));
 
 	do {
-		working_queue.transfer(working_queue.end(), new_queue.begin(),
-				new_queue.end(), new_queue);
+		working_queue.splice(working_queue.end(), new_queue);
+
 		distance++;
 
 		do {
-			boost::ptr_list<CL_Vector>::auto_type v = working_queue.release(
-					working_queue.begin());
+			CL_Vector* v = working_queue.front();
+			working_queue.pop_front();
 
 			Direction dirs[4] = { DIR_UP, DIR_RIGHT, DIR_DOWN, DIR_LEFT };
 
@@ -586,11 +586,21 @@ bool Controller_AI::find_way(int dest_rating, int avoid_rating,
 				default:
 					break;
 				}
-			}
+
+			}		
+
+			delete v;
 		} while (dest.x < 0 && working_queue.size() > 0);
 	} while (max_distance >= distance && dest.x < 0 && new_queue.size() > 0);
 
 	if (dest.x < 0) {
+		// Free memory
+		for (const auto &new_queue_iter : new_queue) 
+			delete new_queue_iter;
+			
+		for (const auto &working_queue_iter : working_queue) 
+			delete working_queue_iter;
+
 		return false;
 	}
 
@@ -647,6 +657,13 @@ bool Controller_AI::find_way(int dest_rating, int avoid_rating,
 
 	rev_way.clear();
 
+	// Free memory
+	for (const auto &new_queue_iter : new_queue) 
+		delete new_queue_iter;
+
+	for (const auto &working_queue_iter : working_queue) 
+		delete working_queue_iter;
+
 	return true;
 }
 
@@ -677,8 +694,8 @@ bool Controller_AI::free_extras(int max_distance) {
 		}
 	}
 
-	boost::ptr_list<CL_Vector> new_queue;
-	boost::ptr_list<CL_Vector> working_queue;
+	std::list<CL_Vector*> new_queue;
+	std::list<CL_Vector*> working_queue;
 	int distance = 0;
 	CL_Vector start(bomber->get_map_x(), bomber->get_map_y());
 	CL_Vector best(-1, -1, 0);
@@ -687,13 +704,13 @@ bool Controller_AI::free_extras(int max_distance) {
 	new_queue.push_back(new CL_Vector(start));
 
 	do {
-		working_queue.transfer(working_queue.end(), new_queue.begin(),
-				new_queue.end(), new_queue);
+		working_queue.splice(working_queue.end(), new_queue);
+		
 		distance++;
 
 		do {
-			boost::ptr_list<CL_Vector>::auto_type v = working_queue.release(
-					working_queue.begin());
+			CL_Vector* v = working_queue.front();
+			working_queue.pop_front();
 
 			int i;
 			x = (int) (v->x);
@@ -900,10 +917,19 @@ bool Controller_AI::free_extras(int max_distance) {
 				}
 				v->x++;
 			}
+
+			delete v;
 		} while (working_queue.size() > 0);
 	} while (new_queue.size() > 0 && best.z != 666);
 
 	if (best.x < 0) {
+		// Free memory
+		for (const auto &new_queue_iter : new_queue) 
+			delete new_queue_iter;
+			
+		for (const auto &working_queue_iter : working_queue) 
+			delete working_queue_iter;
+
 		return false;
 	}
 
@@ -953,13 +979,17 @@ bool Controller_AI::free_extras(int max_distance) {
 
 	for (int i = rev_way.size() - 1; i >= 0; i--) {
 		jobs.push_back(rev_way[i]);
-//		if (jobs.get_num_items() > 3)
-//			break;
 	}
 	rev_way.clear();
 
-//	if (jobs.get_num_items() < 3)
 	jobs.push_back(new Job_PutBomb(this));
+
+	// Free memory
+	for (const auto &new_queue_iter : new_queue) 
+		delete new_queue_iter;
+		
+	for (const auto &working_queue_iter : working_queue) 
+		delete working_queue_iter;
 
 	return true;
 }
