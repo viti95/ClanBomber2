@@ -23,7 +23,6 @@
 
 #include <cmath>
 #include <string>
-#include "boost/format.hpp"
 
 #include <SDL2/SDL.h>
 
@@ -128,8 +127,7 @@ GameStatus::draw ()
     }
     else
     {
-        std::string nstr =
-            str (boost::format (_("%s won")) % game_status->winner->get_name ());
+        std::string nstr = game_status->winner->get_name() + _(" won");
         Resources::Font_big ()->render (nstr, 500, 40,
                                         cbe::FontAlignment_0topcenter);
     }

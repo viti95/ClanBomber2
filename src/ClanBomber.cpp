@@ -29,7 +29,6 @@
 #include <ctime>
 
 #include <filesystem>
-#include <boost/format.hpp>
 #include <SDL2/SDL.h>
 
 #include "config.h"
@@ -211,8 +210,8 @@ int ClanBomberApplication::main() {
 
 	std::filesystem::path configpath(GetConfigHome() / "clanbomber");
 	if (!RecursiveDirCreation(configpath)) {
-		boost::format fmt(_("Config directory (%1$s) cannot be created"));
-		std::cout << fmt % configpath << std::endl;
+		std::string output = _("Config directory ") + configpath.string() + (" cannot be created");
+		std::cout << output << std::endl;
 	}
 
 	Config::set_path(configpath);
@@ -220,8 +219,8 @@ int ClanBomberApplication::main() {
 
 	std::filesystem::path mappath(GetDataHome() / "clanbomber" / "maps");
 	if (!RecursiveDirCreation(mappath)) {
-		boost::format fmt(_("Data directory (%1$s) cannot be created"));
-		std::cout << fmt % mappath << std::endl;
+		std::string output = _("Data directory ") + configpath.string() + (" cannot be created");
+		std::cout << output << std::endl;
 	}
 	local_map_path = mappath;
 
@@ -716,7 +715,7 @@ void ClanBomberApplication::show_all() {
 	const int margin = 60;
 
 	if (show_fps) {
-		std::string nstr = str(boost::format(_("%1$d fps")) % fps);
+		std::string nstr = std::to_string(fps) + _(" fps");
 		Resources::Font_small()->render(nstr, 535, 4, cbe::FontAlignment_0topcenter);
 	}
 

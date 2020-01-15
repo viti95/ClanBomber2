@@ -25,7 +25,6 @@
 
 #include <cmath>
 
-#include <boost/format.hpp>
 
 #include "ClanBomber.h"
 #include "GameObject.h"
@@ -207,12 +206,12 @@ void GameStatus_Team::draw()
     {
         if (game_status_team->winner->get_team() == 0)
         {
-            std::string nstr = str(boost::format(_("%s won")) % game_status_team->winner->get_name());
+            std::string nstr = game_status_team->winner->get_name() + _(" won");
             Resources::Font_big()->render(nstr, 500, 40, cbe::FontAlignment_0topcenter);
         }
         else
         {
-            std::string nstr = str(boost::format(_("%s won")) % _(team_names[game_status_team->winner->get_team()-1]));
+            std::string nstr = (std::string) team_names[game_status_team->winner->get_team()-1] + _(" won");
             Resources::Font_big()->render(nstr, 500, 40, cbe::FontAlignment_0topcenter);
         }
     }

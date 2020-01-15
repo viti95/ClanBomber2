@@ -26,7 +26,6 @@
 #include "ClanBomber.h"
 #include "MapEditor.h"
 #include "Utils.h"
-#include <boost/format.hpp>
 
 #include "GameConfig.h"
 #include "Map.h"
@@ -162,9 +161,6 @@ void MapEditor::draw_select_screen(bool flip)
 
         // show name
         std::string s(map->map_list[i+map_at_top]->get_name());
-        //s.to_upper();
-        //primary->SetColor( primary, 0xFF, 0xFF, 0xFF, 0xFF );
-        //primary->DrawString( primary, s, -1, 60, 118+i*25, DSTF_TOPLEFT );
         Resources::Font_small()->render(s, 60, 118 + i * 25,
                                         cbe::FontAlignment_0topleft);
     }
@@ -172,25 +168,19 @@ void MapEditor::draw_select_screen(bool flip)
     // show scroll indicators
     if (map_at_top > 0)
     {
-        //primary->DrawString( primary, "+", -1, 165, 85, DSTF_TOPCENTER );
         Resources::Font_big()->render("+", 165, 85, cbe::FontAlignment_0topcenter);
     }
     if (map_at_top < map->get_map_count()-16)
     {
-        //primary->DrawString( primary, "-", -1, 165, 516, DSTF_TOPCENTER );
         Resources::Font_big()->render("-", 165, 516, cbe::FontAlignment_0topcenter);
     }
 
-    //primary->DrawString( primary, "Select a map to edit and press Enter", -1, 520, 150, DSTF_TOPCENTER );
     Resources::Font_big()->render(_("Select a map to edit and press Enter"), 520,
                                   150, cbe::FontAlignment_0topcenter);
-    //primary->DrawString( primary, "Maps marked red are readonly", -1, 520, 190, DSTF_TOPCENTER );
     Resources::Font_big()->render(_("Maps marked red are readonly"), 520, 190,
                                   cbe::FontAlignment_0topcenter);
-    //primary->DrawString( primary, "Press N to create a new map", -1, 520, 250, DSTF_TOPCENTER );
     Resources::Font_big()->render(_("Press N to create a new map"), 520, 250,
                                   cbe::FontAlignment_0topcenter);
-    //primary->DrawString( primary, "Press D to delete a map", -1, 520, 290, DSTF_TOPCENTER );
     Resources::Font_big()->render(_("Press D to delete a map"), 520, 290,
                                   cbe::FontAlignment_0topcenter);
     if(flip)
@@ -209,13 +199,9 @@ bool MapEditor::new_map()
 
         CB_FillRect(200, 300, 400, 100, 0, 0, 0, 128);
 
-        //primary->SetColor( primary, 0xFF, 0xFF, 0xFF, 0xFF );
-        //primary->DrawString( primary, "Name:", -1, 230, 330, DSTF_TOPLEFT );
-        std::string name = str(boost::format(_("Name: %1$s")) % new_string);
+        std::string name = _("Name: ") + new_string;
         Resources::Font_big()->render(name, 230, 330, cbe::FontAlignment_0topleft);
 
-        //primary->SetFont( primary, Resources::Font_small() );
-        //primary->DrawString( primary, "PRESS ESC TO ABORT", -1, 400, 380, DSTF_TOPCENTER );
         Resources::Font_small()->render(_("PRESS ESC TO ABORT"), 400, 380,
                                         cbe::FontAlignment_0topcenter);
 
@@ -449,32 +435,25 @@ void MapEditor::draw_editor()
     CB_FillRect(60 + cur_x * 40, 40 + cur_y * 40, 40, 40, 150, 125, 25, 150);
 
     // show map name
-    //primary->DrawString( primary, map->map_list[current_map]->get_name(), -1, 780, 3, DSTF_TOPRIGHT );
     Resources::Font_big()->render(map->map_list[current_map]->get_name(), 780, 3,
                                   cbe::FontAlignment_0topright);
 
     // huh, what's this? ;)
-    //primary->DrawString( primary, "PRESS F1 FOR HELP", -1, 10, 3, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PRESS F1 FOR HELP"), 20, 3,
                                     cbe::FontAlignment_0topleft);
 
     if (text_editor_mode)
     {
-        //primary->DrawString( primary, "TEXT EDITOR MODE", -1, 10, 580, DSTF_TOPLEFT );
         Resources::Font_small()->render(_("TEXT EDITOR MODE"), 20, 580,
                                         cbe::FontAlignment_0topleft);
     }
     else
     {
-        //primary->DrawString( primary, "NORMAL EDITOR MODE", -1, 10, 580, DSTF_TOPLEFT );
         Resources::Font_small()->render(_("NORMAL EDITOR MODE"), 20, 580,
                                         cbe::FontAlignment_0topleft);
     }
 
-    //primary->DrawString( primary, CL_String("NUMBER OF PLAYERS   ") + map->map_list[current_map]->get_max_players(), -1, 780, 580, DSTF_TOPRIGHT );
-    std::string numplayers = str(boost::format(_("NUMBER OF PLAYERS   %1$s"))
-                                 % map->map_list[current_map]->get_max_players()
-                                );
+    std::string numplayers = _("NUMBER OF PLAYERS   ") + std::to_string(map->map_list[current_map]->get_max_players());
     Resources::Font_small()->render(numplayers, 780, 580,
                                     cbe::FontAlignment_0topright);
 }
@@ -489,16 +468,10 @@ std::string MapEditor::get_new_author()
 
         CB_FillRect(150, 300, 400, 100, 0, 0, 0, 200);
 
-        //primary->SetColor( primary, 0xFF, 0xFF, 0xFF, 0xFF );
-        //primary->DrawString( primary, "Author:", -1, 180, 330, DSTF_TOPLEFT );
-        //primary->DrawString( primary, author, -1, 330, 330, DSTF_TOPLEFT );
-        std::string pauthor = str(boost::format(_("Author: %1$s"))
-                                  % map->map_list[current_map]->get_author());
+        std::string pauthor = _("Author: ") + map->map_list[current_map]->get_author();
         Resources::Font_big()->render(pauthor, 180, 300,
                                       cbe::FontAlignment_0topleft);
 
-        //primary->SetFont( primary, Resources::Font_small() );
-        //primary->DrawString( primary, "PRESS ESC TO ABORT", -1, 400, 380, DSTF_TOPCENTER );
         Resources::Font_small()->render(_("PRESS ESC TO ABORT"), 400, 380,
                                         cbe::FontAlignment_0topcenter);
 
@@ -525,84 +498,68 @@ void MapEditor::show_help()
     Resources::MapEditor_background()->blit(0, 0);
 
     Resources::Game_maptiles()->put_screen( 40, 70, Config::get_theme()*4 + 0 );
-    //primary->DrawString( primary, "PRESS G FOR A GROUND TILE", -1, 110, 78, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PRESS G FOR A GROUND TILE"), 110, 78,
                                     cbe::FontAlignment_0topleft);
 
     Resources::Game_maptiles()->put_screen( 40, 110, Config::get_theme()*4 + 1 );
-    //primary->DrawString( primary, "PRESS W FOR A WALL", -1, 110, 118, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PRESS W FOR A WALL"), 110, 118,
                                     cbe::FontAlignment_0topleft);
 
     Resources::Game_maptiles()->put_screen( 40, 150, Config::get_theme()*4 + 2 );
-    //primary->DrawString( primary, "PRESS B FOR A BOX", -1, 110, 158, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PRESS B FOR A BOX"), 110, 158,
                                     cbe::FontAlignment_0topleft);
 
     Resources::Game_maptiles()->put_screen( 40, 190, Config::get_theme()*4 + 2 );
     Resources::Game_maptile_addons()->put_screen( 40, 190, 5 );
-    //primary->DrawString( primary, "PRESS R FOR A RANDOM TILE", -1, 110, 198, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PRESS R FOR A RANDOM TILE"), 110, 198,
                                     cbe::FontAlignment_0topleft);
 
     Resources::Game_maptiles()->put_screen( 40, 230, Config::get_theme()*4 + 0 );
     Resources::Game_maptile_addons()->put_screen( 40, 230, 7 );
-    //primary->DrawString( primary, "PRESS O FOR A BOMB TRAP", -1, 110, 238, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PRESS O FOR A BOMB TRAP"),	110, 238,
                                     cbe::FontAlignment_0topleft);
 
     Resources::Game_maptiles()->put_screen( 40, 270, Config::get_theme()*4 + 0 );
     Resources::Game_maptile_addons()->put_screen( 40, 270, 0 );
-    //primary->DrawString( primary, "PRESS I FOR AN ICE TILE", -1, 110, 278, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PRESS I FOR AN ICE TILE"),	110, 278,
                                     cbe::FontAlignment_0topleft);
 
     Resources::Game_maptiles()->put_screen( 40, 320, Config::get_theme()*4 + 0 );
     Resources::Game_maptile_addons()->put_screen( 40, 320, 6 );
-    //primary->DrawString( primary, "PRESS NUMBER KEYS FOR BOMBER POSITIONS", -1, 110, 328, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PRESS NUMBER KEYS FOR BOMBER POSITIONS"),
                                     110, 328, cbe::FontAlignment_0topleft);
 
     // show arrows
-    //primary->DrawString( primary, "THE FOLLOWING KEYS PRODUCE ARROWS", -1, 40, 398, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("THE FOLLOWING KEYS PRODUCE ARROWS"), 40,
                                     398, cbe::FontAlignment_0topleft);
 
     Resources::Game_maptiles()->put_screen( 150, 460, Config::get_theme()*4 + 0 );
     Resources::Game_maptile_addons()->put_screen( 150, 460, 3 );
-    //primary->DrawString( primary, "U", -1, 170, 428, DSTF_TOPCENTER );
     Resources::Font_small()->render(_("U"), 170, 428,
                                     cbe::FontAlignment_0topcenter);
 
     Resources::Game_maptiles()->put_screen( 110, 500, Config::get_theme()*4 + 0 );
     Resources::Game_maptile_addons()->put_screen( 110, 500, 2 );
-    //primary->DrawString( primary, "J", -1, 98, 510, DSTF_TOPCENTER );
     Resources::Font_small()->render(_("J"), 98, 510,
                                     cbe::FontAlignment_0topcenter);
 
     Resources::Game_maptiles()->put_screen( 150, 500, Config::get_theme()*4 + 0 );
     Resources::Game_maptile_addons()->put_screen( 150, 500, 1 );
-    //primary->DrawString( primary, "K", -1, 170, 550, DSTF_TOPCENTER );
     Resources::Font_small()->render(_("K"), 170, 550,
                                     cbe::FontAlignment_0topcenter);
 
     Resources::Game_maptiles()->put_screen( 190, 500, Config::get_theme()*4 + 0 );
     Resources::Game_maptile_addons()->put_screen( 190, 500, 4 );
-    //primary->DrawString( primary, "L", -1, 242, 510, DSTF_TOPCENTER );
     Resources::Font_small()->render(_("L"), 242, 510,
                                     cbe::FontAlignment_0topcenter);
 
     // misc stuff
-    //primary->DrawString( primary, "PRESS SPACE BAR FOR A HOLE", -1, 380, 448, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PRESS SPACE BAR FOR A HOLE"), 380, 448,
                                     cbe::FontAlignment_0topleft);
-    //primary->DrawString( primary, "PAGE UP AND DOWN SET NR OF PLAYERS", -1, 380, 468, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PAGE UP AND DOWN SET NR OF PLAYERS"), 380,
                                     468, cbe::FontAlignment_0topleft);
-    //primary->DrawString( primary, "PRESS A FOR CHANGING THE AUTHOR", -1, 380, 488, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PRESS A FOR CHANGING THE AUTHOR"),	380,
                                     488, cbe::FontAlignment_0topleft);
-    //primary->DrawString( primary, "PRESSING F2 SWITCHES EDITOR MODE", -1, 380, 508, DSTF_TOPLEFT );
     Resources::Font_small()->render(_("PRESSING F2 SWITCHES EDITOR MODE"), 380,
                                     508, cbe::FontAlignment_0topleft);
 

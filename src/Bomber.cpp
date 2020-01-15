@@ -21,6 +21,8 @@
  *
  */
 
+#define PI           3.14159265358979323846
+
 #include "ClanBomber.h"
 #include "Resources.h"
 
@@ -46,8 +48,6 @@
 #include <math.h>
 
 #include <sys/time.h>
-
-#include <boost/math/constants/constants.hpp>
 
 Bomber::Bomber( int _x, int _y, COLOR _color, Controller* _controller, std::string _name, int _team, int _number, ClanBomberApplication *_app) : GameObject( _x, _y, _app )
 {
@@ -183,7 +183,7 @@ void Bomber::show()
 {
     if (disease && !dead && !falling)
     {
-        float scale = sin(fmod(Timer::get_time() / 50.0,2.0*boost::math::constants::pi<double>()))  * 0.15f + 1.0f;
+        float scale = sin(fmod(Timer::get_time() / 50.0,2.0*PI))  * 0.15f + 1.0f;
         GameObject::show((int)x+60,(int)y+40,scale);
     }
     else if (!dead && cur_dir != DIR_NONE)

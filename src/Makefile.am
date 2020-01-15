@@ -7,16 +7,12 @@ AM_CXXFLAGS = -std=c++17 -lstdc++fs
 
 AM_CPPFLAGS = \
 	$(SDL2_CFLAGS) \
-	$(BOOST_CPPFLAGS) \
 	-DCB_DATADIR=\"$(clanbomber2dir)\" \
 	-DCB_LOCALEDIR=\"$(relative_localedir)\"
 
 LDADD = \
 	$(SDL2_LIBS) \
-	$(LIBINTL) \
-	$(BOOST_LDFLAGS) \
-	$(BOOST_SYSTEM_LIB) \
-	$(BOOST_FILESYSTEM_LIB)
+	$(LIBINTL) 
 
 bin_PROGRAMS = clanbomber2
 

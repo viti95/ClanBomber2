@@ -34,7 +34,6 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <boost/format.hpp>
 
 #include "Utils.h"
 
@@ -210,7 +209,7 @@ void Observer::show() {
 	if (round_time > 0) {
 		Resources::Observer_observer()->put_screen(600, 1, 1);
 		Resources::Font_big()->render(
-				str(boost::format("%d") % (int) round_time), 650, 3,
+				std::to_string((int) round_time), 650, 3,
 				cbe::FontAlignment_0topleft);
 	} else {
 		Resources::Observer_observer()->put_screen(600, 1, 2);

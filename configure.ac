@@ -12,13 +12,6 @@ AM_GNU_GETTEXT_VERSION([0.19])
 AM_GNU_GETTEXT([external])
 
 #
-# Check for Boost 1.55, at least (filesystem)
-#
-
-AX_BOOST_BASE([1.55])
-AX_BOOST_SYSTEM
-
-#
 # Check for SDL 2.0.0
 #
 
