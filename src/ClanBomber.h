@@ -28,6 +28,8 @@
 
 #include <filesystem>
 
+#include <vector>
+
 #include "AudioSimple.h"
 
 //XXX Not needed here but in most files that include this one
