@@ -19,19 +19,19 @@ These instructions will get you a copy of the project up and running on your loc
 Linux Debian / Ubuntu / Raspbian
 
 ```
-sudo apt-get install gcc g++ autopoint automake autoconf autoconf-archive gettext pkg-config libtool make libboost-all-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+sudo apt-get install gcc g++ autopoint automake autoconf autoconf-archive gettext pkg-config libtool make libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
 ```
 
 Windows (MSYS2 MinGW 64)
 
 ```
-pacman -Syyu autoconf autoconf-archive automake make pkg-config mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_image mingw-w64-x86_64-SDL2_mixer mingw-w64-x86_64-SDL2_ttf mingw-w64-x86_64-boost mingw-w64-x86_64-make mingw-w64-x86_64-libtool
+pacman -Syyu autoconf autoconf-archive automake make pkg-config mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_image mingw-w64-x86_64-SDL2_mixer mingw-w64-x86_64-SDL2_ttf mingw-w64-x86_64-make mingw-w64-x86_64-libtool
 ```
 
 OpenBSD
 
 ```
-pkg_add gcc g++ autoconf-2.69p2 automake-1.16.1 autoconf-archive sdl2 sdl2_image sdl2_gfx sdl2_ttf sdl2_mixer boost gettext-tools
+pkg_add gcc g++ autoconf-2.69p2 automake-1.16.1 autoconf-archive sdl2 sdl2_image sdl2_gfx sdl2_ttf sdl2_mixer gettext-tools
 ```
 
 ### Building
@@ -60,19 +60,19 @@ Configure the project to your preference
 * Windows (MSYS2 MinGW 64)
 
 ```
-./configure CXXFLAGS="-O3 -march=native" --with-boost=/mingw64 --disable-dependency-tracking
+./configure CXXFLAGS="-O3 -march=native" --disable-dependency-tracking
 ```
 
 * Raspberry Pi 2
 
 ```
-./configure CXXFLAGS="-O3 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" --with-boost-libdir=/usr/lib/arm-linux-gnueabihf
+./configure CXXFLAGS="-O3 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard"
 ```
 
 * Raspberry Pi 3
 
 ```
-./configure CXXFLAGS="-O3 -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard" --with-boost-libdir=/usr/lib/arm-linux-gnueabihf
+./configure CXXFLAGS="-O3 -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard"
 ```
 
 * OpenBSD 6.6 (iBook G4)
@@ -125,7 +125,7 @@ Usage: clanbomber2 [--software|direct3d|opengl|opengles|opengles2] [--fullscreen
 - [ ] Re-add online (was removed due to problems with Raspbian)
 - [ ] Optimize by using multiple threads
 - [ ] Add options to enable / disable VSync (currently disabled)
-- [ ] Remove dependency on Boost library
+- [x] Remove dependency on Boost library
 - [ ] Support more languages
 
 ## Contributing

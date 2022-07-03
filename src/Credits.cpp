@@ -57,7 +57,6 @@ Credits::Credits( ClanBomberApplication *_app )
     text.push_back("");
     text.push_back(_("ClanBomber Uses"));
     //text.push_back("");
-    text.push_back("Boost");
     text.push_back("DejaVu");
     text.push_back("SDL2");
     //text.push_back("SDL2_gfx");

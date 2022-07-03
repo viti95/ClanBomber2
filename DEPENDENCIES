@@ -13,9 +13,6 @@ SDL_ttf
 SDL_gfx
 	LGPLv2.1
 	http://www.ferzkopp.net/joomla/content/view/19/14/
-Boost
-	Boost license
-	http://www.boost.org/
 Guile (libguile)
         LGPLv2.1
         http://www.gnu.org/software/guile/
