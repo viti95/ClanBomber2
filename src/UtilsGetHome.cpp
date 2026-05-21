@@ -42,7 +42,7 @@ bool RecursiveDirCreation(const std::filesystem::path &path) {
 }
 
 //----------POSIX----------
-#ifdef __unix__
+#if defined(__unix__) || defined(__APPLE__)
 # include <cstdlib>
 
 std::filesystem::path GetHome() {
