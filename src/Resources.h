@@ -53,7 +53,7 @@ public:
 		void put_screen(int x, int y, float scale_x, float scale_y, int frame,
 				Uint8 opacity = 255);
 
-		void get_rect(int frame, SDL_Rect *ret_rect);
+		void get_rect(int frame, SDL_FRect *ret_rect);
 
 		SDL_Surface *surface;
 		SDL_Texture *texture;

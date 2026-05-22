@@ -43,7 +43,7 @@ void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b);
 void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b,
 		Uint8 a);
 void CB_WaitForKeypress();
-void CB_BatchBlit(SDL_Texture *texture, SDL_Rect *srcRects, SDL_Rect *destRects,
+void CB_BatchBlit(SDL_Texture *texture, SDL_FRect *srcRects, SDL_FRect *destRects,
 		int num);
 int CB_EnterText(std::string &new_string);
 void CB_Locale();

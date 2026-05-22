@@ -47,7 +47,7 @@ namespace cbe
   void FontSDL::render(const std::string &text, int x, int y,
                        FontAlignment alignment)
   {
-    SDL_Rect rect;
+    SDL_FRect rect;
     rect.x = x;
     rect.y = y;
 
@@ -83,7 +83,7 @@ namespace cbe
     rect.w = textSurface->w;
     rect.h = textSurface->h;
 
-    SDL_Rect orig;
+    SDL_FRect orig;
     orig.x=0;
     orig.y=0;
     orig.w=textSurface->w;
@@ -114,7 +114,7 @@ namespace cbe
 
   void FontSDL::getSize(const std::string &text, int *w, int *h)
   {
-    TTF_GetStringSize(font, text.c_str(), w, h);
+    TTF_GetStringSize(font, text.c_str(), strlen(text.c_str()), w, h);
   }
 
   int FontSDL::getHeight()

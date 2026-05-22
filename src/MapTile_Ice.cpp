@@ -68,7 +68,7 @@ void MapTile_Ice::draw_tiny( int x, int y, float factor )
     Resources::Game_maptile_addons()->put_screen( x, y, factor, factor, 0, opacity );
 }
 
-bool MapTile_Ice::get_addon_rect( SDL_Rect *ret_rect )
+bool MapTile_Ice::get_addon_rect( SDL_FRect *ret_rect )
 {
     Resources::Game_maptile_addons()->get_rect( 0, ret_rect );
 

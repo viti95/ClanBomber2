@@ -36,13 +36,13 @@ void CB_BlitSurface(SDL_Surface *sSurface, int x, int y)
     SDL_CreateTextureFromSurface(renderer, sSurface);
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 
-    SDL_Rect rect;
+    SDL_FRect rect;
     rect.x = x;
     rect.y = y;
     rect.w = sSurface->w;
     rect.h = sSurface->h;
 
-    SDL_Rect orig = {0, 0, sSurface->w, sSurface->h};
+    SDL_FRect orig = {0, 0, sSurface->w, sSurface->h};
 
     SDL_RenderTexture(renderer, texture, &orig, &rect);
 
@@ -53,7 +53,7 @@ void CB_RenderText(TTF_Font *font, const std::wstring &text, int x, int y)
 {
     SDL_Color color = { 0xFF, 0x00, 0x00};//Default color for text is white
     char *utf8text = SDL_iconv_string("", "wchar_t", (char*) text.c_str(), (text.length() + 1) * sizeof(wchar_t));
-    SDL_Surface *textSurface = TTF_RenderText_Blended(font, utf8text, color);
+    SDL_Surface *textSurface = TTF_RenderText_Blended(font, utf8text, strlen(utf8text), color);
     CB_BlitSurface(textSurface, x, y);
     SDL_DestroySurface(textSurface);
     SDL_free(utf8text);
@@ -62,7 +62,7 @@ void CB_RenderText(TTF_Font *font, const std::wstring &text, int x, int y)
 void CB_RenderText(TTF_Font *font, const char *text, int x, int y)
 {
     SDL_Color color = { 0xFF, 0x00, 0x00};//Default color for text is white
-    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, color);
+    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, strlen(text), color);
     CB_BlitSurface(textSurface, x, y);
     SDL_DestroySurface(textSurface);
 }
@@ -75,7 +75,7 @@ void CB_RenderText(TTF_Font *font, const std::string &text, int x, int y)
 void CB_RenderTextCenter(TTF_Font *font, const char *text, int x, int y)
 {
     SDL_Color color = { 0x00, 0xFF, 0x00};//Default color for text is white
-    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, color);
+    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, strlen(text),  color);
     if(textSurface == NULL) //nedded beacause when empty string TTF_RenderText_Solid returns NULL
         return;
     x -= textSurface->w/2;
@@ -91,7 +91,7 @@ void CB_RenderTextCenter(TTF_Font *font, const std::string &text, int x, int y)
 void CB_RenderTextRight(TTF_Font *font, const char *text, int x, int y)
 {
     SDL_Color color = { 0x00, 0x00, 0xFF};//Default color for text is white
-    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, color);
+    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, strlen(text),  color);
     x -= textSurface->w;
     CB_BlitSurface(textSurface, x, y);
     SDL_DestroySurface(textSurface);
@@ -109,12 +109,13 @@ void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b)
     SDL_Surface *surface;
     surface = SDL_CreateSurface(w, h, SDL_PIXELFORMAT_RGBA8888);
     SDL_Rect orig = {0, 0, w, h};
-    SDL_FillSurfaceRect(surface, &orig, SDL_MapRGB(surface->format, r, g, b));
-    SDL_Rect rect = {x, y, w, h};
+    SDL_FillSurfaceRect(surface, &orig, SDL_MapSurfaceRGB(surface, r, g, b));
+    SDL_FRect rect = {x, y, w, h};
     SDL_Texture *texture;
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-    SDL_RenderTexture(renderer, texture, &orig, &rect);
+    SDL_FRect forig = {0, 0, w, h};
+    SDL_RenderTexture(renderer, texture, &forig, &rect);
 
     SDL_DestroyTexture(texture);
     SDL_DestroySurface(surface);
@@ -127,14 +128,15 @@ void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
     SDL_Surface *surface;
     surface = SDL_CreateSurface(w, h, SDL_PIXELFORMAT_RGBA8888);
     SDL_Rect orig = {0, 0, w, h};
-    SDL_FillSurfaceRect(surface, &orig, SDL_MapRGBA(surface->format, r, g, b, a));
-    SDL_Rect rect = {x, y, w, h};
+    SDL_FillSurfaceRect(surface, &orig, SDL_MapSurfaceRGB(surface, r, g, b));
+    SDL_FRect rect = {x, y, w, h};
     SDL_Texture *texture;
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 
     SDL_SetTextureAlphaMod(texture, a);
-    SDL_RenderTexture(renderer, texture, &orig, &rect);
+    SDL_FRect forig = {0, 0, w, h};
+    SDL_RenderTexture(renderer, texture, &forig, &rect);
 
     SDL_DestroyTexture(texture);
     SDL_DestroySurface(surface);
@@ -151,12 +153,12 @@ void CB_WaitForKeypress()
     while(event.type != SDL_EVENT_KEY_DOWN);
 }
 
-void CB_BatchBlit(SDL_Texture *texture, SDL_Rect *srcRects, SDL_Rect *destRects, int num)
+void CB_BatchBlit(SDL_Texture *texture, SDL_FRect *srcRects, SDL_FRect *destRects, int num)
 {
     for(int i = 0; i < num; i++)
     {
-        SDL_Rect orig = srcRects[i];
-        SDL_Rect dest = destRects[i];
+        SDL_FRect orig = srcRects[i];
+        SDL_FRect dest = destRects[i];
 
         SDL_RenderTexture(renderer, texture, &orig, &dest);
     }
@@ -215,7 +217,7 @@ int CB_EnterText(std::string &new_string)
                 
                 if (event.key.scancode >= 4 && event.key.scancode <= 39){
                     char temp[2] = {0,0};
-                    temp[0] = *(SDL_GetKeyName(event.key.keysym.sym));
+                    temp[0] = *(SDL_GetKeyName(event.key.key));
                     str = str.substr(0, cursor) + temp + str.substr(cursor, str.length()-cursor);
                     cursor++;
                 }

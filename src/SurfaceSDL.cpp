@@ -42,13 +42,13 @@ namespace cbe
 
   void SurfaceSDL::blit(int x, int y, uint8_t opacity)
   {
-    SDL_Rect rect;
+    SDL_FRect rect;
     rect.x = x;
     rect.y = y;
     rect.w = surface->w;
     rect.h = surface->h;
 
-    SDL_Rect orig;
+    SDL_FRect orig;
     orig.x=0;
     orig.y=0;
     orig.w=surface->w;
@@ -60,13 +60,13 @@ namespace cbe
   }
   void SurfaceSDL::scaled_blit(int x, int y, float scale_x, float scale_y, uint8_t opacity)
   {
-    SDL_Rect rect;
+    SDL_FRect rect;
     rect.x = x;
     rect.y = y;
     rect.w = surface->w * scale_x;
     rect.h = surface->h * scale_y;
 
-    SDL_Rect orig;
+    SDL_FRect orig;
     orig.x=0;
     orig.y=0;
     orig.w=surface->w;

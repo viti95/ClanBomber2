@@ -196,7 +196,7 @@ void MapTile::draw_tiny( int x, int y, float factor )
     Resources::Game_maptiles()->put_screen( x, y, factor, factor, sprite_nr, opacity );
 }
 
-bool MapTile::get_addon_rect( SDL_Rect *ret_rect )
+bool MapTile::get_addon_rect( SDL_FRect *ret_rect )
 {
     return false;
 }

@@ -29,18 +29,20 @@
 
 Controller_RCMouse::Controller_RCMouse() : Controller()
 {
-    if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(true);
+    // TODO: Fix
+    //if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(true);
 }
 
 Controller_RCMouse::~Controller_RCMouse()
 {
-    if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(false);
+    // TODO: Fix
+    //if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(false);
 }
 
 void Controller_RCMouse::update()
 {
     const unsigned int tolerance = 7;
-    int x, y;
+    float x, y;
     Uint8 buttons;
     buttons = SDL_GetRelativeMouseState(&x, &y);
 
@@ -107,7 +109,7 @@ void Controller_RCMouse::update()
     }
 
     //Button
-    if (buttons & SDL_BUTTON(1))
+    if (buttons & SDL_BUTTON_MASK(1))
     {
         if (bomb_button_down)
         {
