@@ -24,8 +24,8 @@
 #ifndef RESOURCES_H
 #define RESOURCES_H
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
+#include <SDL3/SDL.h>
+#include <SDL3_ttf/SDL_ttf.h>
 #include "Surface.h"
 #include "Font.h"
 #include "AudioBuffer.h"

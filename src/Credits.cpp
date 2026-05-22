@@ -32,7 +32,7 @@
 #include "Utils.h"
 
 #include <vector>
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 #define SCROLL_SPEED 400
 

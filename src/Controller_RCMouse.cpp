@@ -25,7 +25,7 @@
 #include "Controller_RCMouse.h"
 #include "GameConfig.h"
 
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 Controller_RCMouse::Controller_RCMouse() : Controller()
 {

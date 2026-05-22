@@ -28,7 +28,7 @@
 
 #include <config.h>
 
-#include <SDL2/SDL_image.h>
+#include <SDL3_image/SDL_image.h>
 
 #include "Resources.h"
 #include "SurfaceSDL.h"

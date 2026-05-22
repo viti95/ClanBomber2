@@ -27,7 +27,7 @@
 
 #include "Controller.h"
 ///#include <directfb.h>
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 class Controller_Keyboard : public Controller
 {

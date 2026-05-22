@@ -28,7 +28,7 @@
 #include "Timer.h"
 #include "Controller.h"
 
-#include <SDL2/SDL_ttf.h>
+#include <SDL3_ttf/SDL_ttf.h>
 #include "Utils.h"
 
 #include <sstream>
