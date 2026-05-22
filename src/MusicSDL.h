@@ -39,7 +39,7 @@ namespace cbe
     virtual void playLoop();
     virtual void stop();
   private:
-    Mix_Music *msc;
+    //Mix_Music *msc;
   };
 };
 

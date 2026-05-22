@@ -26,20 +26,23 @@ namespace cbe
 {
   AudioBufferSDL::AudioBufferSDL(std::filesystem::path filename)
   {
-    chunk = Mix_LoadWAV(filename.string().c_str());
+    // TODO: Fix
+    /*chunk = Mix_LoadWAV(filename.string().c_str());
     if(chunk == NULL) {
       printf("Cannot load sound file");
       //TODO launch an exception
-    }
+    }*/
   }
 
   AudioBufferSDL::~AudioBufferSDL()
   {
-    Mix_FreeChunk(chunk);
+    // TODO: Fix
+    //Mix_FreeChunk(chunk);
   }
 
   void AudioBufferSDL::play()
   {
-    Mix_PlayChannel(-1, chunk, 0);
+    // TODO: Fix
+    //Mix_PlayChannel(-1, chunk, 0);
   }
 };

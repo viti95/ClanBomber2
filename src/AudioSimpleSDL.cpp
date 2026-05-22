@@ -31,6 +31,8 @@ namespace cbe
 {
   bool AudioSimpleSDL::init()
   {
+    // TODO: Fix
+    /*
     if (!initialized) {
       if (Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 4096)) {
         Mix_CloseAudio();
@@ -38,17 +40,19 @@ namespace cbe
       }
     }
     initialized++;
+    */
     return true;
   }
 
   void AudioSimpleSDL::close()
   {
-    if (initialized = 1) {
+    // TODO: Fix
+    /*if (initialized = 1) {
       Mix_CloseAudio();
     }
     if (initialized > 0) {
       initialized--;
-    }
+    }*/
   }
 
   AudioSimpleSDL::AudioSimpleSDL()
@@ -58,7 +62,8 @@ namespace cbe
 
   AudioSimpleSDL::~AudioSimpleSDL()
   {
-    Mix_CloseAudio();
+    // TODO: Fix
+    //Mix_CloseAudio();
   }
 
   AudioBuffer *AudioSimpleSDL::createBuffer(std::filesystem::path filename)

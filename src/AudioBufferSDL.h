@@ -37,7 +37,7 @@ namespace cbe
     ~AudioBufferSDL();
     virtual void play();
   private:
-    Mix_Chunk *chunk;
+    //Mix_Chunk *chunk;
   };
 };
 

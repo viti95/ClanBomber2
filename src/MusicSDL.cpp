@@ -26,37 +26,45 @@ namespace cbe
 {
   MusicSDL::MusicSDL(std::filesystem::path filename)
   {
-    msc = Mix_LoadMUS(filename.string().c_str());
+    // TODO: Fix
+    /*msc = Mix_LoadMUS(filename.string().c_str());
     if(msc == NULL) {
       printf("Cannot load music file");
       //TODO launch an exception
     }
+    */
   }
 
   MusicSDL::~MusicSDL()
   {
-    Mix_FreeMusic(msc);
-    msc=NULL;
+    // TODO: Fix
+    //Mix_FreeMusic(msc);
+    //msc=NULL;
   }
 
   bool MusicSDL::isPlaying()
   {
-    if (msc == NULL) return false;
+    // TODO: Fix
+    /*if (msc == NULL) return false;
 
-    return Mix_PlayingMusic();
+    return Mix_PlayingMusic();*/
+
+    return false;
   }
 
   void MusicSDL::playLoop()
   {
-    if (msc == NULL) return;
+    // TODO: Fix
+    //if (msc == NULL) return;
 
-    Mix_PlayMusic(msc, -1);
+    //Mix_PlayMusic(msc, -1);
   }
 
   void MusicSDL::stop()
   {
-    if (msc == NULL) return;
+    // TODO: Fix
+    //if (msc == NULL) return;
 
-    Mix_HaltMusic();
+    //Mix_HaltMusic();
   }
 };
