@@ -342,7 +342,7 @@ int Menu::execute(bool options_menu_hack)
 
         if (SDL_WaitEvent(&event))
         {
-            if ( event.type != SDL_KEYDOWN)
+            if ( event.type != SDL_EVENT_KEY_DOWN)
             {
                 continue;
             }
@@ -351,7 +351,7 @@ int Menu::execute(bool options_menu_hack)
         MenuItem* current  = get_item_by_id(current_run_id);
         MenuItem* menu_sel = 0;
 
-        switch (event.key.keysym.scancode)
+        switch (event.key.scancode)
         {
         case SDL_SCANCODE_DOWN:
             current_selection++;

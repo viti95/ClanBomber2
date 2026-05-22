@@ -61,13 +61,13 @@ void PlayerSetup::exec()
         SDL_PumpEvents();
         if(SDL_WaitEvent(&event))
         {
-            if(event.type != SDL_KEYDOWN)
+            if(event.type != SDL_EVENT_KEY_DOWN)
             {
                 continue;
             }
         }
 
-        switch (event.key.keysym.scancode)
+        switch (event.key.scancode)
         {
         case SDL_SCANCODE_BACKSPACE:
         case SDL_SCANCODE_ESCAPE:

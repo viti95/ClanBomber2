@@ -148,7 +148,7 @@ void CB_WaitForKeypress()
     {
         SDL_WaitEvent(&event);
     }
-    while(event.type != SDL_KEYDOWN);
+    while(event.type != SDL_EVENT_KEY_DOWN);
 }
 
 void CB_BatchBlit(SDL_Texture *texture, SDL_Rect *srcRects, SDL_Rect *destRects, int num)
@@ -171,9 +171,9 @@ int CB_EnterText(std::string &new_string)
 
     while(SDL_WaitEvent(&event))
     {
-        if(event.type == SDL_KEYDOWN)
+        if(event.type == SDL_EVENT_KEY_DOWN)
         {
-            switch(event.key.keysym.scancode)
+            switch(event.key.scancode)
             {
             case SDL_SCANCODE_RETURN:
                 new_string = str;
@@ -213,7 +213,7 @@ int CB_EnterText(std::string &new_string)
                 break;
             default:
                 
-                if (event.key.keysym.scancode >= 4 && event.key.keysym.scancode <= 39){
+                if (event.key.scancode >= 4 && event.key.scancode <= 39){
                     char temp[2] = {0,0};
                     temp[0] = *(SDL_GetKeyName(event.key.keysym.sym));
                     str = str.substr(0, cursor) + temp + str.substr(cursor, str.length()-cursor);

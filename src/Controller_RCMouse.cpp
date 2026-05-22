@@ -29,12 +29,12 @@
 
 Controller_RCMouse::Controller_RCMouse() : Controller()
 {
-    if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(SDL_TRUE);
+    if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(true);
 }
 
 Controller_RCMouse::~Controller_RCMouse()
 {
-    if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(SDL_FALSE);
+    if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(false);
 }
 
 void Controller_RCMouse::update()

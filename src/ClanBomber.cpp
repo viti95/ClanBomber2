@@ -122,7 +122,7 @@ int ClanBomberApplication::init_SDL() {
 	Uint32 fullscreen = (Config::get_fullscreen()) ? SDL_WINDOW_FULLSCREEN : 0;
 	Uint32 renderMode = (Config::get_softwareRendering()) ? SDL_RENDERER_SOFTWARE : SDL_RENDERER_ACCELERATED;
 
-	if (Config::get_fullscreen()) SDL_SetRelativeMouseMode(SDL_TRUE);
+	if (Config::get_fullscreen()) SDL_SetRelativeMouseMode(true);
 
 	keyboard = SDL_GetKeyboardState(NULL);
 	
@@ -139,12 +139,10 @@ int ClanBomberApplication::init_SDL() {
 	}
 
 	gameWindow = SDL_CreateWindow(PACKAGE_STRING,
-                          SDL_WINDOWPOS_UNDEFINED,
-                          SDL_WINDOWPOS_UNDEFINED,
                           800, 600,
-                          SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE | fullscreen);
+                          SDL_WINDOW_RESIZABLE | fullscreen);
 
-	renderer = SDL_CreateRenderer(gameWindow, -1, renderMode);
+	renderer = SDL_CreateRenderer(gameWindow, NULL);
 
 	SDL_RenderSetLogicalSize(renderer, 800, 600);
 
@@ -567,8 +565,8 @@ void ClanBomberApplication::run_game() {
 
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
-			if (event.type == SDL_KEYDOWN) {
-				switch (event.key.keysym.scancode) {
+			if (event.type == SDL_EVENT_KEY_DOWN) {
+				switch (event.key.scancode) {
 				case SDL_SCANCODE_F1:
 					show_fps = !show_fps;
 					break;
