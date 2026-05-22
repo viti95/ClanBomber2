@@ -55,12 +55,12 @@ namespace cbe
 
     SDL_Surface *textSurface = NULL;
     if(high_quality) {
-      textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
+      textSurface = TTF_RenderText_Blended(font, text.c_str(), 0, color);
     } else {
-      textSurface = TTF_RenderUTF8_Solid(font, text.c_str(), color);
+      textSurface = TTF_RenderText_Solid(font, text.c_str(), 0, color);
     }
 
-    //Empty string used in TTF_RenderUTF8_Solid returns NULL
+    //Empty string used in TTF_RenderText_Solid returns NULL
     if(textSurface == NULL)
       return;
 
@@ -114,12 +114,12 @@ namespace cbe
 
   void FontSDL::getSize(const std::string &text, int *w, int *h)
   {
-    TTF_SizeUTF8(font, text.c_str(), w, h);
+    TTF_GetStringSize(font, text.c_str(), w, h);
   }
 
   int FontSDL::getHeight()
   {
-    return TTF_FontHeight(font);
+    return TTF_GetFontHeight(font);
   }
 
 };

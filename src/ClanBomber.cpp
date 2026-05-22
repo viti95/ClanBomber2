@@ -56,7 +56,7 @@ ClanBomberApplication *app;
 
 SDL_Renderer *renderer = NULL;
 SDL_Window *gameWindow = NULL;
-const Uint8 *keyboard = NULL;
+const bool *keyboard = NULL;
 
 std::filesystem::path ClanBomberApplication::map_path;
 std::filesystem::path ClanBomberApplication::local_map_path;

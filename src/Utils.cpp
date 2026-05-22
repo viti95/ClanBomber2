@@ -53,7 +53,7 @@ void CB_RenderText(TTF_Font *font, const std::wstring &text, int x, int y)
 {
     SDL_Color color = { 0xFF, 0x00, 0x00};//Default color for text is white
     char *utf8text = SDL_iconv_string("", "wchar_t", (char*) text.c_str(), (text.length() + 1) * sizeof(wchar_t));
-    SDL_Surface *textSurface = TTF_RenderUTF8_Blended(font, utf8text, color);
+    SDL_Surface *textSurface = TTF_RenderText_Blended(font, utf8text, color);
     CB_BlitSurface(textSurface, x, y);
     SDL_DestroySurface(textSurface);
     SDL_free(utf8text);
@@ -62,7 +62,7 @@ void CB_RenderText(TTF_Font *font, const std::wstring &text, int x, int y)
 void CB_RenderText(TTF_Font *font, const char *text, int x, int y)
 {
     SDL_Color color = { 0xFF, 0x00, 0x00};//Default color for text is white
-    SDL_Surface *textSurface = TTF_RenderUTF8_Solid(font, text, color);
+    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, color);
     CB_BlitSurface(textSurface, x, y);
     SDL_DestroySurface(textSurface);
 }
@@ -75,7 +75,7 @@ void CB_RenderText(TTF_Font *font, const std::string &text, int x, int y)
 void CB_RenderTextCenter(TTF_Font *font, const char *text, int x, int y)
 {
     SDL_Color color = { 0x00, 0xFF, 0x00};//Default color for text is white
-    SDL_Surface *textSurface = TTF_RenderUTF8_Solid(font, text, color);
+    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, color);
     if(textSurface == NULL) //nedded beacause when empty string TTF_RenderText_Solid returns NULL
         return;
     x -= textSurface->w/2;
@@ -91,7 +91,7 @@ void CB_RenderTextCenter(TTF_Font *font, const std::string &text, int x, int y)
 void CB_RenderTextRight(TTF_Font *font, const char *text, int x, int y)
 {
     SDL_Color color = { 0x00, 0x00, 0xFF};//Default color for text is white
-    SDL_Surface *textSurface = TTF_RenderUTF8_Solid(font, text, color);
+    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, color);
     x -= textSurface->w;
     CB_BlitSurface(textSurface, x, y);
     SDL_DestroySurface(textSurface);
