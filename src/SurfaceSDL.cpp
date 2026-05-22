@@ -37,7 +37,7 @@ namespace cbe
 
   SurfaceSDL::~SurfaceSDL()
   {
-    SDL_FreeSurface(surface);
+    SDL_DestroySurface(surface);
   }
 
   void SurfaceSDL::blit(int x, int y, uint8_t opacity)
@@ -55,7 +55,7 @@ namespace cbe
     orig.h=surface->h;
 
     SDL_SetTextureAlphaMod(texture, opacity);
-    SDL_RenderCopy(renderer, texture, &orig, &rect);
+    SDL_RenderTexture(renderer, texture, &orig, &rect);
     SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
   }
   void SurfaceSDL::scaled_blit(int x, int y, float scale_x, float scale_y, uint8_t opacity)
@@ -73,7 +73,7 @@ namespace cbe
     orig.h=surface->h;
 
     SDL_SetTextureAlphaMod(texture, opacity);
-    SDL_RenderCopy(renderer, texture, &orig, &rect);
+    SDL_RenderTexture(renderer, texture, &orig, &rect);
     SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
   }
 };

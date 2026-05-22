@@ -33,7 +33,7 @@ Controller_Joystick::Controller_Joystick(int joystick_nr) : Controller()
 
 Controller_Joystick::~Controller_Joystick()
 {
-    SDL_JoystickClose(joystick);
+    SDL_CloseJoystick(joystick);
 }
 
 void Controller_Joystick::update()

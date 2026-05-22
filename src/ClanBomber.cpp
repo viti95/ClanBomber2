@@ -120,7 +120,6 @@ int ClanBomberApplication::init_SDL() {
 	}
 
 	Uint32 fullscreen = (Config::get_fullscreen()) ? SDL_WINDOW_FULLSCREEN : 0;
-	Uint32 renderMode = (Config::get_softwareRendering()) ? SDL_RENDERER_SOFTWARE : SDL_RENDERER_ACCELERATED;
 
 	if (Config::get_fullscreen()) SDL_SetRelativeMouseMode(true);
 

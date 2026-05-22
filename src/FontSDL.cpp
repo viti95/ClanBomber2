@@ -93,14 +93,14 @@ namespace cbe
     textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
     SDL_SetTextureBlendMode(textTexture, SDL_BLENDMODE_BLEND);
 
-    SDL_RenderCopy(renderer, textTexture, &orig, &rect);
+    SDL_RenderTexture(renderer, textTexture, &orig, &rect);
 
     SDL_DestroyTexture(textTexture);
-    SDL_FreeSurface(textSurface);
+    SDL_DestroySurface(textSurface);
 
     //SDL_BlitSurface(textSurface, NULL, primary, &rect);
 
-    //SDL_FreeSurface(textSurface);
+    //SDL_DestroySurface(textSurface);
   }
 
   void FontSDL::render(const std::wstring &text, int x, int y,

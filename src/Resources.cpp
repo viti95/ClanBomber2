@@ -475,7 +475,7 @@ this->sprite_height = sprite_height;
 }
 
 Resources::Surface::~Surface() {
-SDL_FreeSurface(surface);
+SDL_DestroySurface(surface);
 }
 
 int Resources::Surface::get_height() {
@@ -500,7 +500,7 @@ void Resources::Surface::put_screen(int x, int y, int frame, Uint8 opacity) {
 	drect.h = sprite_height;
 
 	SDL_SetTextureAlphaMod(texture, opacity);
-	SDL_RenderCopy(renderer, texture, &srect, &drect);
+	SDL_RenderTexture(renderer, texture, &srect, &drect);
 	SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
 
 }
@@ -527,7 +527,7 @@ void Resources::Surface::put_screen(int x, int y, float scale_x, float scale_y, 
 	drect.h = (int)((float)sprite_height * scale_y);
 
 	SDL_SetTextureAlphaMod(texture, opacity);
-	SDL_RenderCopy(renderer, texture, &srect, &drect);
+	SDL_RenderTexture(renderer, texture, &srect, &drect);
 	SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
 
 }
