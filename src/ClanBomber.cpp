@@ -143,7 +143,7 @@ int ClanBomberApplication::init_SDL() {
 
 	renderer = SDL_CreateRenderer(gameWindow, NULL);
 
-	SDL_RenderSetLogicalSize(renderer, 800, 600);
+	SDL_SetRenderLogicalPresentation(renderer, 800, 600);
 
    	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 

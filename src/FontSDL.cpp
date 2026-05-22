@@ -77,7 +77,7 @@ namespace cbe
     } else if(alignment & FontAlignment_0bottom) {
       rect.y += textSurface->h;
     } else { //baseline
-      rect.y -= TTF_FontAscent(font);
+      rect.y -= TTF_GetFontAscent(font);
     }
 
     rect.w = textSurface->w;

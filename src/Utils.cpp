@@ -107,7 +107,7 @@ void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b)
     if (w == 0 || h == 0) return;
 
     SDL_Surface *surface;
-    surface = SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0);
+    surface = SDL_CreateSurface(w, h, SDL_PIXELFORMAT_RGBA8888);
     SDL_Rect orig = {0, 0, w, h};
     SDL_FillSurfaceRect(surface, &orig, SDL_MapRGB(surface->format, r, g, b));
     SDL_Rect rect = {x, y, w, h};
@@ -125,7 +125,7 @@ void CB_FillRect(int x, int y, int w, int h, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
     if (w == 0 || h == 0 || a == 0) return;
 
     SDL_Surface *surface;
-    surface = SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0);
+    surface = SDL_CreateSurface(w, h, SDL_PIXELFORMAT_RGBA8888);
     SDL_Rect orig = {0, 0, w, h};
     SDL_FillSurfaceRect(surface, &orig, SDL_MapRGBA(surface->format, r, g, b, a));
     SDL_Rect rect = {x, y, w, h};
