@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.63])
-AC_INIT([ClanBomber], [2.3.0], [rsl@members.fsf.org])
+AC_INIT([ClanBomber], [3.0.0], [rsl@members.fsf.org])
 AM_INIT_AUTOMAKE([-Wall -Werror])
 
 AC_PROG_CXX
@@ -12,12 +12,12 @@ AM_GNU_GETTEXT_VERSION([0.19])
 AM_GNU_GETTEXT([external])
 
 #
-# Check for SDL 2.0.0
+# Check for SDL 3.0.0
 #
 
-PKG_CHECK_MODULES(SDL2, sdl2 SDL2_image SDL2_ttf SDL2_mixer)
-AC_SUBST(SDL2_CFLAGS)
-AC_SUBST(SDL2_LIBS)
+PKG_CHECK_MODULES(SDL3, sdl3 sdl3-image sdl3-ttf sdl3-mixer)
+AC_SUBST(SDL3_CFLAGS)
+AC_SUBST(SDL3_LIBS)
 
 #
 # Enable relative paths
