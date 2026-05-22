@@ -113,7 +113,7 @@ ClanBomberApplication::~ClanBomberApplication() {
 }
 
 int ClanBomberApplication::init_SDL() {
-	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK)) {
+	if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK)) {
 		std::cerr << _("Cannot Initialise SDL!") << std::endl;
 		SDL_Quit();
 		return -1;
@@ -161,7 +161,7 @@ int ClanBomberApplication::init_SDL() {
 		std::cerr << _("Cannot Initialise SDL audio!") << std::endl;
 	}
 
-	if (TTF_Init()) {
+	if (!TTF_Init()) {
 		std::cerr << _("Cannot Initialise SDL ttf!") << std::endl;
 		TTF_Quit();
 		AS->close();
