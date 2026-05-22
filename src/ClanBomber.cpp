@@ -123,15 +123,6 @@ int ClanBomberApplication::init_SDL() {
 
 	keyboard = SDL_GetKeyboardState(NULL);
 	
-	#ifdef SDL_HINT_RENDER_BATCHING
-	SDL_SetHint(SDL_HINT_RENDER_BATCHING, "1"); // enable batch rendering, it's faster
-	#endif
-	
-	#ifdef SDL_HINT_RENDER_SCALE_QUALITY
-	// TODO: FIX
-	//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");  // make the scaled rendering look smoother.
-	#endif
-	
 	if (!Config::get_renderDriver().empty()){
 		SDL_SetHint(SDL_HINT_RENDER_DRIVER, Config::get_renderDriver().c_str());
 	}
