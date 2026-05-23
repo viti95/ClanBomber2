@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: clanbomber2 0.0.1\n"
-"Report-Msgid-Bugs-To: rsl@members.fsf.org\n"
-"POT-Creation-Date: 2020-01-15 21:06+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-23 17:33+0200\n"
 "PO-Revision-Date: 2009-02-13 14:44-0600\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
@@ -25,301 +25,301 @@ msgstr "(+) clanbomber: liberando recursos..."
 msgid "Cannot Initialise SDL!"
 msgstr "No se puede inicializar SDL!"
 
-#: src/ClanBomber.cpp:159
+#: src/ClanBomber.cpp:148
 msgid "Cannot initialise the requested audio plugin!"
 msgstr "No se puede inicializar el plugin de audio pedido!"
 
-#: src/ClanBomber.cpp:163
+#: src/ClanBomber.cpp:152
 msgid "Cannot Initialise SDL audio!"
 msgstr "No se puede inicializar SDL audio!"
 
-#: src/ClanBomber.cpp:167
+#: src/ClanBomber.cpp:156
 msgid "Cannot Initialise SDL ttf!"
 msgstr "No se puede inicializar SDL ttf"
 
-#: src/ClanBomber.cpp:213
+#: src/ClanBomber.cpp:202
 msgid "Config directory "
 msgstr "Directorio de configuracion"
 
-#: src/ClanBomber.cpp:222
+#: src/ClanBomber.cpp:211
 msgid "Data directory "
 msgstr "Directorio de datos "
 
-#: src/ClanBomber.cpp:234
+#: src/ClanBomber.cpp:223
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: src/ClanBomber.cpp:236
+#: src/ClanBomber.cpp:225
 msgid "New Game"
 msgstr "Nueva partida"
 
-#: src/ClanBomber.cpp:237
+#: src/ClanBomber.cpp:226
 msgid "Start Local"
 msgstr "Partida local"
 
-#: src/ClanBomber.cpp:238
+#: src/ClanBomber.cpp:227
 msgid "Local Player Setup"
 msgstr "Configuracion de jugadores"
 
-#: src/ClanBomber.cpp:239
+#: src/ClanBomber.cpp:228
 msgid "Map Selection"
 msgstr "Seleccion de mapa"
 
-#: src/ClanBomber.cpp:240 src/ClanBomber.cpp:300
+#: src/ClanBomber.cpp:229 src/ClanBomber.cpp:289
 msgid "Random Bomber Positions"
 msgstr "Posicion inicial aleatoria"
 
-#: src/ClanBomber.cpp:242 src/ClanBomber.cpp:303
+#: src/ClanBomber.cpp:231 src/ClanBomber.cpp:292
 msgid "Random Map Order"
 msgstr "Orden de mapas aleatorio"
 
-#: src/ClanBomber.cpp:244 src/ClanBomber.cpp:305
+#: src/ClanBomber.cpp:233 src/ClanBomber.cpp:294
 msgid "Points to win"
 msgstr "Puntos para ganar"
 
-#: src/ClanBomber.cpp:246 src/ClanBomber.cpp:307
+#: src/ClanBomber.cpp:235 src/ClanBomber.cpp:296
 msgid "Round Time"
 msgstr "Tiempo de partida"
 
-#: src/ClanBomber.cpp:249
+#: src/ClanBomber.cpp:238
 msgid "Options"
 msgstr "Opciones"
 
-#: src/ClanBomber.cpp:250
+#: src/ClanBomber.cpp:239
 msgid "Start/Max Extras"
 msgstr "Extras iniciales/Max"
 
-#: src/ClanBomber.cpp:251
+#: src/ClanBomber.cpp:240
 msgid "Start Bombs"
 msgstr "Bombas iniciales"
 
-#: src/ClanBomber.cpp:253
+#: src/ClanBomber.cpp:242
 msgid "Start Power"
 msgstr "Potencia inicial"
 
-#: src/ClanBomber.cpp:255
+#: src/ClanBomber.cpp:244
 msgid "Start Skateboards"
 msgstr "Patinetes iniciales"
 
-#: src/ClanBomber.cpp:257
+#: src/ClanBomber.cpp:246
 msgid "Start Kick"
 msgstr "Patada inicial"
 
-#: src/ClanBomber.cpp:259
+#: src/ClanBomber.cpp:248
 msgid "Start Glove"
 msgstr "Guante inicial"
 
-#: src/ClanBomber.cpp:261
+#: src/ClanBomber.cpp:250
 msgid "Max. Bombs"
 msgstr "Bombas Max."
 
-#: src/ClanBomber.cpp:263
+#: src/ClanBomber.cpp:252
 msgid "Max. Power"
 msgstr "Potencia Max."
 
-#: src/ClanBomber.cpp:265
+#: src/ClanBomber.cpp:254
 msgid "Max. Skateboards"
 msgstr "Patinetes Max."
 
-#: src/ClanBomber.cpp:267
+#: src/ClanBomber.cpp:256
 msgid "Enable/Disable Extras"
 msgstr "Habilitar/deshabilitar extras"
 
-#: src/ClanBomber.cpp:268
+#: src/ClanBomber.cpp:257
 msgid "Bombs"
 msgstr "Bombas"
 
-#: src/ClanBomber.cpp:270
+#: src/ClanBomber.cpp:259
 msgid "Power"
 msgstr "Potencia"
 
-#: src/ClanBomber.cpp:272
+#: src/ClanBomber.cpp:261
 msgid "Skateboard"
 msgstr "Patinete"
 
-#: src/ClanBomber.cpp:274
+#: src/ClanBomber.cpp:263
 msgid "Kick"
 msgstr "Patada"
 
-#: src/ClanBomber.cpp:276
+#: src/ClanBomber.cpp:265
 msgid "Glove"
 msgstr "Guante"
 
-#: src/ClanBomber.cpp:278
+#: src/ClanBomber.cpp:267
 msgid "Enable/Disable Diseases"
 msgstr "Habilitar/deshabilitar enfermedades"
 
-#: src/ClanBomber.cpp:280
+#: src/ClanBomber.cpp:269
 msgid "Joint"
 msgstr "Porro"
 
-#: src/ClanBomber.cpp:282
+#: src/ClanBomber.cpp:271
 msgid "Viagra"
 msgstr "Viagra"
 
 # Cambiar Koks por Cocaine en el original para mayor consistencia
-#: src/ClanBomber.cpp:284
+#: src/ClanBomber.cpp:273
 msgid "Koks"
 msgstr "Cocaina"
 
-#: src/ClanBomber.cpp:286
+#: src/ClanBomber.cpp:275
 msgid "Bomb Timing and Speed"
 msgstr "Velocidad y tiempo de bombas"
 
-#: src/ClanBomber.cpp:287
+#: src/ClanBomber.cpp:276
 msgid "Bomb Countdown (1/10 s)"
 msgstr "Cuenta atras de las bombas (1/10 s)"
 
 # Recortada por que clanbomber no corta los enunciados en varias lineas para que estos no se salgan de la pantalla
-#: src/ClanBomber.cpp:289
+#: src/ClanBomber.cpp:278
 msgid "Bomb Chain Reaction Delay (1/100 s)"
 msgstr "Retardo de reaccion en cadena de las bombas (1/100 s)"
 
-#: src/ClanBomber.cpp:291
+#: src/ClanBomber.cpp:280
 msgid "Moving Bombs Speed (pixels per second)"
 msgstr "Velocidad de movimiento de las bombas (pixels por segundo)"
 
-#: src/ClanBomber.cpp:293
+#: src/ClanBomber.cpp:282
 msgid "Graphic Options"
 msgstr "Opciones graficas"
 
 # Se deberia de cambiar "kidz" por "kids" en el original o incluso cambiarlo a algo mas claro como "Enable Corpse Parts"
-#: src/ClanBomber.cpp:294
+#: src/ClanBomber.cpp:283
 msgid "Kidz Mode"
 msgstr "Modo para crios"
 
-#: src/ClanBomber.cpp:296
+#: src/ClanBomber.cpp:285
 msgid "Corpse Parts"
 msgstr "Cadaveres troceados"
 
-#: src/ClanBomber.cpp:298
+#: src/ClanBomber.cpp:287
 msgid "Shaky Explosions"
 msgstr "Explosiones temblorosas"
 
-#: src/ClanBomber.cpp:313
+#: src/ClanBomber.cpp:302
 msgid "Map Editor"
 msgstr "Editor de mapas"
 
-#: src/ClanBomber.cpp:314
+#: src/ClanBomber.cpp:303
 msgid "Show Credits"
 msgstr "Ver creditos"
 
-#: src/ClanBomber.cpp:315
+#: src/ClanBomber.cpp:304
 msgid "Help Screen"
 msgstr "Pantalla de ayuda"
 
-#: src/ClanBomber.cpp:316
+#: src/ClanBomber.cpp:305
 msgid "Quit Game"
 msgstr "Salir"
 
-#: src/ClanBomber.cpp:602
+#: src/ClanBomber.cpp:591
 msgid "- PAUSED -"
 msgstr "- PAUSA -"
 
-#: src/ClanBomber.cpp:718
+#: src/ClanBomber.cpp:707
 msgid " fps"
 msgstr " fps"
 
 # El programa tiene problemas con el acento, ya que cada byte es reconocido como una letra y no siempre es asi.
-#: src/ClanBomber.cpp:843
+#: src/ClanBomber.cpp:832
 msgid "A WORLD DOMINATION PROJECT"
 msgstr "UN PROYECTO DE DOMINACION MUNDIAL"
 
-#: src/ClanBomber.cpp:908
+#: src/ClanBomber.cpp:897
 msgid "ClanBomber Extras"
 msgstr "Extras de Clanbomber"
 
-#: src/ClanBomber.cpp:912
+#: src/ClanBomber.cpp:901
 msgid "Bomb:"
 msgstr "Bombas:"
 
-#: src/ClanBomber.cpp:914
+#: src/ClanBomber.cpp:903
 msgid "You can place an additional bomb"
 msgstr "Puedes poner una bomba adicional"
 
-#: src/ClanBomber.cpp:919
+#: src/ClanBomber.cpp:908
 msgid "Power:"
 msgstr "Potencia:"
 
-#: src/ClanBomber.cpp:921
+#: src/ClanBomber.cpp:910
 msgid "Explosions grow one field in each direction"
 msgstr "Las explosiones crecen una unidad en cada direccion"
 
-#: src/ClanBomber.cpp:926
+#: src/ClanBomber.cpp:915
 msgid "Skateboard:"
 msgstr "Patinete:"
 
-#: src/ClanBomber.cpp:928
+#: src/ClanBomber.cpp:917
 msgid "Let's you move faster"
 msgstr "Te mueves mas rapido"
 
-#: src/ClanBomber.cpp:933
+#: src/ClanBomber.cpp:922
 msgid "Kick:"
 msgstr "Patada:"
 
-#: src/ClanBomber.cpp:935
+#: src/ClanBomber.cpp:924
 msgid "Kick bombs if you walk against one"
 msgstr "Patea las bombas si te acercas a ellas"
 
-#: src/ClanBomber.cpp:940
+#: src/ClanBomber.cpp:929
 msgid "Throw:"
 msgstr "Lanzar:"
 
 # "Throw Bombs if you press the button twice" y "without moving" deben de estar juntas
-#: src/ClanBomber.cpp:943
+#: src/ClanBomber.cpp:932
 msgid "Throw Bombs if you press the button twice"
 msgstr "Lanzas bombas si presionas el boton dos veces"
 
 # checar el comentario de "Throw Bombs if you press the button twice"
-#: src/ClanBomber.cpp:945
+#: src/ClanBomber.cpp:934
 msgid "without moving"
 msgstr "sin moverte"
 
-#: src/ClanBomber.cpp:948 src/ClanBomber.cpp:982
+#: src/ClanBomber.cpp:937 src/ClanBomber.cpp:971
 msgid "Press any key"
 msgstr "Presiona cualquier tecla"
 
-#: src/ClanBomber.cpp:958
+#: src/ClanBomber.cpp:947
 msgid "ClanBomber Drugs"
 msgstr "Drogas del ClanBomber"
 
-#: src/ClanBomber.cpp:963
+#: src/ClanBomber.cpp:952
 msgid "Joint:"
 msgstr "Porro:"
 
-#: src/ClanBomber.cpp:965
+#: src/ClanBomber.cpp:954
 msgid "Controller will be reversed"
 msgstr "El control sera invertido"
 
-#: src/ClanBomber.cpp:970
+#: src/ClanBomber.cpp:959
 msgid "Viagra:"
 msgstr "Viagra"
 
-#: src/ClanBomber.cpp:972
+#: src/ClanBomber.cpp:961
 msgid "Autofire, this can be very dangerous!"
 msgstr "Autodisparo, esto puede ser muy peligroso!"
 
-#: src/ClanBomber.cpp:977
+#: src/ClanBomber.cpp:966
 msgid "Cocaine:"
 msgstr "Cocaina:"
 
-#: src/ClanBomber.cpp:979
+#: src/ClanBomber.cpp:968
 msgid "Let's you move very fast!! (too fast)"
 msgstr "Hace que te muevas muy rapido!! (demasiado rapido)"
 
-#: src/ClanBomber.cpp:1005
+#: src/ClanBomber.cpp:994
 msgid ""
 "\n"
-"    usage: clanbomber2 [--software|--direct3d|--opengl|--opengles|--"
-"opengles2] [--fullscreen]\n"
+"    usage: clanbomber2 [--software|--direct3d|--direct3d11|--direct3d12|--"
+"opengl|--opengles|--opengles2|--vulkan|--metal] [--fullscreen]\n"
 "\n"
 msgstr ""
 "\n"
-"    uso: clanbomber2 [--software|--direct3d|--opengl|--opengles|--opengles2] "
-"[--fullscreen]\n"
+"    uso: clanbomber2 [--software|--direct3d|--direct3d11|--direct3d12|--"
+"opengl|--opengles|--opengles2|--vulkan|--metal] [--fullscreen]\n"
 "\n"
 
-#: src/ClanBomber.cpp:1020
+#: src/ClanBomber.cpp:1017
 msgid "Invalid argument"
 msgstr "Argumento no valido"
 
@@ -331,15 +331,15 @@ msgstr "Creditos de ClanBomber"
 msgid "ClanBomber Uses"
 msgstr "ClanBomber usa"
 
-#: src/Credits.cpp:71
+#: src/Credits.cpp:70
 msgid "Thanks to"
 msgstr "Agradecimientos a"
 
-#: src/Credits.cpp:73
+#: src/Credits.cpp:72
 msgid "Everyone supporting this game..."
 msgstr "Todos los que apoyan este juego..."
 
-#: src/Credits.cpp:74
+#: src/Credits.cpp:73
 msgid "... and playing it"
 msgstr "... y lo juegan"
 
