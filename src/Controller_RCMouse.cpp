@@ -27,16 +27,16 @@
 
 #include <SDL3/SDL.h>
 
+extern SDL_Window *gameWindow;
+
 Controller_RCMouse::Controller_RCMouse() : Controller()
 {
-    // TODO: Fix
-    //if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(true);
+    if (!Config::get_fullscreen()) SDL_SetWindowRelativeMouseMode(gameWindow, true);
 }
 
 Controller_RCMouse::~Controller_RCMouse()
 {
-    // TODO: Fix
-    //if (!Config::get_fullscreen()) SDL_SetRelativeMouseMode(false);
+    if (!Config::get_fullscreen()) SDL_SetWindowRelativeMouseMode(gameWindow, false);
 }
 
 void Controller_RCMouse::update()
