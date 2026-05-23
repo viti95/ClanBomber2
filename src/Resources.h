@@ -24,8 +24,8 @@
 #ifndef RESOURCES_H
 #define RESOURCES_H
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
+#include <SDL3/SDL.h>
+#include <SDL3_ttf/SDL_ttf.h>
 #include "Surface.h"
 #include "Font.h"
 #include "AudioBuffer.h"
@@ -53,7 +53,7 @@ public:
 		void put_screen(int x, int y, float scale_x, float scale_y, int frame,
 				Uint8 opacity = 255);
 
-		void get_rect(int frame, SDL_Rect *ret_rect);
+		void get_rect(int frame, SDL_FRect *ret_rect);
 
 		SDL_Surface *surface;
 		SDL_Texture *texture;

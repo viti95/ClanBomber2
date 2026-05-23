@@ -32,7 +32,7 @@
 #include "Utils.h"
 
 #include <vector>
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 #define SCROLL_SPEED 400
 
@@ -102,8 +102,8 @@ void Credits::exec()
         {
             switch(event.type)
             {
-            case SDL_KEYDOWN:
-                switch(event.key.keysym.scancode)
+            case SDL_EVENT_KEY_DOWN:
+                switch(event.key.scancode)
                 {
                 case SDL_SCANCODE_ESCAPE:
                     escape = true;
@@ -116,8 +116,8 @@ void Credits::exec()
                     break;
                 }
                 break;
-            case SDL_KEYUP:
-                switch(event.key.keysym.scancode)
+            case SDL_EVENT_KEY_UP:
+                switch(event.key.scancode)
                 {
                 case SDL_SCANCODE_ESCAPE:
                     escape = false;

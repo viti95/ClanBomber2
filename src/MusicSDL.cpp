@@ -21,42 +21,55 @@
  */
 
 #include "MusicSDL.h"
+#include <cstdio>
+#include <SDL3/SDL.h>
 
 namespace cbe
 {
-  MusicSDL::MusicSDL(std::filesystem::path filename)
+  MusicSDL::MusicSDL(std::filesystem::path filename, MIX_Mixer *mixer)
+      : audio(nullptr), mixer(mixer), track(nullptr)
   {
-    msc = Mix_LoadMUS(filename.string().c_str());
-    if(msc == NULL) {
-      printf("Cannot load music file");
-      //TODO launch an exception
+    audio = MIX_LoadAudio(mixer, filename.string().c_str(), false);
+    if (!audio)
+    {
+      printf("Cannot load music file: %s\n", SDL_GetError());
     }
   }
 
   MusicSDL::~MusicSDL()
   {
-    Mix_FreeMusic(msc);
-    msc=NULL;
+    if (track)
+      MIX_DestroyTrack(track);
+    MIX_DestroyAudio(audio);
   }
 
   bool MusicSDL::isPlaying()
   {
-    if (msc == NULL) return false;
-
-    return Mix_PlayingMusic();
+    if (!track)
+      return false;
+    return MIX_TrackPlaying(track);
   }
 
   void MusicSDL::playLoop()
   {
-    if (msc == NULL) return;
+    if (!audio || !mixer)
+      return;
 
-    Mix_PlayMusic(msc, -1);
+    if (track)
+      MIX_DestroyTrack(track);
+
+    track = MIX_CreateTrack(mixer);
+    MIX_SetTrackAudio(track, audio);
+    MIX_PlayTrack(track, 0);
   }
 
   void MusicSDL::stop()
   {
-    if (msc == NULL) return;
-
-    Mix_HaltMusic();
+    if (track)
+    {
+      MIX_StopTrack(track, 0);
+      MIX_DestroyTrack(track);
+      track = nullptr;
+    }
   }
-};
+}

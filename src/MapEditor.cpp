@@ -77,9 +77,9 @@ void MapEditor::exec()
 
         while(SDL_PollEvent(&event))
         {
-            if (event.type == SDL_KEYDOWN)
+            if (event.type == SDL_EVENT_KEY_DOWN)
             {
-                switch(event.key.keysym.scancode)
+                switch(event.key.scancode)
                 {
                 case SDL_SCANCODE_BACKSPACE:
                 case SDL_SCANCODE_ESCAPE:
@@ -238,9 +238,9 @@ void MapEditor::edit_map( int number )
 
         while(SDL_PollEvent(&event))
         {
-            if(event.type == SDL_KEYUP)
+            if(event.type == SDL_EVENT_KEY_UP)
             {
-                switch (event.key.keysym.scancode)
+                switch (event.key.scancode)
                 {
                 case SDL_SCANCODE_ESCAPE:
                     entry->write_back();
@@ -257,11 +257,11 @@ void MapEditor::edit_map( int number )
                     break;
                 }
             }
-            else if (event.type == SDL_KEYDOWN)
+            else if (event.type == SDL_EVENT_KEY_DOWN)
             {
                 bool maptile_set = true;
 
-                switch (event.key.keysym.scancode)
+                switch (event.key.scancode)
                 {
                 case SDL_SCANCODE_BACKSPACE:
                     maptile_set = false;

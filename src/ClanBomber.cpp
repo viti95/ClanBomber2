@@ -29,7 +29,7 @@
 #include <ctime>
 
 #include <filesystem>
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 #include "config.h"
 #include "Controller.h"
@@ -56,7 +56,7 @@ ClanBomberApplication *app;
 
 SDL_Renderer *renderer = NULL;
 SDL_Window *gameWindow = NULL;
-const Uint8 *keyboard = NULL;
+const bool *keyboard = NULL;
 
 std::filesystem::path ClanBomberApplication::map_path;
 std::filesystem::path ClanBomberApplication::local_map_path;
@@ -113,40 +113,29 @@ ClanBomberApplication::~ClanBomberApplication() {
 }
 
 int ClanBomberApplication::init_SDL() {
-	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK)) {
+	if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK)) {
 		std::cerr << _("Cannot Initialise SDL!") << std::endl;
 		SDL_Quit();
 		return -1;
 	}
 
 	Uint32 fullscreen = (Config::get_fullscreen()) ? SDL_WINDOW_FULLSCREEN : 0;
-	Uint32 renderMode = (Config::get_softwareRendering()) ? SDL_RENDERER_SOFTWARE : SDL_RENDERER_ACCELERATED;
-
-	if (Config::get_fullscreen()) SDL_SetRelativeMouseMode(SDL_TRUE);
 
 	keyboard = SDL_GetKeyboardState(NULL);
-	
-	#ifdef SDL_HINT_RENDER_BATCHING
-	SDL_SetHint(SDL_HINT_RENDER_BATCHING, "1"); // enable batch rendering, it's faster
-	#endif
-	
-	#ifdef SDL_HINT_RENDER_SCALE_QUALITY
-	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");  // make the scaled rendering look smoother.
-	#endif
 	
 	if (!Config::get_renderDriver().empty()){
 		SDL_SetHint(SDL_HINT_RENDER_DRIVER, Config::get_renderDriver().c_str());
 	}
 
 	gameWindow = SDL_CreateWindow(PACKAGE_STRING,
-                          SDL_WINDOWPOS_UNDEFINED,
-                          SDL_WINDOWPOS_UNDEFINED,
                           800, 600,
-                          SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE | fullscreen);
+                          SDL_WINDOW_RESIZABLE | fullscreen);
 
-	renderer = SDL_CreateRenderer(gameWindow, -1, renderMode);
+	if (Config::get_fullscreen()) SDL_SetWindowRelativeMouseMode(gameWindow, true);
 
-	SDL_RenderSetLogicalSize(renderer, 800, 600);
+	renderer = SDL_CreateRenderer(gameWindow, NULL);
+
+	SDL_SetRenderLogicalPresentation(renderer, 800, 600, SDL_LOGICAL_PRESENTATION_LETTERBOX);
 
    	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
@@ -163,7 +152,7 @@ int ClanBomberApplication::init_SDL() {
 		std::cerr << _("Cannot Initialise SDL audio!") << std::endl;
 	}
 
-	if (TTF_Init()) {
+	if (!TTF_Init()) {
 		std::cerr << _("Cannot Initialise SDL ttf!") << std::endl;
 		TTF_Quit();
 		AS->close();
@@ -567,8 +556,8 @@ void ClanBomberApplication::run_game() {
 
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
-			if (event.type == SDL_KEYDOWN) {
-				switch (event.key.keysym.scancode) {
+			if (event.type == SDL_EVENT_KEY_DOWN) {
+				switch (event.key.scancode) {
 				case SDL_SCANCODE_F1:
 					show_fps = !show_fps;
 					break;

@@ -20,25 +20,26 @@
  *
  */
 
-#ifndef AUDIOBUFERSDL_H
+#ifndef AUDIOBUFFERSDL_H
 #define AUDIOBUFFERSDL_H
 
 #include <filesystem>
-
 #include "AudioBuffer.h"
-#include <SDL2/SDL_mixer.h>
+#include <SDL3_mixer/SDL_mixer.h>
 
 namespace cbe
 {
   class AudioBufferSDL : public AudioBuffer
   {
   public:
-    AudioBufferSDL(std::filesystem::path filename);
+    AudioBufferSDL(std::filesystem::path filename, MIX_Mixer *mixer);
     ~AudioBufferSDL();
     virtual void play();
+
   private:
-    Mix_Chunk *chunk;
+    MIX_Audio *audio;
+    MIX_Mixer *mixer;
   };
-};
+}
 
 #endif

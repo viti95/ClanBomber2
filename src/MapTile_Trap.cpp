@@ -100,7 +100,7 @@ void MapTile_Trap::draw_tiny(int x, int y, float factor) {
 			opacity);
 }
 
-bool MapTile_Trap::get_addon_rect(SDL_Rect *ret_rect) {
+bool MapTile_Trap::get_addon_rect(SDL_FRect *ret_rect) {
 	Resources::Game_maptile_addons()->get_rect(7, ret_rect);
 
 	return true;

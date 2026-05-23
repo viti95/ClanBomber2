@@ -133,7 +133,12 @@ int BomberConfig::get_team()
 
 void BomberConfig::set_controller(int _controller)
 {
-    controller = _controller % (6 + SDL_NumJoysticks());
+    int count = 0;
+    SDL_GetJoysticks(&count);
+
+    if (count == NULL) count = 0;
+    
+    controller = _controller % (6 + count);
 }
 
 int BomberConfig::get_controller()

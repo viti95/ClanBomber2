@@ -26,6 +26,8 @@
 #include "AudioSimple.h"
 #include "AudioBuffer.h"
 #include "Music.h"
+#include <SDL3_mixer/SDL_mixer.h>
+#include <filesystem>
 
 namespace cbe
 {
@@ -38,9 +40,11 @@ namespace cbe
     ~AudioSimpleSDL();
     AudioBuffer *createBuffer(std::filesystem::path filename);
     Music *createMusic(std::filesystem::path filename);
+
   private:
     unsigned int initialized;
+    MIX_Mixer *mixer;
   };
-};
+}
 
 #endif

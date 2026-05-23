@@ -6,12 +6,12 @@ relative_localedir = $(RELATIVE_DATADIR)/locale
 AM_CXXFLAGS = -std=c++17
 
 AM_CPPFLAGS = \
-	$(SDL2_CFLAGS) \
+	$(SDL3_CFLAGS) \
 	-DCB_DATADIR=\"$(clanbomber2dir)\" \
 	-DCB_LOCALEDIR=\"$(relative_localedir)\"
 
 LDADD = \
-	$(SDL2_LIBS) \
+	$(SDL3_LIBS) \
 	$(LIBINTL) 
 
 bin_PROGRAMS = clanbomber2

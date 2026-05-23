@@ -21,25 +21,36 @@
  */
 
 #include "AudioBufferSDL.h"
+#include <cstdio>
+#include <SDL3/SDL.h>
 
 namespace cbe
 {
-  AudioBufferSDL::AudioBufferSDL(std::filesystem::path filename)
+  AudioBufferSDL::AudioBufferSDL(std::filesystem::path filename, MIX_Mixer *mixer)
+      : audio(nullptr), mixer(mixer)
   {
-    chunk = Mix_LoadWAV(filename.string().c_str());
-    if(chunk == NULL) {
-      printf("Cannot load sound file");
-      //TODO launch an exception
+    audio = MIX_LoadAudio(mixer, filename.string().c_str(), false);
+    if (!audio)
+    {
+      printf("Cannot load sound file: %s\n", SDL_GetError());
     }
   }
 
   AudioBufferSDL::~AudioBufferSDL()
   {
-    Mix_FreeChunk(chunk);
+    MIX_DestroyAudio(audio);
   }
 
   void AudioBufferSDL::play()
   {
-    Mix_PlayChannel(-1, chunk, 0);
+    if (!audio || !mixer)
+      return;
+
+    MIX_Track *track = MIX_CreateTrack(mixer);
+    if (!track)
+      return;
+
+    MIX_SetTrackAudio(track, audio);
+    MIX_PlayTrack(track, 0);
   }
-};
+}

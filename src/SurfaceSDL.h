@@ -23,7 +23,7 @@
 #ifndef SURFACESDL_H
 #define SURFACESDL_H
 #include "Surface.h"
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 namespace cbe
 {

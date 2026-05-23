@@ -28,7 +28,7 @@
 
 #include <config.h>
 
-#include <SDL2/SDL_image.h>
+#include <SDL3_image/SDL_image.h>
 
 #include "Resources.h"
 #include "SurfaceSDL.h"
@@ -475,7 +475,7 @@ this->sprite_height = sprite_height;
 }
 
 Resources::Surface::~Surface() {
-SDL_FreeSurface(surface);
+SDL_DestroySurface(surface);
 }
 
 int Resources::Surface::get_height() {
@@ -486,13 +486,13 @@ void Resources::Surface::put_screen(int x, int y, int frame, Uint8 opacity) {
 
 	if(opacity == 0) return;
 
-	SDL_Rect srect;
+	SDL_FRect srect;
 	srect.x = (frame % frames_per_row) * sprite_width;
 	srect.y = (frame / frames_per_row) * sprite_height;
 	srect.w = sprite_width;
 	srect.h = sprite_height;
 
-	SDL_Rect drect;
+	SDL_FRect drect;
 
 	drect.x = x;
 	drect.y = y;
@@ -500,7 +500,7 @@ void Resources::Surface::put_screen(int x, int y, int frame, Uint8 opacity) {
 	drect.h = sprite_height;
 
 	SDL_SetTextureAlphaMod(texture, opacity);
-	SDL_RenderCopy(renderer, texture, &srect, &drect);
+	SDL_RenderTexture(renderer, texture, &srect, &drect);
 	SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
 
 }
@@ -513,26 +513,26 @@ void Resources::Surface::put_screen(int x, int y, float scale_x, float scale_y, 
 	Uint8 r, g, b;
 	SDL_Surface *tmpSurface;
 
-	SDL_Rect srect;
+	SDL_FRect srect;
 
 	srect.x = (frame % frames_per_row) * sprite_width;
 	srect.y = (frame / frames_per_row) * sprite_height;
 	srect.w = sprite_width;
 	srect.h = sprite_height;
 
-	SDL_Rect drect;
+	SDL_FRect drect;
 	drect.x = x;
 	drect.y = y;
 	drect.w = (int)((float)sprite_width * scale_x);
 	drect.h = (int)((float)sprite_height * scale_y);
 
 	SDL_SetTextureAlphaMod(texture, opacity);
-	SDL_RenderCopy(renderer, texture, &srect, &drect);
+	SDL_RenderTexture(renderer, texture, &srect, &drect);
 	SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
 
 }
 
-void Resources::Surface::get_rect(int frame, SDL_Rect *ret_rect) {
+void Resources::Surface::get_rect(int frame, SDL_FRect *ret_rect) {
 	ret_rect->x = (frame % frames_per_row) * sprite_width;
 	ret_rect->y = (frame / frames_per_row) * sprite_height;
 	ret_rect->w = sprite_width;

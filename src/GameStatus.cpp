@@ -24,7 +24,7 @@
 #include <cmath>
 #include <string>
 
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 #include "ClanBomber.h"
 #include "GameStatus.h"
@@ -62,9 +62,9 @@ GameStatus::show ()
         SDL_Event event;
         while (SDL_PollEvent (&event))
         {
-            if (event.type == SDL_KEYDOWN)
+            if (event.type == SDL_EVENT_KEY_DOWN)
             {
-                switch (event.key.keysym.scancode)
+                switch (event.key.scancode)
                 {
                 case SDL_SCANCODE_SPACE:
                     space_pressed = true;

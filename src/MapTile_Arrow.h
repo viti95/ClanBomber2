@@ -41,7 +41,7 @@ public:
     void act();
     void draw(int addx, int addy);
     void draw_tiny( int x, int y, float factor );
-    virtual bool get_addon_rect( SDL_Rect *ret_rect );
+    virtual bool get_addon_rect( SDL_FRect *ret_rect );
     Direction get_direction() const
     {
         return dir;

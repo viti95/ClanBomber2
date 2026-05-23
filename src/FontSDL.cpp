@@ -22,8 +22,8 @@
 
 #include "FontSDL.h"
 #include "Font.h"
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
+#include <SDL3/SDL.h>
+#include <SDL3_ttf/SDL_ttf.h>
 
 extern SDL_Renderer *renderer;
 
@@ -47,7 +47,7 @@ namespace cbe
   void FontSDL::render(const std::string &text, int x, int y,
                        FontAlignment alignment)
   {
-    SDL_Rect rect;
+    SDL_FRect rect;
     rect.x = x;
     rect.y = y;
 
@@ -55,12 +55,12 @@ namespace cbe
 
     SDL_Surface *textSurface = NULL;
     if(high_quality) {
-      textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
+      textSurface = TTF_RenderText_Blended(font, text.c_str(), 0, color);
     } else {
-      textSurface = TTF_RenderUTF8_Solid(font, text.c_str(), color);
+      textSurface = TTF_RenderText_Solid(font, text.c_str(), 0, color);
     }
 
-    //Empty string used in TTF_RenderUTF8_Solid returns NULL
+    //Empty string used in TTF_RenderText_Solid returns NULL
     if(textSurface == NULL)
       return;
 
@@ -77,13 +77,13 @@ namespace cbe
     } else if(alignment & FontAlignment_0bottom) {
       rect.y += textSurface->h;
     } else { //baseline
-      rect.y -= TTF_FontAscent(font);
+      rect.y -= TTF_GetFontAscent(font);
     }
 
     rect.w = textSurface->w;
     rect.h = textSurface->h;
 
-    SDL_Rect orig;
+    SDL_FRect orig;
     orig.x=0;
     orig.y=0;
     orig.w=textSurface->w;
@@ -93,14 +93,14 @@ namespace cbe
     textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
     SDL_SetTextureBlendMode(textTexture, SDL_BLENDMODE_BLEND);
 
-    SDL_RenderCopy(renderer, textTexture, &orig, &rect);
+    SDL_RenderTexture(renderer, textTexture, &orig, &rect);
 
     SDL_DestroyTexture(textTexture);
-    SDL_FreeSurface(textSurface);
+    SDL_DestroySurface(textSurface);
 
     //SDL_BlitSurface(textSurface, NULL, primary, &rect);
 
-    //SDL_FreeSurface(textSurface);
+    //SDL_DestroySurface(textSurface);
   }
 
   void FontSDL::render(const std::wstring &text, int x, int y,
@@ -114,12 +114,12 @@ namespace cbe
 
   void FontSDL::getSize(const std::string &text, int *w, int *h)
   {
-    TTF_SizeUTF8(font, text.c_str(), w, h);
+    TTF_GetStringSize(font, text.c_str(), strlen(text.c_str()), w, h);
   }
 
   int FontSDL::getHeight()
   {
-    return TTF_FontHeight(font);
+    return TTF_GetFontHeight(font);
   }
 
 };

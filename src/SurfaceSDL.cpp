@@ -21,8 +21,8 @@
  */
 
 #include "SurfaceSDL.h"
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <SDL3/SDL.h>
+#include <SDL3_image/SDL_image.h>
 
 extern SDL_Renderer *renderer;
 
@@ -37,43 +37,43 @@ namespace cbe
 
   SurfaceSDL::~SurfaceSDL()
   {
-    SDL_FreeSurface(surface);
+    SDL_DestroySurface(surface);
   }
 
   void SurfaceSDL::blit(int x, int y, uint8_t opacity)
   {
-    SDL_Rect rect;
+    SDL_FRect rect;
     rect.x = x;
     rect.y = y;
     rect.w = surface->w;
     rect.h = surface->h;
 
-    SDL_Rect orig;
+    SDL_FRect orig;
     orig.x=0;
     orig.y=0;
     orig.w=surface->w;
     orig.h=surface->h;
 
     SDL_SetTextureAlphaMod(texture, opacity);
-    SDL_RenderCopy(renderer, texture, &orig, &rect);
+    SDL_RenderTexture(renderer, texture, &orig, &rect);
     SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
   }
   void SurfaceSDL::scaled_blit(int x, int y, float scale_x, float scale_y, uint8_t opacity)
   {
-    SDL_Rect rect;
+    SDL_FRect rect;
     rect.x = x;
     rect.y = y;
     rect.w = surface->w * scale_x;
     rect.h = surface->h * scale_y;
 
-    SDL_Rect orig;
+    SDL_FRect orig;
     orig.x=0;
     orig.y=0;
     orig.w=surface->w;
     orig.h=surface->h;
 
     SDL_SetTextureAlphaMod(texture, opacity);
-    SDL_RenderCopy(renderer, texture, &orig, &rect);
+    SDL_RenderTexture(renderer, texture, &orig, &rect);
     SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
   }
 };

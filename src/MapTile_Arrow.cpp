@@ -95,7 +95,7 @@ void MapTile_Arrow::draw_tiny( int x, int y, float factor )
     Resources::Game_maptile_addons()->put_screen( x, y, factor, factor, dir+1, opacity );
 }
 
-bool MapTile_Arrow::get_addon_rect( SDL_Rect *ret_rect )
+bool MapTile_Arrow::get_addon_rect( SDL_FRect *ret_rect )
 {
     Resources::Game_maptile_addons()->get_rect( dir+1, ret_rect );
 

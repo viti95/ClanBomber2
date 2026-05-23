@@ -21,19 +21,31 @@
  */
 
 #include "AudioSimpleSDL.h"
-#include "MusicSDL.h"
-
-#include <SDL2/SDL_mixer.h>
-
 #include "AudioBufferSDL.h"
+#include "MusicSDL.h"
+#include <SDL3/SDL.h>
 
 namespace cbe
 {
   bool AudioSimpleSDL::init()
   {
-    if (!initialized) {
-      if (Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 4096)) {
-        Mix_CloseAudio();
+    if (!initialized)
+    {
+      if (!MIX_Init())
+      {
+        return false;
+      }
+
+      SDL_AudioSpec hint;
+      SDL_zerop(&hint);
+      hint.freq = 44100;
+      hint.format = SDL_AUDIO_S16;
+      hint.channels = 2;
+
+      mixer = MIX_CreateMixerDevice(SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK, &hint);
+      if (!mixer)
+      {
+        MIX_Quit();
         return false;
       }
     }
@@ -43,31 +55,31 @@ namespace cbe
 
   void AudioSimpleSDL::close()
   {
-    if (initialized = 1) {
-      Mix_CloseAudio();
+    if (initialized == 1)
+    {
+      MIX_DestroyMixer(mixer);
+      MIX_Quit();
     }
-    if (initialized > 0) {
+    if (initialized > 0)
+    {
       initialized--;
     }
   }
 
-  AudioSimpleSDL::AudioSimpleSDL()
-  {
-    initialized = 0;
-  }
+  AudioSimpleSDL::AudioSimpleSDL() : initialized(0), mixer(nullptr) {}
 
   AudioSimpleSDL::~AudioSimpleSDL()
   {
-    Mix_CloseAudio();
+    close();
   }
 
   AudioBuffer *AudioSimpleSDL::createBuffer(std::filesystem::path filename)
   {
-    return new AudioBufferSDL(filename);
+    return new AudioBufferSDL(filename, mixer);
   }
-  
+
   Music *AudioSimpleSDL::createMusic(std::filesystem::path filename)
   {
-	return new MusicSDL(filename);
+    return new MusicSDL(filename, mixer);
   }
-};
+}

@@ -24,16 +24,16 @@
 #include "ClanBomber.h"
 #include "Controller_Joystick.h"
 
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 Controller_Joystick::Controller_Joystick(int joystick_nr) : Controller()
 {
-    joystick = SDL_JoystickOpen(joystick_nr);
+    joystick = SDL_OpenJoystick(joystick_nr);
 }
 
 Controller_Joystick::~Controller_Joystick()
 {
-    SDL_JoystickClose(joystick);
+    SDL_CloseJoystick(joystick);
 }
 
 void Controller_Joystick::update()
@@ -41,8 +41,8 @@ void Controller_Joystick::update()
     const unsigned int tolerance = 12000;
     if (active && joystick != NULL)
     {
-        Sint16 x = SDL_JoystickGetAxis(joystick, 0);
-        Sint16 y = SDL_JoystickGetAxis(joystick, 1);
+        Sint16 x = SDL_GetJoystickAxis(joystick, 0);
+        Sint16 y = SDL_GetJoystickAxis(joystick, 1);
 
         //X Axis
         if (abs(x) > tolerance)
@@ -107,7 +107,7 @@ void Controller_Joystick::update()
         }
 
         //Button
-        if (SDL_JoystickGetButton(joystick, 0))
+        if (SDL_GetJoystickButton(joystick, 0))
         {
             if (bomb_button_down)
             {

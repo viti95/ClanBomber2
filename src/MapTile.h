@@ -65,7 +65,7 @@ public:
 	virtual void draw_tiny(int x, int y, float factor);
 	virtual void draw_shaken();
 
-	virtual bool get_addon_rect(SDL_Rect *ret_rect);
+	virtual bool get_addon_rect(SDL_FRect *ret_rect);
 
 	/**
 	 * Contains pointers to all GameObjects that are on this MapTile.

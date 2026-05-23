@@ -24,23 +24,25 @@
 #define MUSICSDL_H
 
 #include <filesystem>
-
 #include "Music.h"
-#include <SDL2/SDL_mixer.h>
+#include <SDL3_mixer/SDL_mixer.h>
 
 namespace cbe
 {
   class MusicSDL : public Music
   {
   public:
-    MusicSDL(std::filesystem::path filename);
+    MusicSDL(std::filesystem::path filename, MIX_Mixer *mixer);
     ~MusicSDL();
     virtual bool isPlaying();
     virtual void playLoop();
     virtual void stop();
+
   private:
-    Mix_Music *msc;
+    MIX_Audio *audio;
+    MIX_Mixer *mixer;
+    MIX_Track *track;
   };
-};
+}
 
 #endif

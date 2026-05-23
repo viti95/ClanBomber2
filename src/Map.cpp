@@ -313,12 +313,12 @@ void Map::reload()
 void Map::show()
 {
     int         count = 0;
-    SDL_Rect    rects[MAP_WIDTH*MAP_HEIGHT];
-    SDL_Rect    points[MAP_WIDTH*MAP_HEIGHT];
+    SDL_FRect    rects[MAP_WIDTH*MAP_HEIGHT];
+    SDL_FRect    points[MAP_WIDTH*MAP_HEIGHT];
 
     int         addon_count = 0;
-    SDL_Rect    addon_rects[MAP_WIDTH*MAP_HEIGHT];
-    SDL_Rect    addon_points[MAP_WIDTH*MAP_HEIGHT];
+    SDL_FRect    addon_rects[MAP_WIDTH*MAP_HEIGHT];
+    SDL_FRect    addon_points[MAP_WIDTH*MAP_HEIGHT];
 
     for (int y=0; y<MAP_HEIGHT; y++)
     {
