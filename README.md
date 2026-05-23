@@ -104,7 +104,7 @@ make install
 ### Command line usage
 
 ```
-Usage: clanbomber2 [--software|direct3d|opengl|opengles|opengles2] [--fullscreen]
+Usage: clanbomber2 [--software|--direct3d|--direct3d11|--direct3d12|--opengl|--opengles|--opengles2|--vulkan|--metal] [--fullscreen]
 ```
 
 * --software, disables rendering hardware acceleration. Slower, but fixes some problems with unsupported hardware

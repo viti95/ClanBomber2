@@ -991,7 +991,7 @@ int main(int argc, char **argv) {
 		if (!strcmp(argv[i], "--help")) {
 			std::cout
 					<< _(
-							"\n    usage: clanbomber2 [--software|--direct3d|--opengl|--opengles|--opengles2] [--fullscreen]\n\n");
+							"\n    usage: clanbomber2 [--software|--direct3d|--direct3d11|--direct3d12|--opengl|--opengles|--opengles2|--vulkan|--metal] [--fullscreen]\n\n");
 			return 0;
 		} else if (!strcmp(argv[i], "--fullscreen")) {
 			Config::set_fullscreen(true);
@@ -999,12 +999,20 @@ int main(int argc, char **argv) {
 			Config::set_softwareRendering(true);
 		} else if (!strcmp(argv[i], "--direct3d")) {
 			Config::set_renderDriver("direct3d");
+		} else if (!strcmp(argv[i], "--direct3d11")) {
+			Config::set_renderDriver("direct3d11");
+		} else if (!strcmp(argv[i], "--direct3d12")) {
+			Config::set_renderDriver("direct3d12");
 		} else if (!strcmp(argv[i], "--opengl")) {
 			Config::set_renderDriver("opengl");
 		} else if (!strcmp(argv[i], "--opengles")) {
 			Config::set_renderDriver("opengles");
 		} else if (!strcmp(argv[i], "--opengles2")) {
 			Config::set_renderDriver("opengles2");	
+		} else if (!strcmp(argv[i], "--metal")) {
+			Config::set_renderDriver("metal");	
+		} else if (!strcmp(argv[i], "--vulkan")) {
+			Config::set_renderDriver("vulkan");	
 		} else {
 			std::cout << _("Invalid argument") << std::endl;
 		}
