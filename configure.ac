@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.63])
-AC_INIT([ClanBomber], [2.4.0], [rsl@members.fsf.org])
+AC_INIT([ClanBomber], [2.4.0])
 AM_INIT_AUTOMAKE([-Wall -Werror])
 
 AC_PROG_CXX
